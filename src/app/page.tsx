@@ -61,13 +61,19 @@ export default function Home() {
       <div className="noise" />
 
       {/* HEADER / NAV */}
-      <nav className={`w-full py-6 px-6 md:px-12 flex justify-between items-center sticky top-0 z-40 relative transition-all duration-300 ${isScrolled ? 'pb-14' : 'pb-20'
+      <nav className={`w-full py-6 px-6 md:px-12 flex justify-between items-center fixed top-0 z-40 transition-all duration-300 ${isScrolled ? 'pb-14' : 'pb-20'
         }`}>
         {/* Background with curved bottom */}
         <svg className="absolute top-0 left-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 1200 50">
+          <defs>
+            <filter id="headerShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="1" stdDeviation="3" floodOpacity="0.1" />
+            </filter>
+          </defs>
           <path
             d="M 0,0 L 1200,0 L 1200,30 Q 900,25 600,45 Q 300,25 0,30 Z"
-            fill="rgba(243, 241, 234, 0.9)"
+            fill="rgba(243, 241, 234, 1)"
+            filter="url(#headerShadow)"
           />
           <path
             d="M 0,30 Q 300,25 600,45 Q 900,25 1200,30"
@@ -77,14 +83,14 @@ export default function Home() {
           />
         </svg>
 
-        <ul className="hidden md:flex items-center gap-6 font-mono text-xs uppercase tracking-wider relative z-10">
+        <ul className={`hidden md:flex items-center gap-6 font-mono text-xs uppercase tracking-wider relative z-10 bottom-0 transition-all ${isScrolled ? 'bottom-1' : ''}`}>
           <li><a href="#tables" className="hover:text-accent transition-colors">Tables</a></li>
           <li><a href="#craft" className="hover:text-accent transition-colors">Craft</a></li>
           <li><a href="#accessories" className="hover:text-accent transition-colors">Accessories</a></li>
           <li><a href="#kickstarter" className="hover:text-accent transition-colors">Kickstarter</a></li>
           <li><a href="#story" className="hover:text-accent transition-colors">Story</a></li>
         </ul>
-        <div className={`absolute left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled ? 'scale-75 top-4' : 'scale-100 top-8'
+        <div className={`absolute left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled ? 'scale-80 top-4' : 'scale-100 top-8'
           }`}>
           <Image
             src="/pan-logo.svg"
@@ -94,7 +100,7 @@ export default function Home() {
             className="w-20 h-20 md:w-24 md:h-24"
           />
         </div>
-        <div className="font-mono text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-2 relative z-10">
+        <div className={`font-mono text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-2 relative z-10 bottom-0 transition-all ${isScrolled ? 'bottom-1' : ''}`}>
           <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
           Kickstarter Launch / March 2026
         </div>
@@ -102,7 +108,18 @@ export default function Home() {
       </nav>
 
       {/* HERO SECTION */}
-      <header className="relative w-full min-h-[90vh] flex flex-col justify-center items-center border-b border-black/10 px-4 pt-20 pb-20">
+      <header className="relative w-full min-h-screen flex flex-col justify-center items-center border-b border-black/10 px-4 pt-32 pb-20">
+        {/* Background Table Image - Tiled Pattern */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-20"
+          style={{
+            backgroundImage: 'url(/table.png)',
+            backgroundRepeat: 'repeat',
+            backgroundSize: '1000px auto',
+            backgroundPosition: 'center'
+          }}
+        />
+
         {/* Background Grids */}
         <div className="absolute inset-0 grid grid-cols-4 pointer-events-none opacity-5">
           <div className="border-r border-black h-full" />
@@ -113,25 +130,24 @@ export default function Home() {
 
         <div className="relative z-10 text-center max-w-6xl mx-auto">
           <p className="font-mono text-accent mb-6 tracking-widest uppercase text-xs md:text-sm">
-            Est. Serbia — Project 2026
+            Established with a mission
           </p>
 
-          <h1 className="font-serif text-7xl md:text-9xl font-medium tracking-tight tight-leading mb-8">
-            The <span className="italic font-light">Arcadian</span>
+          <h1 className="font-serif text-7xl md:text-9xl font-bold tracking-tight tight-leading mb-8">
+            Your <span className="italic font-light">Kitchen Table</span>
             <br />
-            Table.
+            <span className="font-brush text-8xl md:text-[10rem] inline-block -rotate-3 -mt-8 md:-mt-12 text-red-800">IS DEAD!</span>
           </h1>
 
           <div className="max-w-2xl mx-auto mb-12">
             <p className="font-serif text-xl md:text-2xl leading-relaxed">
-              We believe that game night deserves more than a kitchen table.
+              We believe game nights deserve more than a kitchen table.
             </p>
           </div>
 
           {/* CTA Form */}
           <div className="relative group w-full max-w-md mx-auto">
-            <div className="absolute -inset-1 bg-gradient-to-r from-accent to-orange-600 rounded opacity-20 group-hover:opacity-40 blur transition duration-1000 group-hover:duration-200" />
-            <form className="relative flex flex-col md:flex-row gap-0 bg-paper border border-black/20 p-1">
+            <form className="relative flex flex-col md:flex-row gap-0 bg-paper border border-black/20 p-1 rounded-full">
               <input
                 type="email"
                 placeholder="ENTER EMAIL ADDRESS"
@@ -139,7 +155,7 @@ export default function Home() {
               />
               <button
                 type="submit"
-                className="w-full md:w-auto bg-ink text-paper px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-accent transition-colors duration-300 whitespace-nowrap"
+                className="w-full md:w-auto rounded-full bg-ink text-paper px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-accent transition-colors duration-300 whitespace-nowrap"
               >
                 Join List
               </button>
@@ -182,6 +198,7 @@ export default function Home() {
               {Object.entries(scenarios).map(([key, data]) => (
                 <button
                   key={key}
+                  type="button"
                   onClick={() => setActiveScenario(key)}
                   className={`text-left font-sans text-3xl md:text-4xl font-medium tracking-tight transition-all duration-300 ease-out block py-2 ${activeScenario === key
                     ? 'text-white'
@@ -217,7 +234,7 @@ export default function Home() {
       <section id="finish" className="py-40 px-6 bg-paper reveal-trigger border-t border-ink/5">
         <div className="max-w-[1100px] mx-auto">
           <span className="font-mono text-xs text-oak tracking-widest uppercase block mb-12">
-            02 — The Finish
+            The Finish
           </span>
 
           <h2 className="font-serif text-6xl md:text-8xl leading-[0.9] text-ink mb-16 reveal-text">
@@ -356,101 +373,93 @@ export default function Home() {
                 <p className="font-mono text-xs opacity-60">Magnetic alignment.</p>
               </div>
             </div>
+            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
+              <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
+                FIG A.3
+              </div>
+              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
+                <span className="font-mono text-[10px] animate-pulse">[ SCHEMATIC PENDING ]</span>
+              </div>
+              <div>
+                <h3 className="font-serif text-2xl mb-2">Game Master Screen</h3>
+                <p className="font-mono text-xs opacity-60">Magnetic alignment.</p>
+              </div>
+            </div>
+            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
+              <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
+                FIG A.3
+              </div>
+              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
+                <span className="font-mono text-[10px] animate-pulse">[ SCHEMATIC PENDING ]</span>
+              </div>
+              <div>
+                <h3 className="font-serif text-2xl mb-2">Game Master Screen</h3>
+                <p className="font-mono text-xs opacity-60">Magnetic alignment.</p>
+              </div>
+            </div>
+            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
+              <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
+                FIG A.3
+              </div>
+              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
+                <span className="font-mono text-[10px] animate-pulse">[ SCHEMATIC PENDING ]</span>
+              </div>
+              <div>
+                <h3 className="font-serif text-2xl mb-2">Game Master Screen</h3>
+                <p className="font-mono text-xs opacity-60">Magnetic alignment.</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* THE KITCHEN TABLE IS DEAD */}
-      <section className="relative w-full py-32 md:py-48 px-6 bg-ink text-paper border-t border-white/10 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <h2 className="font-serif text-6xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-none mb-8">
-            The kitchen table <br />
-            <span className="italic font-light text-accent">is dead.</span>
-          </h2>
-
-          <div className="w-24 h-px bg-white/20 mx-auto my-12" />
-
-          <p className="font-mono text-xs md:text-sm uppercase tracking-widest opacity-60 max-w-2xl mx-auto">
-            Long live the table designed for what you actually do
-          </p>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-ink text-paper pt-24 pb-8 px-6 md:px-12 border-t-4 border-accent">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
-          <div className="col-span-1 md:col-span-6 pr-0 md:pr-12">
-            <h2 className="font-serif text-4xl md:text-5xl mb-8">Behind the scenes.</h2>
-            <p className="font-mono text-sm opacity-60 max-w-md mb-8 leading-relaxed">
-              We are documenting the entire journey from Serbia to the world. Read the developer
-              logs to see how we stain the wood, test the rails, and prepare for March 2026.
-            </p>
-            <a href="#" className="inline-flex items-center gap-4 group">
-              <span className="border border-white/30 px-6 py-3 font-mono text-xs uppercase hover:bg-white hover:text-ink transition-all duration-300">
-                Read Dev Logs
-              </span>
-              <span className="font-mono text-xs text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                -&gt;
-              </span>
-            </a>
+      {/* FOOTER */}
+      <footer className="bg-black text-paper py-24 px-6 md:px-12 border-t border-white/10">
+        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between gap-16">
+
+          {/* Left Side: Brand & CTA */}
+          <div className="flex flex-col justify-between items-start">
+            <div className="mb-12">
+              <h2 className="font-serif text-7xl md:text-9xl mb-6 tracking-tight italic">Arcadian</h2>
+              <p className="font-sans text-xl opacity-60 font-light max-w-md">
+                Crafting the future of board game furniture.
+              </p>
+            </div>
+
+            <div className="w-full max-w-md">
+              <p className="font-mono text-[10px] uppercase tracking-widest mb-4 opacity-50">Stay Updated</p>
+              <form className="flex border-b border-white/20 pb-4 w-full group focus-within:border-white/60 transition-colors">
+                <input
+                  type="email"
+                  placeholder="ENTER YOUR EMAIL"
+                  className="bg-transparent w-full font-mono text-sm focus:outline-none placeholder-white/30 text-white"
+                />
+                <button type="submit" className="font-mono text-xs uppercase tracking-widest hover:text-accent transition-colors">
+                  Join
+                </button>
+              </form>
+            </div>
           </div>
 
-          <div className="col-span-1 md:col-span-3">
-            <h4 className="font-mono text-[10px] uppercase tracking-widest mb-8 text-white/30 border-b border-white/10 pb-2">
-              Company
-            </h4>
-            <ul className="space-y-4 font-serif text-lg text-white/80">
-              <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  About Arcadian
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Sustainability
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
+          {/* Right Side: Links */}
+          <div className="flex flex-col justify-between md:items-end">
+            <nav className="flex flex-col gap-4 md:text-right">
+              <a href="#" className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic">Instagram</a>
+              <a href="#" className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic">TikTok</a>
+              <a href="#" className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic">Kickstarter</a>
+              <a href="#" className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic">Logs</a>
+              <div className="h-8"></div>
+              <a href="#" className="font-serif text-xl md:text-2xl opacity-60 hover:opacity-100 hover:text-accent transition-colors">Terms & Conditions</a>
+              <a href="#" className="font-serif text-xl md:text-2xl opacity-60 hover:opacity-100 hover:text-accent transition-colors">Privacy Policy</a>
+            </nav>
+
+            <div className="mt-16 font-mono text-[10px] uppercase tracking-widest opacity-30 md:text-right">
+              © 2025 Arcadian. All rights reserved.<br />
+              Designed & Crafted in Serbia.
+            </div>
           </div>
 
-          <div className="col-span-1 md:col-span-3">
-            <h4 className="font-mono text-[10px] uppercase tracking-widest mb-8 text-white/30 border-b border-white/10 pb-2">
-              Legal
-            </h4>
-            <ul className="space-y-4 font-serif text-lg text-white/80">
-              <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Warranty Info
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-[10px] uppercase tracking-widest opacity-40">
-          <span>© 2025 Arcadian Tables. All rights reserved.</span>
-          <span className="hidden md:block">///</span>
-          <span>Crafted in Serbia</span>
         </div>
       </footer>
     </>

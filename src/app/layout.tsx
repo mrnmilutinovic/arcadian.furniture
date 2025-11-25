@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope, Space_Mono } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Space_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -22,6 +22,12 @@ const spaceMono = Space_Mono({
   style: ["normal", "italic"],
 });
 
+const caveat = Caveat({
+  variable: "--font-brush",
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
 export const metadata: Metadata = {
   title: "Arcadian | Elevated Board Game Furniture",
   description: "We design board game tables that combine function, style, and lasting quality.",
@@ -35,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${cormorantGaramond.variable} ${manrope.variable} ${spaceMono.variable} antialiased`}
+        className={`${cormorantGaramond.variable} ${manrope.variable} ${spaceMono.variable} ${caveat.variable} antialiased`}
       >
         {children}
       </body>
