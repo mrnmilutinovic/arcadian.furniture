@@ -8,23 +8,33 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const scenarios = {
-    homework: {
-      title: 'Homework',
-      desc: 'A distraction-free surface for homework or home office. Indistinguishable from a high-end dining table.',
-      img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
-    },
     boardgames: {
       title: 'Boardgames',
       desc: 'Remove the leaves to reveal the vault. Felt-lined silence, card rails, and component organizers.',
       img: 'https://images.unsplash.com/photo-1610890716271-e7466f54d519?q=80&w=2070&auto=format&fit=crop',
     },
     ttrpg: {
-      title: 'Campaigns',
+      title: 'TTRPG',
       desc: 'Deep vault walls protect your minis. Plenty of space for character sheets, dice towers, and DM screens.',
       img: 'https://images.unsplash.com/photo-1640498886469-f6c6cb99e51e?q=80&w=2070&auto=format&fit=crop',
     },
+    homework: {
+      title: 'Homework',
+      desc: 'A distraction-free surface for homework or home office. Indistinguishable from a high-end dining table.',
+      img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
+    },
     legos: {
-      title: 'Hobbies',
+      title: 'Legos',
+      desc: 'Pause your build without cleaning up. Cover your progress for dinner, and resume exactly where you left off.',
+      img: 'https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?q=80&w=2071&auto=format&fit=crop',
+    },
+    puzzle: {
+      title: 'Puzzle',
+      desc: 'Pause your build without cleaning up. Cover your progress for dinner, and resume exactly where you left off.',
+      img: 'https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?q=80&w=2071&auto=format&fit=crop',
+    },
+    family: {
+      title: 'Feast',
       desc: 'Pause your build without cleaning up. Cover your progress for dinner, and resume exactly where you left off.',
       img: 'https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?q=80&w=2071&auto=format&fit=crop',
     },
@@ -58,7 +68,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="noise" />
+      {/* <div className="noise" /> */}
 
       {/* HEADER / NAV */}
       <nav className={`w-full py-6 px-6 md:px-12 flex justify-between items-center fixed top-0 z-40 transition-all duration-300 ${isScrolled ? 'pb-14' : 'pb-20'
@@ -165,6 +175,139 @@ export default function Home() {
         </div>
       </header>
 
+      {/* FULL WIDTH 4 PHOTOS */}
+      <section className="w-full h-dvh">
+        <div className="grid grid-cols-2 md:grid-cols-4 h-full gap-1">
+          <div className=" relative">
+            <Image
+              src="/photos/preview-10.jpeg"
+              alt="Detail 1"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className=" relative">
+            <Image
+              src="/photos/preview-11.jpeg"
+              alt="Detail 2"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className=" relative">
+            <Image
+              src="/photos/preview-12.jpeg"
+              alt="Detail 3"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className=" relative">
+            <Image
+              src="/photos/preview-13.jpeg"
+              alt="Detail 4"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className=" relative">
+            <Image
+              src="/photos/preview-14.jpeg"
+              alt="Detail 4"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className=" relative">
+            <Image
+              src="/photos/preview-15.jpeg"
+              alt="Detail 4"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className=" relative">
+            <Image
+              src="/photos/preview-16.jpeg"
+              alt="Detail 4"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className=" relative">
+            <Image
+              src="/photos/preview-17.jpeg"
+              alt="Detail 4"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 space-y-40">
+          
+          {/* 1. THE TRANSFORMATION (2-Column Images) */}
+          <div className="flex flex-col gap-12">
+            <div className="max-w-2xl mx-auto text-center reveal-trigger">
+              <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
+                The Transformation
+              </span>
+              <h3 className="font-serif text-4xl md:text-5xl mb-2 leading-tight">
+                Dining to gaming
+                <span className="italic text-ink/50"> in seconds.</span>
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-1 rounded-xl">
+              <div className="reveal-trigger">
+                <div className="aspect-[4/3] relative bg-black/5 overflow-hidden">
+                  <Image
+                    src="/photos/dining-scene.jpeg"
+                    alt="Table Transformation - Dining"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="mt-4 relative">
+                  <div className="bg-white px-3 py-1 rounded-lg absolute -top-12 rotate-[-7deg] left-1">
+                    <h4 className="font-sans text-2xl">Undercover mode</h4>
+                  </div>
+                  <div className="flex gap-4 mt-4">
+                    <h5 className="font-sans text-2xl mt-4">When life happens</h5>
+                  </div>
+                  <p className="font-sans text-sm text-ink/60 leading-relaxed max-w-[500px]">
+                    Toppers on. It's a dining table. Beautiful, functional, completely unsuspicious. Your in-laws will never know.
+                  </p>
+                </div>
+              </div>
+              <div className="reveal-trigger">
+                <div className="aspect-[4/3] relative bg-black/5 overflow-hidden">
+                  <Image
+                    src="/photos/uncovering-scene.jpeg"
+                    alt="Table Transformation - Gaming"
+                    fill
+                    className="object-cover"
+                    
+                  />
+                </div>
+                <div className="mt-4 relative">
+                  <div className="bg-black text-white px-3 py-1 rounded-lg absolute -top-12 rotate-[4deg] left-1">
+                    <h4 className="font-sans text-2xl">Vault mode</h4>
+                  </div>
+                  <div className="flex gap-4 mb-2">
+                    <h5 className="font-sans text-2xl mt-4">When games happen</h5>
+                  </div>
+                  <p className="font-sans text-sm text-ink/60 leading-relaxed max-w-[500px]">
+                    Toppers off. The Vault revealed. Three inches of recessed gaming paradise, ready for whatever you're playing—and whatever you're leaving set up for next week.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
       {/* SCENARIOS CAROUSEL */}
       <section id="scenarios" className="relative bg-paper p-10">
         <div className="relative h-[85vh] overflow-hidden">
@@ -230,7 +373,117 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STAINING PROCESS */}
+      {/* FEATURE SHOWCASE - MOSAIC LAYOUT */}
+      <section className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 space-y-40">
+          
+          {/* 2. CRAFTSMANSHIP */}
+          <div className="flex flex-col gap-12">
+            <div className="max-w-2xl mx-auto text-center reveal-trigger">
+              <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
+                Craftsmanship
+              </span>
+              <h3 className="font-serif text-4xl md:text-5xl mb-4 leading-tight">
+                Built to last
+                <span className="italic text-ink/50"> generations.</span>
+              </h3>
+              <p className="font-sans text-lg font-light leading-relaxed text-ink/70">
+                Handcrafted from sustainably sourced European White Oak or American Black Walnut.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+              <div className="relative aspect-[4/3] bg-black/5 reveal-trigger">
+                <Image
+                  src="/photos/close-up-1.jpeg"
+                  alt="Wood Detail 1"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[4/3] bg-black/5 reveal-trigger">
+                <Image
+                  src="/photos/close-up-2.jpeg"
+                  alt="Wood Detail 2"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="bg-[#EAE8E1] p-12 flex flex-col justify-center reveal-trigger max-w-2xl mx-auto w-full">
+              <h4 className="font-sans text-3xl mb-8">Two Sizes</h4>
+              <div className="space-y-6">
+                <div className="border-b border-ink/10 pb-4">
+                  <div className="flex justify-between items-baseline mb-3">
+                    <span className="font-serif text-xl">The Standard</span>
+                    <span className="font-mono text-xs opacity-50 uppercase">Comfortably seats 4 PEOPLE</span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex justify-between">
+                      <span className="font-sans text-sm opacity-60">Closed Table Size</span>
+                      <span className="font-mono text-sm opacity-60">108 × 108 cm</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-sans text-sm opacity-60">Play Area</span>
+                      <span className="font-mono text-sm opacity-60">90 × 90 cm</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="border-b border-ink/10 pb-4">
+                  <div className="flex justify-between items-baseline mb-3">
+                    <span className="font-serif text-xl">The Grand</span>
+                    <span className="font-mono text-xs opacity-50 uppercase">Comfortably seats 6-8 PEOPLE</span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex justify-between">
+                      <span className="font-sans text-sm opacity-60">Closed Table Size</span>
+                      <span className="font-mono text-sm opacity-60">108cm x 189cm</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-sans text-sm opacity-60">Play Area</span>
+                      <span className="font-mono text-sm opacity-60">90cm x 170cm</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. ASSEMBLY (Asymmetric) */}
+          <div className="flex flex-col md:flex-row gap-12 md:gap-24">
+            <div className="w-full md:w-1/3 flex flex-col justify-end pb-12 reveal-trigger">
+              <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-6">
+                Assembly
+              </span>
+              <h3 className="font-serif text-3xl md:text-4xl leading-tight">
+                Ready to play
+              </h3>
+              <h3 className="font-sans text-4xl md:text-5xl mb-6 leading-tight">
+                in 15 minutes.
+              </h3>
+              <p className="font-sans text-lg font-light leading-relaxed text-ink/70 mb-8">
+                The Arcadian arrives with the vault fully assembled.
+                Simply attach the four legs using the included single tool.
+              </p>
+              <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-widest text-ink/40">
+                <span>Single Tool</span>
+                <span>///</span>
+                <span>Super easy assembly</span>
+              </div>
+            </div>
+            <div className="w-full md:w-2/3 aspect-[4/3] relative bg-black/5 reveal-trigger">
+              <Image
+                src="/photos/assembly.jpeg"
+                alt="Easy Assembly"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
       <section id="finish" className="py-40 px-6 bg-paper reveal-trigger border-t border-ink/5">
         <div className="max-w-[1100px] mx-auto">
           <span className="font-mono text-xs text-oak tracking-widest uppercase block mb-12">
@@ -319,6 +572,52 @@ export default function Home() {
             </div>
             <h3 className="font-serif text-3xl italic text-ink/40">Kickstarter Exclusive</h3>
             <p className="font-sans text-sm mt-3 text-ink/40">Revealed at the time of the launch.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* THE RAIL SYSTEM */}
+      <section className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="reveal-trigger">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-4">
+                The Rail System
+              </span>
+              <h3 className="font-serif text-5xl md:text-6xl leading-tight">
+                Everything at hand.
+              </h3>
+            </div>
+
+            <div className="w-full aspect-[21/9] relative bg-black/5 mb-12">
+              <Image
+                src="/photos/close-up-rail-scene.jpg"
+                alt="Magnetic Rail System"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-ink/10 pt-8">
+              <div>
+                <h4 className="font-serif text-2xl mb-2">Magnetic Click</h4>
+                <p className="font-sans text-sm text-ink/60 leading-relaxed">
+                  Accessories snap into place instantly with industrial strength magnets. No screws required.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-serif text-2xl mb-2">360° Modular</h4>
+                <p className="font-sans text-sm text-ink/60 leading-relaxed">
+                  Attach cup holders and bins anywhere along the inner or outer rail perimeter.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-serif text-2xl mb-2">Solid Wood</h4>
+                <p className="font-sans text-sm text-ink/60 leading-relaxed">
+                  All accessories are crafted from the same premium hardwoods as your table.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
