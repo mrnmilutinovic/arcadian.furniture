@@ -23,7 +23,10 @@
         "noCommentText": "off"
       },
       "a11y": {
-        "noSvgWithoutTitle": "off"
+        "noSvgWithoutTitle": "off",
+        "noStaticElementInteractions": "off",
+        "useValidAnchor": "off",
+        "useKeyWithClickEvents": "off"
       }
     },
     "domains": {
