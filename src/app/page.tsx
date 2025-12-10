@@ -923,8 +923,75 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      {/* FOOTER */}
+
+      {/* KICKSTARTER CTA */}
+      <section className="relative bg-[#05CE78] py-20 md:py-32 px-6 md:px-12 overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%)',
+            backgroundSize: '20px 20px'
+          }} />
+        </div>
+
+        <div className="max-w-[1400px] mx-auto relative z-10">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-12">
+            {/* Left content */}
+            <div className="max-w-2xl">
+              <div className="mb-6">
+                {/* Kickstarter logo */}
+                <Image
+                  src="/kickstarter-logo-white.avif"
+                  alt="Kickstarter"
+                  width={200}
+                  height={40}
+                  className="h-8 md:h-10 w-auto"
+                />
+              </div>
+
+              <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-black mb-6 leading-tight">
+                Launching <span className="italic">March 2026</span>
+              </h2>
+
+              <p className="font-sans text-lg md:text-xl text-black/70 mb-8 max-w-xl">
+                Be the first to know when we go live. Early backers get exclusive pricing and the mystery finish reveal.
+              </p>
+
+              {/* Email signup */}
+              <form className="flex flex-col sm:flex-row gap-3 max-w-md">
+                <input
+                  type="email"
+                  placeholder="ENTER YOUR EMAIL"
+                  className="flex-1 bg-white px-5 py-4 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-black/20 placeholder-black/40 text-black rounded-full"
+                />
+                <button
+                  type="submit"
+                  className="bg-black text-white px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-black/80 transition-colors rounded-full whitespace-nowrap"
+                >
+                  Notify Me
+                </button>
+              </form>
+            </div>
+
+            {/* Right side - stats/info */}
+            <div className="flex flex-col gap-6 md:text-right">
+              <div>
+                <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">Campaign Goal</div>
+                <div className="font-serif text-3xl md:text-4xl text-black">€70,000</div>
+              </div>
+              <div>
+                <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">Early Bird Slots</div>
+                <div className="font-serif text-3xl md:text-4xl text-black">30</div>
+              </div>
+              <div>
+                <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">Estimated Delivery</div>
+                <div className="font-serif text-3xl md:text-4xl text-black">Q4 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="bg-black text-paper py-24 px-6 md:px-12 border-t border-white/10">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between gap-16">
