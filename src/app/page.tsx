@@ -121,12 +121,18 @@ export default function Home() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`md:hidden relative z-10 flex flex-col justify-center items-center w-8 h-8 transition-all ${isScrolled ? 'bottom-1' : ''}`}
+          className={`md:hidden relative z-10 flex justify-center items-center w-8 h-8 ${isScrolled ? 'bottom-1' : ''}`}
           aria-label="Toggle menu"
         >
-          <span className={`block w-5 h-0.5 bg-ink transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-ink my-1 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-ink transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''}`} />
+          {isMobileMenuOpen ? (
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
 
         {/* Desktop nav */}
@@ -415,7 +421,7 @@ export default function Home() {
         </div>
       </section>
       {/* SCENARIOS CAROUSEL */}
-      <section id="scenarios" className="relative bg-paper p-10">
+      <section id="scenarios" className="relative bg-paper px-6 py-10 md:px-12">
         <div className="relative h-[85vh] overflow-hidden">
           {/* Images - Full Screen */}
           <div className="absolute inset-0 overflow-hidden">
@@ -520,9 +526,9 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="bg-[#EAE8E1] p-12 flex flex-col justify-center reveal-trigger max-w-2xl mx-auto w-full">
-              <div className="flex justify-between items-center mb-8">
-                <h4 className="font-sans text-3xl">Two Sizes</h4>
+            <div className="bg-[#EAE8E1] p-6 md:p-12 flex flex-col justify-center reveal-trigger max-w-2xl mx-auto w-full">
+              <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-8">
+                <h4 className="font-sans text-2xl md:text-3xl">Two Sizes</h4>
                 <button
                   type="button"
                   onClick={() => setIsMetric(!isMetric)}
@@ -541,40 +547,40 @@ export default function Home() {
               </div>
               <div className="space-y-6">
                 <div className="border-b border-ink/10 pb-4">
-                  <div className="flex justify-between items-baseline mb-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-3">
                     <span className="font-serif text-xl">The Standard</span>
-                    <span className="font-mono text-xs opacity-50 uppercase">Comfortably seats 4 PEOPLE</span>
+                    <span className="font-mono text-[10px] md:text-xs opacity-50 uppercase">Seats 4</span>
                   </div>
                   <div className="space-y-1">
                     <div className="flex justify-between">
-                      <span className="font-sans text-sm opacity-60">Closed Table Size</span>
-                      <span className="font-mono text-sm opacity-60">
+                      <span className="font-sans text-xs md:text-sm opacity-60">Closed Table Size</span>
+                      <span className="font-mono text-xs md:text-sm opacity-60">
                         {isMetric ? '108 × 108 cm' : '42.5 × 42.5 in'}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-sans text-sm opacity-60">Play Area</span>
-                      <span className="font-mono text-sm opacity-60">
+                      <span className="font-sans text-xs md:text-sm opacity-60">Play Area</span>
+                      <span className="font-mono text-xs md:text-sm opacity-60">
                         {isMetric ? '90 × 90 cm' : '35.4 × 35.4 in'}
                       </span>
                     </div>
                   </div>
                 </div>
                 <div className="border-b border-ink/10 pb-4">
-                  <div className="flex justify-between items-baseline mb-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-3">
                     <span className="font-serif text-xl">The Grand</span>
-                    <span className="font-mono text-xs opacity-50 uppercase">Comfortably seats 6-8 PEOPLE</span>
+                    <span className="font-mono text-[10px] md:text-xs opacity-50 uppercase">Seats 6-8</span>
                   </div>
                   <div className="space-y-1">
                     <div className="flex justify-between">
-                      <span className="font-sans text-sm opacity-60">Closed Table Size</span>
-                      <span className="font-mono text-sm opacity-60">
+                      <span className="font-sans text-xs md:text-sm opacity-60">Closed Table Size</span>
+                      <span className="font-mono text-xs md:text-sm opacity-60">
                         {isMetric ? '108 × 189 cm' : '42.5 × 74.4 in'}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-sans text-sm opacity-60">Play Area</span>
-                      <span className="font-mono text-sm opacity-60">
+                      <span className="font-sans text-xs md:text-sm opacity-60">Play Area</span>
+                      <span className="font-mono text-xs md:text-sm opacity-60">
                         {isMetric ? '90 × 170 cm' : '35.4 × 66.9 in'}
                       </span>
                     </div>
@@ -586,7 +592,7 @@ export default function Home() {
           
           {/* 4. ASSEMBLY (Video Section) */}
           <div className="reveal-trigger">
-            <div className="relative aspect-video bg-black overflow-hidden">
+            <div className="relative aspect-[4/5] md:aspect-video bg-black overflow-hidden">
               {/* Video placeholder - replace with actual video later */}
               <div className="absolute inset-0">
                 <Image
@@ -598,33 +604,32 @@ export default function Home() {
               </div>
 
               {/* Text overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-16">
+              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-16">
                 <div className="max-w-xl">
-                  <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-4">
+                  <span className="font-mono text-[10px] md:text-xs text-accent tracking-widest uppercase block mb-2 md:mb-4">
                     Assembly
                   </span>
-                  <h3 className="font-serif text-4xl md:text-6xl leading-tight text-white mb-0">
+                  <h3 className="font-serif text-3xl md:text-6xl leading-tight text-white mb-0">
                     Ready to play
                   </h3>
-                  <h3 className="font-sans text-5xl md:text-7xl mb-6 leading-tight  font-bold text-white/80">
+                  <h3 className="font-sans text-4xl md:text-7xl mb-4 md:mb-6 leading-tight font-bold text-white/80">
                     in 30 minutes.
                   </h3>
-                  <p className="font-sans text-lg font-light leading-relaxed text-white/70 mb-6 max-w-2xl">
-                    The Arcadian arrives flat-packed and ready. One tool. Pre-drilled holes. No guesswork, no leftover screws, no arguments with your partner about "the instructions."
-                    Just you, one tool, and 30 minutes between you and your first game night.
+                  <p className="font-sans text-sm md:text-lg font-light leading-relaxed text-white/70 mb-4 md:mb-6 max-w-2xl">
+                    The Arcadian arrives flat-packed and ready. One tool. Pre-drilled holes. No guesswork, no leftover screws.
                   </p>
-                  <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-widest text-white/40">
+                  <div className="flex items-center gap-2 md:gap-4 font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40">
                     <span>Single Tool</span>
                     <span>///</span>
-                    <span>Super easy assembly</span>
+                    <span>Easy Assembly</span>
                   </div>
                 </div>
               </div>
 
               {/* Play button placeholder */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
-                  <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1" />
+                <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
+                  <div className="w-0 h-0 border-t-6 md:border-t-8 border-t-transparent border-l-8 md:border-l-12 border-l-white border-b-6 md:border-b-8 border-b-transparent ml-1" />
                 </div>
               </div>
             </div>
@@ -771,25 +776,26 @@ export default function Home() {
       
       {/* THE RAIL SYSTEM */}
       <section id="accessories" className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden">
+        <div className="reveal-trigger">
+          <div className="text-center max-w-2xl mx-auto mb-16 px-6 md:px-12">
+            <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-4">
+              The Rail System
+            </span>
+            <h3 className="font-serif text-5xl md:text-6xl leading-tight">
+              Everything at hand.
+            </h3>
+          </div>
+
+          <div className="w-full aspect-[4/3] md:aspect-[21/9] relative bg-black/5 mb-12">
+            <Image
+              src="/photos/close-up-rail-scene.jpg"
+              alt="Magnetic Rail System"
+              fill
+              className="object-cover"
+            />
+          </div>
+
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="reveal-trigger">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-4">
-                The Rail System
-              </span>
-              <h3 className="font-serif text-5xl md:text-6xl leading-tight">
-                Everything at hand.
-              </h3>
-            </div>
-            
-            <div className="w-full aspect-[21/9] relative bg-black/5 mb-12">
-              <Image
-                src="/photos/close-up-rail-scene.jpg"
-                alt="Magnetic Rail System"
-                fill
-                className="object-cover"
-              />
-            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-ink/10 pt-8">
               <div>
@@ -814,7 +820,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* ACCESSORIES / ECOSYSTEM */}
       <section id="ecosystem" className="w-full py-24 px-6 md:px-12 border-b border-black/10 bg-[#F0EFE9]">
         <div className="max-w-7xl mx-auto">
