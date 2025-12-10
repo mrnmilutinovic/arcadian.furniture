@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope, Space_Mono, Caveat } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Space_Mono, Caveat, Petemoss } from "next/font/google";
 import "./globals.css";
+
+const ruthie = Petemoss({
+  variable: "--font-ruthie",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal"],
+});
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-serif",
@@ -41,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${cormorantGaramond.variable} ${manrope.variable} ${spaceMono.variable} ${caveat.variable} antialiased`}
+        className={`${cormorantGaramond.variable} ${manrope.variable} ${spaceMono.variable} ${caveat.variable} ${ruthie.variable} antialiased`}
       >
         {children}
       </body>

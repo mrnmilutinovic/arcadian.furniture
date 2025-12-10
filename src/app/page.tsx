@@ -7,6 +7,8 @@ export default function Home() {
   const [activeScenario, setActiveScenario] = useState('homework');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isNavHidden, setIsNavHidden] = useState(false);
+  const [isMetric, setIsMetric] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const scenarios = {
     boardgames: {
@@ -53,7 +55,9 @@ export default function Home() {
       { threshold: 0.1 }
     );
     
-    document.querySelectorAll('.reveal-trigger').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.reveal-trigger').forEach((el) => {
+      observer.observe(el)
+    });
     
     // Observer for nav visibility
     const navObserver = new IntersectionObserver(
@@ -113,13 +117,26 @@ export default function Home() {
           />
         </svg>
         
+        {/* Mobile hamburger menu button */}
+        <button
+          type="button"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className={`md:hidden relative z-10 flex flex-col justify-center items-center w-8 h-8 transition-all ${isScrolled ? 'bottom-1' : ''}`}
+          aria-label="Toggle menu"
+        >
+          <span className={`block w-5 h-0.5 bg-ink transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-ink my-1 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-ink transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''}`} />
+        </button>
+
+        {/* Desktop nav */}
         <ul
           className={`hidden md:flex items-center gap-6 font-mono text-xs uppercase tracking-wider relative z-10 bottom-0 transition-all ${isScrolled ? 'bottom-1' : ''}`}>
-          <li><a href="#tables" className="hover:text-accent transition-colors">Tables</a></li>
-          <li><a href="#craft" className="hover:text-accent transition-colors">Craft</a></li>
+          <li><a href="#transformation" className="hover:text-accent transition-colors">The Table</a></li>
+          <li><a href="#sizing" className="hover:text-accent transition-colors">Sizes</a></li>
+          <li><a href="#finish" className="hover:text-accent transition-colors">Finish</a></li>
           <li><a href="#accessories" className="hover:text-accent transition-colors">Accessories</a></li>
-          <li><a href="#kickstarter" className="hover:text-accent transition-colors">Kickstarter</a></li>
-          <li><a href="#story" className="hover:text-accent transition-colors">Story</a></li>
+          <li><a href="/logs" className="hover:text-accent transition-colors">Logs</a></li>
         </ul>
         <div
           className={`absolute left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled ? 'scale-80 top-4' : 'scale-100 top-8'
@@ -135,10 +152,63 @@ export default function Home() {
         <div
           className={`font-mono text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-2 relative z-10 bottom-0 transition-all ${isScrolled ? 'bottom-1' : ''}`}>
           <span className="w-2 h-2 bg-accent rounded-full animate-pulse"/>
-          Kickstarter Launch / March 2026
+          <span className="hidden md:inline">Kickstarter Launch / March 2026</span>
         </div>
-      
+
       </nav>
+
+      {/* Mobile slide-out menu */}
+      <div
+        className={`fixed inset-0 z-30 md:hidden transition-all duration-300 ${isMobileMenuOpen ? 'visible' : 'invisible'}`}
+      >
+        {/* Backdrop */}
+        <div
+          className={`absolute inset-0 bg-ink/50 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+
+        {/* Menu panel */}
+        <div
+          className={`absolute top-0 left-0 h-full w-72 bg-paper shadow-xl transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        >
+          <div className="pt-24 px-6">
+            <ul className="flex flex-col gap-4 font-mono text-sm uppercase tracking-wider">
+              <li>
+                <a href="#transformation" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-accent transition-colors">
+                  The Table
+                </a>
+              </li>
+              <li>
+                <a href="#sizing" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-accent transition-colors">
+                  Sizes
+                </a>
+              </li>
+              <li>
+                <a href="#finish" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-accent transition-colors">
+                  Finish
+                </a>
+              </li>
+              <li>
+                <a href="#accessories" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-accent transition-colors">
+                  Accessories
+                </a>
+              </li>
+              <li>
+                <a href="/logs" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-accent transition-colors">
+                  Logs
+                </a>
+              </li>
+            </ul>
+
+            <div className="mt-8 pt-8 border-t border-ink/10">
+              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-ink/60">
+                <span className="w-2 h-2 bg-accent rounded-full animate-pulse"/>
+                Kickstarter Launch / March 2026
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       
       {/* HERO SECTION */}
       <header
@@ -181,11 +251,11 @@ export default function Home() {
           
           {/* CTA Form */}
           <div className="relative group w-full max-w-md mx-auto">
-            <form className="relative flex flex-col md:flex-row gap-0 bg-paper border border-black/20 p-1 rounded-full">
+            <form className="relative flex flex-col md:flex-row gap-2 md:gap-0 md:bg-paper md:border md:border-black/20 md:p-1 md:rounded-full">
               <input
                 type="email"
                 placeholder="ENTER EMAIL ADDRESS"
-                className="w-full bg-transparent px-4 py-4 font-mono text-sm focus:outline-none placeholder-black/40 text-ink"
+                className="w-full bg-paper md:bg-transparent px-4 py-4 font-mono text-sm focus:outline-none placeholder-black/40 text-ink border border-black/20 md:border-0 rounded-full md:rounded-none"
               />
               <button
                 type="submit"
@@ -269,9 +339,9 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden">
+      <section id="transformation" className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 space-y-40">
-          
+
           {/* 1. THE TRANSFORMATION (2-Column Images) */}
           <div className="flex flex-col gap-12">
             <div className="max-w-2xl mx-auto text-center reveal-trigger">
@@ -410,9 +480,9 @@ export default function Home() {
       </section>
       
       {/* FEATURE SHOWCASE - MOSAIC LAYOUT */}
-      <section className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden">
+      <section id="sizing" className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 space-y-40">
-          
+
           {/* 2. SIZES */}
           <div className="flex flex-col gap-12">
             <div className="max-w-2xl mx-auto text-center reveal-trigger">
@@ -434,7 +504,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
               <div className="relative aspect-[4/3] bg-black/5 reveal-trigger">
                 <Image
-                  src="/photos/size-small.jpeg"
+                  src="/photos/size-small-3.jpeg"
                   alt="Wood Detail 1"
                   fill
                   className="object-cover"
@@ -451,7 +521,24 @@ export default function Home() {
             </div>
             
             <div className="bg-[#EAE8E1] p-12 flex flex-col justify-center reveal-trigger max-w-2xl mx-auto w-full">
-              <h4 className="font-sans text-3xl mb-8">Two Sizes</h4>
+              <div className="flex justify-between items-center mb-8">
+                <h4 className="font-sans text-3xl">Two Sizes</h4>
+                <button
+                  type="button"
+                  onClick={() => setIsMetric(!isMetric)}
+                  className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest"
+                >
+                  <span className={isMetric ? 'opacity-100' : 'opacity-40'}>CM</span>
+                  <div className="relative w-10 h-5 bg-ink/20 rounded-full">
+                    <div
+                      className={`absolute top-0.5 w-4 h-4 bg-ink rounded-full transition-all duration-200 ${
+                        isMetric ? 'left-0.5' : 'left-5'
+                      }`}
+                    />
+                  </div>
+                  <span className={!isMetric ? 'opacity-100' : 'opacity-40'}>IN</span>
+                </button>
+              </div>
               <div className="space-y-6">
                 <div className="border-b border-ink/10 pb-4">
                   <div className="flex justify-between items-baseline mb-3">
@@ -461,11 +548,15 @@ export default function Home() {
                   <div className="space-y-1">
                     <div className="flex justify-between">
                       <span className="font-sans text-sm opacity-60">Closed Table Size</span>
-                      <span className="font-mono text-sm opacity-60">108 × 108 cm</span>
+                      <span className="font-mono text-sm opacity-60">
+                        {isMetric ? '108 × 108 cm' : '42.5 × 42.5 in'}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="font-sans text-sm opacity-60">Play Area</span>
-                      <span className="font-mono text-sm opacity-60">90 × 90 cm</span>
+                      <span className="font-mono text-sm opacity-60">
+                        {isMetric ? '90 × 90 cm' : '35.4 × 35.4 in'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -477,11 +568,15 @@ export default function Home() {
                   <div className="space-y-1">
                     <div className="flex justify-between">
                       <span className="font-sans text-sm opacity-60">Closed Table Size</span>
-                      <span className="font-mono text-sm opacity-60">108cm x 189cm</span>
+                      <span className="font-mono text-sm opacity-60">
+                        {isMetric ? '108 × 189 cm' : '42.5 × 74.4 in'}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="font-sans text-sm opacity-60">Play Area</span>
-                      <span className="font-mono text-sm opacity-60">90cm x 170cm</span>
+                      <span className="font-mono text-sm opacity-60">
+                        {isMetric ? '90 × 170 cm' : '35.4 × 66.9 in'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -675,7 +770,7 @@ export default function Home() {
       </section>
       
       {/* THE RAIL SYSTEM */}
-      <section className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden">
+      <section id="accessories" className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="reveal-trigger">
             <div className="text-center max-w-2xl mx-auto mb-16">
@@ -721,7 +816,7 @@ export default function Home() {
       </section>
       
       {/* ACCESSORIES / ECOSYSTEM */}
-      <section className="w-full py-24 px-6 md:px-12 border-b border-black/10 bg-[#F0EFE9]">
+      <section id="ecosystem" className="w-full py-24 px-6 md:px-12 border-b border-black/10 bg-[#F0EFE9]">
         <div className="max-w-7xl mx-auto">
           <div
             className="flex flex-col md:flex-row justify-between md:items-end mb-16 border-b border-black/10 pb-6 gap-4">
@@ -831,9 +926,9 @@ export default function Home() {
           {/* Left Side: Brand & CTA */}
           <div className="flex flex-col justify-between items-start">
             <div className="mb-12">
-              <h2 className="font-serif text-7xl md:text-9xl mb-6 tracking-tight italic">Arcadian</h2>
+              <h2 className="font-ruthie text-7xl md:text-9xl mb-0 tracking-tight">Arcadian</h2>
               <p className="font-sans text-xl opacity-60 font-light max-w-md">
-                Crafting the future of board game furniture.
+                Designed for families who play. For game nights that run late. For campaigns that span months.
               </p>
             </div>
             
@@ -863,13 +958,13 @@ export default function Home() {
                  className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic">TikTok</a>
               <a href="#"
                  className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic">Kickstarter</a>
-              <a href="#"
+              <a href="/logs"
                  className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic">Logs</a>
               <div className="h-8"></div>
-              <a href="#"
+              <a href="/terms"
                  className="font-serif text-xl md:text-2xl opacity-60 hover:opacity-100 hover:text-accent transition-colors">Terms
                 & Conditions</a>
-              <a href="#"
+              <a href="/privacy"
                  className="font-serif text-xl md:text-2xl opacity-60 hover:opacity-100 hover:text-accent transition-colors">Privacy
                 Policy</a>
             </nav>
