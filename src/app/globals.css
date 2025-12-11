@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F3F1EA;
-  --foreground: #1A1918;
+  --background: #f3f1ea;
+  --foreground: #1a1918;
 }
 
 @theme inline {
-  --color-paper: #F3F1EA;
-  --color-ink: #1A1918;
-  --color-wood-light: #D4C4A8;
-  --color-wood-dark: #5C4033;
-  --color-accent: #CD4631;
+  --color-paper: #f3f1ea;
+  --color-ink: #1a1918;
+  --color-wood-light: #d4c4a8;
+  --color-wood-dark: #5c4033;
+  --color-accent: #cd4631;
   --color-oak: #5d4e3c;
   --color-clay: #e3e0d6;
 
@@ -22,8 +22,8 @@
 }
 
 body {
-  background-color: #F3F1EA;
-  color: #1A1918;
+  background-color: #f3f1ea;
+  color: #1a1918;
   overflow-x: hidden;
 }
 
@@ -47,7 +47,13 @@ body {
 
 /* Pattern background for the 'Hidden' color */
 .bg-pattern-diagonal {
-  background-image: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%);
+  background-image: repeating-linear-gradient(
+    45deg,
+    #000 0,
+    #000 1px,
+    transparent 0,
+    transparent 50%
+  );
   background-size: 10px 10px;
   opacity: 0.1;
 }
@@ -66,6 +72,6 @@ body {
 
 /* Selection */
 ::selection {
-  background-color: #CD4631;
+  background-color: #cd4631;
   color: white;
 }

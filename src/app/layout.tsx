@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope, Space_Mono, Caveat, Petemoss } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Manrope,
+  Space_Mono,
+  Caveat,
+  Petemoss,
+} from "next/font/google";
 import "./globals.css";
 
 const ruthie = Petemoss({
@@ -37,7 +43,8 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: "Arcadian | Elevated Board Game Furniture",
-  description: "We design board game tables that combine function, style, and lasting quality.",
+  description:
+    "We design board game tables that combine function, style, and lasting quality.",
 };
 
 export default function RootLayout({
