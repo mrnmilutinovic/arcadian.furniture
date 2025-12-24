@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import {
+  Caveat,
   Cormorant_Garamond,
   Manrope,
-  Space_Mono,
-  Caveat,
   Petemoss,
+  Space_Mono,
 } from "next/font/google";
 import "./globals.css";
 

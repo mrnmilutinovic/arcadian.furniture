@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import {
-  getLogPhotos,
   type GetLogPhotosResult,
+  getLogPhotos,
   type LogPhoto,
 } from "./actions";
 

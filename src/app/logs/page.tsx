@@ -40,7 +40,7 @@ export default async function LogsPage() {
           Logs
         </h1>
       </header>
- 
+
       {/* Masonry Grid */}
       <main className="pt-24 pb-12 px-2 md:px-4">
         <PhotoGrid initialData={initialData} />

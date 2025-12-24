@@ -1,48 +1,36 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [activeScenario, setActiveScenario] = useState("homework");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isNavHidden, setIsNavHidden] = useState(false);
   const [isMetric, setIsMetric] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  const scenarios = {
-    boardgames: {
-      title: "Boardgames",
-      desc: "Remove the leaves to reveal the vault. Felt-lined silence, card rails, and component organizers.",
-      img: "https://images.unsplash.com/photo-1610890716271-e7466f54d519?q=80&w=2070&auto=format&fit=crop",
+
+  const articles = [
+    {
+      slug: "forest-of-radgost-collaboration",
+      title: "Spirits of the Forest Meet the Arcadian Table",
+      excerpt:
+        "We partnered with the creators of Forest of Radgost, a Slavic mythology board game, to showcase how epic adventures deserve an epic stage.",
+      image: "/photos/forest-of-radgost.jpg",
+      date: "December 2024",
+      category: "Collaboration",
     },
-    ttrpg: {
-      title: "TTRPG",
-      desc: "Deep vault walls protect your minis. Plenty of space for character sheets, dice towers, and DM screens.",
-      img: "https://images.unsplash.com/photo-1640498886469-f6c6cb99e51e?q=80&w=2070&auto=format&fit=crop",
+    {
+      slug: "boris-jovanovic-photoshoot",
+      title: "Behind the Lens with Boris Jovanovic",
+      excerpt:
+        "Netflix and Adidas photographer Boris Jovanovic captured the soul of the Arcadian table in our most ambitious photoshoot yet.",
+      image: "/photos/boris-photoshoot.jpg",
+      date: "December 2024",
+      category: "Behind the Scenes",
     },
-    homework: {
-      title: "Homework",
-      desc: "A distraction-free surface for homework or home office. Indistinguishable from a high-end dining table.",
-      img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
-    },
-    legos: {
-      title: "Legos",
-      desc: "Pause your build without cleaning up. Cover your progress for dinner, and resume exactly where you left off.",
-      img: "https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?q=80&w=2071&auto=format&fit=crop",
-    },
-    puzzle: {
-      title: "Puzzle",
-      desc: "Pause your build without cleaning up. Cover your progress for dinner, and resume exactly where you left off.",
-      img: "https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?q=80&w=2071&auto=format&fit=crop",
-    },
-    family: {
-      title: "Feast",
-      desc: "Pause your build without cleaning up. Cover your progress for dinner, and resume exactly where you left off.",
-      img: "https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?q=80&w=2071&auto=format&fit=crop",
-    },
-  };
-  
+  ];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -54,11 +42,11 @@ export default function Home() {
       },
       { threshold: 0.1 },
     );
-    
+
     document.querySelectorAll(".reveal-trigger").forEach((el) => {
       observer.observe(el);
     });
-    
+
     // Observer for nav visibility
     const navObserver = new IntersectionObserver(
       (entries) => {
@@ -70,29 +58,29 @@ export default function Home() {
       },
       { threshold: 0.3 },
     );
-    
+
     const photoGrid = document.getElementById("photo-grid");
     if (photoGrid) {
       navObserver.observe(photoGrid);
     }
-    
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
+
     window.addEventListener("scroll", handleScroll);
-    
+
     return () => {
       observer.disconnect();
       navObserver.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
+
   return (
     <>
       {/* <div className="noise" /> */}
-      
+
       {/* HEADER / NAV */}
       <nav
         className={`w-full py-6 px-6 md:px-12 flex justify-between items-center fixed top-0 z-40 transition-all duration-300 ${isScrolled ? "pb-14" : "pb-20"} ${isNavHidden ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"}`}
@@ -111,7 +99,7 @@ export default function Home() {
               width="200%"
               height="200%"
             >
-              <feDropShadow dx="0" dy="1" stdDeviation="3" floodOpacity="0.1"/>
+              <feDropShadow dx="0" dy="1" stdDeviation="3" floodOpacity="0.1" />
             </filter>
           </defs>
           <path
@@ -126,7 +114,7 @@ export default function Home() {
             strokeWidth="0.5"
           />
         </svg>
-        
+
         {/* Mobile hamburger menu button */}
         <button
           type="button"
@@ -164,7 +152,7 @@ export default function Home() {
             </svg>
           )}
         </button>
-        
+
         {/* Desktop nav */}
         <ul
           className={`hidden md:flex items-center gap-6 font-mono text-xs uppercase tracking-wider relative z-10 bottom-0 transition-all ${isScrolled ? "bottom-1" : ""}`}
@@ -217,13 +205,13 @@ export default function Home() {
         <div
           className={`font-mono text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-2 relative z-10 bottom-0 transition-all ${isScrolled ? "bottom-1" : ""}`}
         >
-          <span className="w-2 h-2 bg-accent rounded-full animate-pulse"/>
+          <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
           <span className="hidden md:inline">
             Kickstarter Launch / March 2026
           </span>
         </div>
       </nav>
-      
+
       {/* Mobile slide-out menu */}
       <div
         className={`fixed inset-0 z-30 md:hidden transition-all duration-300 ${isMobileMenuOpen ? "visible" : "invisible"}`}
@@ -233,7 +221,7 @@ export default function Home() {
           className={`absolute inset-0 bg-ink/50 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0"}`}
           onClick={() => setIsMobileMenuOpen(false)}
         />
-        
+
         {/* Menu panel */}
         <div
           className={`absolute top-0 left-0 h-full w-72 bg-paper shadow-xl transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
@@ -286,20 +274,19 @@ export default function Home() {
                 </a>
               </li>
             </ul>
-            
+
             <div className="mt-8 pt-8 border-t border-ink/10">
               <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-ink/60">
-                <span className="w-2 h-2 bg-accent rounded-full animate-pulse"/>
+                <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
                 Kickstarter Launch / March 2026
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       {/* HERO SECTION */}
-      <header
-        className="relative w-full min-h-screen flex flex-col justify-center items-center border-b border-black/10 px-4 pt-32 pb-20">
+      <header className="relative w-full min-h-screen flex flex-col justify-center items-center border-b border-black/10 px-4 pt-32 pb-20">
         {/* Background Table Image - Tiled Pattern */}
         <div
           className="absolute inset-0 pointer-events-none opacity-30"
@@ -309,38 +296,37 @@ export default function Home() {
             backgroundPosition: "center",
           }}
         />
-        
+
         {/* Background Grids */}
         <div className="absolute inset-0 grid grid-cols-4 pointer-events-none opacity-5">
-          <div className="border-r border-black h-full"/>
-          <div className="border-r border-black h-full"/>
-          <div className="border-r border-black h-full"/>
-          <div className="border-r border-black h-full"/>
+          <div className="border-r border-black h-full" />
+          <div className="border-r border-black h-full" />
+          <div className="border-r border-black h-full" />
+          <div className="border-r border-black h-full" />
         </div>
-        
+
         <div className="relative z-10 text-center max-w-6xl mx-auto">
           <p className="font-mono text-accent mb-6 tracking-widest uppercase text-xs md:text-sm">
             Established with a mission
           </p>
-          
+
           <h1 className="font-serif text-7xl md:text-9xl font-bold tracking-tight tight-leading mb-8">
             Your <span className="italic font-light">Kitchen Table</span>
-            <br/>
+            <br />
             <span className="font-brush text-8xl md:text-[10rem] inline-block -rotate-3 -mt-8 md:-mt-12 text-red-800">
               IS DEAD!
             </span>
           </h1>
-          
+
           <div className="max-w-2xl mx-auto mb-12">
             <p className="font-serif text-xl md:text-2xl leading-relaxed">
               We believe game nights deserve more than a kitchen table.
             </p>
           </div>
-          
+
           {/* CTA Form */}
           <div className="relative group w-full max-w-md mx-auto">
-            <form
-              className="relative flex flex-col md:flex-row gap-2 md:gap-0 md:bg-paper md:border md:border-black/20 md:p-1 md:rounded-full">
+            <form className="relative flex flex-col md:flex-row gap-2 md:gap-0 md:bg-paper md:border md:border-black/20 md:p-1 md:rounded-full">
               <input
                 type="email"
                 placeholder="ENTER EMAIL ADDRESS"
@@ -359,7 +345,7 @@ export default function Home() {
           </p>
         </div>
       </header>
-      
+
       {/* FULL WIDTH PHOTOS */}
       <section id="photo-grid" className="w-full h-dvh">
         <div className="grid grid-cols-2 md:grid-cols-4 h-full gap-1">
@@ -429,7 +415,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       <section
         id="transformation"
         className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden"
@@ -497,7 +483,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             <div className="max-w-2xl mx-auto text-center pt-8 border-t border-ink/10">
               <p className="font-mono text-xs text-ink/40 leading-relaxed">
                 Each topper is precision - sized for optimal weight distribution
@@ -511,76 +497,60 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* SCENARIOS CAROUSEL */}
-      <section id="scenarios" className="relative bg-paper px-6 py-10 md:px-12">
-        <div className="relative h-[85vh] overflow-hidden">
-          {/* Images - Full Screen */}
-          <div className="absolute inset-0 overflow-hidden">
-            {Object.entries(scenarios).map(([key, data]) => (
-              <div
-                key={key}
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                  activeScenario === key ? "opacity-100" : "opacity-0"
-                }`}
+      {/* NEWS / STORIES SECTION */}
+      <section id="stories" className="py-24 md:py-32 bg-paper px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-16 reveal-trigger">
+            <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
+              Stories
+            </span>
+            <h3 className="font-serif text-4xl md:text-5xl leading-tight">
+              From the <span className="italic text-ink/50">Workshop</span>
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            {articles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/stories/${article.slug}`}
+                className="group reveal-trigger"
               >
-                <Image
-                  src={data.img}
-                  alt={data.title}
-                  fill
-                  className="object-cover"
-                  priority={key === "homework"}
-                />
-              </div>
-            ))}
-          </div>
-          
-          {/* Titles - Top Left */}
-          <div className="relative z-10 pt-12 px-6 md:px-12 max-w-2xl">
-            <div className="font-mono text-[10px] text-white/80 mb-8 tracking-widest uppercase">
-              Select Mode
-            </div>
-            
-            {/* Scenario Titles */}
-            <div>
-              {Object.entries(scenarios).map(([key, data]) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => setActiveScenario(key)}
-                  className={`text-left font-sans text-3xl md:text-4xl font-medium tracking-tight transition-all duration-300 ease-out block py-2 ${
-                    activeScenario === key
-                      ? "text-white"
-                      : "text-white/40 hover:text-white/60"
-                  }`}
-                >
-                  {data.title}
-                </button>
-              ))}
-            </div>
-          </div>
-          
-          {/* Description - Bottom */}
-          <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-12">
-            <div className="relative h-24">
-              {Object.entries(scenarios).map(([key, data]) => (
-                <div
-                  key={key}
-                  className={`transition-all duration-500 ${
-                    activeScenario === key
-                      ? "opacity-100 translate-y-0 relative"
-                      : "opacity-0 translate-y-4 absolute top-0"
-                  }`}
-                >
-                  <p className="font-sans text-xl md:text-2xl font-light leading-relaxed text-white/90 max-w-2xl">
-                    {data.desc}
+                <article className="flex flex-col">
+                  <div className="aspect-[16/10] relative overflow-hidden bg-ink/5 mb-6">
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-accent">
+                      {article.category}
+                    </span>
+                    <span className="w-1 h-1 bg-ink/30 rounded-full" />
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink/40">
+                      {article.date}
+                    </span>
+                  </div>
+                  <h4 className="font-serif text-2xl md:text-3xl mb-3 group-hover:text-accent transition-colors leading-tight">
+                    {article.title}
+                  </h4>
+                  <p className="font-sans text-sm md:text-base text-ink/60 leading-relaxed">
+                    {article.excerpt}
                   </p>
-                </div>
-              ))}
-            </div>
+                  <div className="mt-4 font-mono text-xs uppercase tracking-widest text-ink/40 group-hover:text-accent transition-colors">
+                    Read Story →
+                  </div>
+                </article>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
-      
+
       {/* FEATURE SHOWCASE - MOSAIC LAYOUT */}
       <section
         id="sizing"
@@ -606,7 +576,7 @@ export default function Home() {
                 sight.👻
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
               <div className="relative aspect-[4/3] bg-black/5 reveal-trigger">
                 <Image
@@ -625,9 +595,8 @@ export default function Home() {
                 />
               </div>
             </div>
-            
-            <div
-              className="bg-[#EAE8E1] p-6 md:p-12 flex flex-col justify-center reveal-trigger max-w-2xl mx-auto w-full">
+
+            <div className="bg-[#EAE8E1] p-6 md:p-12 flex flex-col justify-center reveal-trigger max-w-2xl mx-auto w-full">
               <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-8">
                 <h4 className="font-sans text-2xl md:text-3xl">Two Sizes</h4>
                 <button
@@ -706,7 +675,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
+
           {/* 4. ASSEMBLY (Video Section) */}
           <div className="reveal-trigger">
             <div className="relative aspect-[4/5] md:aspect-video bg-black overflow-hidden">
@@ -719,12 +688,11 @@ export default function Home() {
                   className="object-cover opacity-60"
                 />
               </div>
-              
+
               {/* Text overlay */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-16">
                 <div className="max-w-xl">
-                  <span
-                    className="font-mono text-[10px] md:text-xs text-accent tracking-widest uppercase block mb-2 md:mb-4">
+                  <span className="font-mono text-[10px] md:text-xs text-accent tracking-widest uppercase block mb-2 md:mb-4">
                     Assembly
                   </span>
                   <h3 className="font-serif text-3xl md:text-6xl leading-tight text-white mb-0">
@@ -733,26 +701,22 @@ export default function Home() {
                   <h3 className="font-sans text-4xl md:text-7xl mb-4 md:mb-6 leading-tight font-bold text-white/80">
                     in 30 minutes.
                   </h3>
-                  <p
-                    className="font-sans text-sm md:text-lg font-light leading-relaxed text-white/70 mb-4 md:mb-6 max-w-2xl">
+                  <p className="font-sans text-sm md:text-lg font-light leading-relaxed text-white/70 mb-4 md:mb-6 max-w-2xl">
                     The Arcadian arrives flat-packed and ready. One tool.
                     Pre-drilled holes. No guesswork, no leftover screws.
                   </p>
-                  <div
-                    className="flex items-center gap-2 md:gap-4 font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40">
+                  <div className="flex items-center gap-2 md:gap-4 font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40">
                     <span>Single Tool</span>
                     <span>///</span>
                     <span>Easy Assembly</span>
                   </div>
                 </div>
               </div>
-              
+
               {/* Play button placeholder */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div
-                  className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
-                  <div
-                    className="w-0 h-0 border-t-6 md:border-t-8 border-t-transparent border-l-8 md:border-l-12 border-l-white border-b-6 md:border-b-8 border-b-transparent ml-1"/>
+                <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
+                  <div className="w-0 h-0 border-t-6 md:border-t-8 border-t-transparent border-l-8 md:border-l-12 border-l-white border-b-6 md:border-b-8 border-b-transparent ml-1" />
                 </div>
               </div>
             </div>
@@ -767,12 +731,12 @@ export default function Home() {
           <span className="font-mono text-xs text-oak tracking-widest uppercase block mb-12">
             The Finish
           </span>
-          
+
           <h2 className="font-serif text-6xl md:text-8xl leading-[0.9] text-ink mb-16 reveal-text">
-            Natural stains <br/>
+            Natural stains <br />
             <span className="italic text-oak/60">& deep protection.</span>
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24">
             <div
               className="md:col-span-5 reveal-text"
@@ -783,12 +747,12 @@ export default function Home() {
                 plant-based hardwax oil that delivers both exceptional beauty
                 and environmental responsibility.
               </p>
-              <div className="w-full h-px bg-ink/10 my-8"/>
+              <div className="w-full h-px bg-ink/10 my-8" />
               <p className="font-mono text-xs text-oak uppercase tracking-widest">
                 0% VOC — Solvent Free
               </p>
             </div>
-            
+
             <div
               className="md:col-span-7 font-sans text-lg font-light leading-relaxed text-ink/70 space-y-8 reveal-text"
               style={{ transitionDelay: "0.3s" }}
@@ -813,7 +777,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          
+
           <div
             className="mt-24 pt-8 border-t border-ink/10 reveal-text"
             style={{ transitionDelay: "0.4s" }}
@@ -836,7 +800,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* WOOD COLORS */}
       <section className="py-20 px-6 bg-[#eae8e1] reveal-trigger">
         <div className="max-w-[1400px] mx-auto">
@@ -849,7 +813,7 @@ export default function Home() {
               <span className="italic text-ink/50">one mystery.</span>
             </h3>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Arcadian Dawn - Light */}
             <div className="group relative overflow-hidden">
@@ -860,7 +824,7 @@ export default function Home() {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="font-serif text-3xl italic text-white mb-2">
@@ -872,7 +836,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
+
             {/* Pan's Shadow - Dark */}
             <div className="group relative overflow-hidden">
               <div className="aspect-[3/4] relative">
@@ -882,7 +846,7 @@ export default function Home() {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="font-serif text-3xl italic text-white mb-2">
@@ -894,7 +858,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
+
             {/* Kickstarter Exclusive - Mystery */}
             <div className="group relative overflow-hidden bg-ink">
               <div className="aspect-[3/4] relative flex items-center justify-center">
@@ -908,8 +872,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="text-center z-10">
-                  <div
-                    className="w-24 h-24 rounded-full border-2 border-dashed border-white/30 flex items-center justify-center mx-auto mb-6">
+                  <div className="w-24 h-24 rounded-full border-2 border-dashed border-white/30 flex items-center justify-center mx-auto mb-6">
                     <span className="font-serif text-4xl text-white/50">?</span>
                   </div>
                   <h3 className="font-serif text-3xl italic text-white/80 mb-2">
@@ -925,7 +888,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* THE RAIL SYSTEM */}
       <section
         id="accessories"
@@ -940,7 +903,7 @@ export default function Home() {
               Everything at hand.
             </h3>
           </div>
-          
+
           <div className="w-full aspect-[4/3] md:aspect-[21/9] relative bg-black/5 mb-12">
             <Image
               src="/photos/close-up-rail-scene.jpg"
@@ -949,7 +912,7 @@ export default function Home() {
               className="object-cover"
             />
           </div>
-          
+
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-ink/10 pt-8">
               <div>
@@ -977,15 +940,14 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* ACCESSORIES / ECOSYSTEM */}
       <section
         id="ecosystem"
         className="w-full py-24 px-6 md:px-12 border-b border-black/10 bg-[#F0EFE9]"
       >
         <div className="max-w-7xl mx-auto">
-          <div
-            className="flex flex-col md:flex-row justify-between md:items-end mb-16 border-b border-black/10 pb-6 gap-4">
+          <div className="flex flex-col md:flex-row justify-between md:items-end mb-16 border-b border-black/10 pb-6 gap-4">
             <h2 className="font-serif text-5xl md:text-6xl">The Ecosystem.</h2>
             <div className="font-mono text-xs md:text-right">
               <div className="uppercase tracking-widest mb-1">
@@ -994,15 +956,13 @@ export default function Home() {
               <div className="opacity-50">STATUS: IN DEVELOPMENT</div>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/10 border border-black/10">
-            <div
-              className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
+            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
                 FIG A.1
               </div>
-              <div
-                className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
+              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
                 <span className="font-mono text-[10px] animate-pulse">
                   [ SCHEMATIC PENDING ]
                 </span>
@@ -1014,14 +974,12 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
-            <div
-              className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
+
+            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
                 FIG A.2
               </div>
-              <div
-                className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
+              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
                 <span className="font-mono text-[10px] animate-pulse">
                   [ SCHEMATIC PENDING ]
                 </span>
@@ -1033,14 +991,12 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
-            <div
-              className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
+
+            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
                 FIG A.3
               </div>
-              <div
-                className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
+              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
                 <span className="font-mono text-[10px] animate-pulse">
                   [ SCHEMATIC PENDING ]
                 </span>
@@ -1052,13 +1008,11 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div
-              className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
+            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
                 FIG A.3
               </div>
-              <div
-                className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
+              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
                 <span className="font-mono text-[10px] animate-pulse">
                   [ SCHEMATIC PENDING ]
                 </span>
@@ -1070,13 +1024,11 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div
-              className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
+            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
                 FIG A.3
               </div>
-              <div
-                className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
+              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
                 <span className="font-mono text-[10px] animate-pulse">
                   [ SCHEMATIC PENDING ]
                 </span>
@@ -1088,13 +1040,11 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div
-              className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
+            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
                 FIG A.3
               </div>
-              <div
-                className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
+              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
                 <span className="font-mono text-[10px] animate-pulse">
                   [ SCHEMATIC PENDING ]
                 </span>
@@ -1109,7 +1059,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* KICKSTARTER CTA */}
       <section className="relative bg-[#05CE78] py-20 md:py-32 px-6 md:px-12 overflow-hidden">
         {/* Background pattern */}
@@ -1123,7 +1073,7 @@ export default function Home() {
             }}
           />
         </div>
-        
+
         <div className="max-w-[1400px] mx-auto relative z-10">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-12">
             {/* Left content */}
@@ -1138,16 +1088,16 @@ export default function Home() {
                   className="h-8 md:h-10 w-auto"
                 />
               </div>
-              
+
               <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-black mb-6 leading-tight">
                 Launching <span className="italic">March 2026</span>
               </h2>
-              
+
               <p className="font-sans text-lg md:text-xl text-black/70 mb-8 max-w-xl">
                 Be the first to know when we go live. Early backers get
                 exclusive pricing and the mystery finish reveal.
               </p>
-              
+
               {/* Email signup */}
               <form className="flex flex-col sm:flex-row gap-3 max-w-md">
                 <input
@@ -1163,7 +1113,7 @@ export default function Home() {
                 </button>
               </form>
             </div>
-            
+
             {/* Right side - stats/info */}
             <div className="flex flex-col gap-6 md:text-right">
               <div>
@@ -1194,7 +1144,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* FOOTER */}
       <footer className="bg-black text-paper py-24 px-6 md:px-12 border-t border-white/10">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between gap-16">
@@ -1209,13 +1159,12 @@ export default function Home() {
                 For campaigns that span months.
               </p>
             </div>
-            
+
             <div className="w-full max-w-md">
               <p className="font-mono text-[10px] uppercase tracking-widest mb-4 opacity-50">
                 Stay Updated
               </p>
-              <form
-                className="flex border-b border-white/20 pb-4 w-full group focus-within:border-white/60 transition-colors">
+              <form className="flex border-b border-white/20 pb-4 w-full group focus-within:border-white/60 transition-colors">
                 <input
                   type="email"
                   placeholder="ENTER YOUR EMAIL"
@@ -1230,7 +1179,7 @@ export default function Home() {
               </form>
             </div>
           </div>
-          
+
           {/* Right Side: Links */}
           <div className="flex flex-col justify-between md:items-end">
             <nav className="flex flex-col gap-4 md:text-right">
@@ -1272,10 +1221,10 @@ export default function Home() {
                 Privacy Policy
               </a>
             </nav>
-            
+
             <div className="mt-16 font-mono text-[10px] uppercase tracking-widest opacity-30 md:text-right">
               © 2025 Arcadian. All rights reserved.
-              <br/>
+              <br />
               Designed & Crafted in Serbia.
             </div>
           </div>
