@@ -302,11 +302,10 @@ export default function Home() {
         className="relative w-full min-h-screen flex flex-col justify-center items-center border-b border-black/10 px-4 pt-32 pb-20">
         {/* Background Table Image - Tiled Pattern */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-20"
+          className="absolute inset-0 pointer-events-none opacity-30"
           style={{
-            backgroundImage: "url(/table.png)",
-            backgroundRepeat: "repeat",
-            backgroundSize: "1000px auto",
+            backgroundImage: "url(/table.svg)",
+            backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         />
