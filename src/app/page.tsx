@@ -577,51 +577,19 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
-              <div className="relative aspect-[4/3] bg-black/5 reveal-trigger">
-                <Image
-                  src="/photos/size-small-3.jpeg"
-                  alt="Wood Detail 1"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative aspect-[4/3] bg-black/5 reveal-trigger">
-                <Image
-                  src="/photos/size-big-2.jpeg"
-                  alt="Wood Detail 2"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="bg-[#EAE8E1] p-6 md:p-12 flex flex-col justify-center reveal-trigger max-w-2xl mx-auto w-full">
-              <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-8">
-                <h4 className="font-sans text-2xl md:text-3xl">Two Sizes</h4>
-                <button
-                  type="button"
-                  onClick={() => setIsMetric(!isMetric)}
-                  className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest"
-                >
-                  <span className={isMetric ? "opacity-100" : "opacity-40"}>
-                    CM
-                  </span>
-                  <div className="relative w-10 h-5 bg-ink/20 rounded-full">
-                    <div
-                      className={`absolute top-0.5 w-4 h-4 bg-ink rounded-full transition-all duration-200 ${
-                        isMetric ? "left-0.5" : "left-5"
-                      }`}
-                    />
-                  </div>
-                  <span className={!isMetric ? "opacity-100" : "opacity-40"}>
-                    IN
-                  </span>
-                </button>
-              </div>
-              <div className="space-y-6">
-                <div className="border-b border-ink/10 pb-4">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-1">
+              {/* The Standard */}
+              <div className="reveal-trigger">
+                <div className="relative aspect-[4/3] bg-black/5">
+                  <Image
+                    src="/photos/size-small-3.jpeg"
+                    alt="The Standard - Seats 4"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="bg-[#EAE8E1] p-6">
+                  <div className="flex justify-between items-baseline mb-3">
                     <span className="font-serif text-xl">The Standard</span>
                     <span className="font-mono text-[10px] md:text-xs opacity-50 uppercase">
                       Seats 4
@@ -646,8 +614,20 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="border-b border-ink/10 pb-4">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-3">
+              </div>
+
+              {/* The Grand */}
+              <div className="reveal-trigger">
+                <div className="relative aspect-[4/3] bg-black/5">
+                  <Image
+                    src="/photos/size-big-2.jpeg"
+                    alt="The Grand - Seats 6-8"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="bg-[#EAE8E1] p-6">
+                  <div className="flex justify-between items-baseline mb-3">
                     <span className="font-serif text-xl">The Grand</span>
                     <span className="font-mono text-[10px] md:text-xs opacity-50 uppercase">
                       Seats 6-8
@@ -673,6 +653,29 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Unit Toggle - Centered */}
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={() => setIsMetric(!isMetric)}
+                className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest"
+              >
+                <span className={isMetric ? "opacity-100" : "opacity-40"}>
+                  CM
+                </span>
+                <div className="relative w-10 h-5 bg-ink/20 rounded-full">
+                  <div
+                    className={`absolute top-0.5 w-4 h-4 bg-ink rounded-full transition-all duration-200 ${
+                      isMetric ? "left-0.5" : "left-5"
+                    }`}
+                  />
+                </div>
+                <span className={!isMetric ? "opacity-100" : "opacity-40"}>
+                  IN
+                </span>
+              </button>
             </div>
           </div>
 
