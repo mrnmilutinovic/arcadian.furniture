@@ -418,9 +418,9 @@ export default function Home() {
 
       <section
         id="transformation"
-        className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden"
+        className="py-16 md:py-20 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden"
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 space-y-40">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 space-y-20">
           {/* 1. THE TRANSFORMATION (2-Column Images) */}
           <div className="flex flex-col gap-12">
             <div className="max-w-2xl mx-auto text-center reveal-trigger">
@@ -498,9 +498,9 @@ export default function Home() {
         </div>
       </section>
       {/* NEWS / STORIES SECTION */}
-      <section id="stories" className="py-24 md:py-32 bg-paper px-6 md:px-12">
+      <section id="stories" className="py-16 md:py-20 bg-paper px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-16 reveal-trigger">
+          <div className="text-center mb-10 reveal-trigger">
             <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
               Stories
             </span>
@@ -509,7 +509,7 @@ export default function Home() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-1">
             {articles.map((article) => (
               <Link
                 key={article.slug}
@@ -554,9 +554,9 @@ export default function Home() {
       {/* FEATURE SHOWCASE - MOSAIC LAYOUT */}
       <section
         id="sizing"
-        className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden"
+        className="py-16 md:py-20 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden"
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 space-y-40">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 space-y-20">
           {/* 2. SIZES */}
           <div className="flex flex-col gap-12">
             <div className="max-w-2xl mx-auto text-center reveal-trigger">
@@ -725,7 +725,7 @@ export default function Home() {
       </section>
       <section
         id="finish"
-        className="py-40 px-6 bg-paper reveal-trigger border-t border-ink/5"
+        className="py-16 md:py-24 px-6 bg-paper reveal-trigger border-t border-ink/5"
       >
         <div className="max-w-[1100px] mx-auto">
           <span className="font-mono text-xs text-oak tracking-widest uppercase block mb-12">
@@ -802,7 +802,7 @@ export default function Home() {
       </section>
 
       {/* WOOD COLORS */}
-      <section className="py-20 px-6 bg-[#eae8e1] reveal-trigger">
+      <section className="py-16 md:py-20 px-6 bg-[#eae8e1] reveal-trigger">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-12">
             <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
@@ -892,10 +892,10 @@ export default function Home() {
       {/* THE RAIL SYSTEM */}
       <section
         id="accessories"
-        className="py-32 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden"
+        className="py-16 md:py-20 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden"
       >
         <div className="reveal-trigger">
-          <div className="text-center max-w-2xl mx-auto mb-16 px-6 md:px-12">
+          <div className="text-center max-w-2xl mx-auto mb-10 px-6 md:px-12">
             <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-4">
               The Rail System
             </span>
@@ -944,10 +944,10 @@ export default function Home() {
       {/* ACCESSORIES / ECOSYSTEM */}
       <section
         id="ecosystem"
-        className="w-full py-24 px-6 md:px-12 border-b border-black/10 bg-[#F0EFE9]"
+        className="w-full py-16 md:py-20 px-6 md:px-12 border-b border-black/10 bg-[#F0EFE9]"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between md:items-end mb-16 border-b border-black/10 pb-6 gap-4">
+          <div className="flex flex-col md:flex-row justify-between md:items-end mb-10 border-b border-black/10 pb-6 gap-4">
             <h2 className="font-serif text-5xl md:text-6xl">The Ecosystem.</h2>
             <div className="font-mono text-xs md:text-right">
               <div className="uppercase tracking-widest mb-1">
@@ -1061,7 +1061,7 @@ export default function Home() {
       </section>
 
       {/* KICKSTARTER CTA */}
-      <section className="relative bg-[#05CE78] py-20 md:py-32 px-6 md:px-12 overflow-hidden">
+      <section className="relative bg-[#05CE78] py-16 md:py-24 px-6 md:px-12 overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -1146,7 +1146,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-black text-paper py-24 px-6 md:px-12 border-t border-white/10">
+      <footer className="bg-black text-paper py-16 md:py-20 px-6 md:px-12 border-t border-white/10">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between gap-16">
           {/* Left Side: Brand & CTA */}
           <div className="flex flex-col justify-between items-start">
