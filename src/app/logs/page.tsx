@@ -8,38 +8,28 @@ export default async function LogsPage() {
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center">
+      {/* Navigation */}
+      <nav className="w-full py-4 md:py-6 px-4 md:px-12 grid grid-cols-3 items-center fixed top-0 z-40 bg-black">
         <Link
           href="/"
-          className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors"
+          className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors"
         >
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back
+          <span className="hidden sm:inline">← Back to Home</span>
+          <span className="sm:hidden">← Back</span>
         </Link>
-        <Image
-          src="/pan-logo.svg"
-          alt="Arcadian Logo"
-          width={40}
-          height={40}
-          className="w-10 h-10 invert absolute left-1/2 -translate-x-1/2"
-        />
-        <h1 className="font-mono text-xs uppercase tracking-widest text-white/50">
+        <Link href="/" className="justify-self-center">
+          <Image
+            src="/pan-logo.svg"
+            alt="Arcadian Logo"
+            width={60}
+            height={60}
+            className="w-10 h-10 md:w-12 md:h-12 invert"
+          />
+        </Link>
+        <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 justify-self-end">
           Logs
-        </h1>
-      </header>
+        </div>
+      </nav>
 
       {/* Masonry Grid */}
       <main className="pt-24 pb-12 px-2 md:px-4">
@@ -47,10 +37,15 @@ export default async function LogsPage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-12 text-center">
-        <p className="font-mono text-xs text-white/30 uppercase tracking-widest">
-          More photos coming soon
-        </p>
+      <footer className="py-10 md:py-12 px-4 md:px-12">
+        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+          <Link href="/" className="font-libre-baskerville text-3xl md:text-4xl text-white">
+            Arcadian
+          </Link>
+          <div className="font-mono text-[10px] uppercase tracking-widest text-white/30 text-center">
+            © 2025 Arcadian. All rights reserved.
+          </div>
+        </div>
       </footer>
     </div>
   );

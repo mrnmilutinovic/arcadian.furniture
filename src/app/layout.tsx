@@ -5,8 +5,16 @@ import {
   Manrope,
   Petemoss,
   Space_Mono,
+  Staatliches
 } from "next/font/google";
 import "./globals.css";
+
+const staatliches = Staatliches({
+  variable: "--font-staatliches-baskerville",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal"]
+})
 
 const ruthie = Petemoss({
   variable: "--font-ruthie",
@@ -55,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${cormorantGaramond.variable} ${manrope.variable} ${spaceMono.variable} ${caveat.variable} ${ruthie.variable} antialiased`}
+        className={`${cormorantGaramond.variable} ${manrope.variable} ${spaceMono.variable} ${caveat.variable} ${ruthie.variable} ${staatliches.variable} antialiased`}
       >
         {children}
       </body>

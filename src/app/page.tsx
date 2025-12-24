@@ -16,8 +16,8 @@ export default function Home() {
       title: "Spirits of the Forest Meet the Arcadian Table",
       excerpt:
         "We partnered with the creators of Forest of Radgost, a Slavic mythology board game, to showcase how epic adventures deserve an epic stage.",
-      image: "/photos/forest-of-radgost.jpg",
-      date: "December 2024",
+      image: "/photos/radgost-cover-photo.jpeg",
+      date: "September 2024",
       category: "Collaboration",
     },
     {
@@ -25,8 +25,8 @@ export default function Home() {
       title: "Behind the Lens with Boris Jovanovic",
       excerpt:
         "Netflix and Adidas photographer Boris Jovanovic captured the soul of the Arcadian table in our most ambitious photoshoot yet.",
-      image: "/photos/boris-photoshoot.jpg",
-      date: "December 2024",
+      image: "/photos/boris-cover-photo.jpeg",
+      date: "September 2024",
       category: "Behind the Scenes",
     },
   ];
@@ -184,6 +184,11 @@ export default function Home() {
             </a>
           </li>
           <li>
+            <a href="#stories" className="hover:text-accent transition-colors">
+              Stories
+            </a>
+          </li>
+          <li>
             <a href="/logs" className="hover:text-accent transition-colors">
               Logs
             </a>
@@ -191,15 +196,15 @@ export default function Home() {
         </ul>
         <div
           className={`absolute left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
-            isScrolled ? "scale-80 top-4" : "scale-100 top-8"
+            isScrolled ? "scale-80 top-6 md:top-4" : "scale-100 top-12 md:top-8"
           }`}
         >
           <Image
             src="/pan-logo.svg"
             alt="Arcadian Logo"
-            width={100}
-            height={100}
-            className="w-20 h-20 md:w-24 md:h-24"
+            width={120}
+            height={120}
+            className="w-24 h-24 md:w-28 md:h-28"
           />
         </div>
         <div
@@ -266,6 +271,15 @@ export default function Home() {
               </li>
               <li>
                 <a
+                  href="#stories"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block py-2 hover:text-accent transition-colors"
+                >
+                  Stories
+                </a>
+              </li>
+              <li>
+                <a
                   href="/logs"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block py-2 hover:text-accent transition-colors"
@@ -306,7 +320,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 text-center max-w-6xl mx-auto">
-          <p className="font-mono text-accent mb-6 tracking-widest uppercase text-xs md:text-sm">
+          <p className="font-mono text-accent mb-6 tracking-widest uppercase text-xs md:text-sm max-w-[300px] mx-auto bg-[#f3f1ea] rounded-xl p-2">
             Established with a mission
           </p>
 
@@ -318,8 +332,8 @@ export default function Home() {
             </span>
           </h1>
 
-          <div className="max-w-2xl mx-auto mb-12">
-            <p className="font-serif text-xl md:text-2xl leading-relaxed">
+          <div className="max-w-2xl mx-auto mb-12 bg-[#f3f1ea] rounded-xl p-2">
+            <p className="font-serif text-xl md:text-2xl leading-relaxed ">
               We believe game nights deserve more than a kitchen table.
             </p>
           </div>
@@ -351,8 +365,16 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-4 h-full gap-1">
           <div className=" relative">
             <Image
-              src="/photos/preview-10.jpeg"
-              alt="Detail 1"
+              src="/photos/preview-16.jpeg"
+              alt="Detail 4"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className=" relative">
+            <Image
+              src="/photos/preview-17.jpeg"
+              alt="Detail 4"
               fill
               className="object-cover"
             />
@@ -383,14 +405,6 @@ export default function Home() {
           </div>
           <div className=" relative">
             <Image
-              src="/photos/preview-14.jpeg"
-              alt="Detail 4"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className=" relative">
-            <Image
               src="/photos/preview-15.jpeg"
               alt="Detail 4"
               fill
@@ -399,15 +413,15 @@ export default function Home() {
           </div>
           <div className=" relative">
             <Image
-              src="/photos/preview-16.jpeg"
-              alt="Detail 4"
+              src="/photos/preview-10.jpeg"
+              alt="Detail 1"
               fill
               className="object-cover"
             />
           </div>
           <div className=" relative">
             <Image
-              src="/photos/preview-17.jpeg"
+              src="/photos/preview-14.jpeg"
               alt="Detail 4"
               fill
               className="object-cover"
@@ -497,59 +511,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* NEWS / STORIES SECTION */}
-      <section id="stories" className="py-16 md:py-20 bg-paper px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-10 reveal-trigger">
-            <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
-              Stories
-            </span>
-            <h3 className="font-serif text-4xl md:text-5xl leading-tight">
-              From the <span className="italic text-ink/50">Workshop</span>
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-1">
-            {articles.map((article) => (
-              <Link
-                key={article.slug}
-                href={`/stories/${article.slug}`}
-                className="group reveal-trigger"
-              >
-                <article className="flex flex-col">
-                  <div className="aspect-[16/10] relative overflow-hidden bg-ink/5 mb-6">
-                    <Image
-                      src={article.image}
-                      alt={article.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-accent">
-                      {article.category}
-                    </span>
-                    <span className="w-1 h-1 bg-ink/30 rounded-full" />
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink/40">
-                      {article.date}
-                    </span>
-                  </div>
-                  <h4 className="font-serif text-2xl md:text-3xl mb-3 group-hover:text-accent transition-colors leading-tight">
-                    {article.title}
-                  </h4>
-                  <p className="font-sans text-sm md:text-base text-ink/60 leading-relaxed">
-                    {article.excerpt}
-                  </p>
-                  <div className="mt-4 font-mono text-xs uppercase tracking-widest text-ink/40 group-hover:text-accent transition-colors">
-                    Read Story →
-                  </div>
-                </article>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* FEATURE SHOWCASE - MOSAIC LAYOUT */}
       <section
@@ -588,29 +549,38 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="bg-[#EAE8E1] p-6">
-                  <div className="flex justify-between items-baseline mb-3">
-                    <span className="font-serif text-xl">The Standard</span>
-                    <span className="font-mono text-[10px] md:text-xs opacity-50 uppercase">
-                      Seats 4
-                    </span>
+                <div className="bg-[#EAE8E1] overflow-hidden">
+                  <div className="flex justify-center items-center py-8 h-64 md:h-[500px]">
+                    <img
+                      src="/small-table.svg"
+                      alt="The Standard table diagram"
+                      className="w-auto h-[300px] object-contain -rotate-12"
+                    />
                   </div>
-                  <div className="space-y-1">
-                    <div className="flex justify-between">
-                      <span className="font-sans text-xs md:text-sm opacity-60">
-                        Closed Table Size
-                      </span>
-                      <span className="font-mono text-xs md:text-sm opacity-60">
-                        {isMetric ? "108 × 108 cm" : "42.5 × 42.5 in"}
+                  <div className="p-6 pt-0">
+                    <div className="flex justify-between items-baseline mb-3">
+                      <span className="font-serif text-xl">The Standard</span>
+                      <span className="font-mono text-[10px] md:text-xs opacity-50 uppercase">
+                        Seats 4
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="font-sans text-xs md:text-sm opacity-60">
-                        Play Area
-                      </span>
-                      <span className="font-mono text-xs md:text-sm opacity-60">
-                        {isMetric ? "90 × 90 cm" : "35.4 × 35.4 in"}
-                      </span>
+                    <div className="space-y-1">
+                      <div className="flex justify-between">
+                        <span className="font-sans text-xs md:text-sm opacity-60">
+                          Closed Table Size
+                        </span>
+                        <span className="font-mono text-xs md:text-sm opacity-60">
+                          {isMetric ? "108 × 108 cm" : "42.5 × 42.5 in"}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-sans text-xs md:text-sm opacity-60">
+                          Play Area
+                        </span>
+                        <span className="font-mono text-xs md:text-sm opacity-60">
+                          {isMetric ? "90 × 90 cm" : "35.4 × 35.4 in"}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -626,29 +596,38 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="bg-[#EAE8E1] p-6">
-                  <div className="flex justify-between items-baseline mb-3">
-                    <span className="font-serif text-xl">The Grand</span>
-                    <span className="font-mono text-[10px] md:text-xs opacity-50 uppercase">
-                      Seats 6-8
-                    </span>
+                <div className="bg-[#EAE8E1] overflow-hidden">
+                  <div className="flex justify-center items-center h-64 md:h-[500px] py-8">
+                    <img
+                      src="/large-table.svg"
+                      alt="The Grand table diagram"
+                      className="w-auto h-[300px] object-contain -rotate-12"
+                    />
                   </div>
-                  <div className="space-y-1">
-                    <div className="flex justify-between">
-                      <span className="font-sans text-xs md:text-sm opacity-60">
-                        Closed Table Size
-                      </span>
-                      <span className="font-mono text-xs md:text-sm opacity-60">
-                        {isMetric ? "108 × 189 cm" : "42.5 × 74.4 in"}
+                  <div className="p-6 pt-0">
+                    <div className="flex justify-between items-baseline mb-3">
+                      <span className="font-serif text-xl">The Grand</span>
+                      <span className="font-mono text-[10px] md:text-xs opacity-50 uppercase">
+                        Seats 6-8
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="font-sans text-xs md:text-sm opacity-60">
-                        Play Area
-                      </span>
-                      <span className="font-mono text-xs md:text-sm opacity-60">
-                        {isMetric ? "90 × 170 cm" : "35.4 × 66.9 in"}
-                      </span>
+                    <div className="space-y-1">
+                      <div className="flex justify-between">
+                        <span className="font-sans text-xs md:text-sm opacity-60">
+                          Closed Table Size
+                        </span>
+                        <span className="font-mono text-xs md:text-sm opacity-60">
+                          {isMetric ? "108 × 189 cm" : "42.5 × 74.4 in"}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-sans text-xs md:text-sm opacity-60">
+                          Play Area
+                        </span>
+                        <span className="font-mono text-xs md:text-sm opacity-60">
+                          {isMetric ? "90 × 170 cm" : "35.4 × 66.9 in"}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -717,9 +696,14 @@ export default function Home() {
               </div>
 
               {/* Play button placeholder */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
-                  <div className="w-0 h-0 border-t-6 md:border-t-8 border-t-transparent border-l-8 md:border-l-12 border-l-white border-b-6 md:border-b-8 border-b-transparent ml-1" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="group/play cursor-pointer flex items-center gap-0 hover:gap-4 transition-all duration-300">
+                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 shrink-0">
+                    <div className="w-0 h-0 border-t-6 md:border-t-8 border-t-transparent border-l-8 md:border-l-12 border-l-white border-b-6 md:border-b-8 border-b-transparent ml-1" />
+                  </div>
+                  <span className="font-mono text-xs uppercase tracking-widest text-white whitespace-nowrap max-w-0 group-hover/play:max-w-40 overflow-hidden transition-all duration-300 opacity-0 group-hover/play:opacity-100">
+                    Coming Soon
+                  </span>
                 </div>
               </div>
             </div>
@@ -894,7 +878,7 @@ export default function Home() {
 
       {/* THE RAIL SYSTEM */}
       <section
-        id="accessories"
+        id="rail-system"
         className="py-16 md:py-20 bg-[#F3F1EA] border-t border-ink/5 overflow-hidden"
       >
         <div className="reveal-trigger">
@@ -946,13 +930,13 @@ export default function Home() {
 
       {/* ACCESSORIES / ECOSYSTEM */}
       <section
-        id="ecosystem"
-        className="w-full py-16 md:py-20 px-6 md:px-12 border-b border-black/10 bg-[#F0EFE9]"
+        id="accessories"
+        className="w-full py-16 md:py-20 px-6 md:px-12 border-b border-white/10 bg-[#202020]"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between md:items-end mb-10 border-b border-black/10 pb-6 gap-4">
-            <h2 className="font-serif text-5xl md:text-6xl">The Ecosystem.</h2>
-            <div className="font-mono text-xs md:text-right">
+          <div className="flex flex-col md:flex-row justify-between md:items-end mb-10 border-b border-white/10 pb-6 gap-4">
+            <h2 className="font-serif text-5xl md:text-6xl text-white">The Ecosystem.</h2>
+            <div className="font-mono text-xs md:text-right text-white">
               <div className="uppercase tracking-widest mb-1">
                 Modular Add-ons
               </div>
@@ -960,105 +944,155 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/10 border border-black/10">
-            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
+              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
                 FIG A.1
               </div>
-              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
-                <span className="font-mono text-[10px] animate-pulse">
-                  [ SCHEMATIC PENDING ]
-                </span>
+              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
+                <img src="/accessories/dice-tray-wireframe.png" alt="Dice tray wireframe" className="object-cover bg-[#282828]"/>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2">The Rail System</h3>
-                <p className="font-mono text-xs opacity-60">
+                <h3 className="font-serif text-2xl mb-2 text-white">The Rail System</h3>
+                <p className="font-mono text-xs text-white/60">
                   Universal attachment points.
                 </p>
               </div>
             </div>
 
-            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
+            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
+              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
                 FIG A.2
               </div>
-              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
-                <span className="font-mono text-[10px] animate-pulse">
-                  [ SCHEMATIC PENDING ]
-                </span>
+              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
+                <img src="/accessories/mug-holder-wireframe.jpeg" alt="Mug holder wireframe" className="object-cover"/>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2">Storage Solutions</h3>
-                <p className="font-mono text-xs opacity-60">
+                <h3 className="font-serif text-2xl mb-2 text-white">Storage Solutions</h3>
+                <p className="font-mono text-xs text-white/60">
                   Integrated component bins.
                 </p>
               </div>
             </div>
 
-            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
+            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
+              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
                 FIG A.3
               </div>
-              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
-                <span className="font-mono text-[10px] animate-pulse">
+              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
+                <span className="font-mono text-[10px] animate-pulse text-white/60">
                   [ SCHEMATIC PENDING ]
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2">Game Master Screen</h3>
-                <p className="font-mono text-xs opacity-60">
+                <h3 className="font-serif text-2xl mb-2 text-white">Game Master Screen</h3>
+                <p className="font-mono text-xs text-white/60">
                   Magnetic alignment.
                 </p>
               </div>
             </div>
-            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
+            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
+              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
                 FIG A.3
               </div>
-              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
-                <span className="font-mono text-[10px] animate-pulse">
+              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
+                <span className="font-mono text-[10px] animate-pulse text-white/60">
                   [ SCHEMATIC PENDING ]
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2">Game Master Screen</h3>
-                <p className="font-mono text-xs opacity-60">
+                <h3 className="font-serif text-2xl mb-2 text-white">Game Master Screen</h3>
+                <p className="font-mono text-xs text-white/60">
                   Magnetic alignment.
                 </p>
               </div>
             </div>
-            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
+            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
+              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
                 FIG A.3
               </div>
-              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
-                <span className="font-mono text-[10px] animate-pulse">
+              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
+                <span className="font-mono text-[10px] animate-pulse text-white/60">
                   [ SCHEMATIC PENDING ]
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2">Game Master Screen</h3>
-                <p className="font-mono text-xs opacity-60">
+                <h3 className="font-serif text-2xl mb-2 text-white">Game Master Screen</h3>
+                <p className="font-mono text-xs text-white/60">
                   Magnetic alignment.
                 </p>
               </div>
             </div>
-            <div className="bg-paper p-12 min-h-[350px] flex flex-col justify-between group hover:bg-white transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-black/20 px-1">
+            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
+              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
                 FIG A.3
               </div>
-              <div className="w-full flex-grow border border-dashed border-black/20 flex items-center justify-center mb-6 bg-black/5">
-                <span className="font-mono text-[10px] animate-pulse">
+              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
+                <span className="font-mono text-[10px] animate-pulse text-white/60">
                   [ SCHEMATIC PENDING ]
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2">Game Master Screen</h3>
-                <p className="font-mono text-xs opacity-60">
+                <h3 className="font-serif text-2xl mb-2 text-white">Game Master Screen</h3>
+                <p className="font-mono text-xs text-white/60">
                   Magnetic alignment.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEWS / STORIES SECTION */}
+      <section id="stories" className="py-16 md:py-20 bg-paper px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-10 reveal-trigger">
+            <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
+              Stories
+            </span>
+            <h3 className="font-serif text-4xl md:text-5xl leading-tight">
+              From the <span className="italic text-ink/50">Workshop</span>
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-1">
+            {articles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/stories/${article.slug}`}
+                className="group reveal-trigger"
+              >
+                <article className="flex flex-col">
+                  <div className="aspect-[16/10] relative overflow-hidden bg-ink/5 mb-6">
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-accent">
+                      {article.category}
+                    </span>
+                    <span className="w-1 h-1 bg-ink/30 rounded-full" />
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink/40">
+                      {article.date}
+                    </span>
+                  </div>
+                  <h4 className="font-serif text-2xl md:text-3xl mb-3 group-hover:text-accent transition-colors leading-tight">
+                    {article.title}
+                  </h4>
+                  <p className="font-sans text-sm md:text-base text-ink/60 leading-relaxed">
+                    {article.excerpt}
+                  </p>
+                  <div className="mt-4 font-mono text-xs uppercase tracking-widest text-ink/40 group-hover:text-accent transition-colors">
+                    Read Story →
+                  </div>
+                </article>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -1149,15 +1183,16 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-black text-paper py-16 md:py-20 px-6 md:px-12 border-t border-white/10">
+      <footer className="bg-[#202020] text-paper py-16 md:py-20 px-6 md:px-12 border-t border-white/10">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between gap-16">
           {/* Left Side: Brand & CTA */}
           <div className="flex flex-col justify-between items-start">
             <div className="mb-12">
-              <h2 className="font-ruthie text-7xl md:text-9xl mb-0 tracking-tight">
+              <h2 className="font-staatliches-baskerville text-5xl md:text-8xl mb-0 tracking-tight">
                 Arcadian
+                <span className="opacity-20">Furniture</span>
               </h2>
-              <p className="font-sans text-xl opacity-60 font-light max-w-md">
+              <p className="font-sans text-xl opacity-60 font-light max-w-lg">
                 Designed for families who play. For game nights that run late.
                 For campaigns that span months.
               </p>

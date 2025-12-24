@@ -1,46 +1,34 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-paper">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-paper/80 backdrop-blur-sm">
+      {/* Navigation */}
+      <nav className="w-full py-4 md:py-6 px-4 md:px-12 grid grid-cols-3 items-center fixed top-0 z-40 bg-paper">
         <Link
           href="/"
-          className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-ink/50 hover:text-ink transition-colors"
+          className="font-mono text-[10px] md:text-xs uppercase tracking-widest hover:text-accent transition-colors"
         >
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back
+          <span className="hidden sm:inline">← Back to Home</span>
+          <span className="sm:hidden">← Back</span>
         </Link>
-        <Image
-          src="/pan-logo.svg"
-          alt="Arcadian Logo"
-          width={40}
-          height={40}
-          className="w-10 h-10 absolute left-1/2 -translate-x-1/2"
-        />
-        <h1 className="font-mono text-xs uppercase tracking-widest text-ink/50">
-          Terms & Conditions
-        </h1>
-      </header>
+        <Link href="/" className="justify-self-center">
+          <Image
+            src="/pan-logo.svg"
+            alt="Arcadian Logo"
+            width={60}
+            height={60}
+            className="w-10 h-10 md:w-12 md:h-12"
+          />
+        </Link>
+        <div className="font-mono text-[10px] uppercase tracking-widest text-ink/50 justify-self-end">
+          Legal
+        </div>
+      </nav>
 
       {/* Content */}
-      <main className="pt-32 pb-20 px-6 md:px-12 max-w-3xl mx-auto">
+      <main className="pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-12 max-w-3xl mx-auto">
         <h1 className="font-serif text-4xl md:text-5xl mb-12">
           Terms & Conditions
         </h1>
@@ -132,10 +120,15 @@ export default function TermsPage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-12 text-center border-t border-ink/10">
-        <p className="font-mono text-xs text-ink/30 uppercase tracking-widest">
-          © 2025 Arcadian. All rights reserved.
-        </p>
+      <footer className="bg-black text-paper py-10 md:py-12 px-4 md:px-12">
+        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+          <Link href="/" className="font-libre-baskerville text-3xl md:text-4xl">
+            Arcadian
+          </Link>
+          <div className="font-mono text-[10px] uppercase tracking-widest opacity-30 text-center">
+            © 2025 Arcadian. All rights reserved.
+          </div>
+        </div>
       </footer>
     </div>
   );
