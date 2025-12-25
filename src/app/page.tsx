@@ -2,13 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
+import { subscribeToUpdates, type SubscribeState } from "./actions/subscribe";
+
+const initialState: SubscribeState = { success: false, message: "" };
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isNavHidden, setIsNavHidden] = useState(false);
   const [isMetric, setIsMetric] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Form states for each subscription form
+  const [heroState, heroAction, heroPending] = useActionState(subscribeToUpdates, initialState);
+  const [kickstarterState, kickstarterAction, kickstarterPending] = useActionState(subscribeToUpdates, initialState);
+  const [footerState, footerAction, footerPending] = useActionState(subscribeToUpdates, initialState);
 
   const articles = [
     {
@@ -340,19 +348,31 @@ export default function Home() {
 
           {/* CTA Form */}
           <div className="relative group w-full max-w-md mx-auto">
-            <form className="relative flex flex-col md:flex-row gap-2 md:gap-0 md:bg-paper md:border md:border-black/20 md:p-1 md:rounded-full">
+            <form
+              action={heroAction}
+              className="relative flex flex-col md:flex-row gap-2 md:gap-0 md:bg-paper md:border md:border-black/20 md:p-1 md:rounded-full"
+            >
+              <input type="hidden" name="source" value="hero" />
               <input
                 type="email"
+                name="email"
                 placeholder="ENTER EMAIL ADDRESS"
                 className="w-full bg-paper md:bg-transparent px-4 py-4 font-mono text-sm focus:outline-none placeholder-black/40 text-ink border border-black/20 md:border-0 rounded-full md:rounded-none"
+                disabled={heroPending}
               />
               <button
                 type="submit"
-                className="w-full md:w-auto rounded-full bg-ink text-paper px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-accent transition-colors duration-300 whitespace-nowrap"
+                disabled={heroPending}
+                className="w-full md:w-auto rounded-full bg-ink text-paper px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-accent transition-colors duration-300 whitespace-nowrap disabled:opacity-50"
               >
-                Join List
+                {heroPending ? "..." : "Join List"}
               </button>
             </form>
+            {heroState.message && (
+              <p className={`font-mono text-[10px] mt-2 ${heroState.success ? "text-green-600" : "text-red-600"}`}>
+                {heroState.message}
+              </p>
+            )}
           </div>
           <p className="font-mono text-[10px] mt-4 opacity-50">
             NOTIFY ME ON LAUNCH
@@ -1136,19 +1156,28 @@ export default function Home() {
               </p>
 
               {/* Email signup */}
-              <form className="flex flex-col sm:flex-row gap-3 max-w-md">
+              <form action={kickstarterAction} className="flex flex-col sm:flex-row gap-3 max-w-md">
+                <input type="hidden" name="source" value="kickstarter" />
                 <input
                   type="email"
+                  name="email"
                   placeholder="ENTER YOUR EMAIL"
                   className="flex-1 bg-white px-5 py-4 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-black/20 placeholder-black/40 text-black rounded-full"
+                  disabled={kickstarterPending}
                 />
                 <button
                   type="submit"
-                  className="bg-black text-white px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-black/80 transition-colors rounded-full whitespace-nowrap"
+                  disabled={kickstarterPending}
+                  className="bg-black text-white px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-black/80 transition-colors rounded-full whitespace-nowrap disabled:opacity-50"
                 >
-                  Notify Me
+                  {kickstarterPending ? "..." : "Notify Me"}
                 </button>
               </form>
+              {kickstarterState.message && (
+                <p className={`font-mono text-xs mt-2 ${kickstarterState.success ? "text-green-700" : "text-red-700"}`}>
+                  {kickstarterState.message}
+                </p>
+              )}
             </div>
 
             {/* Right side - stats/info */}
@@ -1202,19 +1231,28 @@ export default function Home() {
               <p className="font-mono text-[10px] uppercase tracking-widest mb-4 opacity-50">
                 Stay Updated
               </p>
-              <form className="flex border-b border-white/20 pb-4 w-full group focus-within:border-white/60 transition-colors">
+              <form action={footerAction} className="flex border-b border-white/20 pb-4 w-full group focus-within:border-white/60 transition-colors">
+                <input type="hidden" name="source" value="footer" />
                 <input
                   type="email"
+                  name="email"
                   placeholder="ENTER YOUR EMAIL"
                   className="bg-transparent w-full font-mono text-sm focus:outline-none placeholder-white/30 text-white"
+                  disabled={footerPending}
                 />
                 <button
                   type="submit"
-                  className="font-mono text-xs uppercase tracking-widest hover:text-accent transition-colors"
+                  disabled={footerPending}
+                  className="font-mono text-xs uppercase tracking-widest hover:text-accent transition-colors disabled:opacity-50"
                 >
-                  Join
+                  {footerPending ? "..." : "Join"}
                 </button>
               </form>
+              {footerState.message && (
+                <p className={`font-mono text-[10px] mt-2 ${footerState.success ? "text-green-400" : "text-red-400"}`}>
+                  {footerState.message}
+                </p>
+              )}
             </div>
           </div>
 
