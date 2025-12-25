@@ -1187,7 +1187,7 @@ export default function Home() {
                   Campaign Goal
                 </div>
                 <div className="font-serif text-3xl md:text-4xl text-black">
-                  €70,000
+                  €XXX
                 </div>
               </div>
               <div>
@@ -1195,7 +1195,7 @@ export default function Home() {
                   Early Bird Slots
                 </div>
                 <div className="font-serif text-3xl md:text-4xl text-black">
-                  30
+                  50
                 </div>
               </div>
               <div>
