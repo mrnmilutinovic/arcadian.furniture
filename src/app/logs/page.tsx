@@ -3,6 +3,9 @@ import Link from "next/link";
 import { getLogPhotos } from "./actions";
 import { PhotoGrid } from "./photo-grid";
 
+// Force dynamic rendering - always fetch fresh data from blob storage
+export const dynamic = "force-dynamic";
+
 export default async function LogsPage() {
   const initialData = await getLogPhotos();
 
