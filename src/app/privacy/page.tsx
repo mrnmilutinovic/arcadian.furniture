@@ -35,7 +35,7 @@ export default function PrivacyPage() {
 
         <div className="prose prose-lg font-sans text-ink/70 space-y-8">
           <p className="text-sm font-mono text-ink/40 uppercase tracking-widest">
-            Last updated: December 2024
+            Last updated: December 2025
           </p>
 
           <section>
@@ -112,7 +112,33 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="font-serif text-2xl text-ink mb-4">
-              7. Changes to This Policy
+              7. Unsubscribing from Our Newsletter
+            </h2>
+            <p>
+              If you no longer wish to receive marketing emails from us, you can
+              unsubscribe at any time using any of these methods:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4">
+              <li>
+                Click the &ldquo;Unsubscribe&rdquo; link at the bottom of any
+                email we send you
+              </li>
+              <li>
+                Email us directly at hello@arcadian.furniture with the subject
+                line &ldquo;Unsubscribe&rdquo;
+              </li>
+            </ul>
+            <p className="mt-4">
+              Please allow up to 48 hours for your request to be processed.
+              Note that even after unsubscribing from marketing emails, you may
+              still receive transactional emails related to any orders or
+              customer service inquiries.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-serif text-2xl text-ink mb-4">
+              8. Changes to This Policy
             </h2>
             <p>
               We may update this Privacy Policy from time to time. We will
@@ -122,7 +148,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="font-serif text-2xl text-ink mb-4">8. Contact Us</h2>
+            <h2 className="font-serif text-2xl text-ink mb-4">9. Contact Us</h2>
             <p>
               If you have questions about this Privacy Policy or wish to
               exercise your rights, please contact us at

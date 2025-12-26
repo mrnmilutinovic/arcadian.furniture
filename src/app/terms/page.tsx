@@ -35,7 +35,7 @@ export default function TermsPage() {
 
         <div className="prose prose-lg font-sans text-ink/70 space-y-8">
           <p className="text-sm font-mono text-ink/40 uppercase tracking-widest">
-            Last updated: December 2024
+            Last updated: December 2025
           </p>
 
           <section>
