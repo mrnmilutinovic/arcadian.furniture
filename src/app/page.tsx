@@ -965,36 +965,41 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+            {/* Cup & Mug Holder - with image */}
             <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
                 FIG A.1
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
-                <img src="/accessories/dice-tray-wireframe.png" alt="Dice tray wireframe" className="object-cover bg-[#282828]"/>
+                <img src="/accessories/mug-holder-wireframe.jpeg" alt="Cup & Mug holder wireframe" className="object-cover"/>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">The Rail System</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">Cup & Mug Holder</h3>
                 <p className="font-mono text-xs text-white/60">
-                  Universal attachment points.
+                  Keep drinks safe and within reach.
                 </p>
               </div>
             </div>
 
+            {/* Universal Tray */}
             <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
                 FIG A.2
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
-                <img src="/accessories/mug-holder-wireframe.jpeg" alt="Mug holder wireframe" className="object-cover"/>
+                <span className="font-mono text-[10px] animate-pulse text-white/60">
+                  [ SCHEMATIC PENDING ]
+                </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Storage Solutions</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">Universal Tray</h3>
                 <p className="font-mono text-xs text-white/60">
-                  Integrated component bins.
+                  Versatile storage for any game.
                 </p>
               </div>
             </div>
 
+            {/* Dice Tray */}
             <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
                 FIG A.3
@@ -1005,15 +1010,17 @@ export default function Home() {
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Game Master Screen</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">Dice Tray</h3>
                 <p className="font-mono text-xs text-white/60">
-                  Magnetic alignment.
+                  Roll with precision.
                 </p>
               </div>
             </div>
+
+            {/* Bowl Holder */}
             <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
-                FIG A.3
+                FIG A.4
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
                 <span className="font-mono text-[10px] animate-pulse text-white/60">
@@ -1021,15 +1028,17 @@ export default function Home() {
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Game Master Screen</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">Bowl Holder</h3>
                 <p className="font-mono text-xs text-white/60">
-                  Magnetic alignment.
+                  Snacks at arm&apos;s length.
                 </p>
               </div>
             </div>
+
+            {/* Player Desk */}
             <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
-                FIG A.3
+                FIG A.5
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
                 <span className="font-mono text-[10px] animate-pulse text-white/60">
@@ -1037,15 +1046,17 @@ export default function Home() {
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Game Master Screen</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">Player Desk</h3>
                 <p className="font-mono text-xs text-white/60">
-                  Magnetic alignment.
+                  Personal space for cards and notes.
                 </p>
               </div>
             </div>
+
+            {/* Toppers Box */}
             <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
-                FIG A.3
+                FIG A.6
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
                 <span className="font-mono text-[10px] animate-pulse text-white/60">
@@ -1053,9 +1064,9 @@ export default function Home() {
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Game Master Screen</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">Toppers Box</h3>
                 <p className="font-mono text-xs text-white/60">
-                  Magnetic alignment.
+                  Elegant storage for table toppers.
                 </p>
               </div>
             </div>
