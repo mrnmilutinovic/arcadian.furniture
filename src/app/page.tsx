@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
 import { subscribeToUpdates, type SubscribeState } from "./actions/subscribe";
+import { Footer } from "./components/Footer";
 
 const initialState: SubscribeState = { success: false, message: "" };
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isNavHidden, setIsNavHidden] = useState(false);
   const [isMetric, setIsMetric] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,7 +16,6 @@ export default function Home() {
   // Form states for each subscription form
   const [heroState, heroAction, heroPending] = useActionState(subscribeToUpdates, initialState);
   const [kickstarterState, kickstarterAction, kickstarterPending] = useActionState(subscribeToUpdates, initialState);
-  const [footerState, footerAction, footerPending] = useActionState(subscribeToUpdates, initialState);
 
   const articles = [
     {
@@ -72,16 +71,9 @@ export default function Home() {
       navObserver.observe(photoGrid);
     }
 
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
     return () => {
       observer.disconnect();
       navObserver.disconnect();
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -91,137 +83,108 @@ export default function Home() {
 
       {/* HEADER / NAV */}
       <nav
-        className={`w-full py-6 px-6 md:px-12 flex justify-between items-center fixed top-0 z-40 transition-all duration-300 ${isScrolled ? "pb-14" : "pb-20"} ${isNavHidden ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"}`}
+        className={`w-full py-2 fixed top-0 z-40 transition-all duration-300 ${isNavHidden ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"}`}
       >
-        {/* Background with curved bottom */}
-        <svg
-          className="absolute top-0 left-0 w-full h-full pointer-events-none"
-          preserveAspectRatio="none"
-          viewBox="0 0 1200 50"
-        >
-          <defs>
-            <filter
-              id="headerShadow"
-              x="-50%"
-              y="-50%"
-              width="200%"
-              height="200%"
-            >
-              <feDropShadow dx="0" dy="1" stdDeviation="3" floodOpacity="0.1" />
-            </filter>
-          </defs>
-          <path
-            d="M 0,0 L 1200,0 L 1200,30 Q 900,25 600,45 Q 300,25 0,30 Z"
-            fill="rgba(243, 241, 234, 1)"
-            filter="url(#headerShadow)"
-          />
-          <path
-            d="M 0,30 Q 300,25 600,45 Q 900,25 1200,30"
-            fill="none"
-            stroke="rgba(0,0,0,0.1)"
-            strokeWidth="0.5"
-          />
-        </svg>
+        <div className="flex items-start">
+          {/* Logo container with dark background */}
+          <div
+            className="relative z-50 flex items-start justify-center py-4 pr-4 pl-12 md:pl-16 rounded-r-full"
+            style={{ backgroundColor: "#181818" }}
+          >
+            <Image
+              src="/new-logo.svg"
+              alt="Arcadian Logo"
+              width={80}
+              height={80}
+              className="w-14 h-14 md:w-16 md:h-16"
+            />
+          </div>
 
-        {/* Mobile hamburger menu button */}
-        <button
-          type="button"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`md:hidden relative z-10 flex justify-center items-center w-8 h-8 ${isScrolled ? "bottom-1" : ""}`}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? (
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {/* Main header area */}
+          <div className="flex-1 flex justify-end">
+            {/* Mobile hamburger menu button */}
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden relative z-10 flex justify-center items-center w-8 h-8 mr-4 mt-4"
+              aria-label="Toggle menu"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          )}
-        </button>
+              {isMobileMenuOpen ? (
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
 
-        {/* Desktop nav */}
-        <ul
-          className={`hidden md:flex items-center gap-6 font-mono text-xs uppercase tracking-wider relative z-10 bottom-0 transition-all ${isScrolled ? "bottom-1" : ""}`}
-        >
-          <li>
-            <a
-              href="#transformation"
-              className="hover:text-accent transition-colors"
+            {/* Desktop nav - now on the right with background */}
+            <div
+              className="hidden md:block py-4 pl-8 pr-16 rounded-l-full"
+              style={{ backgroundColor: "#181818" }}
             >
-              The Table
-            </a>
-          </li>
-          <li>
-            <a href="#sizing" className="hover:text-accent transition-colors">
-              Sizes
-            </a>
-          </li>
-          <li>
-            <a href="#finish" className="hover:text-accent transition-colors">
-              Finish
-            </a>
-          </li>
-          <li>
-            <a
-              href="#accessories"
-              className="hover:text-accent transition-colors"
-            >
-              Accessories
-            </a>
-          </li>
-          <li>
-            <a href="#stories" className="hover:text-accent transition-colors">
-              Stories
-            </a>
-          </li>
-          <li>
-            <a href="/logs" className="hover:text-accent transition-colors">
-              Logs
-            </a>
-          </li>
-        </ul>
-        <div
-          className={`absolute left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
-            isScrolled ? "scale-80 top-6 md:top-4" : "scale-100 top-12 md:top-8"
-          }`}
-        >
-          <Image
-            src="/pan-logo.svg"
-            alt="Arcadian Logo"
-            width={120}
-            height={120}
-            className="w-24 h-24 md:w-28 md:h-28"
-          />
-        </div>
-        <div
-          className={`font-mono text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-2 relative z-10 bottom-0 transition-all ${isScrolled ? "bottom-1" : ""}`}
-        >
-          <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-          <span className="hidden md:inline">
-            Kickstarter Launch / March 2026
-          </span>
+              <ul className="flex items-center gap-6 font-mono text-xs uppercase tracking-wider text-white/80">
+                <li>
+                  <a
+                    href="#transformation"
+                    className="hover:text-accent transition-colors"
+                  >
+                    The Table
+                  </a>
+                </li>
+                <li>
+                  <a href="#sizing" className="hover:text-accent transition-colors">
+                    Sizes
+                  </a>
+                </li>
+                <li>
+                  <a href="#finish" className="hover:text-accent transition-colors">
+                    Finish
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#accessories"
+                    className="hover:text-accent transition-colors"
+                  >
+                    Accessories
+                  </a>
+                </li>
+                <li>
+                  <a href="#stories" className="hover:text-accent transition-colors">
+                    Stories
+                  </a>
+                </li>
+                <li>
+                  <a href="/logs" className="hover:text-accent transition-colors">
+                    Logs
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </nav>
 
@@ -1222,101 +1185,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-[#202020] text-paper py-16 md:py-20 px-6 md:px-12 border-t border-white/10">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between gap-16">
-          {/* Left Side: Brand & CTA */}
-          <div className="flex flex-col justify-between items-start">
-            <div className="mb-12">
-              <h2 className="font-staatliches-baskerville text-5xl md:text-8xl mb-0 tracking-tight">
-                Arcadian
-                <span className="opacity-20">Furniture</span>
-              </h2>
-              <p className="font-sans text-xl opacity-60 font-light max-w-lg">
-                Designed for families who play. For game nights that run late.
-                For campaigns that span months.
-              </p>
-            </div>
-
-            <div className="w-full max-w-md">
-              <p className="font-mono text-[10px] uppercase tracking-widest mb-4 opacity-50">
-                Stay Updated
-              </p>
-              <form action={footerAction} className="flex border-b border-white/20 pb-4 w-full group focus-within:border-white/60 transition-colors">
-                <input type="hidden" name="source" value="footer" />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="ENTER YOUR EMAIL"
-                  className="bg-transparent w-full font-mono text-sm focus:outline-none placeholder-white/30 text-white"
-                  disabled={footerPending}
-                />
-                <button
-                  type="submit"
-                  disabled={footerPending}
-                  className="font-mono text-xs uppercase tracking-widest hover:text-accent transition-colors disabled:opacity-50"
-                >
-                  {footerPending ? "..." : "Join"}
-                </button>
-              </form>
-              {footerState.message && (
-                <p className={`font-mono text-[10px] mt-2 ${footerState.success ? "text-green-400" : "text-red-400"}`}>
-                  {footerState.message}
-                </p>
-              )}
-            </div>
-          </div>
-
-          {/* Right Side: Links */}
-          <div className="flex flex-col justify-between md:items-end">
-            <nav className="flex flex-col gap-4 md:text-right">
-              <a
-                href="#"
-                className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
-              >
-                Instagram
-              </a>
-              <a
-                href="#"
-                className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
-              >
-                TikTok
-              </a>
-              <a
-                href="#"
-                className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
-              >
-                Kickstarter
-              </a>
-              <a
-                href="/logs"
-                className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
-              >
-                Logs
-              </a>
-              <div className="h-8"></div>
-              <a
-                href="/terms"
-                className="font-serif text-xl md:text-2xl opacity-60 hover:opacity-100 hover:text-accent transition-colors"
-              >
-                Terms & Conditions
-              </a>
-              <a
-                href="/privacy"
-                className="font-serif text-xl md:text-2xl opacity-60 hover:opacity-100 hover:text-accent transition-colors"
-              >
-                Privacy Policy
-              </a>
-            </nav>
-
-            <div className="mt-16 font-mono text-[10px] uppercase tracking-widest opacity-30 md:text-right">
-              © 2025 Arcadian. All rights reserved.
-              <br />
-              Designed & Crafted in Serbia.
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
