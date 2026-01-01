@@ -11,7 +11,7 @@ export interface SubscribeState {
 
 export async function subscribeToUpdates(
   prevState: SubscribeState,
-  formData: FormData
+  formData: FormData,
 ): Promise<SubscribeState> {
   const email = formData.get("email") as string;
   const source = formData.get("source") as SubscribeSource;

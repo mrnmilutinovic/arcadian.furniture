@@ -37,7 +37,7 @@ export default function BorisJovanovicArticle() {
           Stories
         </div>
       </nav>
-      
+
       {/* Hero */}
       <header className="pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-12">
         <div className="max-w-4xl mx-auto">
@@ -45,7 +45,7 @@ export default function BorisJovanovicArticle() {
             <span className="font-mono text-[10px] uppercase tracking-widest text-accent">
               Behind the Scenes
             </span>
-            <span className="w-1 h-1 bg-ink/30 rounded-full"/>
+            <span className="w-1 h-1 bg-ink/30 rounded-full" />
             <span className="font-mono text-[10px] uppercase tracking-widest text-ink/40">
               September 2025
             </span>
@@ -61,7 +61,7 @@ export default function BorisJovanovicArticle() {
           </p>
         </div>
       </header>
-      
+
       {/* Featured Image */}
       <section className="px-4 md:px-12 mb-16">
         <div className="max-w-6xl mx-auto">
@@ -70,6 +70,7 @@ export default function BorisJovanovicArticle() {
               src="/photos/boris-photo-2.jpeg"
               alt="Boris Jovanovic during the Arcadian photoshoot"
               fill
+              sizes="100vw"
               className="object-cover"
               priority
             />
@@ -79,17 +80,17 @@ export default function BorisJovanovicArticle() {
           </p>
         </div>
       </section>
-      
+
       {/* Article Content */}
       <article className="px-4 md:px-12 pb-16 md:pb-24">
         <div className="max-w-3xl mx-auto">
           <div className="prose prose-lg">
             <p className="font-serif text-xl md:text-2xl leading-relaxed text-ink mb-8">
-              Great photography isn&apos;t about the camera - it&apos;s about the
-              eye behind it. Boris Jovanovic has spent years honing that eye on
-              sets for some of the world&apos;s most demanding brands.
+              Great photography isn&apos;t about the camera - it&apos;s about
+              the eye behind it. Boris Jovanovic has spent years honing that eye
+              on sets for some of the world&apos;s most demanding brands.
             </p>
-            
+
             <h2 className="font-serif text-2xl md:text-4xl mt-10 md:mt-16 mb-4 md:mb-6">
               The Right Collaborator
             </h2>
@@ -100,7 +101,7 @@ export default function BorisJovanovicArticle() {
               publications. But what drew us to him wasn&apos;t the big names—it
               was his ability to find soul in objects.
             </p>
-            
+
             <blockquote className="border-l-4 border-accent pl-4 md:pl-6 my-8 md:my-12">
               <p className="font-serif text-xl md:text-3xl italic text-ink/80 leading-relaxed">
                 &ldquo;A gaming table isn&apos;t furniture. It&apos;s where
@@ -110,15 +111,15 @@ export default function BorisJovanovicArticle() {
                 — Boris Jovanovic
               </cite>
             </blockquote>
-            
+
             <h2 className="font-serif text-2xl md:text-4xl mt-10 md:mt-16 mb-4 md:mb-6">
               Two Days of Magic
             </h2>
             <p className="font-sans text-base md:text-lg text-ink/70 leading-relaxed mb-6">
               The shoot took place over two intensive days in September. We
-              rented and transformed one of the places we really liked into a studio, bringing in the Forest of
-              Radgost team to set up their stunning board game as our hero
-              subject.
+              rented and transformed one of the places we really liked into a
+              studio, bringing in the Forest of Radgost team to set up their
+              stunning board game as our hero subject.
             </p>
             <p className="font-sans text-base md:text-lg text-ink/70 leading-relaxed mb-6">
               Boris worked with natural light when he could, augmenting with
@@ -137,6 +138,7 @@ export default function BorisJovanovicArticle() {
                 src="/photos/boris-photo-3.jpeg"
                 alt="Behind the scenes detail"
                 fill
+                sizes="50vw"
                 className="object-cover"
               />
             </div>
@@ -145,11 +147,12 @@ export default function BorisJovanovicArticle() {
                 src="/photos/boris-photo-4.jpeg"
                 alt="Lighting setup"
                 fill
+                sizes="50vw"
                 className="object-cover"
               />
             </div>
           </div>
-          
+
           <div className="prose prose-lg">
             <h2 className="font-serif text-2xl md:text-4xl mt-10 md:mt-16 mb-4 md:mb-6">
               More Than Product Shots
@@ -192,8 +195,9 @@ export default function BorisJovanovicArticle() {
                   <div className="w-32 h-32 md:w-64 md:h-64 relative">
                     <Image
                       src="/photos/preview-10.jpeg"
-                      alt="Photoshoot result"
+                      alt="Arcadian table in elegant dining room setting"
                       fill
+                      sizes="(max-width: 768px) 128px, 256px"
                       className="object-cover"
                     />
                   </div>
@@ -202,8 +206,9 @@ export default function BorisJovanovicArticle() {
                   <div className="w-32 h-32 md:w-64 md:h-64 relative">
                     <Image
                       src="/photos/preview-11.jpeg"
-                      alt="Photoshoot result"
+                      alt="Handcrafted oak corner detail of Arcadian table"
                       fill
+                      sizes="(max-width: 768px) 128px, 256px"
                       className="object-cover"
                     />
                   </div>
@@ -212,8 +217,9 @@ export default function BorisJovanovicArticle() {
                   <div className="w-32 h-32 md:w-64 md:h-64 relative">
                     <Image
                       src="/photos/preview-12.jpeg"
-                      alt="Photoshoot result"
+                      alt="Magnetic accessory rail mounted on table edge"
                       fill
+                      sizes="(max-width: 768px) 128px, 256px"
                       className="object-cover"
                     />
                   </div>
@@ -222,8 +228,9 @@ export default function BorisJovanovicArticle() {
                   <div className="w-32 h-32 md:w-64 md:h-64 relative">
                     <Image
                       src="/photos/preview-13.jpeg"
-                      alt="Photoshoot result"
+                      alt="Recessed vault area with gaming accessories"
                       fill
+                      sizes="(max-width: 768px) 128px, 256px"
                       className="object-cover"
                     />
                   </div>
@@ -232,8 +239,9 @@ export default function BorisJovanovicArticle() {
                   <div className="w-32 h-32 md:w-64 md:h-64 relative">
                     <Image
                       src="/photos/preview-14.jpeg"
-                      alt="Photoshoot result"
+                      alt="Solid oak table leg with premium finish"
                       fill
+                      sizes="(max-width: 768px) 128px, 256px"
                       className="object-cover"
                     />
                   </div>
@@ -283,7 +291,7 @@ export default function BorisJovanovicArticle() {
           </div>
         </div>
       </article>
-      
+
       {/* Next Article CTA */}
       <section className="bg-ink text-paper py-12 md:py-20 px-4 md:px-12">
         <div className="max-w-4xl mx-auto">
@@ -302,14 +310,13 @@ export default function BorisJovanovicArticle() {
               mythology board game, to showcase how epic adventures deserve an
               epic stage.
             </p>
-            <span
-              className="font-mono text-xs uppercase tracking-widest text-paper/40 group-hover:text-accent transition-colors">
+            <span className="font-mono text-xs uppercase tracking-widest text-paper/40 group-hover:text-accent transition-colors">
               Read Story →
             </span>
           </Link>
         </div>
       </section>
-      
+
       <Footer />
     </>
   );

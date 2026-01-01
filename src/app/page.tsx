@@ -14,8 +14,12 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Form states for each subscription form
-  const [heroState, heroAction, heroPending] = useActionState(subscribeToUpdates, initialState);
-  const [kickstarterState, kickstarterAction, kickstarterPending] = useActionState(subscribeToUpdates, initialState);
+  const [heroState, heroAction, heroPending] = useActionState(
+    subscribeToUpdates,
+    initialState,
+  );
+  const [kickstarterState, kickstarterAction, kickstarterPending] =
+    useActionState(subscribeToUpdates, initialState);
 
   const articles = [
     {
@@ -155,12 +159,18 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#sizing" className="hover:text-accent transition-colors">
+                  <a
+                    href="#sizing"
+                    className="hover:text-accent transition-colors"
+                  >
                     Sizes
                   </a>
                 </li>
                 <li>
-                  <a href="#finish" className="hover:text-accent transition-colors">
+                  <a
+                    href="#finish"
+                    className="hover:text-accent transition-colors"
+                  >
                     Finish
                   </a>
                 </li>
@@ -173,12 +183,18 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#stories" className="hover:text-accent transition-colors">
+                  <a
+                    href="#stories"
+                    className="hover:text-accent transition-colors"
+                  >
                     Stories
                   </a>
                 </li>
                 <li>
-                  <a href="/logs" className="hover:text-accent transition-colors">
+                  <a
+                    href="/logs"
+                    className="hover:text-accent transition-colors"
+                  >
                     Logs
                   </a>
                 </li>
@@ -332,7 +348,9 @@ export default function Home() {
               </button>
             </form>
             {heroState.message && (
-              <p className={`font-mono text-[10px] mt-2 ${heroState.success ? "text-green-600" : "text-red-600"}`}>
+              <p
+                className={`font-mono text-[10px] mt-2 ${heroState.success ? "text-green-600" : "text-red-600"}`}
+              >
                 {heroState.message}
               </p>
             )}
@@ -349,64 +367,72 @@ export default function Home() {
           <div className=" relative">
             <Image
               src="/photos/preview-16.jpeg"
-              alt="Detail 4"
+              alt="Arcadian table close-up showing wood grain texture"
               fill
+              sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover"
             />
           </div>
           <div className=" relative">
             <Image
               src="/photos/preview-17.jpeg"
-              alt="Detail 4"
+              alt="Board game components on Arcadian table surface"
               fill
+              sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover"
             />
           </div>
           <div className=" relative">
             <Image
               src="/photos/preview-11.jpeg"
-              alt="Detail 2"
+              alt="Handcrafted oak corner detail of Arcadian table"
               fill
+              sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover"
             />
           </div>
           <div className=" relative">
             <Image
               src="/photos/preview-12.jpeg"
-              alt="Detail 3"
+              alt="Magnetic accessory rail mounted on table edge"
               fill
+              sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover"
             />
           </div>
           <div className=" relative">
             <Image
               src="/photos/preview-13.jpeg"
-              alt="Detail 4"
+              alt="Recessed vault area with gaming accessories"
               fill
+              sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover"
             />
           </div>
           <div className=" relative">
             <Image
               src="/photos/preview-15.jpeg"
-              alt="Detail 4"
+              alt="Cup holder accessory attached to table rail"
               fill
+              sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover"
             />
           </div>
           <div className=" relative">
             <Image
               src="/photos/preview-10.jpeg"
-              alt="Detail 1"
+              alt="Arcadian table in elegant dining room setting"
               fill
+              sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover"
             />
           </div>
           <div className=" relative">
             <Image
               src="/photos/preview-14.jpeg"
-              alt="Detail 4"
+              alt="Solid oak table leg with premium finish"
               fill
+              sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover"
             />
           </div>
@@ -436,6 +462,7 @@ export default function Home() {
                     src="/photos/covered-scene-3.jpeg"
                     alt="Table Transformation - Dining"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                 </div>
@@ -460,6 +487,7 @@ export default function Home() {
                     src="/photos/uncovering-scene-2.jpeg"
                     alt="Table Transformation - Gaming"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                 </div>
@@ -529,6 +557,7 @@ export default function Home() {
                     src="/photos/size-small-3.jpeg"
                     alt="The Standard - Seats 4"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                 </div>
@@ -576,6 +605,7 @@ export default function Home() {
                     src="/photos/size-big-2.jpeg"
                     alt="The Grand - Seats 6-8"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                 </div>
@@ -650,6 +680,7 @@ export default function Home() {
                   src="/photos/assembly.jpeg"
                   alt="Easy Assembly"
                   fill
+                  sizes="100vw"
                   className="object-cover opacity-60"
                 />
               </div>
@@ -792,6 +823,7 @@ export default function Home() {
                   src="/photos/light.jpeg"
                   alt="Arcadian Dawn - Light Oak Finish"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -814,6 +846,7 @@ export default function Home() {
                   src="/photos/dark.jpeg"
                   alt="Pan's Shadow - Dark Walnut Finish"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -879,6 +912,7 @@ export default function Home() {
               src="/photos/close-up-rail-scene.jpg"
               alt="Magnetic Rail System"
               fill
+              sizes="100vw"
               className="object-cover"
             />
           </div>
@@ -918,7 +952,9 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between md:items-end mb-10 border-b border-white/10 pb-6 gap-4">
-            <h2 className="font-serif text-5xl md:text-6xl text-white">The Ecosystem.</h2>
+            <h2 className="font-serif text-5xl md:text-6xl text-white">
+              The Ecosystem.
+            </h2>
             <div className="font-mono text-xs md:text-right text-white">
               <div className="uppercase tracking-widest mb-1">
                 Modular Add-ons
@@ -934,10 +970,16 @@ export default function Home() {
                 FIG A.1
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
-                <img src="/accessories/mug-holder-wireframe.jpeg" alt="Cup & Mug holder wireframe" className="object-cover"/>
+                <img
+                  src="/accessories/mug-holder-wireframe.jpeg"
+                  alt="Cup & Mug holder wireframe"
+                  className="object-cover"
+                />
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Cup & Mug Holder</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">
+                  Cup & Mug Holder
+                </h3>
                 <p className="font-mono text-xs text-white/60">
                   Keep drinks safe and within reach.
                 </p>
@@ -955,7 +997,9 @@ export default function Home() {
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Universal Tray</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">
+                  Universal Tray
+                </h3>
                 <p className="font-mono text-xs text-white/60">
                   Versatile storage for any game.
                 </p>
@@ -973,7 +1017,9 @@ export default function Home() {
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Dice Tray</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">
+                  Dice Tray
+                </h3>
                 <p className="font-mono text-xs text-white/60">
                   Roll with precision.
                 </p>
@@ -991,7 +1037,9 @@ export default function Home() {
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Bowl Holder</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">
+                  Bowl Holder
+                </h3>
                 <p className="font-mono text-xs text-white/60">
                   Snacks at arm&apos;s length.
                 </p>
@@ -1009,7 +1057,9 @@ export default function Home() {
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Player Desk</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">
+                  Player Desk
+                </h3>
                 <p className="font-mono text-xs text-white/60">
                   Personal space for cards and notes.
                 </p>
@@ -1027,7 +1077,9 @@ export default function Home() {
                 </span>
               </div>
               <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">Toppers Box</h3>
+                <h3 className="font-serif text-2xl mb-2 text-white">
+                  Toppers Box
+                </h3>
                 <p className="font-mono text-xs text-white/60">
                   Elegant storage for table toppers.
                 </p>
@@ -1062,6 +1114,7 @@ export default function Home() {
                       src={article.image}
                       alt={article.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -1130,7 +1183,10 @@ export default function Home() {
               </p>
 
               {/* Email signup */}
-              <form action={kickstarterAction} className="flex flex-col sm:flex-row gap-3 max-w-md">
+              <form
+                action={kickstarterAction}
+                className="flex flex-col sm:flex-row gap-3 max-w-md"
+              >
                 <input type="hidden" name="source" value="kickstarter" />
                 <input
                   type="email"
@@ -1148,7 +1204,9 @@ export default function Home() {
                 </button>
               </form>
               {kickstarterState.message && (
-                <p className={`font-mono text-xs mt-2 ${kickstarterState.success ? "text-green-700" : "text-red-700"}`}>
+                <p
+                  className={`font-mono text-xs mt-2 ${kickstarterState.success ? "text-green-700" : "text-red-700"}`}
+                >
                   {kickstarterState.message}
                 </p>
               )}

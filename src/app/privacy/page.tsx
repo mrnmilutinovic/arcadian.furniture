@@ -134,10 +134,10 @@ export default function PrivacyPage() {
               </li>
             </ul>
             <p className="mt-4">
-              Please allow up to 48 hours for your request to be processed.
-              Note that even after unsubscribing from marketing emails, you may
-              still receive transactional emails related to any orders or
-              customer service inquiries.
+              Please allow up to 48 hours for your request to be processed. Note
+              that even after unsubscribing from marketing emails, you may still
+              receive transactional emails related to any orders or customer
+              service inquiries.
             </p>
           </section>
 

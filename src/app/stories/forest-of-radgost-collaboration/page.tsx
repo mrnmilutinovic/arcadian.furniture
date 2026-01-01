@@ -70,12 +70,14 @@ export default function ForestOfRadgostArticle() {
               src="/photos/radgost-3.jpeg"
               alt="Forest of Radgost board game on the Arcadian table"
               fill
+              sizes="100vw"
               className="object-cover"
               priority
             />
           </div>
           <p className="font-mono text-[10px] text-ink/40 mt-4 text-center uppercase tracking-widest">
-            Forest of Radgost set up on the Arcadian Grand in Arcadian Dawn finish
+            Forest of Radgost set up on the Arcadian Grand in Arcadian Dawn
+            finish
           </p>
         </div>
       </section>
@@ -130,16 +132,18 @@ export default function ForestOfRadgostArticle() {
             <div className="aspect-[4/5] relative bg-ink/5">
               <Image
                 src="/photos/radgost-1.jpeg"
-                alt="Game detail shot"
+                alt="Forest of Radgost game miniatures and cards close-up"
                 fill
+                sizes="50vw"
                 className="object-cover"
               />
             </div>
             <div className="aspect-[4/5] relative bg-ink/5">
               <Image
                 src="/photos/radgost-2.jpeg"
-                alt="Table detail with game components"
+                alt="Arcadian table vault with Forest of Radgost components"
                 fill
+                sizes="50vw"
                 className="object-cover"
               />
             </div>
