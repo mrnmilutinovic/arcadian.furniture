@@ -292,9 +292,10 @@ export default function Home() {
         <div
           className="absolute inset-0 pointer-events-none opacity-30"
           style={{
-            backgroundImage: "url(/table.svg)",
-            backgroundSize: "cover",
+            backgroundImage: "url(/temp.png)",
+            backgroundSize: "30%",
             backgroundPosition: "center",
+            backgroundRepeat: "repeat",
           }}
         />
 
@@ -564,7 +565,7 @@ export default function Home() {
                 <div className="bg-[#EAE8E1] overflow-hidden">
                   <div className="flex justify-center items-center py-8 h-64 md:h-[500px]">
                     <img
-                      src="/small-table.svg"
+                      src="/graphics/small-table.svg"
                       alt="The Standard table diagram"
                       className="w-auto h-[300px] object-contain -rotate-12"
                     />
@@ -612,7 +613,7 @@ export default function Home() {
                 <div className="bg-[#EAE8E1] overflow-hidden">
                   <div className="flex justify-center items-center h-64 md:h-[500px] py-8">
                     <img
-                      src="/large-table.svg"
+                      src="/graphics/large-table.svg"
                       alt="The Grand table diagram"
                       className="w-auto h-[300px] object-contain -rotate-12"
                     />
