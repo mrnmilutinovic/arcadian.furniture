@@ -93,6 +93,12 @@ export function Footer() {
             >
               Logs
             </Link>
+            <Link
+              href="/blog"
+              className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
+            >
+              Blog
+            </Link>
             <div className="h-8" />
             <Link
               href="/terms"
