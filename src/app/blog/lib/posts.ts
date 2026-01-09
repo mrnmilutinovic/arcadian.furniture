@@ -86,6 +86,81 @@ const posts: BlogPost[] = [
       "walnut vs oak furniture",
     ],
   },
+  {
+    slug: "diy-vs-buying-board-game-table",
+    title: "DIY Board Game Table vs Buying: The Real Cost Breakdown",
+    excerpt:
+      "Building your own gaming table sounds appealing until you add up the tools, materials, and hours. Here's an honest comparison to help you decide.",
+    category: "Buyer's Guide",
+    date: "2025-01-04",
+    readingTime: "8 min read",
+    author: "Arcadian Team",
+    keywords: [
+      "DIY board game table",
+      "build your own gaming table",
+      "board game table cost",
+    ],
+  },
+  {
+    slug: "board-game-table-vs-gaming-table",
+    title: "Board Game Table vs Gaming Table: What's the Difference?",
+    excerpt:
+      "The terms get used interchangeably, but they're not the same thing. Understanding the distinction helps you buy the right table for your needs.",
+    category: "Buyer's Guide",
+    date: "2025-01-03",
+    readingTime: "5 min read",
+    author: "Arcadian Team",
+    keywords: [
+      "board game table vs gaming table",
+      "gaming table types",
+      "tabletop gaming table",
+    ],
+  },
+  {
+    slug: "perfect-game-night-guide",
+    title: "Hosting the Perfect Game Night: A Complete Guide",
+    excerpt:
+      "Great game nights are about more than great games. From setup to snacks to saying goodnight, here's how to host sessions people remember.",
+    category: "Lifestyle",
+    date: "2025-01-02",
+    readingTime: "7 min read",
+    author: "Arcadian Team",
+    keywords: [
+      "game night hosting",
+      "board game night tips",
+      "how to host game night",
+    ],
+  },
+  {
+    slug: "board-game-table-care-guide",
+    title: "Caring for Your Board Game Table: A Maintenance Guide",
+    excerpt:
+      "Your gaming table is an investment. Proper care keeps it looking beautiful and functioning perfectly for decades. Here's how to protect it.",
+    category: "Craftsmanship",
+    date: "2025-01-01",
+    readingTime: "6 min read",
+    author: "Arcadian Team",
+    keywords: [
+      "board game table care",
+      "wood table maintenance",
+      "gaming table cleaning",
+    ],
+  },
+  {
+    slug: "board-gaming-renaissance",
+    title: "The Board Gaming Renaissance: Why Premium Tables Are Having a Moment",
+    excerpt:
+      "Board games are bigger than ever, and so is the demand for dedicated gaming furniture. What's driving the trend and where it's heading.",
+    category: "Industry",
+    date: "2024-12-31",
+    readingTime: "6 min read",
+    author: "Arcadian Team",
+    keywords: [
+      "board game trends",
+      "tabletop gaming growth",
+      "gaming furniture market",
+    ],
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {
