@@ -59,6 +59,20 @@ Modular add-ons crafted from matching premium hardwoods:
 - **Forest of Radgost**: Partnership with Slavic mythology board game creators
 - **Boris Jovanovic**: Product photography by Netflix and Adidas photographer
 
+## Blog
+
+Expert guides on board game tables, gaming furniture, and creating the perfect game night.
+
+### Published Articles
+- [Kickstarter Board Game Tables: A Backer's Complete Guide](https://arcadian.furniture/blog/kickstarter-board-game-table-guide) - Everything you need to know before backing a board game table on Kickstarter.
+
+### Upcoming Topics
+- How to Choose the Right Board Game Table Size
+- 5 Features Every Board Game Table Needs
+- Board Game Table Wood Types: Oak vs Walnut vs Maple
+- DIY Board Game Table vs Buying: The Real Cost
+- Board Game Tables That Double as Dining Tables
+
 ## Contact & Links
 
 - Website: https://arcadian.furniture
@@ -68,6 +82,7 @@ Modular add-ons crafted from matching premium hardwoods:
 ## Pages
 
 - [Home](https://arcadian.furniture/)
+- [Blog](https://arcadian.furniture/blog)
 - [Development Logs](https://arcadian.furniture/logs)
 - [Forest of Radgost Collaboration](https://arcadian.furniture/stories/forest-of-radgost-collaboration)
 - [Behind the Lens with Boris Jovanovic](https://arcadian.furniture/stories/boris-jovanovic-photoshoot)
