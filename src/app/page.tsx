@@ -965,17 +965,15 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
-            {/* Cup & Mug Holder - with image */}
+            {/* Cup & Mug Holder */}
             <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
               <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
                 FIG A.1
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
-                <img
-                  src="/accessories/mug-holder-wireframe.jpeg"
-                  alt="Cup & Mug holder wireframe"
-                  className="object-cover"
-                />
+                <span className="font-mono text-[10px] animate-pulse text-white/60">
+                  [ SCHEMATIC PENDING ]
+                </span>
               </div>
               <div>
                 <h3 className="font-serif text-2xl mb-2 text-white">
