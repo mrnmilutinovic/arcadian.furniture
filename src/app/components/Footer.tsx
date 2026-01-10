@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useActionState } from "react";
-import { subscribeToUpdates, type SubscribeState } from "../actions/subscribe";
+import { type SubscribeState, subscribeToUpdates } from "../actions/subscribe";
 
 const initialState: SubscribeState = { success: false, message: "" };
 

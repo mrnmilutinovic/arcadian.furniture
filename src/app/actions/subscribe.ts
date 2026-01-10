@@ -1,6 +1,10 @@
 "use server";
 
-import { analytics } from "@/lib/analytics";
+import type {
+  EventCreateQueryV2,
+  SubscriptionCreateJobCreateQuery,
+} from "klaviyo-api";
+import { eventsApi, profilesApi } from "@/lib/analytics";
 
 export type SubscribeSource = "hero" | "kickstarter" | "footer";
 
@@ -10,7 +14,7 @@ export interface SubscribeState {
 }
 
 export async function subscribeToUpdates(
-  prevState: SubscribeState,
+  _prevState: SubscribeState,
   formData: FormData,
 ): Promise<SubscribeState> {
   const email = formData.get("email") as string;
@@ -23,37 +27,84 @@ export async function subscribeToUpdates(
     };
   }
 
+  const listId = process.env.KLAVIYO_LIST_ID;
+  if (!listId) {
+    console.error("KLAVIYO_LIST_ID is not configured");
+    return {
+      success: false,
+      message: "Something went wrong. Please try again.",
+    };
+  }
+
   try {
-    // Identify the user in Customer.io
-    analytics.identify({
-      userId: email,
-      traits: {
-        email: email,
-        signup_source: source,
-        signup_date: new Date().toISOString(),
-        campaign: "kickstarter-2026",
+    // Subscribe the profile to the list with email marketing consent
+    const subscriptionQuery: SubscriptionCreateJobCreateQuery = {
+      data: {
+        type: "profile-subscription-bulk-create-job",
+        attributes: {
+          customSource: `Arcadian Website - ${source}`,
+          profiles: {
+            data: [
+              {
+                type: "profile",
+                attributes: {
+                  email: email,
+                  subscriptions: {
+                    email: {
+                      marketing: {
+                        consent: "SUBSCRIBED",
+                      },
+                    },
+                  },
+                },
+              },
+            ],
+          },
+        },
+        relationships: {
+          list: {
+            data: {
+              type: "list",
+              id: listId,
+            },
+          },
+        },
       },
-    });
+    };
+
+    await profilesApi.bulkSubscribeProfiles(subscriptionQuery);
 
     // Track the subscription event
-    analytics.track({
-      userId: email,
-      event: "Subscribed to Updates",
-      properties: {
-        source: source,
-        campaign: "kickstarter-2026",
+    const eventQuery: EventCreateQueryV2 = {
+      data: {
+        type: "event",
+        attributes: {
+          properties: {
+            source: source,
+            campaign: "kickstarter-2026",
+            signup_date: new Date().toISOString(),
+          },
+          metric: {
+            data: {
+              type: "metric",
+              attributes: {
+                name: "Subscribed to Updates",
+              },
+            },
+          },
+          profile: {
+            data: {
+              type: "profile",
+              attributes: {
+                email: email,
+              },
+            },
+          },
+        },
       },
-    });
+    };
 
-    // Add to the pre-launch group
-    analytics.group({
-      userId: email,
-      groupId: "kickstarter-prelaunch",
-      traits: {
-        name: "Kickstarter Pre-Launch",
-        campaign: "kickstarter-2026",
-      },
-    });
+    await eventsApi.createEvent(eventQuery);
 
     return {
       success: true,
@@ -61,6 +112,12 @@ export async function subscribeToUpdates(
     };
   } catch (error) {
     console.error("Subscription error:", error);
+    // Log detailed error response from Klaviyo
+    if (error && typeof error === "object" && "response" in error) {
+      const axiosError = error as { response?: { data?: unknown; status?: number } };
+      console.error("Klaviyo API response:", JSON.stringify(axiosError.response?.data, null, 2));
+      console.error("Status:", axiosError.response?.status);
+    }
     return {
       success: false,
       message: "Something went wrong. Please try again.",

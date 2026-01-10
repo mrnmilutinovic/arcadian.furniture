@@ -1,6 +1,11 @@
-import { Analytics } from "@customerio/cdp-analytics-node";
+import { ApiKeySession, EventsApi, ProfilesApi } from "klaviyo-api";
 
-export const analytics = new Analytics({
-  writeKey: "3fa8f789d4c3106f9847",
-  host: "https://cdp-eu.customer.io",
-});
+const apiKey = process.env.KLAVIYO_PRIVATE_API_KEY;
+if (!apiKey) {
+  throw new Error("KLAVIYO_PRIVATE_API_KEY environment variable is required");
+}
+
+const session = new ApiKeySession(apiKey);
+
+export const profilesApi = new ProfilesApi(session);
+export const eventsApi = new EventsApi(session);
