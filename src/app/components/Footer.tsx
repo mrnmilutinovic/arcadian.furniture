@@ -115,7 +115,7 @@ export function Footer() {
           </nav>
 
           <div className="mt-16 font-mono text-[10px] uppercase tracking-widest opacity-30 md:text-right">
-            © 2025 Arcadian. All rights reserved.
+            © {new Date().getFullYear()} Arcadian. All rights reserved.
             <br />
             Designed & Crafted in Serbia.
           </div>
