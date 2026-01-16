@@ -79,7 +79,7 @@ body {
 
 /* Hero Section Styles */
 .hero-section {
-  --hero-orange: #F08A01;
+  --hero-orange: #f08a01;
 }
 
 .hero-section input::placeholder {

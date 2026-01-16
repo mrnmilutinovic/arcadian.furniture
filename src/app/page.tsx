@@ -10,7 +10,6 @@ import { Hero } from "./components/Hero";
 const initialState: SubscribeState = { success: false, message: "" };
 
 export default function Home() {
-  const [isNavHidden, setIsNavHidden] = useState(false);
   const [isMetric, setIsMetric] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -55,26 +54,8 @@ export default function Home() {
       observer.observe(el);
     });
 
-    // Observer for nav visibility
-    const navObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.target.id === "photo-grid") {
-            setIsNavHidden(entry.isIntersecting);
-          }
-        });
-      },
-      { threshold: 0.3 },
-    );
-
-    const photoGrid = document.getElementById("photo-grid");
-    if (photoGrid) {
-      navObserver.observe(photoGrid);
-    }
-
     return () => {
       observer.disconnect();
-      navObserver.disconnect();
     };
   }, []);
 
@@ -83,121 +64,101 @@ export default function Home() {
       {/* <div className="noise" /> */}
 
       {/* HEADER / NAV */}
-      <nav
-        className={`w-full py-2 fixed top-0 z-40 transition-all duration-300 ${isNavHidden ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"}`}
-      >
-        <div className="flex items-start">
-          {/* Logo container with dark background */}
-          <div
-            className="relative z-50 flex items-start justify-center py-4 pr-4 pl-12 md:pl-16 rounded-r-full"
-            style={{ backgroundColor: "#181818" }}
+      <nav className="w-full py-4 fixed top-0 z-40 flex justify-center px-4">
+        {/* Centered navigation console with logo */}
+        <div
+          className="flex items-center gap-[80px] py-3 px-4 md:pl-6 md:pr-10 rounded-full"
+          style={{ backgroundColor: "#181818" }}
+        >
+          {/* Logo */}
+          <Image
+            src="/new-logo.svg"
+            alt="Arcadian Logo"
+            width={80}
+            height={80}
+            className="w-10 h-10 md:w-12 md:h-12"
+          />
+
+          {/* Desktop nav links */}
+          <ul className="hidden md:flex items-center gap-6 font-mono text-xs uppercase tracking-wider text-white/80">
+            <li>
+              <a
+                href="#transformation"
+                className="hover:text-accent transition-colors"
+              >
+                The Table
+              </a>
+            </li>
+            <li>
+              <a href="#sizing" className="hover:text-accent transition-colors">
+                Sizes
+              </a>
+            </li>
+            <li>
+              <a href="#finish" className="hover:text-accent transition-colors">
+                Finish
+              </a>
+            </li>
+            <li>
+              <a
+                href="#accessories"
+                className="hover:text-accent transition-colors"
+              >
+                Accessories
+              </a>
+            </li>
+            <li>
+              <a
+                href="#stories"
+                className="hover:text-accent transition-colors"
+              >
+                Stories
+              </a>
+            </li>
+            <li>
+              <a href="/logs" className="hover:text-accent transition-colors">
+                Logs
+              </a>
+            </li>
+          </ul>
+
+          {/* Mobile hamburger menu button */}
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden flex justify-center items-center w-8 h-8 text-white"
+            aria-label="Toggle menu"
           >
-            <Image
-              src="/new-logo.svg"
-              alt="Arcadian Logo"
-              width={80}
-              height={80}
-              className="w-14 h-14 md:w-16 md:h-16"
-            />
-          </div>
-
-          {/* Main header area */}
-          <div className="flex-1 flex justify-end">
-            {/* Mobile hamburger menu button */}
-            <button
-              type="button"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden relative z-10 flex justify-center items-center w-8 h-8 mr-4 mt-4"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
-            </button>
-
-            {/* Desktop nav - now on the right with background */}
-            <div
-              className="hidden md:block py-4 pl-8 pr-16 rounded-l-full"
-              style={{ backgroundColor: "#181818" }}
-            >
-              <ul className="flex items-center gap-6 font-mono text-xs uppercase tracking-wider text-white/80">
-                <li>
-                  <a
-                    href="#transformation"
-                    className="hover:text-accent transition-colors"
-                  >
-                    The Table
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#sizing"
-                    className="hover:text-accent transition-colors"
-                  >
-                    Sizes
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#finish"
-                    className="hover:text-accent transition-colors"
-                  >
-                    Finish
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#accessories"
-                    className="hover:text-accent transition-colors"
-                  >
-                    Accessories
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#stories"
-                    className="hover:text-accent transition-colors"
-                  >
-                    Stories
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/logs"
-                    className="hover:text-accent transition-colors"
-                  >
-                    Logs
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+            {isMobileMenuOpen ? (
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
         </div>
       </nav>
 

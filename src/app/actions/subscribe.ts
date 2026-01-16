@@ -114,8 +114,13 @@ export async function subscribeToUpdates(
     console.error("Subscription error:", error);
     // Log detailed error response from Klaviyo
     if (error && typeof error === "object" && "response" in error) {
-      const axiosError = error as { response?: { data?: unknown; status?: number } };
-      console.error("Klaviyo API response:", JSON.stringify(axiosError.response?.data, null, 2));
+      const axiosError = error as {
+        response?: { data?: unknown; status?: number };
+      };
+      console.error(
+        "Klaviyo API response:",
+        JSON.stringify(axiosError.response?.data, null, 2),
+      );
       console.error("Status:", axiosError.response?.status);
     }
     return {

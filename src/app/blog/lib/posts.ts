@@ -148,7 +148,8 @@ const posts: BlogPost[] = [
   },
   {
     slug: "board-gaming-renaissance",
-    title: "The Board Gaming Renaissance: Why Premium Tables Are Having a Moment",
+    title:
+      "The Board Gaming Renaissance: Why Premium Tables Are Having a Moment",
     excerpt:
       "Board games are bigger than ever, and so is the demand for dedicated gaming furniture. What's driving the trend and where it's heading.",
     category: "Industry",
@@ -166,7 +167,7 @@ const posts: BlogPost[] = [
 export function getAllPosts(): BlogPost[] {
   // Sort by date, newest first
   return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 }
 
