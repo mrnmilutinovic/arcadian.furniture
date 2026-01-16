@@ -63,182 +63,139 @@ export default function Home() {
     <>
       {/* <div className="noise" /> */}
 
-      {/* HEADER / NAV */}
-      <nav className="w-full py-4 fixed top-0 z-40 flex justify-center px-4">
-        {/* Centered navigation console with logo */}
-        <div
-          className="flex items-center gap-[80px] py-3 px-4 md:pl-6 md:pr-10 rounded-full"
-          style={{ backgroundColor: "#181818" }}
-        >
-          {/* Logo */}
-          <Image
-            src="/new-logo.svg"
-            alt="Arcadian Logo"
-            width={80}
-            height={80}
-            className="w-10 h-10 md:w-12 md:h-12"
-          />
+      {/* HEADER / NAV — Split Console */}
+      <nav className="w-full fixed top-0 z-40 pointer-events-none">
+        <div className="flex items-start justify-between pr-4 md:pr-6 pt-4 md:pt-6">
+          {/* Left: Logo Ribbon dropping from top */}
+          <div className="pointer-events-auto fixed top-0 left-4 md:left-6">
+            <div
+              className="relative w-16 md:w-20 pt-10 pb-5 md:pt-14 md:pb-6 rounded-b-full flex items-end justify-center"
+              style={{
+                backgroundColor: "#1a1918",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.4)",
+              }}
+            >
+              {/* Logo */}
+              <Image
+                src="/new-logo.svg"
+                alt="Arcadian Logo"
+                width={80}
+                height={80}
+                className="w-9 h-9 md:w-11 md:h-11"
+              />
 
-          {/* Desktop nav links */}
-          <ul className="hidden md:flex items-center gap-6 font-mono text-xs uppercase tracking-wider text-white/80">
-            <li>
-              <a
-                href="#transformation"
-                className="hover:text-accent transition-colors"
-              >
-                The Table
-              </a>
-            </li>
-            <li>
-              <a href="#sizing" className="hover:text-accent transition-colors">
-                Sizes
-              </a>
-            </li>
-            <li>
-              <a href="#finish" className="hover:text-accent transition-colors">
-                Finish
-              </a>
-            </li>
-            <li>
-              <a
-                href="#accessories"
-                className="hover:text-accent transition-colors"
-              >
-                Accessories
-              </a>
-            </li>
-            <li>
-              <a
-                href="#stories"
-                className="hover:text-accent transition-colors"
-              >
-                Stories
-              </a>
-            </li>
-            <li>
-              <a href="/logs" className="hover:text-accent transition-colors">
-                Logs
-              </a>
-            </li>
-          </ul>
+              {/* Bottom subtle glow */}
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            </div>
+          </div>
 
-          {/* Mobile hamburger menu button */}
-          <button
-            type="button"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden flex justify-center items-center w-8 h-8 text-white"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
+          {/* Right: Navigation Console */}
+          <div className="pointer-events-auto ml-auto">
+            {/* Desktop Console */}
+            <div
+              className="hidden md:flex items-center gap-1 px-2 py-2 rounded-full"
+              style={{
+                backgroundColor: "#1a1918",
+                boxShadow:
+                  "0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
+              }}
+            >
+              {[
+                { href: "#transformation", label: "Table" },
+                { href: "#sizing", label: "Sizes" },
+                { href: "#finish", label: "Finish" },
+                { href: "#accessories", label: "Add-ons" },
+                { href: "#stories", label: "Stories" },
+                { href: "/logs", label: "Logs" },
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="px-4 py-2 rounded-full font-mono text-[11px] uppercase tracking-wide text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden flex items-center gap-3 px-4 py-3 rounded-full"
+              style={{
+                backgroundColor: "#1a1918",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+              }}
+              aria-label="Toggle menu"
+            >
+              <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
+                {isMobileMenuOpen ? "Close" : "Menu"}
+              </span>
+              <div className="flex flex-col gap-1">
+                <span
+                  className={`block w-4 h-px bg-white/60 transition-all duration-300 origin-center ${isMobileMenuOpen ? "rotate-45 translate-y-[3px]" : ""}`}
                 />
-              </svg>
-            ) : (
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
+                <span
+                  className={`block w-4 h-px bg-white/60 transition-all duration-300 origin-center ${isMobileMenuOpen ? "-rotate-45 -translate-y-[2px]" : ""}`}
                 />
-              </svg>
-            )}
-          </button>
+              </div>
+            </button>
+          </div>
         </div>
       </nav>
 
-      {/* Mobile slide-out menu */}
+      {/* Mobile Menu Panel */}
       <div
-        className={`fixed inset-0 z-30 md:hidden transition-all duration-300 ${isMobileMenuOpen ? "visible" : "invisible"}`}
+        className={`fixed inset-0 z-30 md:hidden transition-all duration-300 ${isMobileMenuOpen ? "visible" : "invisible pointer-events-none"}`}
       >
         {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-ink/50 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0"}`}
+          style={{ backgroundColor: "rgba(26,25,24,0.95)" }}
           onClick={() => setIsMobileMenuOpen(false)}
         />
 
-        {/* Menu panel */}
+        {/* Menu Panel - drops from top right */}
         <div
-          className={`absolute top-0 left-0 h-full w-72 bg-paper shadow-xl transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
+          className={`absolute top-24 right-4 left-4 transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
         >
-          <div className="pt-24 px-6">
-            <ul className="flex flex-col gap-4 font-mono text-sm uppercase tracking-wider">
-              <li>
+          <div
+            className="p-2 rounded-2xl"
+            style={{ backgroundColor: "#1a1918" }}
+          >
+            <nav className="flex flex-col gap-1">
+              {[
+                { href: "#transformation", label: "The Table" },
+                { href: "#sizing", label: "Sizes" },
+                { href: "#finish", label: "Finish" },
+                { href: "#accessories", label: "Accessories" },
+                { href: "#stories", label: "Stories" },
+                { href: "/logs", label: "Logs" },
+              ].map((item, index) => (
                 <a
-                  href="#transformation"
+                  key={item.href}
+                  href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 hover:text-accent transition-colors"
+                  className="px-4 py-3 rounded-xl font-mono text-sm uppercase tracking-wider text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                  style={{
+                    transitionDelay: isMobileMenuOpen ? `${index * 30}ms` : "0ms",
+                  }}
                 >
-                  The Table
+                  {item.label}
                 </a>
-              </li>
-              <li>
-                <a
-                  href="#sizing"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 hover:text-accent transition-colors"
-                >
-                  Sizes
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#finish"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 hover:text-accent transition-colors"
-                >
-                  Finish
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#accessories"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 hover:text-accent transition-colors"
-                >
-                  Accessories
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#stories"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 hover:text-accent transition-colors"
-                >
-                  Stories
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/logs"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 hover:text-accent transition-colors"
-                >
-                  Logs
-                </a>
-              </li>
-            </ul>
+              ))}
+            </nav>
 
-            <div className="mt-8 pt-8 border-t border-ink/10">
-              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-ink/60">
-                <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                Kickstarter Launch / March 2026
-              </div>
+            {/* Footer */}
+            <div className="px-4 py-3 mt-2 border-t border-white/10 flex items-center gap-2">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />
+              </span>
+              <span className="font-mono text-[9px] uppercase tracking-wider text-white/40">
+                Kickstarter · March 2026
+              </span>
             </div>
           </div>
         </div>

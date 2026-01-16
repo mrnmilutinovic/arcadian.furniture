@@ -57,8 +57,6 @@ export function Hero() {
             }`}
           >
             <div className="bg-[#1a1918] text-white p-6 md:p-10 relative overflow-hidden w-full md:min-w-[400px] lg:w-auto">
-              {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-16 h-16 bg-white/10" />
 
               {/* Top section - Kickstarter branding */}
               <div className="relative z-10 mb-6 md:mb-8">
@@ -76,9 +74,6 @@ export function Hero() {
                   MARCH 2026
                 </p>
               </div>
-
-              {/* Divider */}
-              <div className="w-full h-px bg-white/20 mb-6 md:mb-8" />
 
               {/* Form section */}
               <form action={heroAction} className="relative z-10">
