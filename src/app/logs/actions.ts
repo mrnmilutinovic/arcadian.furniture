@@ -1,6 +1,7 @@
 "use server";
 
 import { list } from "@vercel/blob";
+import { unstable_noStore as noStore } from "next/cache";
 
 export interface LogPhoto {
   url: string;
@@ -19,6 +20,8 @@ const PHOTOS_PER_PAGE = 12;
 export async function getLogPhotos(
   cursor?: string,
 ): Promise<GetLogPhotosResult> {
+  noStore();
+
   const result = await list({
     prefix: "logs/",
     limit: PHOTOS_PER_PAGE,
