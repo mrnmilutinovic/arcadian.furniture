@@ -11,35 +11,8 @@ export const metadata = {
 export default function BorisJovanovicArticle() {
   return (
     <>
-      {/* Navigation */}
-      <nav className="w-full py-4 md:py-6 px-4 md:px-12 flex justify-between items-start fixed top-0 z-40">
-        <Link
-          href="/"
-          className="font-mono text-[10px] md:text-xs uppercase tracking-widest hover:text-accent transition-colors pt-2"
-        >
-          <span className="hidden sm:inline">← Back to Home</span>
-          <span className="sm:hidden">← Back</span>
-        </Link>
-        <Link
-          href="/"
-          className="absolute left-1/2 -translate-x-1/2 top-0 flex items-center justify-center px-6 pb-4 pt-8 rounded-b-full"
-          style={{ backgroundColor: "#181818" }}
-        >
-          <Image
-            src="/new-logo.svg"
-            alt="Arcadian Logo"
-            width={60}
-            height={60}
-            className="w-10 h-10 md:w-12 md:h-12"
-          />
-        </Link>
-        <div className="font-mono text-[10px] uppercase tracking-widest text-ink/50 pt-2">
-          Stories
-        </div>
-      </nav>
-
       {/* Hero */}
-      <header className="pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-12">
+      <header className="pt-28 md:pt-36 pb-12 md:pb-16 px-4 md:px-12">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
             <span className="font-mono text-[10px] uppercase tracking-widest text-accent">

@@ -8,6 +8,7 @@ import {
   Staatliches,
 } from "next/font/google";
 import "./globals.css";
+import { Header } from "./components/Header";
 
 const staatliches = Staatliches({
   variable: "--font-staatliches-baskerville",
@@ -95,7 +96,7 @@ const organizationSchema = {
   logo: "https://arcadian.furniture/new-logo.svg",
   description:
     "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault.",
-  foundingDate: "2024",
+  foundingDate: "2025",
   sameAs: ["https://instagram.com/arcadian.furniture"],
   contactPoint: {
     "@type": "ContactPoint",
@@ -122,6 +123,7 @@ export default function RootLayout({
       <body
         className={`${cormorantGaramond.variable} ${manrope.variable} ${spaceMono.variable} ${caveat.variable} ${ruthie.variable} ${staatliches.variable} antialiased`}
       >
+        <Header />
         {children}
       </body>
     </html>

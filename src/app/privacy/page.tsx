@@ -1,39 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
 import { Footer } from "../components/Footer";
 
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-paper">
-      {/* Navigation */}
-      <nav className="w-full py-4 md:py-6 px-4 md:px-12 flex justify-between items-start fixed top-0 z-40">
-        <Link
-          href="/"
-          className="font-mono text-[10px] md:text-xs uppercase tracking-widest hover:text-accent transition-colors pt-2"
-        >
-          <span className="hidden sm:inline">← Back to Home</span>
-          <span className="sm:hidden">← Back</span>
-        </Link>
-        <Link
-          href="/"
-          className="absolute left-1/2 -translate-x-1/2 top-0 flex items-center justify-center px-6 pb-4 pt-8 rounded-b-full"
-          style={{ backgroundColor: "#181818" }}
-        >
-          <Image
-            src="/new-logo.svg"
-            alt="Arcadian Logo"
-            width={60}
-            height={60}
-            className="w-10 h-10 md:w-12 md:h-12"
-          />
-        </Link>
-        <div className="font-mono text-[10px] uppercase tracking-widest text-ink/50 pt-2">
-          Legal
-        </div>
-      </nav>
-
       {/* Content */}
-      <main className="pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-12 max-w-3xl mx-auto">
+      <main className="pt-28 md:pt-36 pb-16 md:pb-20 px-4 md:px-12 max-w-3xl mx-auto">
         <h1 className="font-serif text-4xl md:text-5xl mb-12">
           Privacy Policy
         </h1>

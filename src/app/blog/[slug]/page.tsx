@@ -53,7 +53,7 @@ export default async function BlogPost({ params }: PageProps) {
     <>
       <main className="min-h-screen bg-paper">
         {/* Article Header */}
-        <header className="pt-32 pb-16 px-6 md:px-12 bg-[#F3F1EA]">
+        <header className="pt-28 md:pt-36 pb-16 px-6 md:px-12 bg-[#F3F1EA]">
           <div className="max-w-3xl mx-auto">
             <Link
               href="/blog"

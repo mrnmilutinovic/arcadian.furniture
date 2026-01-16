@@ -20,7 +20,7 @@ export default function BlogIndex() {
   return (
     <main className="min-h-screen bg-paper">
       {/* Header */}
-      <header className="pt-32 pb-16 px-6 md:px-12 border-b border-ink/10">
+      <header className="pt-28 md:pt-36 pb-16 px-6 md:px-12 border-b border-ink/10">
         <div className="max-w-4xl mx-auto">
           <Link
             href="/"
