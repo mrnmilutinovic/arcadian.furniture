@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
 import { type SubscribeState, subscribeToUpdates } from "./actions/subscribe";
 import { Footer } from "./components/Footer";
+import { Hero } from "./components/Hero";
 
 const initialState: SubscribeState = { success: false, message: "" };
 
@@ -13,11 +14,7 @@ export default function Home() {
   const [isMetric, setIsMetric] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Form states for each subscription form
-  const [heroState, heroAction, heroPending] = useActionState(
-    subscribeToUpdates,
-    initialState,
-  );
+  // Form state for Kickstarter subscription form
   const [kickstarterState, kickstarterAction, kickstarterPending] =
     useActionState(subscribeToUpdates, initialState);
 
@@ -287,80 +284,7 @@ export default function Home() {
       </div>
 
       {/* HERO SECTION */}
-      <header className="relative w-full min-h-screen flex flex-col justify-center items-center border-b border-black/10 px-4 pt-32 pb-20">
-        {/* Background Table Image - Tiled Pattern */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-30"
-          style={{
-            backgroundImage: "url(/temp.png)",
-            backgroundSize: "30%",
-            backgroundPosition: "center",
-            backgroundRepeat: "repeat",
-          }}
-        />
-
-        {/* Background Grids */}
-        <div className="absolute inset-0 grid grid-cols-4 pointer-events-none opacity-5">
-          <div className="border-r border-black h-full" />
-          <div className="border-r border-black h-full" />
-          <div className="border-r border-black h-full" />
-          <div className="border-r border-black h-full" />
-        </div>
-
-        <div className="relative z-10 text-center max-w-6xl mx-auto">
-          <p className="font-mono text-accent mb-6 tracking-widest uppercase text-xs md:text-sm max-w-[300px] mx-auto bg-[#f3f1ea] rounded-xl p-2">
-            Established with a mission
-          </p>
-
-          <h1 className="font-serif text-7xl md:text-9xl font-bold tracking-tight tight-leading mb-8">
-            Your <span className="italic font-light">Kitchen Table</span>
-            <br />
-            <span className="font-brush text-8xl md:text-[10rem] inline-block -rotate-3 -mt-8 md:-mt-12 text-red-800">
-              IS DEAD!
-            </span>
-          </h1>
-
-          <div className="max-w-2xl mx-auto mb-12 bg-[#f3f1ea] rounded-xl p-2">
-            <p className="font-serif text-xl md:text-2xl leading-relaxed ">
-              We believe game nights deserve more than a kitchen table.
-            </p>
-          </div>
-
-          {/* CTA Form */}
-          <div className="relative group w-full max-w-md mx-auto">
-            <form
-              action={heroAction}
-              className="relative flex flex-col md:flex-row gap-2 md:gap-0 md:bg-paper md:border md:border-black/20 md:p-1 md:rounded-full"
-            >
-              <input type="hidden" name="source" value="hero" />
-              <input
-                type="email"
-                name="email"
-                placeholder="ENTER EMAIL ADDRESS"
-                className="w-full bg-paper md:bg-transparent px-4 py-4 font-mono text-sm focus:outline-none placeholder-black/40 text-ink border border-black/20 md:border-0 rounded-full md:rounded-none"
-                disabled={heroPending}
-              />
-              <button
-                type="submit"
-                disabled={heroPending}
-                className="w-full md:w-auto rounded-full bg-ink text-paper px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-accent transition-colors duration-300 whitespace-nowrap disabled:opacity-50"
-              >
-                {heroPending ? "..." : "Join List"}
-              </button>
-            </form>
-            {heroState.message && (
-              <p
-                className={`font-mono text-[10px] mt-2 ${heroState.success ? "text-green-600" : "text-red-600"}`}
-              >
-                {heroState.message}
-              </p>
-            )}
-          </div>
-          <p className="font-mono text-[10px] mt-4 opacity-50">
-            NOTIFY ME ON LAUNCH
-          </p>
-        </div>
-      </header>
+      <Hero />
 
       {/* FULL WIDTH PHOTOS */}
       <section id="photo-grid" className="w-full h-dvh">

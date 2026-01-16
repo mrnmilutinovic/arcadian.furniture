@@ -7,7 +7,12 @@
       "mcp__context7__get-library-docs",
       "Skill(technical-audit)",
       "mcp__playwright__browser_evaluate",
-      "mcp__context7__query-docs"
+      "mcp__context7__query-docs",
+      "Skill(frontend-design)",
+      "WebFetch(domain:rareassembly.com)",
+      "WebFetch(domain:kinhive.com)",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_navigate"
     ]
   }
 }

@@ -77,6 +77,25 @@ body {
   color: white;
 }
 
+/* Hero Section Styles */
+.hero-section {
+  --hero-orange: #F08A01;
+}
+
+.hero-section input::placeholder {
+  opacity: 1;
+}
+
+/* Smooth duration for longer animations */
+.duration-1200 {
+  transition-duration: 1200ms;
+}
+
+/* Custom easing for hero animations */
+.ease-out-expo {
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 /* Blog Content Styles */
 .blog-content {
   font-family: var(--font-sans);
