@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   title: "Arcadian | Elevated Board Game Furniture",
   description:
     "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault. Launching on Kickstarter March 2026.",
-  metadataBase: new URL("https://arcadian.furniture"),
+  metadataBase: new URL("https://www.arcadian.furniture"),
   alternates: {
     canonical: "/",
   },
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     title: "Arcadian | Elevated Board Game Furniture",
     description:
       "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault.",
-    url: "https://arcadian.furniture",
+    url: "https://www.arcadian.furniture",
     siteName: "Arcadian",
     images: [
       {
@@ -92,8 +92,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Arcadian",
-  url: "https://arcadian.furniture",
-  logo: "https://arcadian.furniture/new-logo.svg",
+  url: "https://www.arcadian.furniture",
+  logo: "https://www.arcadian.furniture/new-logo.svg",
   description:
     "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault.",
   foundingDate: "2025",
