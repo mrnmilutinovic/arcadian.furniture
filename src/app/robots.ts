@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-// LLM discovery file available at: https://www.arcadian.furniture/llms.txt
+// LLM discovery file available at: https://www.arcadiantables.com/llms.txt
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/_next/", "/api/"],
     },
-    sitemap: "https://www.arcadian.furniture/sitemap.xml",
+    sitemap: "https://www.arcadiantables.com/sitemap.xml",
   };
 }

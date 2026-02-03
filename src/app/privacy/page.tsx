@@ -100,7 +100,7 @@ export default function PrivacyPage() {
                 email we send you
               </li>
               <li>
-                Email us directly at hello@arcadian.furniture with the subject
+                Email us directly at hello@arcadiantables.com with the subject
                 line &ldquo;Unsubscribe&rdquo;
               </li>
             </ul>
@@ -128,7 +128,7 @@ export default function PrivacyPage() {
             <p>
               If you have questions about this Privacy Policy or wish to
               exercise your rights, please contact us at
-              hello@arcadian.furniture
+              hello@arcadiantables.com
             </p>
           </section>
         </div>

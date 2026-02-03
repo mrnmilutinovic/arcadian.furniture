@@ -89,7 +89,7 @@ export default function TermsPage() {
             <h2 className="font-serif text-2xl text-ink mb-4">7. Contact</h2>
             <p>
               For questions about these Terms & Conditions, please contact us at
-              hello@arcadian.furniture
+              hello@arcadiantables.com
             </p>
           </section>
         </div>

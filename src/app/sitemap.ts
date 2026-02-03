@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllPosts } from "./blog/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.arcadian.furniture";
+  const baseUrl = "https://www.arcadiantables.com";
 
   // Get all blog posts for dynamic sitemap entries
   const posts = getAllPosts();

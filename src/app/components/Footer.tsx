@@ -72,7 +72,7 @@ export function Footer() {
         <div className="flex flex-col justify-between md:items-end">
           <nav className="flex flex-col gap-4 md:text-right">
             <a
-              href="https://instagram.com/arcadian.furniture"
+              href="https://instagram.com/arcadiantables"
               target="_blank"
               rel="noopener noreferrer"
               className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
