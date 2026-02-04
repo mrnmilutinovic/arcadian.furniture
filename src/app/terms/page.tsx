@@ -1,4 +1,20 @@
+import type { Metadata } from "next";
 import { Footer } from "../components/Footer";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions | Arcadian",
+  description:
+    "Terms and conditions for using Arcadian website and services. Information about pre-orders, Kickstarter campaign, and product purchases.",
+  alternates: {
+    canonical: "/terms",
+  },
+  openGraph: {
+    title: "Terms & Conditions | Arcadian",
+    description:
+      "Terms and conditions for using Arcadian website and services.",
+    type: "website",
+  },
+};
 
 export default function TermsPage() {
   return (

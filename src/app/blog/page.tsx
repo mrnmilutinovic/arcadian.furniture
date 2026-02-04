@@ -3,11 +3,14 @@ import Link from "next/link";
 import { getAllPosts } from "./lib/posts";
 
 export const metadata: Metadata = {
-  title: "Blog | Arcadian",
+  title: "Board Game Table Guides & Tips | Arcadian Blog",
   description:
     "Expert guides on board game tables, gaming furniture, and creating the perfect game night. Tips from the craftsmen at Arcadian.",
+  alternates: {
+    canonical: "/blog",
+  },
   openGraph: {
-    title: "Blog | Arcadian",
+    title: "Board Game Table Guides & Tips | Arcadian Blog",
     description:
       "Expert guides on board game tables, gaming furniture, and creating the perfect game night.",
     type: "website",

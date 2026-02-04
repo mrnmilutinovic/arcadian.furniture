@@ -1,4 +1,20 @@
+import type { Metadata } from "next";
 import { Footer } from "../components/Footer";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Arcadian",
+  description:
+    "Learn how Arcadian collects, uses, and protects your personal information. Our commitment to your privacy and data security.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Arcadian",
+    description:
+      "Learn how Arcadian collects, uses, and protects your personal information.",
+    type: "website",
+  },
+};
 
 export default function PrivacyPage() {
   return (

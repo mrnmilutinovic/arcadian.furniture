@@ -28,6 +28,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...blogEntries,
     {
+      url: `${baseUrl}/stories/forest-of-radgost-collaboration`,
+      lastModified: new Date("2025-12-01"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/stories/boris-jovanovic-photoshoot`,
+      lastModified: new Date("2025-09-01"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/privacy`,
       lastModified: new Date(),
       changeFrequency: "monthly",

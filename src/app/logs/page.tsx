@@ -1,6 +1,22 @@
+import type { Metadata } from "next";
 import { Footer } from "../components/Footer";
 import { getLogPhotos } from "./actions";
 import { PhotoGrid } from "./photo-grid";
+
+export const metadata: Metadata = {
+  title: "Workshop Logs | Arcadian",
+  description:
+    "Behind-the-scenes photos from the Arcadian workshop. Follow our journey crafting premium board game tables from solid oak.",
+  alternates: {
+    canonical: "/logs",
+  },
+  openGraph: {
+    title: "Workshop Logs | Arcadian",
+    description:
+      "Behind-the-scenes photos from the Arcadian workshop. Follow our journey crafting premium board game tables.",
+    type: "website",
+  },
+};
 
 // Force dynamic rendering - always fetch fresh data from blob storage
 export const dynamic = "force-dynamic";

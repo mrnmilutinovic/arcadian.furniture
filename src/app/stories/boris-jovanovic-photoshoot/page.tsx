@@ -2,10 +2,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "../../components/Footer";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Behind the Lens with Boris Jovanovic | Arcadian",
   description:
     "Netflix and Adidas photographer Boris Jovanovic captured the soul of the Arcadian table in our most ambitious photoshoot yet.",
+  alternates: {
+    canonical: "/stories/boris-jovanovic-photoshoot",
+  },
+  openGraph: {
+    title: "Behind the Lens with Boris Jovanovic | Arcadian",
+    description:
+      "Netflix and Adidas photographer Boris Jovanovic captured the soul of the Arcadian table in our most ambitious photoshoot yet.",
+    type: "article",
+    images: [
+      {
+        url: "/photos/boris-photo-2.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Boris Jovanovic during the Arcadian photoshoot",
+      },
+    ],
+  },
 };
 
 export default function BorisJovanovicArticle() {

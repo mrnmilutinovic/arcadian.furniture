@@ -105,6 +105,98 @@ const organizationSchema = {
   },
 };
 
+const productSchemaStandard = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Arcadian Standard - Board Game Table",
+  description:
+    "Premium board game table for 4 players. Features a 90x90cm recessed vault, magnetic rail system for accessories, convertible dining toppers, and handcrafted solid oak construction.",
+  image: "https://www.arcadiantables.com/photos/size-small-3.jpeg",
+  brand: {
+    "@type": "Brand",
+    name: "Arcadian",
+  },
+  manufacturer: {
+    "@type": "Organization",
+    name: "Arcadian",
+  },
+  category: "Board Game Tables",
+  material: "Solid Oak",
+  additionalProperty: [
+    {
+      "@type": "PropertyValue",
+      name: "Table Size",
+      value: "108 x 108 cm",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Play Area",
+      value: "90 x 90 cm",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Seating Capacity",
+      value: "4 players",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/PreOrder",
+    availabilityStarts: "2026-03-01",
+    url: "https://www.arcadiantables.com",
+    seller: {
+      "@type": "Organization",
+      name: "Arcadian",
+    },
+  },
+};
+
+const productSchemaGrand = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Arcadian Grand - Board Game Table",
+  description:
+    "Premium board game table for 6-8 players. Features a 90x170cm recessed vault, magnetic rail system for accessories, convertible dining toppers, and handcrafted solid oak construction.",
+  image: "https://www.arcadiantables.com/photos/size-big-2.jpeg",
+  brand: {
+    "@type": "Brand",
+    name: "Arcadian",
+  },
+  manufacturer: {
+    "@type": "Organization",
+    name: "Arcadian",
+  },
+  category: "Board Game Tables",
+  material: "Solid Oak",
+  additionalProperty: [
+    {
+      "@type": "PropertyValue",
+      name: "Table Size",
+      value: "108 x 189 cm",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Play Area",
+      value: "90 x 170 cm",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Seating Capacity",
+      value: "6-8 players",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/PreOrder",
+    availabilityStarts: "2026-03-01",
+    url: "https://www.arcadiantables.com",
+    seller: {
+      "@type": "Organization",
+      name: "Arcadian",
+    },
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -117,6 +209,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(productSchemaStandard),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(productSchemaGrand),
           }}
         />
       </head>

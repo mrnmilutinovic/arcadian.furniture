@@ -29,6 +29,9 @@ export async function generateMetadata({
     description: post.excerpt,
     keywords: post.keywords,
     authors: [{ name: post.author }],
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -49,8 +52,41 @@ export default async function BlogPost({ params }: PageProps) {
 
   const content = getPostContent(slug);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    author: {
+      "@type": "Organization",
+      name: post.author,
+      url: "https://www.arcadiantables.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Arcadian",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.arcadiantables.com/new-logo.svg",
+      },
+    },
+    datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.arcadiantables.com/blog/${slug}`,
+    },
+    keywords: post.keywords.join(", "),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
       <main className="min-h-screen bg-paper">
         {/* Article Header */}
         <header className="pt-28 md:pt-36 pb-16 px-6 md:px-12 bg-[#F3F1EA]">

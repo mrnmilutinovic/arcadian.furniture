@@ -2,10 +2,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "../../components/Footer";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Spirits of the Forest Meet the Arcadian Table | Arcadian",
   description:
     "We partnered with the creators of Forest of Radgost, a Slavic mythology board game, to showcase how epic adventures deserve an epic stage.",
+  alternates: {
+    canonical: "/stories/forest-of-radgost-collaboration",
+  },
+  openGraph: {
+    title: "Spirits of the Forest Meet the Arcadian Table | Arcadian",
+    description:
+      "We partnered with the creators of Forest of Radgost, a Slavic mythology board game, to showcase how epic adventures deserve an epic stage.",
+    type: "article",
+    images: [
+      {
+        url: "/photos/radgost-3.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Forest of Radgost board game on the Arcadian table",
+      },
+    ],
+  },
 };
 
 export default function ForestOfRadgostArticle() {
