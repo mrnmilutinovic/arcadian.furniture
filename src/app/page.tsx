@@ -566,7 +566,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Kickstarter Exclusive - Mystery */}
+            {/* 2026 Batch Exclusive - Mystery */}
             <div className="group relative overflow-hidden bg-ink">
               <div className="aspect-[3/4] relative flex items-center justify-center">
                 <div className="absolute inset-0 opacity-10">
@@ -583,11 +583,10 @@ export default function Home() {
                     <span className="font-serif text-4xl text-white/50">?</span>
                   </div>
                   <h3 className="font-serif text-3xl italic text-white/80 mb-2">
-                    Kickstarter Exclusive
+                    2026 Batch Exclusive
                   </h3>
                   <p className="font-sans text-sm text-white/40 px-6">
-                    Revealed at launch. Back early to unlock this mystery
-                    finish.
+                    A mystery finish revealed only to early supporters.
                   </p>
                 </div>
               </div>
@@ -846,8 +845,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* KICKSTARTER CTA */}
-      <section className="relative bg-[#05CE78] py-16 md:py-24 px-6 md:px-12 overflow-hidden">
+      {/* 2026 BATCH CTA */}
+      <section className="relative bg-amber-400/80 py-16 md:py-24 px-6 md:px-12 overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -865,23 +864,18 @@ export default function Home() {
             {/* Left content */}
             <div className="max-w-2xl">
               <div className="mb-6">
-                {/* Kickstarter logo */}
-                <Image
-                  src="/kickstarter-logo-white.avif"
-                  alt="Kickstarter"
-                  width={200}
-                  height={40}
-                  className="h-8 md:h-10 w-auto"
-                />
+                <span className="font-mono text-2xl uppercase tracking-widest text-black/60">
+                  Limited Production
+                </span>
               </div>
 
-              <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-black mb-6 leading-tight">
-                Launching <span className="italic">March 2026</span>
+              <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-black mb-6 leading-tight whitespace-nowrap">
+                2026 Batch Opening Soon
               </h2>
 
               <p className="font-sans text-lg md:text-xl text-black/70 mb-8 max-w-xl">
-                Be the first to know when we go live. Early backers get
-                exclusive pricing and the mystery finish reveal.
+                Be the first to reserve your Arcadian table. Early supporters
+                get exclusive pricing and the mystery finish reveal.
               </p>
 
               {/* Email signup */}
@@ -918,10 +912,10 @@ export default function Home() {
             <div className="flex flex-col gap-6 md:text-right">
               <div>
                 <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">
-                  Campaign Goal
+                  2026 Batch Size
                 </div>
                 <div className="font-serif text-3xl md:text-4xl text-black">
-                  €XXX
+                  Limited
                 </div>
               </div>
               <div>

@@ -81,10 +81,10 @@ export function Footer() {
             </a>
             <div className="relative group inline-block md:text-right">
               <span className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic cursor-default">
-                Kickstarter
+                Pre-order
               </span>
               <div className="absolute left-0 md:left-auto md:right-0 top-full mt-2 px-3 py-1.5 bg-ink text-paper text-xs font-mono uppercase tracking-wider rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                Coming soon
+                2026 batch opening soon
               </div>
             </div>
             <Link

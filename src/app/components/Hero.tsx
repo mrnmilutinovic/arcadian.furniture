@@ -57,21 +57,13 @@ export function Hero() {
             }`}
           >
             <div className="bg-[#1a1918] text-white p-6 md:p-10 relative overflow-hidden w-full md:min-w-[400px] lg:w-auto">
-
-              {/* Top section - Kickstarter branding */}
+              {/* Top section - 2026 Batch */}
               <div className="relative z-10 mb-6 md:mb-8">
                 <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.25em] text-white/50 mb-2 md:mb-3">
-                  Coming to
+                  Limited Production
                 </p>
-                <Image
-                  src="/kickstarter-logo-white.avif"
-                  alt="Kickstarter"
-                  width={160}
-                  height={36}
-                  className="h-6 md:h-8 w-auto mb-3 md:mb-4"
-                />
-                <p className="font-staatliches-baskerville text-3xl md:text-5xl tracking-tight">
-                  MARCH 2026
+                <p className="font-staatliches-baskerville text-2xl md:text-4xl tracking-tight">
+                  2026 Batch Opening Soon
                 </p>
               </div>
 
@@ -80,7 +72,7 @@ export function Hero() {
                 <input type="hidden" name="source" value="hero" />
 
                 <p className="font-sans text-xs md:text-sm text-white/70 mb-3 md:mb-4">
-                  Be first to know when we launch.
+                  Be the first to reserve yours.
                 </p>
 
                 <div className="flex flex-col gap-2 md:gap-3">

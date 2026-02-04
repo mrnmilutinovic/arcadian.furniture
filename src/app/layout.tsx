@@ -53,7 +53,7 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Arcadian | Elevated Board Game Furniture",
   description:
-    "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault. Launching on Kickstarter March 2026.",
+    "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault. 2026 batch opening soon.",
   metadataBase: new URL("https://www.arcadiantables.com"),
   alternates: {
     canonical: "/",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Arcadian | Elevated Board Game Furniture",
     description:
-      "Premium board game tables that transform from elegant dining to immersive gaming. Launching on Kickstarter March 2026.",
+      "Premium board game tables that transform from elegant dining to immersive gaming. 2026 batch opening soon.",
     images: ["/photos/covered-scene-3.jpeg"],
   },
   robots: {
