@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { Footer } from "../components/Footer";
 
 export const metadata: Metadata = {
@@ -21,6 +22,9 @@ export default function PrivacyPage() {
     <div className="min-h-screen bg-paper">
       {/* Content */}
       <main className="pt-28 md:pt-36 pb-16 md:pb-20 px-4 md:px-12 max-w-3xl mx-auto">
+        <Breadcrumbs
+          items={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]}
+        />
         <h1 className="font-serif text-4xl md:text-5xl mb-12">
           Privacy Policy
         </h1>
@@ -47,10 +51,7 @@ export default function PrivacyPage() {
             </h2>
             <p>We use the information we collect to:</p>
             <ul className="list-disc pl-6 space-y-2 mt-4">
-              <li>
-                Send you updates about our Kickstarter campaign and product
-                launches
-              </li>
+              <li>Send you updates about product availability and launches</li>
               <li>Respond to your inquiries and provide customer support</li>
               <li>Improve our website and services</li>
               <li>Comply with legal obligations</li>

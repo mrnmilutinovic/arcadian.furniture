@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { Footer } from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Arcadian",
   description:
-    "Terms and conditions for using Arcadian website and services. Information about pre-orders, Kickstarter campaign, and product purchases.",
+    "Terms and conditions for using Arcadian website and services. Information about pre-orders and product purchases.",
   alternates: {
     canonical: "/terms",
   },
@@ -21,6 +22,12 @@ export default function TermsPage() {
     <div className="min-h-screen bg-paper">
       {/* Content */}
       <main className="pt-28 md:pt-36 pb-16 md:pb-20 px-4 md:px-12 max-w-3xl mx-auto">
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Terms & Conditions" },
+          ]}
+        />
         <h1 className="font-serif text-4xl md:text-5xl mb-12">
           Terms & Conditions
         </h1>
@@ -43,14 +50,13 @@ export default function TermsPage() {
 
           <section>
             <h2 className="font-serif text-2xl text-ink mb-4">
-              2. Pre-Order & Kickstarter
+              2. Pre-Orders & 2026 Batch
             </h2>
             <p>
-              Arcadian products will be available through our Kickstarter
-              campaign launching in March 2026. By joining our mailing list, you
-              are expressing interest and will receive updates about the
-              campaign. No payment is required until the Kickstarter campaign is
-              live.
+              Arcadian products will be available through our 2026 batch
+              opening. By joining our mailing list, you are expressing interest
+              and will receive updates about availability and pricing. No
+              payment is required until you choose to place a pre-order.
             </p>
           </section>
 

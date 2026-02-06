@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { Footer } from "../components/Footer";
 
@@ -119,10 +118,7 @@ export default function FAQPage() {
         <header className="pt-28 md:pt-36 pb-16 px-6 md:px-12 bg-[#F3F1EA]">
           <div className="max-w-4xl mx-auto">
             <Breadcrumbs
-              items={[
-                { label: "Home", href: "/" },
-                { label: "FAQ" },
-              ]}
+              items={[{ label: "Home", href: "/" }, { label: "FAQ" }]}
             />
             <h1 className="font-serif text-5xl md:text-7xl mb-6">
               Frequently Asked{" "}

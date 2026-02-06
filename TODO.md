@@ -26,7 +26,7 @@
 ### Breadcrumbs
 - [x] Add breadcrumb navigation to blog/story pages
 - [x] Implement BreadcrumbList schema
-- [x] Added to: Blog index, Blog posts, Stories, About, FAQ
+- [x] Added to: Blog index, Blog posts, Stories, About, FAQ, Terms, Privacy
 
 ### Reviews/Testimonials
 - [ ] Add customer testimonials when available

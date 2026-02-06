@@ -34,10 +34,7 @@ export default function AboutPage() {
       <header className="pt-28 md:pt-36 pb-16 px-6 md:px-12 bg-[#F3F1EA]">
         <div className="max-w-4xl mx-auto">
           <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "About Us" },
-            ]}
+            items={[{ label: "Home", href: "/" }, { label: "About Us" }]}
           />
           <h1 className="font-serif text-5xl md:text-7xl mb-6">
             A Family <span className="italic text-ink/50">Affair</span>
@@ -82,10 +79,10 @@ export default function AboutPage() {
                 stretched across months.
               </p>
               <p className="font-sans text-lg text-ink/70 leading-relaxed">
-                We&apos;re Nikola and Jana, a husband-and-wife team from
-                Serbia with two daughters (Sofija and Nia), three dogs (Billy,
-                Charlie, and Lucy), and a shared love for paragliding and, of
-                course, board games.
+                We&apos;re Nikola and Jana, a husband-and-wife team from Serbia
+                with two daughters (Sofija and Nia), three dogs (Billy, Charlie,
+                and Lucy), and a shared love for paragliding and, of course,
+                board games.
               </p>
               <p className="font-sans text-lg text-ink/70 leading-relaxed">
                 When we couldn&apos;t find a gaming table that met our
@@ -159,15 +156,14 @@ export default function AboutPage() {
             <p className="font-sans text-lg text-ink/70 leading-relaxed">
               We didn&apos;t outsource the vision. Every aspect of the Arcadian
               table&mdash;the recessed vault depth, the magnetic rail system,
-              the topper weight distribution&mdash;came from our own designs,
-              3D models, and countless prototypes tested during real game
-              nights.
+              the topper weight distribution&mdash;came from our own designs, 3D
+              models, and countless prototypes tested during real game nights.
             </p>
             <p className="font-sans text-lg text-ink/70 leading-relaxed">
               We know what it&apos;s like to knock over a drink reaching for
-              dice. We know the frustration of a table that&apos;s too small
-              for Twilight Imperium. We know the joy of leaving a game set up
-              for weeks without worry. Every design decision came from lived
+              dice. We know the frustration of a table that&apos;s too small for
+              Twilight Imperium. We know the joy of leaving a game set up for
+              weeks without worry. Every design decision came from lived
               experience.
             </p>
           </div>
@@ -325,13 +321,13 @@ export default function AboutPage() {
               We designed every detail of the Arcadian table ourselves. But
               bringing those designs to life required finding craftsmen who
               share our obsession with precision&mdash;a mechanical engineer
-              turned master woodworker who won&apos;t tolerate a millimeter
-              of error.
+              turned master woodworker who won&apos;t tolerate a millimeter of
+              error.
             </p>
             <p className="font-sans text-lg text-ink/70 leading-relaxed">
               The workshop is old-school in the best way: no shortcuts, no
-              compromises, just decades of accumulated knowledge about how
-              wood behaves and how joints should be cut.
+              compromises, just decades of accumulated knowledge about how wood
+              behaves and how joints should be cut.
             </p>
             <p className="font-sans text-lg text-ink/70 leading-relaxed">
               We value precision above all else, and we found people who feel
@@ -362,8 +358,8 @@ export default function AboutPage() {
             <div>
               <h3 className="font-serif text-2xl mb-3">Durability</h3>
               <p className="font-sans text-paper/60 leading-relaxed">
-                Solid oak, traditional joinery, zero-VOC finishes. Built for
-                the next 50 years of game nights, not the next 5.
+                Solid oak, traditional joinery, zero-VOC finishes. Built for the
+                next 50 years of game nights, not the next 5.
               </p>
             </div>
             <div>

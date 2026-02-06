@@ -14,9 +14,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
     "@type": "ListItem",
     position: index + 1,
     name: item.label,
-    item: item.href
-      ? `https://www.arcadiantables.com${item.href}`
-      : undefined,
+    item: item.href ? `https://www.arcadiantables.com${item.href}` : undefined,
   }));
 
   const breadcrumbSchema = {
