@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { getAllPosts } from "./lib/posts";
 
 export const metadata: Metadata = {
@@ -25,12 +26,12 @@ export default function BlogIndex() {
       {/* Header */}
       <header className="pt-28 md:pt-36 pb-16 px-6 md:px-12 border-b border-ink/10">
         <div className="max-w-4xl mx-auto">
-          <Link
-            href="/"
-            className="font-mono text-xs uppercase tracking-widest text-ink/40 hover:text-accent transition-colors mb-8 inline-block"
-          >
-            &larr; Back to Home
-          </Link>
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Blog" },
+            ]}
+          />
           <h1 className="font-serif text-5xl md:text-7xl mb-6">
             The <span className="italic text-ink/50">Workshop</span> Blog
           </h1>

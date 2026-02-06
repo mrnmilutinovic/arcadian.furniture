@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllSlugs, getPostBySlug } from "../lib/posts";
 import { getPostContent } from "../lib/content";
+import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Footer } from "@/app/components/Footer";
 
 interface PageProps {
@@ -91,25 +92,13 @@ export default async function BlogPost({ params }: PageProps) {
         {/* Article Header */}
         <header className="pt-28 md:pt-36 pb-16 px-6 md:px-12 bg-[#F3F1EA]">
           <div className="max-w-3xl mx-auto">
-            <Link
-              href="/blog"
-              className="font-mono text-xs uppercase tracking-widest text-ink/40 hover:text-accent transition-colors mb-12 inline-flex items-center gap-2"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                />
-              </svg>
-              Back to Blog
-            </Link>
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Blog", href: "/blog" },
+                { label: post.title },
+              ]}
+            />
 
             <div className="flex items-center gap-3 mb-8">
               <span className="font-mono text-xs uppercase tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full">

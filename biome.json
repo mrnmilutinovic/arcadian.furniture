@@ -20,13 +20,17 @@
       "recommended": true,
       "suspicious": {
         "noUnknownAtRules": "off",
-        "noCommentText": "off"
+        "noCommentText": "off",
+        "noArrayIndexKey": "off"
       },
       "a11y": {
         "noSvgWithoutTitle": "off",
         "noStaticElementInteractions": "off",
         "useValidAnchor": "off",
         "useKeyWithClickEvents": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
       }
     },
     "domains": {

@@ -1,8 +1,8 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
-
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Spirits of the Forest Meet the Arcadian Table | Arcadian",
@@ -33,6 +33,13 @@ export default function ForestOfRadgostArticle() {
       {/* Hero */}
       <header className="pt-28 md:pt-36 pb-12 md:pb-16 px-4 md:px-12">
         <div className="max-w-4xl mx-auto">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Stories", href: "/#stories" },
+              { label: "Forest of Radgost" },
+            ]}
+          />
           <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
             <span className="font-mono text-[10px] uppercase tracking-widest text-accent">
               Collaboration

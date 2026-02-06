@@ -99,6 +99,18 @@ export function Footer() {
             >
               Blog
             </Link>
+            <Link
+              href="/about"
+              className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
+            >
+              About Us
+            </Link>
+            <Link
+              href="/faq"
+              className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
+            >
+              FAQ
+            </Link>
             <div className="h-8" />
             <Link
               href="/terms"
