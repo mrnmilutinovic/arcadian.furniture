@@ -11,7 +11,8 @@
     "mobileAccessories": "Accessories",
     "close": "Close",
     "menu": "Menu",
-    "batchStatus": "2026 Batch \u00b7 Opening Soon"
+    "batchStatus": "2026 Q1 Batch \u00b7 Now Open",
+    "pricing": "Q1 2026 Batch Pricing"
   },
   "footer": {
     "logoAlt": "Arcadian Logo",
@@ -21,8 +22,8 @@
     "join": "Join",
     "submitting": "...",
     "instagram": "Instagram",
-    "preOrder": "Pre-order",
-    "preOrderTooltip": "2026 batch opening soon",
+    "preOrder": "Order Now",
+    "preOrderTooltip": "2026 Q1 batch is open",
     "logsLink": "Logs",
     "blogLink": "Blog",
     "aboutLink": "About Us",
@@ -37,11 +38,9 @@
     "headline2": "deserve more",
     "headline3": "than a kitchen table",
     "limitedProduction": "Limited Production",
-    "batchOpening": "2026 Batch Opening Soon",
-    "ctaText": "Be the first to reserve yours.",
-    "emailPlaceholder": "your@email.com",
-    "subscribing": "Subscribing...",
-    "notifyMe": "Notify Me"
+    "batchOpening": "2026 Q1 Batch — Now Open",
+    "ctaText": "Reserve yours before the batch sells out.",
+    "notifyMe": "See Pricing & Order"
   },
   "home": {
     "transformation": {
@@ -173,17 +172,17 @@
     },
     "cta": {
       "limitedProduction": "Limited Production",
-      "batchOpening": "2026 Batch Opening Soon",
-      "ctaDescription": "Be the first to reserve your Arcadian table. Early supporters get exclusive pricing and the mystery finish reveal.",
+      "batchOpening": "2026 Q1 Batch — Now Open",
+      "ctaDescription": "The first 50 Arcadian tables are now available. Order yours today and get exclusive batch pricing plus the mystery finish reveal.",
       "emailPlaceholder": "ENTER YOUR EMAIL",
-      "notifyMe": "Notify Me",
+      "notifyMe": "Get Notified",
       "submitting": "...",
-      "batchSizeLabel": "2026 Batch Size",
-      "batchSizeValue": "Limited",
-      "earlyBirdLabel": "Early Bird Slots",
-      "earlyBirdValue": "50",
+      "batchSizeLabel": "2026 Q1 Batch",
+      "batchSizeValue": "50 Tables",
+      "earlyBirdLabel": "Slots Remaining",
+      "earlyBirdValue": "45 Tables",
       "deliveryLabel": "Estimated Delivery",
-      "deliveryValue": "Q4 2026"
+      "deliveryValue": "Q3 2026"
     }
   },
   "about": {
@@ -216,7 +215,7 @@
     "functionTitle": "Function",
     "functionDescription": "Designed by gamers, for gamers. Every feature exists because we needed it at our own table.",
     "ctaTitle": "Join Our Table",
-    "ctaDescription": "The 2026 batch is opening soon. Be among the first to bring an Arcadian table to your game nights.",
+    "ctaDescription": "The 2026 Q1 batch is now open. Order yours and bring an Arcadian table to your game nights.",
     "ctaButton": "Reserve Your Spot",
     "metaTitle": "About Us | Arcadian - Premium Board Game Tables",
     "metaDescription": "Meet Nikola and Jana, the lifelong board gamers behind Arcadian. We designed our dream gaming table and partnered with master craftsmen in Serbia to build it."
@@ -235,7 +234,7 @@
     "questions": {
       "q1": {
         "question": "How much does an Arcadian table cost?",
-        "answer": "Pricing will be announced when our 2026 batch opens. Early supporters will receive exclusive pricing. Join our waitlist to be notified first."
+        "answer": "The Standard starts at \u20ac1,920 and The Grand at \u20ac2,390. These are 2026 Q1 batch prices, available until April 30, 2026 or until all 50 batch slots are filled."
       },
       "q2": {
         "question": "What sizes are available?",
@@ -271,11 +270,11 @@
       },
       "q10": {
         "question": "When will my table ship?",
-        "answer": "The 2026 batch is estimated to ship in Q4 2026. We'll provide regular updates to all supporters throughout the production process."
+        "answer": "The 2026 batch is estimated to ship in Q3 2026. We'll provide regular updates to all supporters throughout the production process."
       },
       "q11": {
         "question": "Do you ship internationally?",
-        "answer": "Shipping details will be announced with our 2026 batch opening. Join the waitlist to receive updates on shipping availability to your region."
+        "answer": "Yes. We ship across Europe. Shipping costs are calculated at checkout based on your location. Delivery is estimated for Q3 2026."
       },
       "q12": {
         "question": "What's included with the table?",
@@ -298,8 +297,8 @@
     "lastUpdated": "Last updated: December 2025",
     "section1Title": "1. Agreement to Terms",
     "section1Text": "By accessing or using the Arcadian website and services, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.",
-    "section2Title": "2. Pre-Orders & 2026 Batch",
-    "section2Text": "Arcadian products will be available through our 2026 batch opening. By joining our mailing list, you are expressing interest and will receive updates about availability and pricing. No payment is required until you choose to place a pre-order.",
+    "section2Title": "2. Orders & 2026 Batch",
+    "section2Text": "Arcadian tables are available through our 2026 Q1 batch. By placing an order, you are securing your spot in the current production run. Order details, pricing, and delivery timelines are provided during the checkout process.",
     "section3Title": "3. Product Information",
     "section3Text": "We strive to provide accurate product descriptions, images, and specifications. However, as our products are in development, final specifications may vary. We will communicate any significant changes to backers before fulfillment.",
     "section4Title": "4. Intellectual Property",
@@ -311,7 +310,7 @@
     "section7Title": "7. Contact",
     "section7Text": "For questions about these Terms & Conditions, please contact us at hello@arcadiantables.com",
     "metaTitle": "Terms & Conditions | Arcadian",
-    "metaDescription": "Terms and conditions for using Arcadian website and services. Information about pre-orders and product purchases."
+    "metaDescription": "Terms and conditions for using Arcadian website and services. Information about orders and product purchases."
   },
   "privacy": {
     "breadcrumbHome": "Home",
@@ -356,10 +355,38 @@
     "metaTitle": "Privacy Policy | Arcadian",
     "metaDescription": "Learn how Arcadian collects, uses, and protects your personal information. Our commitment to your privacy and data security."
   },
-  "common": {
+  "pricing": {
+    "label": "2026 Q1 Batch",
+    "batchLabel": "2026 Q1 Batch — Now Open",
+    "deadline": "Prices valid until April 30, 2026 or first 50 tables",
+    "title": "Choose your",
+    "titleAccent": "Arcadian.",
+    "subtitle": "Launch pricing for the first 50 tables. Solid oak. Handcrafted in Serbia. Delivered to your door.",
+    "standardName": "The Standard",
+    "standardSeats": "Seats 4",
+    "grandName": "The Grand",
+    "grandSeats": "Seats 6–8",
+    "closedSize": "Closed Table Size",
+    "playArea": "Play Area",
+    "vaultDepth": "Vault Depth",
+    "reserveCta": "Reserve Your Spot",
+    "includedLabel": "Every table includes",
+    "included": {
+      "frame": "Solid oak frame & legs",
+      "toppers": "Dining toppers",
+      "rail": "Magnetic rail system",
+      "finish": "0% VOC hardwax finish",
+      "delivery": "Flat-pack delivery",
+      "assembly": "Single-tool assembly kit"
+    },
+    "batchSizeLabel": "Batch Size",
+    "batchSizeValue": "50 Tables",
+    "finePrint": "Prices in EUR. Shipping calculated at checkout. Estimated delivery Q3 2026."
+  },
+"common": {
     "readStory": "Read Story \u2192",
     "reserveYourSpot": "Reserve Your Spot",
-    "joinWaitlist": "Join the Waitlist",
+    "joinWaitlist": "Order Now",
     "contactUs": "Contact Us"
   },
   "languageSwitcher": {
@@ -368,6 +395,6 @@
   },
   "metadata": {
     "title": "Arcadian | Elevated Board Game Furniture",
-    "description": "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault. 2026 batch opening soon."
+    "description": "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault. Order now — 2026 Q1 batch is open."
   }
 }

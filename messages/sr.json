@@ -11,7 +11,8 @@
     "mobileAccessories": "Dodaci",
     "close": "Zatvori",
     "menu": "Meni",
-    "batchStatus": "2026 Serija \u00b7 Uskoro"
+    "batchStatus": "2026 Q1 Serija \u00b7 Otvorena",
+    "pricing": "Cene za Q1 2026 seriju"
   },
   "footer": {
     "logoAlt": "Arcadian Logo",
@@ -21,8 +22,8 @@
     "join": "Prijava",
     "submitting": "...",
     "instagram": "Instagram",
-    "preOrder": "Pre-order",
-    "preOrderTooltip": "2026 serija uskoro",
+    "preOrder": "Naru\u010di",
+    "preOrderTooltip": "2026 Q1 serija je otvorena",
     "logsLink": "Logs",
     "blogLink": "Blog",
     "aboutLink": "O nama",
@@ -37,11 +38,9 @@
     "headline2": "zaslu\u017euju vi\u0161e",
     "headline3": "od stola za ručavanje",
     "limitedProduction": "Limitirana Proizvodnja",
-    "batchOpening": "2026 Serija Uskoro",
-    "ctaText": "Budite prvi koji \u0107e rezervisati svoj.",
-    "emailPlaceholder": "vas@email.com",
-    "subscribing": "Prijavljivanje...",
-    "notifyMe": "Obavesti me"
+    "batchOpening": "2026 Q1 Serija \u2014 Otvorena",
+    "ctaText": "Rezervi\u0161ite svoj pre nego \u0161to serija bude rasprodana.",
+    "notifyMe": "Pogledaj cene i naruči"
   },
   "home": {
     "transformation": {
@@ -173,17 +172,17 @@
     },
     "cta": {
       "limitedProduction": "Limitirana Proizvodnja",
-      "batchOpening": "2026 Serija Uskoro",
-      "ctaDescription": "Budite prvi koji \u0107e rezervisati svoj Arcadian sto. Zagarantujte ekskluzivne cene i otkrivanje misteriozne zavr\u0161ne obrade.",
+      "batchOpening": "2026 Q1 Serija \u2014 Otvorena",
+      "ctaDescription": "Prvih 50 Arcadian stolova su sada dostupni. Naru\u010dite svoj danas i obezbedite cene za prvu seriju plus otkrivanje misteriozne zavr\u0161ne obrade.",
       "emailPlaceholder": "UNESITE VA\u0160 EMAIL",
       "notifyMe": "Obavesti me",
       "submitting": "...",
-      "batchSizeLabel": "Veli\u010dina 2026 serije",
-      "batchSizeValue": "Limitirana",
-      "earlyBirdLabel": "Early Bird mesta",
-      "earlyBirdValue": "50",
+      "batchSizeLabel": "2026 Q1 Serija",
+      "batchSizeValue": "50 stolova",
+      "earlyBirdLabel": "Preostala mesta",
+      "earlyBirdValue": "45 stolova",
       "deliveryLabel": "Procenjena isporuka",
-      "deliveryValue": "Q4 2026"
+      "deliveryValue": "Q3 2026"
     }
   },
   "about": {
@@ -216,7 +215,7 @@
     "functionTitle": "Funkcionalnost",
     "functionDescription": "Dizajnirano od igra\u010da, za igra\u010de. Svaka funkcija postoji jer nam je bila potrebna za na\u0161im sopstvenim stolom.",
     "ctaTitle": "Pridru\u017eite se za na\u0161 sto",
-    "ctaDescription": "2026 serija se uskoro otvara. Budite me\u0111u prvima koji \u0107e doneti Arcadian sto na svoje ve\u010deri igara.",
+    "ctaDescription": "2026 Q1 serija je otvorena. Naru\u010dite svoj i dovedite Arcadian sto na va\u0161e ve\u010deri igara.",
     "ctaButton": "Rezervi\u0161ite svoje mesto",
     "metaTitle": "O nama | Arcadian - Premium stolovi za dru\u0161tvene igre",
     "metaDescription": "Upoznajte Nikolu i Janu, strastvene igra\u010de dru\u0161tvenih igara iza Arcadiana. Dizajnirali smo na\u0161 sto iz snova i na\u0161li majstore zanatlije u Srbiji da ga izgrade."
@@ -235,7 +234,7 @@
     "questions": {
       "q1": {
         "question": "Koliko ko\u0161ta Arcadian sto?",
-        "answer": "Cene \u0107e biti objavljene kada se otvori na\u0161a 2026 serija. Rani podr\u017eavaoci \u0107e dobiti ekskluzivne cene. Prijavite se na na\u0161u listu \u010dekanja da budete prvi obave\u0161teni."
+        "answer": "Standard po\u010dinje od \u20ac1.920, a Grand od \u20ac2.390. Ovo su cene za 2026 Q1 seriju, dostupne do 30. aprila 2026. ili dok se svih 50 mesta ne popuni."
       },
       "q2": {
         "question": "Koje su dostupne veli\u010dine?",
@@ -271,11 +270,11 @@
       },
       "q10": {
         "question": "Kada \u0107e moj sto biti isporu\u010den?",
-        "answer": "2026 serija je planirana za isporuku u Q4 2026. Pru\u017ea\u0107emo redovna a\u017euriranja svim podr\u017eavaocima tokom procesa proizvodnje."
+        "answer": "2026 serija je planirana za isporuku u Q3 2026. Pru\u017ea\u0107emo redovna a\u017euriranja svim podr\u017eavaocima tokom procesa proizvodnje."
       },
       "q11": {
         "question": "Da li isporu\u010dujete me\u0111unarodno?",
-        "answer": "Detalji o isporuci bi\u0107e objavljeni sa otvaranjem na\u0161e 2026 serije. Prijavite se na listu \u010dekanja da dobijete a\u017euriranja o dostupnosti isporuke u va\u0161em regionu."
+        "answer": "Da. Isporu\u010dujemo \u0161irom Evrope. Tro\u0161kovi dostave se obra\u010dunavaju pri narud\u017ebini na osnovu va\u0161e lokacije. Procenjena isporuka je Q3 2026."
       },
       "q12": {
         "question": "\u0160ta je uklju\u010deno u sto?",
@@ -298,8 +297,8 @@
     "lastUpdated": "Poslednje a\u017euriranje: Decembar 2025",
     "section1Title": "1. Prihvatanje uslova",
     "section1Text": "Pristupanjem ili kori\u0161\u0107enjem Arcadian veb sajta i usluga, prihvatate da vas obavezuju ovi Uslovi kori\u0161\u0107enja. Ako se ne sla\u017eete sa ovim uslovima, molimo vas da ne koristite na\u0161e usluge.",
-    "section2Title": "2. Pretporud\u017ebine i 2026 Serija",
-    "section2Text": "Arcadian proizvodi \u0107e biti dostupni kroz otvaranje na\u0161e 2026 serije. Prijavljivanjem na na\u0161u mejling listu izra\u017eavate interesovanje i primi\u0107ete a\u017euriranja o dostupnosti i cenama. Pla\u0107anje nije potrebno dok ne odlu\u010dite da napravite pretporud\u017ebinu.",
+    "section2Title": "2. Narud\u017ebine i 2026 Serija",
+    "section2Text": "Arcadian stolovi su dostupni kroz na\u0161u 2026 Q1 seriju. Narud\u017ebinom obezbe\u0111ujete svoje mesto u trenutnom proizvodnom ciklusu. Detalji narud\u017ebine, cene i rokovi isporuke su prikazani tokom procesa naru\u010divanja.",
     "section3Title": "3. Informacije o proizvodima",
     "section3Text": "Trudimo se da pru\u017eimo ta\u010dne opise proizvoda, slike i specifikacije. Me\u0111utim, po\u0161to su na\u0161i proizvodi u razvoju, kona\u010dne specifikacije mogu varirati. Obavestiti \u0107emo o svim zna\u010dajnim promenama pre isporuke.",
     "section4Title": "4. Intelektualna svojina",
@@ -311,7 +310,7 @@
     "section7Title": "7. Kontakt",
     "section7Text": "Za pitanja o ovim Uslovima kori\u0161\u0107enja, kontaktirajte nas na hello@arcadiantables.com",
     "metaTitle": "Uslovi kori\u0161\u0107enja | Arcadian",
-    "metaDescription": "Uslovi kori\u0161\u0107enja za Arcadian veb sajt i usluge. Informacije o pretporud\u017ebinama i kupovini proizvoda."
+    "metaDescription": "Uslovi kori\u0161\u0107enja za Arcadian veb sajt i usluge. Informacije o narud\u017ebinama i kupovini proizvoda."
   },
   "privacy": {
     "breadcrumbHome": "Po\u010detna",
@@ -356,10 +355,38 @@
     "metaTitle": "Politika privatnosti | Arcadian",
     "metaDescription": "Saznajte kako Arcadian prikuplja, koristi i \u0161titi va\u0161e li\u010dne podatke. Na\u0161a posve\u0107enost va\u0161oj privatnosti i bezbednosti podataka."
   },
-  "common": {
+  "pricing": {
+    "label": "2026 Q1 serija",
+    "batchLabel": "2026 Q1 serija \u2014 Otvorena",
+    "deadline": "Cene va\u017ee do 30. aprila 2026. ili prvih 50 stolova",
+    "title": "Izaberite va\u0161",
+    "titleAccent": "Arcadian.",
+    "subtitle": "Cene za prvih 50 stolova. Pun hrast. Ru\u010dno izra\u0111en u Srbiji. Isporu\u010den na va\u0161a vrata.",
+    "standardName": "The Standard",
+    "standardSeats": "Za 4 igra\u010da",
+    "grandName": "The Grand",
+    "grandSeats": "Za 6\u20138 igra\u010da",
+    "closedSize": "Dimenzije stola",
+    "playArea": "Povr\u0161ina za igru",
+    "vaultDepth": "Dubina trezora",
+    "reserveCta": "Rezervi\u0161ite mesto",
+    "includedLabel": "Svaki sto uklju\u010duje",
+    "included": {
+      "frame": "Ram i noge od punog hrasta",
+      "toppers": "Poklopce za trpezariju",
+      "rail": "Magnetni \u0161inski sistem",
+      "finish": "0% VOC za\u0161titni premaz",
+      "delivery": "Flat-pack dostava",
+      "assembly": "Komplet za sklapanje"
+    },
+    "batchSizeLabel": "Veli\u010dina serije",
+    "batchSizeValue": "50 stolova",
+    "finePrint": "Cene u EUR. Dostava se obra\u010dunava pri narud\u017ebini. Procenjena isporuka Q3 2026."
+  },
+"common": {
     "readStory": "\u010citaj pri\u010du \u2192",
     "reserveYourSpot": "Rezervi\u0161ite svoje mesto",
-    "joinWaitlist": "Pridru\u017eite se listi \u010dekanja",
+    "joinWaitlist": "Naru\u010dite sada",
     "contactUs": "Kontaktirajte nas"
   },
   "languageSwitcher": {
@@ -368,6 +395,6 @@
   },
   "metadata": {
     "title": "Arcadian | Premium name\u0161taj za dru\u0161tvene igre",
-    "description": "Premium stolovi za dru\u0161tvene igre koji se transformi\u0161u iz elegantne trpezarije u immersivno igranje. Ru\u010dno izra\u0111eni od punog hrasta, modularni dodaci i udubljeni vault. 2026 serija uskoro."
+    "description": "Premium stolovi za dru\u0161tvene igre koji se transformi\u0161u iz elegantne trpezarije u immersivno igranje. Ru\u010dno izra\u0111eni od punog hrasta, modularni dodaci i udubljeni vault. Naru\u010dite sada \u2014 2026 Q1 serija je otvorena."
   }
 }

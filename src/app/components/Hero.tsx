@@ -1,18 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { useActionState, useEffect, useState } from "react";
-import { type SubscribeState, subscribeToUpdates } from "../actions/subscribe";
-
-const initialState: SubscribeState = { success: false, message: "" };
+import NextLink from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 export function Hero() {
   const t = useTranslations("hero");
-  const [heroState, heroAction, heroPending] = useActionState(
-    subscribeToUpdates,
-    initialState,
-  );
+  const locale = useLocale();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -69,41 +65,19 @@ export function Hero() {
                 </p>
               </div>
 
-              {/* Form section */}
-              <form action={heroAction} className="relative z-10">
-                <input type="hidden" name="source" value="hero" />
-
+              {/* CTA */}
+              <div className="relative z-10">
                 <p className="font-sans text-xs md:text-sm text-white/70 mb-3 md:mb-4">
                   {t("ctaText")}
                 </p>
 
-                <div className="flex flex-col gap-2 md:gap-3">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder={t("emailPlaceholder")}
-                    required
-                    className="w-full bg-white/10 border border-white/20 text-white font-sans text-sm md:text-base px-4 py-3 placeholder:text-white/40 focus:outline-none focus:bg-white/15 focus:border-white/40 transition-all"
-                    disabled={heroPending}
-                  />
-
-                  <button
-                    type="submit"
-                    disabled={heroPending}
-                    className="w-full bg-white text-[#1a1918] font-sans text-xs md:text-sm uppercase tracking-[0.15em] font-semibold py-3 md:py-4 hover:bg-white/90 transition-colors disabled:opacity-50"
-                  >
-                    {heroPending ? t("subscribing") : t("notifyMe")}
-                  </button>
-                </div>
-
-                {heroState.message && (
-                  <p
-                    className={`font-sans text-xs md:text-sm mt-3 md:mt-4 ${heroState.success ? "text-green-400" : "text-red-400"}`}
-                  >
-                    {heroState.message}
-                  </p>
-                )}
-              </form>
+                <NextLink
+                  href={`${prefix}/#pricing`}
+                  className="block w-full bg-white text-[#1a1918] font-sans text-xs md:text-sm uppercase tracking-[0.15em] font-semibold py-3 md:py-4 hover:bg-white/90 transition-colors text-center"
+                >
+                  {t("notifyMe")}
+                </NextLink>
+              </div>
 
               {/* Bottom decorative element */}
               <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400" />

@@ -7,6 +7,7 @@ import { useActionState, useEffect, useState } from "react";
 import { type SubscribeState, subscribeToUpdates } from "../actions/subscribe";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
+import { PricingSection } from "../components/PricingSection";
 
 const initialState: SubscribeState = { success: false, message: "" };
 
@@ -793,66 +794,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NEWS / STORIES SECTION */}
-      <section id="stories" className="py-16 md:py-20 bg-paper px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-10 reveal-trigger">
-            <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
-              {t("storiesSection.label")}
-            </span>
-            <h3 className="font-serif text-4xl md:text-5xl leading-tight">
-              {t("storiesSection.title")}{" "}
-              <span className="italic text-ink/50">
-                {t("storiesSection.titleAccent")}
-              </span>
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-1">
-            {articles.map((article) => (
-              <NextLink
-                key={article.slug}
-                href={`/stories/${article.slug}`}
-                className="group reveal-trigger"
-              >
-                <article className="flex flex-col">
-                  <div className="aspect-[16/10] relative overflow-hidden bg-ink/5 mb-6">
-                    <Image
-                      src={article.image}
-                      alt={article.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-accent">
-                      {article.category}
-                    </span>
-                    <span className="w-1 h-1 bg-ink/30 rounded-full" />
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink/40">
-                      {article.date}
-                    </span>
-                  </div>
-                  <h4 className="font-serif text-2xl md:text-3xl mb-3 group-hover:text-accent transition-colors leading-tight">
-                    {article.title}
-                  </h4>
-                  <p className="font-sans text-sm md:text-base text-ink/60 leading-relaxed">
-                    {article.excerpt}
-                  </p>
-                  <div className="mt-4 font-mono text-xs uppercase tracking-widest text-ink/40 group-hover:text-accent transition-colors">
-                    {t("storiesSection.readStory")}
-                  </div>
-                </article>
-              </NextLink>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 2026 BATCH CTA */}
-      <section className="relative bg-amber-400/80 py-16 md:py-24 px-6 md:px-12 overflow-hidden">
+      <section
+        id="pricing"
+        className="relative bg-amber-400/80 py-16 md:py-24 px-6 md:px-12 overflow-hidden"
+      >
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -943,6 +889,79 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* PRICING */}
+      <PricingSection />
+
+      {/* NEWS / STORIES SECTION */}
+      <section id="stories" className="py-16 md:py-20 bg-paper px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-10 reveal-trigger">
+            <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
+              {t("storiesSection.label")}
+            </span>
+            <h3 className="font-serif text-4xl md:text-5xl leading-tight">
+              {t("storiesSection.title")}{" "}
+              <span className="italic text-ink/50">
+                {t("storiesSection.titleAccent")}
+              </span>
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-1">
+            {articles.map((article) => (
+              <NextLink
+                key={article.slug}
+                href={`/stories/${article.slug}`}
+                className="group reveal-trigger"
+              >
+                <article className="flex flex-col">
+                  <div className="aspect-[16/10] relative overflow-hidden bg-ink/5 mb-6">
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-accent">
+                      {article.category}
+                    </span>
+                    <span className="w-1 h-1 bg-ink/30 rounded-full" />
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink/40">
+                      {article.date}
+                    </span>
+                  </div>
+                  <h4 className="font-serif text-2xl md:text-3xl mb-3 group-hover:text-accent transition-colors leading-tight">
+                    {article.title}
+                  </h4>
+                  <p className="font-sans text-sm md:text-base text-ink/60 leading-relaxed">
+                    {article.excerpt}
+                  </p>
+                  <div className="mt-4 font-mono text-xs uppercase tracking-widest text-ink/40 group-hover:text-accent transition-colors">
+                    {t("storiesSection.readStory")}
+                  </div>
+                </article>
+              </NextLink>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AMBER DIVIDER */}
+      <div className="relative bg-amber-400/80 h-3 overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(-45deg, #000 0, #000 1px, transparent 0, transparent 50%)",
+            backgroundSize: "20px 20px",
+          }}
+        />
+      </div>
 
       <Footer />
     </>

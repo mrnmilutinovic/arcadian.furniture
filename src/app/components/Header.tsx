@@ -2,30 +2,53 @@
 
 import Image from "next/image";
 import NextLink from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
 
 export function Header() {
   const t = useTranslations("header");
+  const locale = useLocale();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const prefix = locale === "en" ? "" : `/${locale}`;
+
   const navItems = [
-    { href: "/#transformation", label: t("table"), isHash: true },
-    { href: "/#sizing", label: t("sizes"), isHash: true },
-    { href: "/#finish", label: t("finish"), isHash: true },
-    { href: "/#accessories", label: t("addOns"), isHash: true },
-    { href: "/#stories", label: t("stories"), isHash: true },
+    { href: `${prefix}/#transformation`, label: t("table"), isHash: true },
+    { href: `${prefix}/#sizing`, label: t("sizes"), isHash: true },
+    { href: `${prefix}/#finish`, label: t("finish"), isHash: true },
+    { href: `${prefix}/#accessories`, label: t("addOns"), isHash: true },
+    { href: `${prefix}/#stories`, label: t("stories"), isHash: true },
     { href: "/logs", label: t("logs"), isHash: false },
+    {
+      href: `${prefix}/#pricing`,
+      label: t("pricing"),
+      isHash: true,
+      emphasized: true,
+    },
   ];
 
   const mobileNavItems = [
-    { href: "/#transformation", label: t("mobileTable"), isHash: true },
-    { href: "/#sizing", label: t("sizes"), isHash: true },
-    { href: "/#finish", label: t("finish"), isHash: true },
-    { href: "/#accessories", label: t("mobileAccessories"), isHash: true },
-    { href: "/#stories", label: t("stories"), isHash: true },
+    {
+      href: `${prefix}/#transformation`,
+      label: t("mobileTable"),
+      isHash: true,
+    },
+    { href: `${prefix}/#sizing`, label: t("sizes"), isHash: true },
+    { href: `${prefix}/#finish`, label: t("finish"), isHash: true },
+    {
+      href: `${prefix}/#accessories`,
+      label: t("mobileAccessories"),
+      isHash: true,
+    },
+    { href: `${prefix}/#stories`, label: t("stories"), isHash: true },
     { href: "/logs", label: t("logs"), isHash: false },
+    {
+      href: `${prefix}/#pricing`,
+      label: t("pricing"),
+      isHash: true,
+      emphasized: true,
+    },
   ];
 
   return (
@@ -73,7 +96,11 @@ export function Header() {
                   <NextLink
                     key={item.href}
                     href={item.href}
-                    className="px-4 py-2 rounded-full font-mono text-[11px] uppercase tracking-wide text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
+                    className={
+                      item.emphasized
+                        ? "px-4 py-2 rounded-full font-mono text-[11px] uppercase tracking-wide bg-accent text-white hover:bg-accent/80 transition-all duration-200"
+                        : "px-4 py-2 rounded-full font-mono text-[11px] uppercase tracking-wide text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
+                    }
                   >
                     {item.label}
                   </NextLink>
@@ -142,7 +169,11 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="px-4 py-3 rounded-xl font-mono text-sm uppercase tracking-wider text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                    className={
+                      item.emphasized
+                        ? "px-4 py-3 rounded-xl font-mono text-sm uppercase tracking-wider bg-accent text-white transition-all text-center"
+                        : "px-4 py-3 rounded-xl font-mono text-sm uppercase tracking-wider text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                    }
                     style={{
                       transitionDelay: isMobileMenuOpen
                         ? `${index * 30}ms`

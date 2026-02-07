@@ -162,14 +162,14 @@ export default async function BlogPost({ params }: PageProps) {
               Ready to Elevate Your Game Night?
             </h2>
             <p className="font-sans text-lg text-ink/60 mb-10 max-w-xl mx-auto">
-              The Arcadian table launches on Kickstarter March 2026. Join the
-              waitlist for early-bird pricing and exclusive updates.
+              The 2026 Q1 batch is now open. Order your Arcadian table today and
+              get exclusive batch pricing.
             </p>
             <Link
               href="/"
               className="inline-block bg-ink text-paper px-10 py-5 font-mono text-sm uppercase tracking-widest hover:bg-accent transition-colors rounded-full"
             >
-              Join the Waitlist
+              Order Now
             </Link>
           </div>
         </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useActionState } from "react";
 import { Link } from "@/i18n/navigation";
 import { type SubscribeState, subscribeToUpdates } from "../actions/subscribe";
@@ -11,6 +11,8 @@ const initialState: SubscribeState = { success: false, message: "" };
 
 export function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const [footerState, footerAction, footerPending] = useActionState(
     subscribeToUpdates,
     initialState,
@@ -81,14 +83,12 @@ export function Footer() {
             >
               {t("instagram")}
             </a>
-            <div className="relative group inline-block md:text-right">
-              <span className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic cursor-default">
-                {t("preOrder")}
-              </span>
-              <div className="absolute left-0 md:left-auto md:right-0 top-full mt-2 px-3 py-1.5 bg-ink text-paper text-xs font-mono uppercase tracking-wider rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                {t("preOrderTooltip")}
-              </div>
-            </div>
+            <a
+              href={`${prefix}/#pricing`}
+              className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
+            >
+              {t("preOrder")}
+            </a>
             <Link
               href="/logs"
               className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
