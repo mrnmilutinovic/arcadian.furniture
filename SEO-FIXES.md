@@ -18,7 +18,7 @@ Based on audit performed on 2026-01-01. Overall score: 62/100
 
 - [x] Add `sizes` prop to Next.js Image components with `fill`
 - [x] Improve generic image alt text ("Detail 1-4" → descriptive)
-- [ ] Update social links (Instagram, TikTok, Kickstarter) with real URLs
+- [x] Update social links (Instagram only — keeping all social on Instagram)
 
 ## Progress Log
 
