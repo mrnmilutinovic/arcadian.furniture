@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllSlugs, getPostBySlug } from "../lib/posts";
-import { getPostContent } from "../lib/content";
+import { setRequestLocale } from "next-intl/server";
 import { Breadcrumbs } from "@/app/components/Breadcrumbs";
 import { Footer } from "@/app/components/Footer";
+import { getPostContent } from "../lib/content";
+import { getAllSlugs, getPostBySlug } from "../lib/posts";
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }
 
 export async function generateStaticParams() {
@@ -44,7 +45,8 @@ export async function generateMetadata({
 }
 
 export default async function BlogPost({ params }: PageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  setRequestLocale(locale);
   const post = getPostBySlug(slug);
 
   if (!post) {

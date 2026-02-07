@@ -1,13 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useActionState } from "react";
+import { Link } from "@/i18n/navigation";
 import { type SubscribeState, subscribeToUpdates } from "../actions/subscribe";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const initialState: SubscribeState = { success: false, message: "" };
 
 export function Footer() {
+  const t = useTranslations("footer");
   const [footerState, footerAction, footerPending] = useActionState(
     subscribeToUpdates,
     initialState,
@@ -22,21 +25,20 @@ export function Footer() {
             <div className="flex items-center gap-4">
               <Image
                 src="/focus-logo.svg"
-                alt="Arcadian Logo"
+                alt={t("logoAlt")}
                 width={96}
                 height={96}
                 className="h-12 w-auto md:h-24"
               />
             </div>
             <p className="font-sans text-xl opacity-60 font-light max-w-lg mt-4">
-              Designed for families who play. For game nights that run late. For
-              campaigns that span months.
+              {t("tagline")}
             </p>
           </div>
 
           <div className="w-full max-w-md">
             <p className="font-mono text-[10px] uppercase tracking-widest mb-4 opacity-50">
-              Stay Updated
+              {t("stayUpdated")}
             </p>
             <form
               action={footerAction}
@@ -46,7 +48,7 @@ export function Footer() {
               <input
                 type="email"
                 name="email"
-                placeholder="ENTER YOUR EMAIL"
+                placeholder={t("emailPlaceholder")}
                 className="bg-transparent w-full font-mono text-sm focus:outline-none placeholder-white/30 text-white"
                 disabled={footerPending}
               />
@@ -55,7 +57,7 @@ export function Footer() {
                 disabled={footerPending}
                 className="font-mono text-xs uppercase tracking-widest hover:text-accent transition-colors disabled:opacity-50"
               >
-                {footerPending ? "..." : "Join"}
+                {footerPending ? t("submitting") : t("join")}
               </button>
             </form>
             {footerState.message && (
@@ -77,59 +79,64 @@ export function Footer() {
               rel="noopener noreferrer"
               className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
             >
-              Instagram
+              {t("instagram")}
             </a>
             <div className="relative group inline-block md:text-right">
               <span className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic cursor-default">
-                Pre-order
+                {t("preOrder")}
               </span>
               <div className="absolute left-0 md:left-auto md:right-0 top-full mt-2 px-3 py-1.5 bg-ink text-paper text-xs font-mono uppercase tracking-wider rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                2026 batch opening soon
+                {t("preOrderTooltip")}
               </div>
             </div>
             <Link
               href="/logs"
               className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
             >
-              Logs
+              {t("logsLink")}
             </Link>
             <Link
               href="/blog"
               className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
             >
-              Blog
+              {t("blogLink")}
             </Link>
             <Link
               href="/about"
               className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
             >
-              About Us
+              {t("aboutLink")}
             </Link>
             <Link
               href="/faq"
               className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
             >
-              FAQ
+              {t("faqLink")}
             </Link>
             <div className="h-8" />
             <Link
               href="/terms"
               className="font-serif text-xl md:text-2xl opacity-60 hover:opacity-100 hover:text-accent transition-colors"
             >
-              Terms & Conditions
+              {t("termsLink")}
             </Link>
             <Link
               href="/privacy"
               className="font-serif text-xl md:text-2xl opacity-60 hover:opacity-100 hover:text-accent transition-colors"
             >
-              Privacy Policy
+              {t("privacyLink")}
             </Link>
           </nav>
 
-          <div className="mt-16 font-mono text-[10px] uppercase tracking-widest opacity-30 md:text-right">
-            © {new Date().getFullYear()} Arcadian. All rights reserved.
-            <br />
-            Designed & Crafted in Serbia.
+          <div className="mt-16 md:text-right">
+            <div className="mb-4">
+              <LanguageSwitcher />
+            </div>
+            <div className="font-mono text-[10px] uppercase tracking-widest opacity-30">
+              {t("copyright", { year: new Date().getFullYear() })}
+              <br />
+              {t("madeIn")}
+            </div>
           </div>
         </div>
       </div>

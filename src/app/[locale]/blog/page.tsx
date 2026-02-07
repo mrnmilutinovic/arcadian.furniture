@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumbs } from "../components/Breadcrumbs";
+import { setRequestLocale } from "next-intl/server";
+import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { getAllPosts } from "./lib/posts";
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
 
 export const metadata: Metadata = {
   title: "Board Game Table Guides & Tips | Arcadian Blog",
@@ -18,7 +23,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogIndex() {
+export default async function BlogIndex({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const posts = getAllPosts();
 
   return (

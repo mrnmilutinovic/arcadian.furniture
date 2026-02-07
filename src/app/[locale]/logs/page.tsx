@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Footer } from "../components/Footer";
+import { Footer } from "../../components/Footer";
 import { getLogPhotos } from "./actions";
 import { PhotoGrid } from "./photo-grid";
 

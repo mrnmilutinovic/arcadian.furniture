@@ -1,29 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
-
-const navItems = [
-  { href: "/#transformation", label: "Table" },
-  { href: "/#sizing", label: "Sizes" },
-  { href: "/#finish", label: "Finish" },
-  { href: "/#accessories", label: "Add-ons" },
-  { href: "/#stories", label: "Stories" },
-  { href: "/logs", label: "Logs" },
-];
-
-const mobileNavItems = [
-  { href: "/#transformation", label: "The Table" },
-  { href: "/#sizing", label: "Sizes" },
-  { href: "/#finish", label: "Finish" },
-  { href: "/#accessories", label: "Accessories" },
-  { href: "/#stories", label: "Stories" },
-  { href: "/logs", label: "Logs" },
-];
+import { Link } from "@/i18n/navigation";
 
 export function Header() {
+  const t = useTranslations("header");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navItems = [
+    { href: "/#transformation", label: t("table"), isHash: true },
+    { href: "/#sizing", label: t("sizes"), isHash: true },
+    { href: "/#finish", label: t("finish"), isHash: true },
+    { href: "/#accessories", label: t("addOns"), isHash: true },
+    { href: "/#stories", label: t("stories"), isHash: true },
+    { href: "/logs", label: t("logs"), isHash: false },
+  ];
+
+  const mobileNavItems = [
+    { href: "/#transformation", label: t("mobileTable"), isHash: true },
+    { href: "/#sizing", label: t("sizes"), isHash: true },
+    { href: "/#finish", label: t("finish"), isHash: true },
+    { href: "/#accessories", label: t("mobileAccessories"), isHash: true },
+    { href: "/#stories", label: t("stories"), isHash: true },
+    { href: "/logs", label: t("logs"), isHash: false },
+  ];
 
   return (
     <>
@@ -43,7 +46,7 @@ export function Header() {
               {/* Logo */}
               <Image
                 src="/new-logo.svg"
-                alt="Arcadian Logo"
+                alt={t("logoAlt")}
                 width={80}
                 height={80}
                 className="w-9 h-9 md:w-11 md:h-11"
@@ -65,15 +68,25 @@ export function Header() {
                   "0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
               }}
             >
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="px-4 py-2 rounded-full font-mono text-[11px] uppercase tracking-wide text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) =>
+                item.isHash ? (
+                  <NextLink
+                    key={item.href}
+                    href={item.href}
+                    className="px-4 py-2 rounded-full font-mono text-[11px] uppercase tracking-wide text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
+                  >
+                    {item.label}
+                  </NextLink>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href as "/logs"}
+                    className="px-4 py-2 rounded-full font-mono text-[11px] uppercase tracking-wide text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                ),
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -88,7 +101,7 @@ export function Header() {
               aria-label="Toggle menu"
             >
               <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
-                {isMobileMenuOpen ? "Close" : "Menu"}
+                {isMobileMenuOpen ? t("close") : t("menu")}
               </span>
               <div className="flex flex-col gap-1">
                 <span
@@ -123,32 +136,50 @@ export function Header() {
             style={{ backgroundColor: "#1a1918" }}
           >
             <nav className="flex flex-col gap-1">
-              {mobileNavItems.map((item, index) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-3 rounded-xl font-mono text-sm uppercase tracking-wider text-white/70 hover:text-white hover:bg-white/10 transition-all"
-                  style={{
-                    transitionDelay: isMobileMenuOpen
-                      ? `${index * 30}ms`
-                      : "0ms",
-                  }}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {mobileNavItems.map((item, index) =>
+                item.isHash ? (
+                  <NextLink
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="px-4 py-3 rounded-xl font-mono text-sm uppercase tracking-wider text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                    style={{
+                      transitionDelay: isMobileMenuOpen
+                        ? `${index * 30}ms`
+                        : "0ms",
+                    }}
+                  >
+                    {item.label}
+                  </NextLink>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href as "/logs"}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="px-4 py-3 rounded-xl font-mono text-sm uppercase tracking-wider text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                    style={{
+                      transitionDelay: isMobileMenuOpen
+                        ? `${index * 30}ms`
+                        : "0ms",
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                ),
+              )}
             </nav>
 
             {/* Footer */}
-            <div className="px-4 py-3 mt-2 border-t border-white/10 flex items-center gap-2">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />
-              </span>
-              <span className="font-mono text-[9px] uppercase tracking-wider text-white/40">
-                2026 Batch · Opening Soon
-              </span>
+            <div className="px-4 py-3 mt-2 border-t border-white/10 flex items-center justify-center">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />
+                </span>
+                <span className="font-mono text-[9px] uppercase tracking-wider text-white/40">
+                  {t("batchStatus")}
+                </span>
+              </div>
             </div>
           </div>
         </div>

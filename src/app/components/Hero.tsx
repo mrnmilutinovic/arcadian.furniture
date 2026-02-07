@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useActionState, useEffect, useState } from "react";
 import { type SubscribeState, subscribeToUpdates } from "../actions/subscribe";
 
 const initialState: SubscribeState = { success: false, message: "" };
 
 export function Hero() {
+  const t = useTranslations("hero");
   const [heroState, heroAction, heroPending] = useActionState(
     subscribeToUpdates,
     initialState,
@@ -43,11 +45,11 @@ export function Hero() {
               isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Board gaming nights{" "}
+            {t("headline1")}{" "}
             <span className="font-ruthie text-[100px] sm:text-[110px] md:text-[190px]">
-              deserve more
+              {t("headline2")}
             </span>{" "}
-            than a kitchen table
+            {t("headline3")}
           </h1>
 
           {/* CTA - Dark Brutalist Block */}
@@ -60,10 +62,10 @@ export function Hero() {
               {/* Top section - 2026 Batch */}
               <div className="relative z-10 mb-6 md:mb-8">
                 <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.25em] text-white/50 mb-2 md:mb-3">
-                  Limited Production
+                  {t("limitedProduction")}
                 </p>
                 <p className="font-staatliches-baskerville text-2xl md:text-4xl tracking-tight">
-                  2026 Batch Opening Soon
+                  {t("batchOpening")}
                 </p>
               </div>
 
@@ -72,14 +74,14 @@ export function Hero() {
                 <input type="hidden" name="source" value="hero" />
 
                 <p className="font-sans text-xs md:text-sm text-white/70 mb-3 md:mb-4">
-                  Be the first to reserve yours.
+                  {t("ctaText")}
                 </p>
 
                 <div className="flex flex-col gap-2 md:gap-3">
                   <input
                     type="email"
                     name="email"
-                    placeholder="your@email.com"
+                    placeholder={t("emailPlaceholder")}
                     required
                     className="w-full bg-white/10 border border-white/20 text-white font-sans text-sm md:text-base px-4 py-3 placeholder:text-white/40 focus:outline-none focus:bg-white/15 focus:border-white/40 transition-all"
                     disabled={heroPending}
@@ -90,7 +92,7 @@ export function Hero() {
                     disabled={heroPending}
                     className="w-full bg-white text-[#1a1918] font-sans text-xs md:text-sm uppercase tracking-[0.15em] font-semibold py-3 md:py-4 hover:bg-white/90 transition-colors disabled:opacity-50"
                   >
-                    {heroPending ? "Subscribing..." : "Notify Me"}
+                    {heroPending ? t("subscribing") : t("notifyMe")}
                   </button>
                 </div>
 

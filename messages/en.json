@@ -1,0 +1,373 @@
+{
+  "header": {
+    "logoAlt": "Arcadian Logo",
+    "table": "Table",
+    "sizes": "Sizes",
+    "finish": "Finish",
+    "addOns": "Add-ons",
+    "stories": "Stories",
+    "logs": "Logs",
+    "mobileTable": "The Table",
+    "mobileAccessories": "Accessories",
+    "close": "Close",
+    "menu": "Menu",
+    "batchStatus": "2026 Batch \u00b7 Opening Soon"
+  },
+  "footer": {
+    "logoAlt": "Arcadian Logo",
+    "tagline": "Designed for families who play. For game nights that run late. For campaigns that span months.",
+    "stayUpdated": "Stay Updated",
+    "emailPlaceholder": "ENTER YOUR EMAIL",
+    "join": "Join",
+    "submitting": "...",
+    "instagram": "Instagram",
+    "preOrder": "Pre-order",
+    "preOrderTooltip": "2026 batch opening soon",
+    "logsLink": "Logs",
+    "blogLink": "Blog",
+    "aboutLink": "About Us",
+    "faqLink": "FAQ",
+    "termsLink": "Terms & Conditions",
+    "privacyLink": "Privacy Policy",
+    "copyright": "\u00a9 {year} Arcadian. All rights reserved.",
+    "madeIn": "Designed & Crafted in Serbia."
+  },
+  "hero": {
+    "headline1": "Board gaming nights",
+    "headline2": "deserve more",
+    "headline3": "than a kitchen table",
+    "limitedProduction": "Limited Production",
+    "batchOpening": "2026 Batch Opening Soon",
+    "ctaText": "Be the first to reserve yours.",
+    "emailPlaceholder": "your@email.com",
+    "subscribing": "Subscribing...",
+    "notifyMe": "Notify Me"
+  },
+  "home": {
+    "transformation": {
+      "label": "The Transformation",
+      "title": "Dining to gaming",
+      "titleAccent": "in seconds.",
+      "undercoverMode": "Undercover mode",
+      "whenLifeHappens": "When life happens",
+      "undercoverDescription": "Toppers on. It's a dining table. Beautiful, functional, completely unsuspicious. Your in-laws will never know.",
+      "vaultMode": "Vault mode",
+      "whenGamesHappen": "When games happen",
+      "vaultDescription": "Toppers off. The Vault revealed. 10cm of recessed gaming paradise, ready for whatever you're playing\u2014and whatever you're leaving set up for next week.",
+      "topperNote1": "Each topper is precision - sized for optimal weight distribution",
+      "topperNote2Heavy": "Heavy enough",
+      "topperNote2Text": "to stay put,",
+      "topperNote2Light": "light enough",
+      "topperNote2End": "for effortless one-hand removal."
+    },
+    "sizing": {
+      "label": "Sizing",
+      "title": "Find",
+      "titleAccent": "Your Fit.",
+      "intro1": "Not every game room is the same. Not every group is the same.",
+      "intro2": "So we made two sizes - one for intimate sessions, one for epic campaigns. Both fit through standard doors. Both hide in plain sight.\ud83d\udc7b",
+      "standard": "The Standard",
+      "seats4": "Seats 4",
+      "grand": "The Grand",
+      "seats68": "Seats 6-8",
+      "closedTableSize": "Closed Table Size",
+      "playArea": "Play Area",
+      "standardClosed": {
+        "metric": "108 \u00d7 108 cm",
+        "imperial": "42.5 \u00d7 42.5 in"
+      },
+      "standardPlay": {
+        "metric": "90 \u00d7 90 cm",
+        "imperial": "35.4 \u00d7 35.4 in"
+      },
+      "grandClosed": {
+        "metric": "108 \u00d7 189 cm",
+        "imperial": "42.5 \u00d7 74.4 in"
+      },
+      "grandPlay": {
+        "metric": "90 \u00d7 170 cm",
+        "imperial": "35.4 \u00d7 66.9 in"
+      },
+      "cm": "CM",
+      "in": "IN"
+    },
+    "assembly": {
+      "label": "Assembly",
+      "title1": "Ready to play",
+      "title2": "in 30 minutes.",
+      "description": "The Arcadian arrives flat-packed and ready. One tool. Pre-drilled holes. No guesswork, no leftover screws.",
+      "singleTool": "Single Tool",
+      "easyAssembly": "Easy Assembly",
+      "comingSoon": "Coming Soon"
+    },
+    "finish": {
+      "label": "The Finish",
+      "title": "Natural stains",
+      "titleAccent": "& deep protection.",
+      "intro": "We finish our premium boardgaming tables with a revolutionary plant-based hardwax oil that delivers both exceptional beauty and environmental responsibility.",
+      "vocFree": "0% VOC \u2014 Solvent Free",
+      "paragraph1": "This eco-conscious finish is <strong>0% VOC [1]</strong> and contains no solvents or water, making it one of the cleanest wood treatments available.",
+      "paragraph2": "Oils penetrate the wood fibers to create outstanding resistance to wear, water, and heat and that is essential protection for gaming tables that endure countless game nights, drink condensation, and the natural oils from players' hands.",
+      "paragraph3": "Unlike traditional finishes that sit on the surface, this treatment preserves the natural look and feel of the wood, allowing you to experience authentic hardwood warmth while enjoying a finish that's as kind to the environment as it is tough on daily use.",
+      "footnoteLabel": "[1]",
+      "footnoteText": "VOC stands for Volatile Organic Compounds\u2014chemicals that evaporate into the air at room temperature and can contribute to indoor air pollution and potential health concerns. Many traditional wood finishes contain high levels of VOCs, which release fumes during application and curing, often requiring extensive ventilation and creating that characteristic \"new finish\" smell. A 0% VOC finish eliminates these concerns entirely, ensuring better indoor air quality from the moment the piece enters your home, with no toxic fumes, no lingering odors, and no ongoing chemical emissions."
+    },
+    "woodColors": {
+      "label": "Choose Your Finish",
+      "title": "Two stains,",
+      "titleAccent": "one mystery.",
+      "dawnName": "Arcadian Dawn",
+      "dawnDescription": "Quite neutral, natural oak finish with the hint of lighter tones.",
+      "shadowName": "Pan's Shadow",
+      "shadowDescription": "Rich warm, walnut looking tones with the thread of dark chocolate.",
+      "exclusiveName": "2026 Batch Exclusive",
+      "exclusiveDescription": "A mystery finish revealed only to early supporters."
+    },
+    "railSystem": {
+      "label": "The Rail System",
+      "title": "Everything at hand.",
+      "magneticTitle": "Magnetic Click",
+      "magneticDescription": "Accessories snap into place instantly with industrial strength magnets. No screws required.",
+      "modularTitle": "360\u00b0 Modular",
+      "modularDescription": "Attach cup holders and bins anywhere along the inner or outer rail perimeter.",
+      "solidWoodTitle": "Solid Wood",
+      "solidWoodDescription": "All accessories are crafted from the same premium hardwoods as your table."
+    },
+    "ecosystem": {
+      "title": "The Ecosystem.",
+      "modularAddOns": "Modular Add-ons",
+      "status": "STATUS: IN DEVELOPMENT",
+      "schematicPending": "[ SCHEMATIC PENDING ]",
+      "cupHolder": "Cup & Mug Holder",
+      "cupHolderDesc": "Keep drinks safe and within reach.",
+      "universalTray": "Universal Tray",
+      "universalTrayDesc": "Versatile storage for any game.",
+      "diceTray": "Dice Tray",
+      "diceTrayDesc": "Roll with precision.",
+      "bowlHolder": "Bowl Holder",
+      "bowlHolderDesc": "Snacks at arm's length.",
+      "playerDesk": "Player Desk",
+      "playerDeskDesc": "Personal space for cards and notes.",
+      "toppersBox": "Toppers Box",
+      "toppersBoxDesc": "Elegant storage for table toppers."
+    },
+    "storiesSection": {
+      "label": "Stories",
+      "title": "From the",
+      "titleAccent": "Workshop",
+      "readStory": "Read Story \u2192"
+    },
+    "articles": {
+      "radgost": {
+        "title": "Spirits of the Forest Meet the Arcadian Table",
+        "excerpt": "We partnered with the creators of Forest of Radgost, a Slavic mythology board game, to showcase how epic adventures deserve an epic stage.",
+        "date": "September 2025",
+        "category": "Collaboration"
+      },
+      "boris": {
+        "title": "Behind the Lens with Boris Jovanovic",
+        "excerpt": "Netflix and Adidas photographer Boris Jovanovic captured the soul of the Arcadian table in our most ambitious photoshoot yet.",
+        "date": "September 2025",
+        "category": "Behind the Scenes"
+      }
+    },
+    "cta": {
+      "limitedProduction": "Limited Production",
+      "batchOpening": "2026 Batch Opening Soon",
+      "ctaDescription": "Be the first to reserve your Arcadian table. Early supporters get exclusive pricing and the mystery finish reveal.",
+      "emailPlaceholder": "ENTER YOUR EMAIL",
+      "notifyMe": "Notify Me",
+      "submitting": "...",
+      "batchSizeLabel": "2026 Batch Size",
+      "batchSizeValue": "Limited",
+      "earlyBirdLabel": "Early Bird Slots",
+      "earlyBirdValue": "50",
+      "deliveryLabel": "Estimated Delivery",
+      "deliveryValue": "Q4 2026"
+    }
+  },
+  "about": {
+    "breadcrumbHome": "Home",
+    "breadcrumbAbout": "About Us",
+    "title": "A Family",
+    "titleAccent": "Affair",
+    "subtitle": "We couldn't find the perfect gaming table. So we designed it ourselves and found master craftsmen who share our obsession with precision.",
+    "storyLabel": "Our Story",
+    "storyTitle": "Born from Game Nights",
+    "storyP1": "It started the way most obsessions do: innocently. A copy of Catan here, a Ticket to Ride there. Before we knew it, our collection had grown to hundreds of games, and our kitchen table was groaning under the weight of Gloomhaven campaigns that stretched across months.",
+    "storyP2": "We're Nikola and Jana, a husband-and-wife team from Serbia with two daughters (Sofija and Nia), three dogs (Billy, Charlie, and Lucy), and a shared love for paragliding and, of course, board games.",
+    "storyP3": "When we couldn't find a gaming table that met our standards\u2014one that was beautiful enough to live in our home, functional enough for serious gaming, and built to last for decades\u2014we decided to design our own.",
+    "foundersCaption": "Nikola & Jana, Founders",
+    "processLabel": "The Process",
+    "processTitle": "From Sketch to Solid Oak",
+    "processP1": "We didn't outsource the vision. Every aspect of the Arcadian table\u2014the recessed vault depth, the magnetic rail system, the topper weight distribution\u2014came from our own designs, 3D models, and countless prototypes tested during real game nights.",
+    "processP2": "We know what it's like to knock over a drink reaching for dice. We know the frustration of a table that's too small for Twilight Imperium. We know the joy of leaving a game set up for weeks without worry. Every design decision came from lived experience.",
+    "workshopLabel": "The Workshop",
+    "workshopTitle": "Precision Meets Craftsmanship",
+    "workshopP1": "We designed every detail of the Arcadian table ourselves. But bringing those designs to life required finding craftsmen who share our obsession with precision\u2014a mechanical engineer turned master woodworker who won't tolerate a millimeter of error.",
+    "workshopP2": "The workshop is old-school in the best way: no shortcuts, no compromises, just decades of accumulated knowledge about how wood behaves and how joints should be cut.",
+    "workshopP3": "We value precision above all else, and we found people who feel the same. The result: tables built to last generations.",
+    "valuesLabel": "What We Believe",
+    "valuesTitle": "Built to Last Generations",
+    "precisionTitle": "Precision",
+    "precisionDescription": "Every joint is engineered. Every measurement is exact. We won't ship a table that's a millimeter off spec.",
+    "durabilityTitle": "Durability",
+    "durabilityDescription": "Solid oak, traditional joinery, zero-VOC finishes. Built for the next 50 years of game nights, not the next 5.",
+    "functionTitle": "Function",
+    "functionDescription": "Designed by gamers, for gamers. Every feature exists because we needed it at our own table.",
+    "ctaTitle": "Join Our Table",
+    "ctaDescription": "The 2026 batch is opening soon. Be among the first to bring an Arcadian table to your game nights.",
+    "ctaButton": "Reserve Your Spot",
+    "metaTitle": "About Us | Arcadian - Premium Board Game Tables",
+    "metaDescription": "Meet Nikola and Jana, the lifelong board gamers behind Arcadian. We designed our dream gaming table and partnered with master craftsmen in Serbia to build it."
+  },
+  "faq": {
+    "breadcrumbHome": "Home",
+    "breadcrumbFaq": "FAQ",
+    "title": "Frequently Asked",
+    "titleAccent": "Questions",
+    "subtitle": "Everything you need to know about the Arcadian table, from sizing to finishes to how the vault works.",
+    "stillHaveQuestions": "Still have questions?",
+    "stillHaveQuestionsSubtitle": "Reach out to us directly and we'll get back to you.",
+    "contactUs": "Contact Us",
+    "metaTitle": "Frequently Asked Questions | Arcadian Board Game Tables",
+    "metaDescription": "Get answers about Arcadian board game tables: pricing, sizes, assembly, wood finishes, the vault system, shipping, and more.",
+    "questions": {
+      "q1": {
+        "question": "How much does an Arcadian table cost?",
+        "answer": "Pricing will be announced when our 2026 batch opens. Early supporters will receive exclusive pricing. Join our waitlist to be notified first."
+      },
+      "q2": {
+        "question": "What sizes are available?",
+        "answer": "We offer two sizes: The Standard (108\u00d7108cm, seats 4) and The Grand (108\u00d7189cm, seats 6-8). Both feature a 10cm deep recessed vault for gaming."
+      },
+      "q3": {
+        "question": "What wood is the table made from?",
+        "answer": "Arcadian tables are crafted from solid European oak. We offer two finish options: Arcadian Dawn (natural light oak) and Pan's Shadow (rich walnut tones). A mystery third finish will be revealed exclusively to 2026 batch supporters."
+      },
+      "q4": {
+        "question": "How long does assembly take?",
+        "answer": "About 30 minutes. The table arrives flat-packed with pre-drilled holes and requires only a single tool. No guesswork, no leftover screws."
+      },
+      "q5": {
+        "question": "Will it fit through my door?",
+        "answer": "Yes. Both sizes are designed to fit through standard doorways when flat-packed. Both The Standard and The Grand fit easily."
+      },
+      "q6": {
+        "question": "What is the recessed vault?",
+        "answer": "The vault is a 10cm deep play area beneath the table surface. It keeps game components secure, allows you to leave games set up between sessions, and transforms into a dining table when the toppers are placed on top."
+      },
+      "q7": {
+        "question": "How do the toppers work?",
+        "answer": "The toppers are precision-sized solid oak panels that rest on the table frame, covering the vault. They're heavy enough to stay put during meals but light enough for easy one-hand removal when it's game time."
+      },
+      "q8": {
+        "question": "What is the magnetic rail system?",
+        "answer": "The rail system runs along the inner perimeter of the vault. Accessories like cup holders, dice trays, and component bins snap into place with industrial-strength magnets\u2014no screws required. Position them anywhere along the rail."
+      },
+      "q9": {
+        "question": "What finish is used on the wood?",
+        "answer": "We use a plant-based hardwax oil that's 0% VOC and solvent-free. It penetrates the wood fibers for outstanding resistance to wear, water, and heat while preserving the natural look and feel of the oak."
+      },
+      "q10": {
+        "question": "When will my table ship?",
+        "answer": "The 2026 batch is estimated to ship in Q4 2026. We'll provide regular updates to all supporters throughout the production process."
+      },
+      "q11": {
+        "question": "Do you ship internationally?",
+        "answer": "Shipping details will be announced with our 2026 batch opening. Join the waitlist to receive updates on shipping availability to your region."
+      },
+      "q12": {
+        "question": "What's included with the table?",
+        "answer": "Every Arcadian table includes the table frame, legs, topper panels, and assembly hardware. Accessories like cup holders and dice trays are available separately."
+      },
+      "q13": {
+        "question": "How durable is the table?",
+        "answer": "Built to last generations. Solid oak construction, traditional joinery techniques, and a protective hardwax finish ensure your table can handle decades of game nights, family dinners, and daily use."
+      },
+      "q14": {
+        "question": "Can I see the table in person?",
+        "answer": "We occasionally attend board game conventions and events. Follow us on Instagram (@arcadiantables) for announcements about where you can see and experience the Arcadian table."
+      }
+    }
+  },
+  "terms": {
+    "breadcrumbHome": "Home",
+    "breadcrumbTerms": "Terms & Conditions",
+    "title": "Terms & Conditions",
+    "lastUpdated": "Last updated: December 2025",
+    "section1Title": "1. Agreement to Terms",
+    "section1Text": "By accessing or using the Arcadian website and services, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.",
+    "section2Title": "2. Pre-Orders & 2026 Batch",
+    "section2Text": "Arcadian products will be available through our 2026 batch opening. By joining our mailing list, you are expressing interest and will receive updates about availability and pricing. No payment is required until you choose to place a pre-order.",
+    "section3Title": "3. Product Information",
+    "section3Text": "We strive to provide accurate product descriptions, images, and specifications. However, as our products are in development, final specifications may vary. We will communicate any significant changes to backers before fulfillment.",
+    "section4Title": "4. Intellectual Property",
+    "section4Text": "All content on this website, including text, images, logos, and designs, is the property of Arcadian and is protected by intellectual property laws. You may not reproduce, distribute, or create derivative works without our express permission.",
+    "section5Title": "5. Limitation of Liability",
+    "section5Text": "Arcadian shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our website or products. Our total liability shall not exceed the amount paid for the product in question.",
+    "section6Title": "6. Governing Law",
+    "section6Text": "These terms shall be governed by and construed in accordance with the laws of Serbia, without regard to its conflict of law provisions.",
+    "section7Title": "7. Contact",
+    "section7Text": "For questions about these Terms & Conditions, please contact us at hello@arcadiantables.com",
+    "metaTitle": "Terms & Conditions | Arcadian",
+    "metaDescription": "Terms and conditions for using Arcadian website and services. Information about pre-orders and product purchases."
+  },
+  "privacy": {
+    "breadcrumbHome": "Home",
+    "breadcrumbPrivacy": "Privacy Policy",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: December 2025",
+    "section1Title": "1. Information We Collect",
+    "section1Text": "We collect information you provide directly to us, such as your email address when you sign up for our mailing list. We may also collect usage data about how you interact with our website.",
+    "section2Title": "2. How We Use Your Information",
+    "section2Text": "We use the information we collect to:",
+    "section2Items": {
+      "item1": "Send you updates about product availability and launches",
+      "item2": "Respond to your inquiries and provide customer support",
+      "item3": "Improve our website and services",
+      "item4": "Comply with legal obligations"
+    },
+    "section3Title": "3. Information Sharing",
+    "section3Text": "We do not sell, trade, or rent your personal information to third parties. We may share your information with service providers who assist us in operating our website and conducting our business, subject to confidentiality agreements.",
+    "section4Title": "4. Data Security",
+    "section4Text": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.",
+    "section5Title": "5. Your Rights",
+    "section5Text": "You have the right to:",
+    "section5Items": {
+      "item1": "Access the personal information we hold about you",
+      "item2": "Request correction of inaccurate information",
+      "item3": "Request deletion of your information",
+      "item4": "Unsubscribe from our mailing list at any time"
+    },
+    "section6Title": "6. Cookies",
+    "section6Text": "Our website may use cookies to enhance your browsing experience. You can configure your browser to refuse cookies, though this may affect some website functionality.",
+    "section7Title": "7. Unsubscribing from Our Newsletter",
+    "section7Text": "If you no longer wish to receive marketing emails from us, you can unsubscribe at any time using any of these methods:",
+    "section7Items": {
+      "item1": "Click the \"Unsubscribe\" link at the bottom of any email we send you",
+      "item2": "Email us directly at hello@arcadiantables.com with the subject line \"Unsubscribe\""
+    },
+    "section7Note": "Please allow up to 48 hours for your request to be processed. Note that even after unsubscribing from marketing emails, you may still receive transactional emails related to any orders or customer service inquiries.",
+    "section8Title": "8. Changes to This Policy",
+    "section8Text": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the \"Last updated\" date.",
+    "section9Title": "9. Contact Us",
+    "section9Text": "If you have questions about this Privacy Policy or wish to exercise your rights, please contact us at hello@arcadiantables.com",
+    "metaTitle": "Privacy Policy | Arcadian",
+    "metaDescription": "Learn how Arcadian collects, uses, and protects your personal information. Our commitment to your privacy and data security."
+  },
+  "common": {
+    "readStory": "Read Story \u2192",
+    "reserveYourSpot": "Reserve Your Spot",
+    "joinWaitlist": "Join the Waitlist",
+    "contactUs": "Contact Us"
+  },
+  "languageSwitcher": {
+    "en": "EN",
+    "sr": "SR"
+  },
+  "metadata": {
+    "title": "Arcadian | Elevated Board Game Furniture",
+    "description": "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault. 2026 batch opening soon."
+  }
+}

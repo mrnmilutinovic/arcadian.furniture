@@ -1,15 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
+import { useTranslations } from "next-intl";
 import { useActionState, useEffect, useState } from "react";
-import { type SubscribeState, subscribeToUpdates } from "./actions/subscribe";
-import { Footer } from "./components/Footer";
-import { Hero } from "./components/Hero";
+import { type SubscribeState, subscribeToUpdates } from "../actions/subscribe";
+import { Footer } from "../components/Footer";
+import { Hero } from "../components/Hero";
 
 const initialState: SubscribeState = { success: false, message: "" };
 
 export default function Home() {
+  const t = useTranslations("home");
+
   const [isMetric, setIsMetric] = useState(true);
 
   // Form state for Kickstarter subscription form
@@ -19,21 +22,19 @@ export default function Home() {
   const articles = [
     {
       slug: "forest-of-radgost-collaboration",
-      title: "Spirits of the Forest Meet the Arcadian Table",
-      excerpt:
-        "We partnered with the creators of Forest of Radgost, a Slavic mythology board game, to showcase how epic adventures deserve an epic stage.",
+      title: t("articles.radgost.title"),
+      excerpt: t("articles.radgost.excerpt"),
       image: "/photos/radgost-cover-photo.jpeg",
-      date: "September 2025",
-      category: "Collaboration",
+      date: t("articles.radgost.date"),
+      category: t("articles.radgost.category"),
     },
     {
       slug: "boris-jovanovic-photoshoot",
-      title: "Behind the Lens with Boris Jovanovic",
-      excerpt:
-        "Netflix and Adidas photographer Boris Jovanovic captured the soul of the Arcadian table in our most ambitious photoshoot yet.",
+      title: t("articles.boris.title"),
+      excerpt: t("articles.boris.excerpt"),
       image: "/photos/boris-cover-photo.jpeg",
-      date: "September 2025",
-      category: "Behind the Scenes",
+      date: t("articles.boris.date"),
+      category: t("articles.boris.category"),
     },
   ];
 
@@ -152,11 +153,14 @@ export default function Home() {
           <div className="flex flex-col gap-12">
             <div className="max-w-2xl mx-auto text-center reveal-trigger">
               <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
-                The Transformation
+                {t("transformation.label")}
               </span>
               <h3 className="font-serif text-4xl md:text-5xl mb-2 leading-tight">
-                Dining to gaming
-                <span className="italic text-ink/50"> in seconds.</span>
+                {t("transformation.title")}
+                <span className="italic text-ink/50">
+                  {" "}
+                  {t("transformation.titleAccent")}
+                </span>
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-1 rounded-xl">
@@ -172,16 +176,17 @@ export default function Home() {
                 </div>
                 <div className="mt-4 relative">
                   <div className="bg-white px-3 py-1 rounded-lg absolute -top-12 rotate-[-7deg] left-1">
-                    <h4 className="font-sans text-2xl">Undercover mode</h4>
+                    <h4 className="font-sans text-2xl">
+                      {t("transformation.undercoverMode")}
+                    </h4>
                   </div>
                   <div className="flex gap-4 mt-4">
                     <h5 className="font-sans text-2xl mt-4">
-                      When life happens
+                      {t("transformation.whenLifeHappens")}
                     </h5>
                   </div>
                   <p className="font-sans text-sm text-ink/60 leading-relaxed max-w-[500px]">
-                    Toppers on. It's a dining table. Beautiful, functional,
-                    completely unsuspicious. Your in-laws will never know.
+                    {t("transformation.undercoverDescription")}
                   </p>
                 </div>
               </div>
@@ -197,17 +202,17 @@ export default function Home() {
                 </div>
                 <div className="mt-4 relative">
                   <div className="bg-black text-white px-3 py-1 rounded-lg absolute -top-12 rotate-[4deg] left-1">
-                    <h4 className="font-sans text-2xl">Vault mode</h4>
+                    <h4 className="font-sans text-2xl">
+                      {t("transformation.vaultMode")}
+                    </h4>
                   </div>
                   <div className="flex gap-4 mb-2">
                     <h5 className="font-sans text-2xl mt-4">
-                      When games happen
+                      {t("transformation.whenGamesHappen")}
                     </h5>
                   </div>
                   <p className="font-sans text-sm text-ink/60 leading-relaxed max-w-[500px]">
-                    Toppers off. The Vault revealed. 10cm of recessed gaming
-                    paradise, ready for whatever you're playing—and whatever
-                    you're leaving set up for next week.
+                    {t("transformation.vaultDescription")}
                   </p>
                 </div>
               </div>
@@ -215,12 +220,13 @@ export default function Home() {
 
             <div className="max-w-2xl mx-auto text-center pt-8 border-t border-ink/10">
               <p className="font-mono text-xs text-ink/40 leading-relaxed">
-                Each topper is precision - sized for optimal weight distribution
+                {t("transformation.topperNote1")}
               </p>
               <p className="font-mono text-xs text-ink/40 leading-relaxed">
-                <strong>Heavy enough</strong> to stay put,{" "}
-                <strong>light enough </strong>
-                for effortless one-hand removal.
+                <strong>{t("transformation.topperNote2Heavy")}</strong>{" "}
+                {t("transformation.topperNote2Text")}{" "}
+                <strong>{t("transformation.topperNote2Light")} </strong>
+                {t("transformation.topperNote2End")}
               </p>
             </div>
           </div>
@@ -237,19 +243,20 @@ export default function Home() {
           <div className="flex flex-col gap-12">
             <div className="max-w-2xl mx-auto text-center reveal-trigger">
               <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
-                Sizing
+                {t("sizing.label")}
               </span>
               <h3 className="font-serif text-4xl md:text-5xl mb-4 leading-tight">
-                Find
-                <span className="italic text-ink/50"> Your Fit.</span>
+                {t("sizing.title")}
+                <span className="italic text-ink/50">
+                  {" "}
+                  {t("sizing.titleAccent")}
+                </span>
               </h3>
               <p className="font-sans text-lg font-light leading-relaxed text-ink/70">
-                Not every game room is the same. Not every group is the same.
+                {t("sizing.intro1")}
               </p>
               <p className="font-sans text-lg font-light leading-relaxed text-ink/70">
-                So we made two sizes - one for intimate sessions, one for epic
-                campaigns. Both fit through standard doors. Both hide in plain
-                sight.👻
+                {t("sizing.intro2")}
               </p>
             </div>
 
@@ -267,6 +274,7 @@ export default function Home() {
                 </div>
                 <div className="bg-[#EAE8E1] overflow-hidden">
                   <div className="flex justify-center items-center py-8 h-64 md:h-[500px]">
+                    {/* biome-ignore lint/performance/noImgElement: SVG diagram, no benefit from next/image */}
                     <img
                       src="/graphics/small-table.svg"
                       alt="The Standard table diagram"
@@ -275,26 +283,32 @@ export default function Home() {
                   </div>
                   <div className="p-6 pt-0">
                     <div className="flex justify-between items-baseline mb-3">
-                      <span className="font-serif text-xl">The Standard</span>
+                      <span className="font-serif text-xl">
+                        {t("sizing.standard")}
+                      </span>
                       <span className="font-mono text-[10px] md:text-xs opacity-50 uppercase">
-                        Seats 4
+                        {t("sizing.seats4")}
                       </span>
                     </div>
                     <div className="space-y-1">
                       <div className="flex justify-between">
                         <span className="font-sans text-xs md:text-sm opacity-60">
-                          Closed Table Size
+                          {t("sizing.closedTableSize")}
                         </span>
                         <span className="font-mono text-xs md:text-sm opacity-60">
-                          {isMetric ? "108 × 108 cm" : "42.5 × 42.5 in"}
+                          {isMetric
+                            ? t("sizing.standardClosed.metric")
+                            : t("sizing.standardClosed.imperial")}
                         </span>
                       </div>
                       <div className="flex justify-between">
                         <span className="font-sans text-xs md:text-sm opacity-60">
-                          Play Area
+                          {t("sizing.playArea")}
                         </span>
                         <span className="font-mono text-xs md:text-sm opacity-60">
-                          {isMetric ? "90 × 90 cm" : "35.4 × 35.4 in"}
+                          {isMetric
+                            ? t("sizing.standardPlay.metric")
+                            : t("sizing.standardPlay.imperial")}
                         </span>
                       </div>
                     </div>
@@ -315,6 +329,7 @@ export default function Home() {
                 </div>
                 <div className="bg-[#EAE8E1] overflow-hidden">
                   <div className="flex justify-center items-center h-64 md:h-[500px] py-8">
+                    {/* biome-ignore lint/performance/noImgElement: SVG diagram, no benefit from next/image */}
                     <img
                       src="/graphics/large-table.svg"
                       alt="The Grand table diagram"
@@ -323,26 +338,32 @@ export default function Home() {
                   </div>
                   <div className="p-6 pt-0">
                     <div className="flex justify-between items-baseline mb-3">
-                      <span className="font-serif text-xl">The Grand</span>
+                      <span className="font-serif text-xl">
+                        {t("sizing.grand")}
+                      </span>
                       <span className="font-mono text-[10px] md:text-xs opacity-50 uppercase">
-                        Seats 6-8
+                        {t("sizing.seats68")}
                       </span>
                     </div>
                     <div className="space-y-1">
                       <div className="flex justify-between">
                         <span className="font-sans text-xs md:text-sm opacity-60">
-                          Closed Table Size
+                          {t("sizing.closedTableSize")}
                         </span>
                         <span className="font-mono text-xs md:text-sm opacity-60">
-                          {isMetric ? "108 × 189 cm" : "42.5 × 74.4 in"}
+                          {isMetric
+                            ? t("sizing.grandClosed.metric")
+                            : t("sizing.grandClosed.imperial")}
                         </span>
                       </div>
                       <div className="flex justify-between">
                         <span className="font-sans text-xs md:text-sm opacity-60">
-                          Play Area
+                          {t("sizing.playArea")}
                         </span>
                         <span className="font-mono text-xs md:text-sm opacity-60">
-                          {isMetric ? "90 × 170 cm" : "35.4 × 66.9 in"}
+                          {isMetric
+                            ? t("sizing.grandPlay.metric")
+                            : t("sizing.grandPlay.imperial")}
                         </span>
                       </div>
                     </div>
@@ -359,7 +380,7 @@ export default function Home() {
                 className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest"
               >
                 <span className={isMetric ? "opacity-100" : "opacity-40"}>
-                  CM
+                  {t("sizing.cm")}
                 </span>
                 <div className="relative w-10 h-5 bg-ink/20 rounded-full">
                   <div
@@ -369,7 +390,7 @@ export default function Home() {
                   />
                 </div>
                 <span className={!isMetric ? "opacity-100" : "opacity-40"}>
-                  IN
+                  {t("sizing.in")}
                 </span>
               </button>
             </div>
@@ -393,22 +414,21 @@ export default function Home() {
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-16">
                 <div className="max-w-xl">
                   <span className="font-mono text-[10px] md:text-xs text-accent tracking-widest uppercase block mb-2 md:mb-4">
-                    Assembly
+                    {t("assembly.label")}
                   </span>
                   <h3 className="font-serif text-3xl md:text-6xl leading-tight text-white mb-0">
-                    Ready to play
+                    {t("assembly.title1")}
                   </h3>
                   <h3 className="font-sans text-4xl md:text-7xl mb-4 md:mb-6 leading-tight font-bold text-white/80">
-                    in 30 minutes.
+                    {t("assembly.title2")}
                   </h3>
                   <p className="font-sans text-sm md:text-lg font-light leading-relaxed text-white/70 mb-4 md:mb-6 max-w-2xl">
-                    The Arcadian arrives flat-packed and ready. One tool.
-                    Pre-drilled holes. No guesswork, no leftover screws.
+                    {t("assembly.description")}
                   </p>
                   <div className="flex items-center gap-2 md:gap-4 font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40">
-                    <span>Single Tool</span>
+                    <span>{t("assembly.singleTool")}</span>
                     <span>///</span>
-                    <span>Easy Assembly</span>
+                    <span>{t("assembly.easyAssembly")}</span>
                   </div>
                 </div>
               </div>
@@ -420,7 +440,7 @@ export default function Home() {
                     <div className="w-0 h-0 border-t-6 md:border-t-8 border-t-transparent border-l-8 md:border-l-12 border-l-white border-b-6 md:border-b-8 border-b-transparent ml-1" />
                   </div>
                   <span className="font-mono text-xs uppercase tracking-widest text-white whitespace-nowrap max-w-0 group-hover/play:max-w-40 overflow-hidden transition-all duration-300 opacity-0 group-hover/play:opacity-100">
-                    Coming Soon
+                    {t("assembly.comingSoon")}
                   </span>
                 </div>
               </div>
@@ -434,12 +454,14 @@ export default function Home() {
       >
         <div className="max-w-[1100px] mx-auto">
           <span className="font-mono text-xs text-oak tracking-widest uppercase block mb-12">
-            The Finish
+            {t("finish.label")}
           </span>
 
           <h2 className="font-serif text-6xl md:text-8xl leading-[0.9] text-ink mb-16 reveal-text">
-            Natural stains <br />
-            <span className="italic text-oak/60">& deep protection.</span>
+            {t("finish.title")} <br />
+            <span className="italic text-oak/60">
+              {t("finish.titleAccent")}
+            </span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24">
@@ -448,13 +470,11 @@ export default function Home() {
               style={{ transitionDelay: "0.2s" }}
             >
               <p className="font-serif text-2xl md:text-3xl leading-tight text-ink mb-8">
-                We finish our premium boardgaming tables with a revolutionary
-                plant-based hardwax oil that delivers both exceptional beauty
-                and environmental responsibility.
+                {t("finish.intro")}
               </p>
               <div className="w-full h-px bg-ink/10 my-8" />
               <p className="font-mono text-xs text-oak uppercase tracking-widest">
-                0% VOC — Solvent Free
+                {t("finish.vocFree")}
               </p>
             </div>
 
@@ -462,24 +482,11 @@ export default function Home() {
               className="md:col-span-7 font-sans text-lg font-light leading-relaxed text-ink/70 space-y-8 reveal-text"
               style={{ transitionDelay: "0.3s" }}
             >
-              <p>
-                This eco-conscious finish is <strong>0% VOC [1]</strong> and
-                contains no solvents or water, making it one of the cleanest
-                wood treatments available.
-              </p>
-              <p>
-                Oils penetrate the wood fibers to create outstanding resistance
-                to wear, water, and heat and that is essential protection for
-                gaming tables that endure countless game nights, drink
-                condensation, and the natural oils from players&apos; hands.
-              </p>
-              <p>
-                Unlike traditional finishes that sit on the surface, this
-                treatment preserves the natural look and feel of the wood,
-                allowing you to experience authentic hardwood warmth while
-                enjoying a finish that&apos;s as kind to the environment as it
-                is tough on daily use.
-              </p>
+              <p
+                dangerouslySetInnerHTML={{ __html: t.raw("finish.paragraph1") }}
+              />
+              <p>{t("finish.paragraph2")}</p>
+              <p>{t("finish.paragraph3")}</p>
             </div>
           </div>
 
@@ -488,18 +495,11 @@ export default function Home() {
             style={{ transitionDelay: "0.4s" }}
           >
             <div className="flex items-start gap-4">
-              <span className="font-mono text-xs text-oak">[1]</span>
+              <span className="font-mono text-xs text-oak">
+                {t("finish.footnoteLabel")}
+              </span>
               <p className="font-mono text-xs text-ink/40 max-w-3xl leading-relaxed">
-                VOC stands for Volatile Organic Compounds—chemicals that
-                evaporate into the air at room temperature and can contribute to
-                indoor air pollution and potential health concerns. Many
-                traditional wood finishes contain high levels of VOCs, which
-                release fumes during application and curing, often requiring
-                extensive ventilation and creating that characteristic &quot;new
-                finish&quot; smell. A 0% VOC finish eliminates these concerns
-                entirely, ensuring better indoor air quality from the moment the
-                piece enters your home, with no toxic fumes, no lingering odors,
-                and no ongoing chemical emissions.
+                {t("finish.footnoteText")}
               </p>
             </div>
           </div>
@@ -511,11 +511,13 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-12">
             <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
-              Choose Your Finish
+              {t("woodColors.label")}
             </span>
             <h3 className="font-serif text-4xl md:text-5xl leading-tight">
-              Two stains,{" "}
-              <span className="italic text-ink/50">one mystery.</span>
+              {t("woodColors.title")}{" "}
+              <span className="italic text-ink/50">
+                {t("woodColors.titleAccent")}
+              </span>
             </h3>
           </div>
 
@@ -534,11 +536,10 @@ export default function Home() {
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="font-serif text-3xl italic text-white mb-2">
-                  Arcadian Dawn
+                  {t("woodColors.dawnName")}
                 </h3>
                 <p className="font-sans text-sm text-white/70 max-w-[300px]">
-                  Quite neutral, natural oak finish with the hint of lighter
-                  tones.
+                  {t("woodColors.dawnDescription")}
                 </p>
               </div>
             </div>
@@ -557,11 +558,10 @@ export default function Home() {
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="font-serif text-3xl italic text-white mb-2">
-                  Pan&apos;s Shadow
+                  {t("woodColors.shadowName")}
                 </h3>
                 <p className="font-sans text-sm text-white/70">
-                  Rich warm, walnut looking tones with the thread of dark
-                  chocolate.
+                  {t("woodColors.shadowDescription")}
                 </p>
               </div>
             </div>
@@ -583,10 +583,10 @@ export default function Home() {
                     <span className="font-serif text-4xl text-white/50">?</span>
                   </div>
                   <h3 className="font-serif text-3xl italic text-white/80 mb-2">
-                    2026 Batch Exclusive
+                    {t("woodColors.exclusiveName")}
                   </h3>
                   <p className="font-sans text-sm text-white/40 px-6">
-                    A mystery finish revealed only to early supporters.
+                    {t("woodColors.exclusiveDescription")}
                   </p>
                 </div>
               </div>
@@ -603,10 +603,10 @@ export default function Home() {
         <div className="reveal-trigger">
           <div className="text-center max-w-2xl mx-auto mb-10 px-6 md:px-12">
             <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-4">
-              The Rail System
+              {t("railSystem.label")}
             </span>
             <h3 className="font-serif text-5xl md:text-6xl leading-tight">
-              Everything at hand.
+              {t("railSystem.title")}
             </h3>
           </div>
 
@@ -623,24 +623,27 @@ export default function Home() {
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-ink/10 pt-8">
               <div>
-                <h4 className="font-serif text-2xl mb-2">Magnetic Click</h4>
+                <h4 className="font-serif text-2xl mb-2">
+                  {t("railSystem.magneticTitle")}
+                </h4>
                 <p className="font-sans text-sm text-ink/60 leading-relaxed">
-                  Accessories snap into place instantly with industrial strength
-                  magnets. No screws required.
+                  {t("railSystem.magneticDescription")}
                 </p>
               </div>
               <div>
-                <h4 className="font-serif text-2xl mb-2">360° Modular</h4>
+                <h4 className="font-serif text-2xl mb-2">
+                  {t("railSystem.modularTitle")}
+                </h4>
                 <p className="font-sans text-sm text-ink/60 leading-relaxed">
-                  Attach cup holders and bins anywhere along the inner or outer
-                  rail perimeter.
+                  {t("railSystem.modularDescription")}
                 </p>
               </div>
               <div>
-                <h4 className="font-serif text-2xl mb-2">Solid Wood</h4>
+                <h4 className="font-serif text-2xl mb-2">
+                  {t("railSystem.solidWoodTitle")}
+                </h4>
                 <p className="font-sans text-sm text-ink/60 leading-relaxed">
-                  All accessories are crafted from the same premium hardwoods as
-                  your table.
+                  {t("railSystem.solidWoodDescription")}
                 </p>
               </div>
             </div>
@@ -656,13 +659,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between md:items-end mb-10 border-b border-white/10 pb-6 gap-4">
             <h2 className="font-serif text-5xl md:text-6xl text-white">
-              The Ecosystem.
+              {t("ecosystem.title")}
             </h2>
             <div className="font-mono text-xs md:text-right text-white">
               <div className="uppercase tracking-widest mb-1">
-                Modular Add-ons
+                {t("ecosystem.modularAddOns")}
               </div>
-              <div className="opacity-50">STATUS: IN DEVELOPMENT</div>
+              <div className="opacity-50">{t("ecosystem.status")}</div>
             </div>
           </div>
 
@@ -674,15 +677,15 @@ export default function Home() {
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
                 <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  [ SCHEMATIC PENDING ]
+                  {t("ecosystem.schematicPending")}
                 </span>
               </div>
               <div>
                 <h3 className="font-serif text-2xl mb-2 text-white">
-                  Cup & Mug Holder
+                  {t("ecosystem.cupHolder")}
                 </h3>
                 <p className="font-mono text-xs text-white/60">
-                  Keep drinks safe and within reach.
+                  {t("ecosystem.cupHolderDesc")}
                 </p>
               </div>
             </div>
@@ -694,15 +697,15 @@ export default function Home() {
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
                 <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  [ SCHEMATIC PENDING ]
+                  {t("ecosystem.schematicPending")}
                 </span>
               </div>
               <div>
                 <h3 className="font-serif text-2xl mb-2 text-white">
-                  Universal Tray
+                  {t("ecosystem.universalTray")}
                 </h3>
                 <p className="font-mono text-xs text-white/60">
-                  Versatile storage for any game.
+                  {t("ecosystem.universalTrayDesc")}
                 </p>
               </div>
             </div>
@@ -714,15 +717,15 @@ export default function Home() {
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
                 <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  [ SCHEMATIC PENDING ]
+                  {t("ecosystem.schematicPending")}
                 </span>
               </div>
               <div>
                 <h3 className="font-serif text-2xl mb-2 text-white">
-                  Dice Tray
+                  {t("ecosystem.diceTray")}
                 </h3>
                 <p className="font-mono text-xs text-white/60">
-                  Roll with precision.
+                  {t("ecosystem.diceTrayDesc")}
                 </p>
               </div>
             </div>
@@ -734,15 +737,15 @@ export default function Home() {
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
                 <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  [ SCHEMATIC PENDING ]
+                  {t("ecosystem.schematicPending")}
                 </span>
               </div>
               <div>
                 <h3 className="font-serif text-2xl mb-2 text-white">
-                  Bowl Holder
+                  {t("ecosystem.bowlHolder")}
                 </h3>
                 <p className="font-mono text-xs text-white/60">
-                  Snacks at arm&apos;s length.
+                  {t("ecosystem.bowlHolderDesc")}
                 </p>
               </div>
             </div>
@@ -754,15 +757,15 @@ export default function Home() {
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
                 <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  [ SCHEMATIC PENDING ]
+                  {t("ecosystem.schematicPending")}
                 </span>
               </div>
               <div>
                 <h3 className="font-serif text-2xl mb-2 text-white">
-                  Player Desk
+                  {t("ecosystem.playerDesk")}
                 </h3>
                 <p className="font-mono text-xs text-white/60">
-                  Personal space for cards and notes.
+                  {t("ecosystem.playerDeskDesc")}
                 </p>
               </div>
             </div>
@@ -774,15 +777,15 @@ export default function Home() {
               </div>
               <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
                 <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  [ SCHEMATIC PENDING ]
+                  {t("ecosystem.schematicPending")}
                 </span>
               </div>
               <div>
                 <h3 className="font-serif text-2xl mb-2 text-white">
-                  Toppers Box
+                  {t("ecosystem.toppersBox")}
                 </h3>
                 <p className="font-mono text-xs text-white/60">
-                  Elegant storage for table toppers.
+                  {t("ecosystem.toppersBoxDesc")}
                 </p>
               </div>
             </div>
@@ -795,16 +798,19 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-10 reveal-trigger">
             <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-3">
-              Stories
+              {t("storiesSection.label")}
             </span>
             <h3 className="font-serif text-4xl md:text-5xl leading-tight">
-              From the <span className="italic text-ink/50">Workshop</span>
+              {t("storiesSection.title")}{" "}
+              <span className="italic text-ink/50">
+                {t("storiesSection.titleAccent")}
+              </span>
             </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-1">
             {articles.map((article) => (
-              <Link
+              <NextLink
                 key={article.slug}
                 href={`/stories/${article.slug}`}
                 className="group reveal-trigger"
@@ -836,10 +842,10 @@ export default function Home() {
                     {article.excerpt}
                   </p>
                   <div className="mt-4 font-mono text-xs uppercase tracking-widest text-ink/40 group-hover:text-accent transition-colors">
-                    Read Story →
+                    {t("storiesSection.readStory")}
                   </div>
                 </article>
-              </Link>
+              </NextLink>
             ))}
           </div>
         </div>
@@ -865,17 +871,16 @@ export default function Home() {
             <div className="max-w-2xl">
               <div className="mb-6">
                 <span className="font-mono text-2xl uppercase tracking-widest text-black/60">
-                  Limited Production
+                  {t("cta.limitedProduction")}
                 </span>
               </div>
 
               <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-black mb-6 leading-tight whitespace-nowrap">
-                2026 Batch Opening Soon
+                {t("cta.batchOpening")}
               </h2>
 
               <p className="font-sans text-lg md:text-xl text-black/70 mb-8 max-w-xl">
-                Be the first to reserve your Arcadian table. Early supporters
-                get exclusive pricing and the mystery finish reveal.
+                {t("cta.ctaDescription")}
               </p>
 
               {/* Email signup */}
@@ -887,7 +892,7 @@ export default function Home() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="ENTER YOUR EMAIL"
+                  placeholder={t("cta.emailPlaceholder")}
                   className="flex-1 bg-white px-5 py-4 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-black/20 placeholder-black/40 text-black rounded-full"
                   disabled={kickstarterPending}
                 />
@@ -896,7 +901,7 @@ export default function Home() {
                   disabled={kickstarterPending}
                   className="bg-black text-white px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-black/80 transition-colors rounded-full whitespace-nowrap disabled:opacity-50"
                 >
-                  {kickstarterPending ? "..." : "Notify Me"}
+                  {kickstarterPending ? t("cta.submitting") : t("cta.notifyMe")}
                 </button>
               </form>
               {kickstarterState.message && (
@@ -912,26 +917,26 @@ export default function Home() {
             <div className="flex flex-col gap-6 md:text-right">
               <div>
                 <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">
-                  2026 Batch Size
+                  {t("cta.batchSizeLabel")}
                 </div>
                 <div className="font-serif text-3xl md:text-4xl text-black">
-                  Limited
+                  {t("cta.batchSizeValue")}
                 </div>
               </div>
               <div>
                 <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">
-                  Early Bird Slots
+                  {t("cta.earlyBirdLabel")}
                 </div>
                 <div className="font-serif text-3xl md:text-4xl text-black">
-                  50
+                  {t("cta.earlyBirdValue")}
                 </div>
               </div>
               <div>
                 <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">
-                  Estimated Delivery
+                  {t("cta.deliveryLabel")}
                 </div>
                 <div className="font-serif text-3xl md:text-4xl text-black">
-                  Q4 2026
+                  {t("cta.deliveryValue")}
                 </div>
               </div>
             </div>

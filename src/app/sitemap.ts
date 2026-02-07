@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts } from "./blog/lib/posts";
+import { getAllPosts } from "./[locale]/blog/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.arcadiantables.com";
@@ -14,12 +14,72 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [
+    // Homepage - bilingual
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
+      alternates: {
+        languages: {
+          en: baseUrl,
+          sr: `${baseUrl}/sr`,
+        },
+      },
     },
+    // About - bilingual
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/about`,
+          sr: `${baseUrl}/sr/o-nama`,
+        },
+      },
+    },
+    // FAQ - bilingual
+    {
+      url: `${baseUrl}/faq`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/faq`,
+          sr: `${baseUrl}/sr/cesta-pitanja`,
+        },
+      },
+    },
+    // Privacy - bilingual
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.3,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/privacy`,
+          sr: `${baseUrl}/sr/privatnost`,
+        },
+      },
+    },
+    // Terms - bilingual
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.3,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/terms`,
+          sr: `${baseUrl}/sr/uslovi`,
+        },
+      },
+    },
+    // Blog - English only for now
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
@@ -27,6 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     ...blogEntries,
+    // Stories - English only for now
     {
       url: `${baseUrl}/stories/forest-of-radgost-collaboration`,
       lastModified: new Date("2025-12-01"),
@@ -39,30 +100,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.3,
-    },
+    // Logs
     {
       url: `${baseUrl}/logs`,
       lastModified: new Date(),

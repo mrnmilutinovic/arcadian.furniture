@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface BreadcrumbItem {
   label: string;
@@ -38,7 +38,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
               {index > 0 && <span className="text-ink/30">/</span>}
               {item.href ? (
                 <Link
-                  href={item.href}
+                  href={item.href as "/"}
                   className="text-ink/40 hover:text-accent transition-colors"
                 >
                   {item.label}

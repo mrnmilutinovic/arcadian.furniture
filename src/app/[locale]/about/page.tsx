@@ -1,48 +1,67 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { Breadcrumbs } from "../components/Breadcrumbs";
-import { Footer } from "../components/Footer";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { Breadcrumbs } from "../../components/Breadcrumbs";
+import { Footer } from "../../components/Footer";
 
-export const metadata: Metadata = {
-  title: "About Us | Arcadian - Premium Board Game Tables",
-  description:
-    "Meet Nikola and Jana, the lifelong board gamers behind Arcadian. We designed our dream gaming table and partnered with master craftsmen in Serbia to build it.",
-  alternates: {
-    canonical: "/about",
-  },
-  openGraph: {
-    title: "About Us | Arcadian - Premium Board Game Tables",
-    description:
-      "Meet Nikola and Jana, the lifelong board gamers behind Arcadian. We designed our dream gaming table and partnered with master craftsmen in Serbia to build it.",
-    type: "website",
-    images: [
-      {
-        url: "/photos/about-hero.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "The Arcadian family team",
-      },
-    ],
-  },
+type Props = {
+  params: Promise<{ locale: string }>;
 };
 
-export default function AboutPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "about" });
+
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: "/about",
+      languages: {
+        en: "/about",
+        sr: "/sr/o-nama",
+        "x-default": "/about",
+      },
+    },
+    openGraph: {
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+      type: "website",
+      images: [
+        {
+          url: "/photos/about-hero.jpeg",
+          width: 1200,
+          height: 630,
+          alt: "The Arcadian family team",
+        },
+      ],
+    },
+  };
+}
+
+export default async function AboutPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("about");
+
   return (
     <div className="min-h-screen bg-paper">
       {/* Hero */}
       <header className="pt-28 md:pt-36 pb-16 px-6 md:px-12 bg-[#F3F1EA]">
         <div className="max-w-4xl mx-auto">
           <Breadcrumbs
-            items={[{ label: "Home", href: "/" }, { label: "About Us" }]}
+            items={[
+              { label: t("breadcrumbHome"), href: "/" },
+              { label: t("breadcrumbAbout") },
+            ]}
           />
           <h1 className="font-serif text-5xl md:text-7xl mb-6">
-            A Family <span className="italic text-ink/50">Affair</span>
+            {t("title")}{" "}
+            <span className="italic text-ink/50">{t("titleAccent")}</span>
           </h1>
           <p className="font-sans text-xl text-ink/60 max-w-2xl">
-            We couldn&apos;t find the perfect gaming table. So we designed it
-            ourselves and found master craftsmen who share our obsession with
-            precision.
+            {t("subtitle")}
           </p>
         </div>
       </header>
@@ -63,32 +82,22 @@ export default function AboutPage() {
       <section className="py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-4">
-            Our Story
+            {t("storyLabel")}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl mb-8">
-            Born from Game Nights
+            {t("storyTitle")}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-7 space-y-6">
               <p className="font-sans text-lg text-ink/70 leading-relaxed">
-                It started the way most obsessions do: innocently. A copy of
-                Catan here, a Ticket to Ride there. Before we knew it, our
-                collection had grown to hundreds of games, and our kitchen table
-                was groaning under the weight of Gloomhaven campaigns that
-                stretched across months.
+                {t("storyP1")}
               </p>
               <p className="font-sans text-lg text-ink/70 leading-relaxed">
-                We&apos;re Nikola and Jana, a husband-and-wife team from Serbia
-                with two daughters (Sofija and Nia), three dogs (Billy, Charlie,
-                and Lucy), and a shared love for paragliding and, of course,
-                board games.
+                {t("storyP2")}
               </p>
               <p className="font-sans text-lg text-ink/70 leading-relaxed">
-                When we couldn&apos;t find a gaming table that met our
-                standards&mdash;one that was beautiful enough to live in our
-                home, functional enough for serious gaming, and built to last
-                for decades&mdash;we decided to design our own.
+                {t("storyP3")}
               </p>
             </div>
             <div className="md:col-span-5">
@@ -102,13 +111,13 @@ export default function AboutPage() {
                 />
               </div>
               <p className="font-mono text-[10px] text-ink/40 mt-3 uppercase tracking-widest">
-                Nikola & Jana, Founders
+                {t("foundersCaption")}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Additional founder photos - wider than text */}
+        {/* Additional founder photos */}
         <div className="max-w-6xl mx-auto px-6 md:px-12 mt-12">
           <div className="grid grid-cols-3 gap-2">
             <div className="aspect-[4/3] relative bg-ink/5 rounded-sm overflow-hidden">
@@ -146,25 +155,17 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 bg-[#F3F1EA]">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-4">
-            The Process
+            {t("processLabel")}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl mb-8">
-            From Sketch to Solid Oak
+            {t("processTitle")}
           </h2>
-
           <div className="space-y-6 max-w-3xl">
             <p className="font-sans text-lg text-ink/70 leading-relaxed">
-              We didn&apos;t outsource the vision. Every aspect of the Arcadian
-              table&mdash;the recessed vault depth, the magnetic rail system,
-              the topper weight distribution&mdash;came from our own designs, 3D
-              models, and countless prototypes tested during real game nights.
+              {t("processP1")}
             </p>
             <p className="font-sans text-lg text-ink/70 leading-relaxed">
-              We know what it&apos;s like to knock over a drink reaching for
-              dice. We know the frustration of a table that&apos;s too small for
-              Twilight Imperium. We know the joy of leaving a game set up for
-              weeks without worry. Every design decision came from lived
-              experience.
+              {t("processP2")}
             </p>
           </div>
         </div>
@@ -306,32 +307,24 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The Craftsmen - overlapping masonry with gradient */}
+      {/* The Craftsmen */}
       <section className="relative -mt-72 md:-mt-96 pb-16 md:pb-24 px-6 md:px-12 bg-gradient-to-b from-transparent via-paper/60 via-30% to-paper to-50%">
         <div className="pt-48 md:pt-72 max-w-4xl mx-auto">
           <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-4">
-            The Workshop
+            {t("workshopLabel")}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl mb-8">
-            Precision Meets Craftsmanship
+            {t("workshopTitle")}
           </h2>
-
           <div className="space-y-6 max-w-3xl">
             <p className="font-sans text-lg text-ink/70 leading-relaxed">
-              We designed every detail of the Arcadian table ourselves. But
-              bringing those designs to life required finding craftsmen who
-              share our obsession with precision&mdash;a mechanical engineer
-              turned master woodworker who won&apos;t tolerate a millimeter of
-              error.
+              {t("workshopP1")}
             </p>
             <p className="font-sans text-lg text-ink/70 leading-relaxed">
-              The workshop is old-school in the best way: no shortcuts, no
-              compromises, just decades of accumulated knowledge about how wood
-              behaves and how joints should be cut.
+              {t("workshopP2")}
             </p>
             <p className="font-sans text-lg text-ink/70 leading-relaxed">
-              We value precision above all else, and we found people who feel
-              the same. The result: tables built to last generations.
+              {t("workshopP3")}
             </p>
           </div>
         </div>
@@ -341,32 +334,32 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 px-6 md:px-12 bg-ink text-paper">
         <div className="max-w-4xl mx-auto">
           <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-4">
-            What We Believe
+            {t("valuesLabel")}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl mb-12">
-            Built to Last Generations
+            {t("valuesTitle")}
           </h2>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="font-serif text-2xl mb-3">Precision</h3>
+              <h3 className="font-serif text-2xl mb-3">
+                {t("precisionTitle")}
+              </h3>
               <p className="font-sans text-paper/60 leading-relaxed">
-                Every joint is engineered. Every measurement is exact. We
-                won&apos;t ship a table that&apos;s a millimeter off spec.
+                {t("precisionDescription")}
               </p>
             </div>
             <div>
-              <h3 className="font-serif text-2xl mb-3">Durability</h3>
+              <h3 className="font-serif text-2xl mb-3">
+                {t("durabilityTitle")}
+              </h3>
               <p className="font-sans text-paper/60 leading-relaxed">
-                Solid oak, traditional joinery, zero-VOC finishes. Built for the
-                next 50 years of game nights, not the next 5.
+                {t("durabilityDescription")}
               </p>
             </div>
             <div>
-              <h3 className="font-serif text-2xl mb-3">Function</h3>
+              <h3 className="font-serif text-2xl mb-3">{t("functionTitle")}</h3>
               <p className="font-sans text-paper/60 leading-relaxed">
-                Designed by gamers, for gamers. Every feature exists because we
-                needed it at our own table.
+                {t("functionDescription")}
               </p>
             </div>
           </div>
@@ -377,17 +370,16 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-serif text-4xl md:text-5xl mb-6">
-            Join Our Table
+            {t("ctaTitle")}
           </h2>
           <p className="font-sans text-lg text-ink/60 mb-10 max-w-xl mx-auto">
-            The 2026 batch is opening soon. Be among the first to bring an
-            Arcadian table to your game nights.
+            {t("ctaDescription")}
           </p>
           <Link
             href="/"
             className="inline-block bg-ink text-paper px-10 py-5 font-mono text-sm uppercase tracking-widest hover:bg-accent transition-colors rounded-full"
           >
-            Reserve Your Spot
+            {t("ctaButton")}
           </Link>
         </div>
       </section>

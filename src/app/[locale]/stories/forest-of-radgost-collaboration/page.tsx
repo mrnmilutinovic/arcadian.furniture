@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Breadcrumbs } from "../../components/Breadcrumbs";
-import { Footer } from "../../components/Footer";
+import { setRequestLocale } from "next-intl/server";
+import { Breadcrumbs } from "../../../components/Breadcrumbs";
+import { Footer } from "../../../components/Footer";
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
 
 export const metadata: Metadata = {
   title: "Spirits of the Forest Meet the Arcadian Table | Arcadian",
@@ -27,7 +32,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ForestOfRadgostArticle() {
+export default async function ForestOfRadgostArticle({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <>
       {/* Hero */}
