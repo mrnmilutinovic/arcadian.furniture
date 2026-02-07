@@ -31,28 +31,87 @@ const organizationSchema = {
   },
 };
 
+const baseUrl = "https://www.arcadiantables.com";
+
 const productSchemaStandard = {
   "@context": "https://schema.org",
   "@type": "Product",
   name: "Arcadian Standard - Board Game Table",
   description:
-    "Premium board game table for 4 players. Features a 90x90cm recessed vault, magnetic rail system for accessories, convertible dining toppers, and handcrafted solid oak construction.",
-  image: "https://www.arcadiantables.com/photos/size-small-3.jpeg",
+    "Premium board game table for 4 players. Square design with a 90x90cm recessed vault (10cm deep), magnetic rail system for modular accessories, convertible solid oak dining toppers, and 0% VOC plant-based hardwax oil finish. Handcrafted from solid European oak in Serbia. Flat-pack delivery, 30-minute assembly.",
+  image: [
+    `${baseUrl}/photos/size-small-3.jpeg`,
+    `${baseUrl}/photos/size-small.jpeg`,
+    `${baseUrl}/photos/covered-scene-3.jpeg`,
+  ],
   brand: { "@type": "Brand", name: "Arcadian" },
-  manufacturer: { "@type": "Organization", name: "Arcadian" },
+  manufacturer: {
+    "@type": "Organization",
+    name: "Arcadian",
+    url: baseUrl,
+  },
+  url: baseUrl,
   category: "Board Game Tables",
-  material: "Solid Oak",
+  material: "Solid European Oak",
+  color: "Arcadian Dawn (Natural Oak) / Pan's Shadow (Walnut Tones)",
   additionalProperty: [
-    { "@type": "PropertyValue", name: "Table Size", value: "108 x 108 cm" },
-    { "@type": "PropertyValue", name: "Play Area", value: "90 x 90 cm" },
+    {
+      "@type": "PropertyValue",
+      name: "Closed Table Size",
+      value: "108 × 108 cm (42.5 × 42.5 in)",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Play Area (Vault)",
+      value: "90 × 90 cm (35.4 × 35.4 in)",
+    },
+    { "@type": "PropertyValue", name: "Vault Depth", value: "10 cm (3.9 in)" },
     { "@type": "PropertyValue", name: "Seating Capacity", value: "4 players" },
+    { "@type": "PropertyValue", name: "Wood Species", value: "European Oak" },
+    {
+      "@type": "PropertyValue",
+      name: "Finish",
+      value: "Plant-based hardwax oil, 0% VOC, solvent-free",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Rail System",
+      value: "360° magnetic modular rail for accessories",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Assembly Time",
+      value: "30 minutes, single tool",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Delivery",
+      value: "Flat-pack, fits through standard doorways",
+    },
+  ],
+  hasVariant: [
+    {
+      "@type": "ProductModel",
+      name: "Arcadian Standard - Arcadian Dawn",
+      color: "Natural Oak",
+    },
+    {
+      "@type": "ProductModel",
+      name: "Arcadian Standard - Pan's Shadow",
+      color: "Walnut Tones",
+    },
   ],
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/PreOrder",
     availabilityStarts: "2026-03-01",
-    url: "https://www.arcadiantables.com",
+    url: baseUrl,
     seller: { "@type": "Organization", name: "Arcadian" },
+  },
+  isRelatedTo: {
+    "@type": "Product",
+    name: "Arcadian Grand - Board Game Table",
+    url: baseUrl,
   },
 };
 
@@ -61,27 +120,85 @@ const productSchemaGrand = {
   "@type": "Product",
   name: "Arcadian Grand - Board Game Table",
   description:
-    "Premium board game table for 6-8 players. Features a 90x170cm recessed vault, magnetic rail system for accessories, convertible dining toppers, and handcrafted solid oak construction.",
-  image: "https://www.arcadiantables.com/photos/size-big-2.jpeg",
+    "Premium board game table for 6-8 players. Rectangular design with a 90x170cm recessed vault (10cm deep), magnetic rail system for modular accessories, convertible solid oak dining toppers, and 0% VOC plant-based hardwax oil finish. Handcrafted from solid European oak in Serbia. Flat-pack delivery, 30-minute assembly.",
+  image: [
+    `${baseUrl}/photos/size-big-2.jpeg`,
+    `${baseUrl}/photos/size-big.jpeg`,
+    `${baseUrl}/photos/covered-scene.jpeg`,
+    `${baseUrl}/photos/arcadian-gaming-3.jpeg`,
+  ],
   brand: { "@type": "Brand", name: "Arcadian" },
-  manufacturer: { "@type": "Organization", name: "Arcadian" },
+  manufacturer: {
+    "@type": "Organization",
+    name: "Arcadian",
+    url: baseUrl,
+  },
+  url: baseUrl,
   category: "Board Game Tables",
-  material: "Solid Oak",
+  material: "Solid European Oak",
+  color: "Arcadian Dawn (Natural Oak) / Pan's Shadow (Walnut Tones)",
   additionalProperty: [
-    { "@type": "PropertyValue", name: "Table Size", value: "108 x 189 cm" },
-    { "@type": "PropertyValue", name: "Play Area", value: "90 x 170 cm" },
+    {
+      "@type": "PropertyValue",
+      name: "Closed Table Size",
+      value: "108 × 189 cm (42.5 × 74.4 in)",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Play Area (Vault)",
+      value: "90 × 170 cm (35.4 × 66.9 in)",
+    },
+    { "@type": "PropertyValue", name: "Vault Depth", value: "10 cm (3.9 in)" },
     {
       "@type": "PropertyValue",
       name: "Seating Capacity",
       value: "6-8 players",
+    },
+    { "@type": "PropertyValue", name: "Wood Species", value: "European Oak" },
+    {
+      "@type": "PropertyValue",
+      name: "Finish",
+      value: "Plant-based hardwax oil, 0% VOC, solvent-free",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Rail System",
+      value: "360° magnetic modular rail for accessories",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Assembly Time",
+      value: "30 minutes, single tool",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Delivery",
+      value: "Flat-pack, fits through standard doorways",
+    },
+  ],
+  hasVariant: [
+    {
+      "@type": "ProductModel",
+      name: "Arcadian Grand - Arcadian Dawn",
+      color: "Natural Oak",
+    },
+    {
+      "@type": "ProductModel",
+      name: "Arcadian Grand - Pan's Shadow",
+      color: "Walnut Tones",
     },
   ],
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/PreOrder",
     availabilityStarts: "2026-03-01",
-    url: "https://www.arcadiantables.com",
+    url: baseUrl,
     seller: { "@type": "Organization", name: "Arcadian" },
+  },
+  isRelatedTo: {
+    "@type": "Product",
+    name: "Arcadian Standard - Board Game Table",
+    url: baseUrl,
   },
 };
 
