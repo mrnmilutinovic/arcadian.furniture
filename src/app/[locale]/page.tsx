@@ -821,7 +821,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-black mb-6 leading-tight whitespace-nowrap">
+              <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-black mb-6 leading-tight">
                 {t("cta.batchOpening")}
               </h2>
 
