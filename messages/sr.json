@@ -52,8 +52,8 @@
       "undercoverDescription": "Toperi na mestu. To je trpezarijski sto. Lep, funkcionalan, potpuno neupadljiv. Niko neće ni znati šta se krije ispod.",
       "vaultMode": "Vault mod",
       "whenGamesHappen": "Kada su igre u pitanju",
-      "vaultDescription": "Toperi skinuti. Vault je otkriven. 10cm upuštenog gejming raja, spreman za šta god da igrate i šta god da ostavite postavljeno za sledeću nedelju.",
-      "topperNote1": "Svaki toper je precizno dimenzionisan za optimalnu raspodelu težine",
+      "vaultDescription": "Toperi skinuti. Vault je otkriven. 10cm upuštenog gejming raja, sto spreman za šta god da igrate i šta god da ostavite postavljeno za sledeću nedelju.",
+      "topperNote1": "Svaki toper je precizno dizajniran za optimalnu raspodelu težine.",
       "topperNote2Heavy": "Dovoljno težak",
       "topperNote2Text": "da ostane na mestu,",
       "topperNote2Light": "dovoljno lagan",
@@ -63,7 +63,7 @@
       "label": "Dimenzije",
       "title": "Prona\u0111ite",
       "titleAccent": "Svoj Vajb.",
-      "intro1": "Nije svaka soba za igre ista. Nije ni svaka grupa ista.",
+      "intro1": "Nije svaka soba za igre ista. Nije ni svaka ekipa ista.",
       "intro2": "Zato smo napravili dve veli\u010dine - jednu za intimne sesije, drugu za epske kampanje. Obe prolaze kroz standardna vrata. Obe skrivaju istu tajnu.\ud83d\udc7b",
       "standard": "Standard",
       "seats4": "Za 4 igra\u010da",
@@ -103,7 +103,7 @@
       "label": "Zavr\u0161na obrada",
       "title": "Prirodne boje",
       "titleAccent": "i duboka za\u0161tita.",
-      "intro": "Na\u0161e premium stolove za dru\u0161tvene igre zavr\u0161avamo revolucionarnim uljem na biljnoj bazi koje pru\u017ea izuzetnu lepotu i dok ostajemo ekološki odgovorni.",
+      "intro": "Ekološki odgovorni. Naše premijum stolove za društvene igre završavamo revolucionarnim uljem na biljnoj bazi koje pruža izuzetnu lepotu.",
       "vocFree": "0% VOC \u2014 Bez rastvara\u010da",
       "paragraph1": "Ova ekološka završna obrada je <strong>0% VOC [1]</strong> i ne sadr\u017ei rastvara\u010de ni vodu, \u0161to je \u010dini jednim od naj\u010distijih tretmana za drvo.",
       "paragraph2": "Ulja prodiru u vlakna drveta i stvaraju izvanrednu otpornost na habanje, vodu i toplotu, \u0161to je su\u0161tinska za\u0161tita za stolove koji trpe bezbroj ve\u010deri igara, kondenzaciju od pića i otisaka ruku igrača.",
@@ -130,7 +130,7 @@
       "modularTitle": "360\u00b0 Modularno",
       "modularDescription": "Pri\u010dvrstite dr\u017ea\u010de za \u0161olje i posude bilo gde du\u017e unutra\u0161njeg ili spolja\u0161njeg obima \u0161ine.",
       "solidWoodTitle": "Puno drvo",
-      "solidWoodDescription": "Svi dodaci su izra\u0111eni od istog premium tvrdog drveta kao i va\u0161 sto."
+      "solidWoodDescription": "Svi dodaci su izra\u0111eni od istog premijum tvrdog drveta kao i va\u0161 sto."
     },
     "ecosystem": {
       "title": "Ekosistem.",
@@ -147,8 +147,8 @@
       "bowlHolderDesc": "Grickalice nadohvat ruke.",
       "playerDesk": "Igra\u010dki sto",
       "playerDeskDesc": "Li\u010dni prostor za karte i bele\u0161ke.",
-      "toppersBox": "Kutija za poklopce",
-      "toppersBoxDesc": "Elegantno skladi\u0161te za poklopce stola."
+      "toppersBox": "Kutija za topere",
+      "toppersBoxDesc": "Elegantno skladi\u0161te za topere stola."
     },
     "storiesSection": {
       "label": "Pri\u010de",
@@ -190,7 +190,7 @@
     "breadcrumbAbout": "O nama",
     "title": "Porodi\u010dna",
     "titleAccent": "Pri\u010da",
-    "subtitle": "Nismo mogli da prona\u0111emo savr\u0161en sto za igre. Zato smo ga sami dizajnirali i prona\u0161li majstore koji dele na\u0161u opsesiju precizno\u0161\u0107u.",
+    "subtitle": "Nismo mogli da prona\u0111emo savr\u0161en sto za igre. Zato smo ga sami dizajnirali i prona\u0161li majstore koji dele na\u0161u opsesiju, biti precizan.",
     "storyLabel": "Na\u0161a pri\u010da",
     "storyTitle": "Ro\u0111eno iz ve\u010deri igara",
     "storyP1": "Po\u010delo je kao i ve\u0107ina opsesija: nevino. Jedan Catan ovde, jedan Ticket to Ride tamo. Pre nego \u0161to smo shvatili, na\u0161a kolekcija je narasla na stotine igara, a na\u0161 kuhinjski sto je jedva podnosio te\u017einu Gloomhaven kampanja koje su trajale mesecima.",
@@ -199,11 +199,11 @@
     "foundersCaption": "Nikola i Jana, Osniva\u010di",
     "processLabel": "Proces",
     "processTitle": "Od skice do punog hrasta",
-    "processP1": "Nismo prepustili viziju drugima. Svaki aspekt Arcadian stola\u2014dubina udubljenog vaulta, magnetni \u0161inski sistem, raspodela te\u017eine poklopaca\u2014nastao je iz na\u0161ih dizajna, 3D modela i bezbroj prototipova testiranih tokom pravih ve\u010deri igara.",
+    "processP1": "Nismo prepustili viziju drugima. Svaki aspekt Arcadian stola\u2014dubina udubljenog vaulta, magnetni \u0161inski sistem, raspodela te\u017eine topera - nastao je iz na\u0161ih dizajna, 3D modela i bezbroj prototipova testiranih tokom pravih ve\u010deri igara.",
     "processP2": "Znamo kako je prosuti pi\u0107e dok poku\u0161avate da dohvatite kockice. Znamo frustraciju stola koji je premali za Twilight Imperium. Znamo radost ostavljanja igre postavljene nedeljama bez brige. Svaka odluka o dizajnu do\u0161la je iz li\u010dnog iskustva.",
     "workshopLabel": "Radionica",
     "workshopTitle": "Preciznost sre\u0107e zanatstvo",
-    "workshopP1": "Sami smo dizajnirali svaki detalj Arcadian stola. Ali o\u017eivljavanje tih dizajna zahtevalo je pronala\u017eenje zanatlija koji dele na\u0161u opsesiju precizno\u0161\u0107u\u2014ma\u0161inskog in\u017eenjera koji je postao majstor stolar i ne toleri\u0161e gre\u0161ku od milimetra.",
+    "workshopP1": "Sami smo dizajnirali svaki detalj Arcadian stola. Ali o\u017eivljavanje svakog dizajna zahtevalo je pronala\u017eenje zanatlija koji dele našu opsesiju koja odiše preciznošću mašinskog inženjera koji je postao majstor stolar i ne toleriše grešku od milimetra.",
     "workshopP2": "Radionica je staromodna na najbolji na\u010din: bez pre\u010dica, bez kompromisa, samo decenije akumuliranog znanja o tome kako se drvo pona\u0161a i kako spojevi treba da se seku.",
     "workshopP3": "Cenimo preciznost iznad svega i prona\u0161li smo ljude koji ose\u0107aju isto. Rezultat: stolovi napravljeni da traju generacijama.",
     "valuesLabel": "\u0160ta verujemo",
@@ -211,13 +211,13 @@
     "precisionTitle": "Preciznost",
     "precisionDescription": "Svaki spoj je projektovan. Svaka mera je ta\u010dna. Ne\u0107emo isporu\u010diti sto koji odstupa milimetar od specifikacije.",
     "durabilityTitle": "Trajnost",
-    "durabilityDescription": "Pun hrast, tradicionalno spajanje, zavr\u0161ne obrade bez VOC-a. Napravljeno za narednih 50 godina ve\u010deri igara, ne za narednih 5.",
+    "durabilityDescription": "Pun hrast, tradicionalno spajanje, zavr\u0161ne obrade bez VOC-a. Napravljeno za narednih barem 50 godina ve\u010deri igara, ne za narednih 5.",
     "functionTitle": "Funkcionalnost",
     "functionDescription": "Dizajnirano od igra\u010da, za igra\u010de. Svaka funkcija postoji jer nam je bila potrebna za na\u0161im sopstvenim stolom.",
-    "ctaTitle": "Pridru\u017eite se za na\u0161 sto",
-    "ctaDescription": "2026 Q1 serija je otvorena. Naru\u010dite svoj i dovedite Arcadian sto na va\u0161e ve\u010deri igara.",
+    "ctaTitle": "Pridružite se našem stolu",
+    "ctaDescription": "2026 Q1 serija je otvorena. Naru\u010dite svoj i povedite Arcadian sto na va\u0161e ve\u010deri igara.",
     "ctaButton": "Naru\u010dite svoj sto",
-    "metaTitle": "O nama | Arcadian - Premium stolovi za dru\u0161tvene igre",
+    "metaTitle": "O nama | Arcadian - Premijum stolovi za dru\u0161tvene igre",
     "metaDescription": "Upoznajte Nikolu i Janu, strastvene igra\u010de dru\u0161tvenih igara iza Arcadiana. Dizajnirali smo na\u0161 sto iz snova i na\u0161li majstore zanatlije u Srbiji da ga izgrade."
   },
   "faq": {
@@ -254,11 +254,11 @@
       },
       "q6": {
         "question": "\u0160ta je udubljeni vault?",
-        "answer": "Vault je 10cm duboka povr\u0161ina za igru ispod gornje povr\u0161ine stola. \u010cuva komponente igre bezbednim, omogu\u0107ava vam da ostavite igre postavljene izme\u0111u sesija i pretvara se u trpezarijski sto kada se poklopci postave na vrh."
+        "answer": "Vault je 10cm duboka povr\u0161ina za igru ispod gornje povr\u0161ine stola. \u010cuva komponente igre bezbednim, omogu\u0107ava vam da ostavite igre postavljene izme\u0111u sesija i pretvara se u trpezarijski sto kada se toperi postave na vrh."
       },
       "q7": {
-        "question": "Kako funkcionsi\u0161u poklopci?",
-        "answer": "Poklopci su precizno dimenzionisane plo\u010de od punog hrasta koje se postavljaju na ram stola, pokrivaju\u0107i vault. Dovoljno su te\u0161ki da ostanu na mestu tokom obroka ali dovoljno lagani za lako uklanjanje jednom rukom kada do\u0111e vreme za igru."
+        "question": "Kako funkcionsi\u0161u toperi?",
+        "answer": "Toperi su precizno dizajnirane plo\u010de od punog hrasta koje se postavljaju na ram stola, pokrivaju\u0107i vault. Dovoljno su te\u0161ki da ostanu na mestu tokom obroka ali dovoljno lagani za lako uklanjanje jednom rukom kada do\u0111e vreme za igru."
       },
       "q8": {
         "question": "\u0160ta je magnetni \u0161inski sistem?",
@@ -278,11 +278,11 @@
       },
       "q12": {
         "question": "\u0160ta je uklju\u010deno u sto?",
-        "answer": "Svaki Arcadian sto uklju\u010duje ram stola, noge, plo\u010de poklopaca i materijal za sklapanje. Dodaci poput dr\u017ea\u010da za \u0161olje i poslu\u017eavnika za kockice su dostupni odvojeno."
+        "answer": "Svaki Arcadian sto uklju\u010duje ram stola, noge, topere, dno stola i materijal za sklapanje. Dodaci poput dr\u017ea\u010da za \u0161olje i poslu\u017eavnika za kockice su dostupni odvojeno."
       },
       "q13": {
         "question": "Koliko je sto izdr\u017eljiv?",
-        "answer": "Napravljen da traje generacijama. Konstrukcija od punog hrasta, tradicionalne tehnike spajanja i za\u0161titna zavr\u0161na obrada obezbe\u0111uju da va\u0161 sto mo\u017ee da podnese decenije ve\u010deri igara, porodi\u010dnih ve\u010dera i svakodnevne upotrebe."
+      "answer": "Napravljen da traje generacijama. Konstrukcija od punog hrasta, tradicionalne tehnike spajanja i za\u0161titna zavr\u0161na obrada obezbe\u0111uju da va\u0161 sto mo\u017ee da podnese decenije ve\u010deri igara, porodi\u010dnih ve\u010dera uz svakodnevnu upotrebu."
       },
       "q14": {
         "question": "Mogu li da vidim sto u\u017eivo?",
@@ -373,7 +373,7 @@
     "includedLabel": "Svaki sto uklju\u010duje",
     "included": {
       "frame": "Ram i noge od punog hrasta",
-      "toppers": "Poklopce za trpezariju",
+      "toppers": "Toperi za trpezariju",
       "rail": "Magnetni \u0161inski sistem",
       "finish": "0% VOC za\u0161titni premaz",
       "delivery": "Flat-pack dostava",
@@ -466,11 +466,11 @@
     "errorRequired": "Molimo popunite sva polja i napravite izbor.",
     "errorEmail": "Molimo unesite validnu email adresu.",
     "errorGeneric": "Nešto je pošlo naopako. Pokušajte ponovo.",
-    "metaTitle": "Porudžbina | Arcadian - Premium stolovi za društvene igre",
+    "metaTitle": "Porudžbina | Arcadian - Premijum stolovi za društvene igre",
     "metaDescription": "Naručite vaš Arcadian sto za društvene igre. Izaberite veličinu i završnu obradu, a mi ćemo vas kontaktirati da potvrdimo vaše mesto u 2026 Q1 seriji."
   },
   "metadata": {
-    "title": "Arcadian | Premium nameštaj za društvene igre",
-    "description": "Premium stolovi za društvene igre koji se transformišu iz elegantne trpezarije u immersivno igranje. Ručno izrađeni od punog hrasta, modularni dodaci i udubljeni vault. Naručite sada — 2026 Q1 serija je otvorena."
+    "title": "Arcadian | Premijum nameštaj za društvene igre",
+    "description": "Premijum stolovi za društvene igre koji se transformišu iz elegantne trpezarije u immersivno igranje. Ručno izrađeni od punog hrasta, modularni dodaci i udubljeni vault. Naručite sada — 2026 Q1 serija je otvorena."
   }
 }

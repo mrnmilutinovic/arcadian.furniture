@@ -65,6 +65,20 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
 
   const totalPrice = tableSize ? BASE_PRICES[tableSize] + extraFeltTotal : null;
 
+  const euro = <span className="font-sans text-[1.15em] leading-none">€</span>;
+
+  const styledEuro = (text: string) => {
+    const idx = text.indexOf("€");
+    if (idx === -1) return text;
+    return (
+      <>
+        {text.slice(0, idx)}
+        {euro}
+        {text.slice(idx + 1)}
+      </>
+    );
+  };
+
   const formatPrice = (n: number) => `€${n.toLocaleString("en-IE")}`;
 
   const addExtraFelt = () => {
@@ -489,9 +503,11 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                   <h3 className="font-serif text-xl">{t("extraFeltLabel")}</h3>
                   <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink/40 mt-1">
                     {t("extraFeltDescription")} &middot;{" "}
-                    {tableSize === "grand"
-                      ? t("extraFeltPriceGrand")
-                      : t("extraFeltPriceStandard")}{" "}
+                    {styledEuro(
+                      tableSize === "grand"
+                        ? t("extraFeltPriceGrand")
+                        : t("extraFeltPriceStandard"),
+                    )}{" "}
                     {t("extraFeltEach")}
                   </p>
                 </div>
@@ -584,9 +600,11 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                   </span>
                 </div>
                 <span className="font-mono text-sm text-ink/50">
-                  {tableSize === "grand"
-                    ? t("speedClothPriceGrand")
-                    : t("speedClothPriceStandard")}
+                  {styledEuro(
+                    tableSize === "grand"
+                      ? t("speedClothPriceGrand")
+                      : t("speedClothPriceStandard"),
+                  )}
                 </span>
               </div>
             </div>
