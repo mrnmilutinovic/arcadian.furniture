@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { trackEvent } from "@/lib/meta-pixel";
 import { type OrderState, submitOrder } from "../../actions/submitOrder";
 
 const initialState: OrderState = { success: false, message: "" };
@@ -92,6 +93,18 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
   const updateExtraFelt = (index: number, value: FeltValue) => {
     setExtraFelts((prev) => prev.map((v, i) => (i === index ? value : v)));
   };
+
+  const hasTrackedLead = useRef(false);
+  useEffect(() => {
+    if (state.success && !hasTrackedLead.current) {
+      hasTrackedLead.current = true;
+      trackEvent("Lead", {
+        content_name: tableSize === "grand" ? "The Grand" : "The Standard",
+        value: totalPrice ?? 0,
+        currency: "EUR",
+      });
+    }
+  }, [state.success, tableSize, totalPrice]);
 
   const errorMessage =
     state.message === "required"

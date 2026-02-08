@@ -6,6 +6,7 @@ import {
   Space_Mono,
   Staatliches,
 } from "next/font/google";
+import { MetaPixel } from "./components/MetaPixel";
 import "./globals.css";
 
 const staatliches = Staatliches({
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body
         className={`${cormorantGaramond.variable} ${manrope.variable} ${spaceMono.variable} ${caveat.variable} ${ruthie.variable} ${staatliches.variable} antialiased`}
       >
+        <MetaPixel />
         {children}
       </body>
     </html>

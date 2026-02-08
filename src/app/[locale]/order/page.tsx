@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
 import { OrderForm } from "./OrderForm";
+import { TrackViewContent } from "./TrackViewContent";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -40,6 +41,7 @@ export default async function OrderPage({ params, searchParams }: Props) {
 
   return (
     <div className="min-h-screen bg-paper">
+      <TrackViewContent />
       <header className="pt-28 md:pt-36 pb-16 px-6 md:px-12 bg-[#F3F1EA]">
         <div className="max-w-4xl mx-auto">
           <Breadcrumbs
