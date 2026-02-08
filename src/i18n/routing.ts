@@ -26,6 +26,10 @@ export const routing = defineRouting({
     "/blog/[slug]": "/blog/[slug]",
     "/logs": "/logs",
     "/stories/[slug]": "/stories/[slug]",
+    "/order": {
+      en: "/order",
+      sr: "/narucite",
+    },
   },
 });
 

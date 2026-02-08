@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useActionState } from "react";
 import { Link } from "@/i18n/navigation";
 import { type SubscribeState, subscribeToUpdates } from "../actions/subscribe";
@@ -11,8 +11,6 @@ const initialState: SubscribeState = { success: false, message: "" };
 
 export function Footer() {
   const t = useTranslations("footer");
-  const locale = useLocale();
-  const prefix = locale === "en" ? "" : `/${locale}`;
   const [footerState, footerAction, footerPending] = useActionState(
     subscribeToUpdates,
     initialState,
@@ -83,12 +81,12 @@ export function Footer() {
             >
               {t("instagram")}
             </a>
-            <a
-              href={`${prefix}/#pricing`}
+            <Link
+              href={"/order" as "/order"}
               className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
             >
               {t("preOrder")}
-            </a>
+            </Link>
             <Link
               href="/logs"
               className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"

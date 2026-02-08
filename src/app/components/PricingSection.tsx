@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export function PricingSection() {
   const t = useTranslations("pricing");
@@ -118,12 +119,12 @@ export function PricingSection() {
                 </div>
               </div>
 
-              <a
-                href="#cta"
+              <Link
+                href={"/order?size=standard" as "/order"}
                 className="block w-full text-center border border-white/20 hover:border-white/50 hover:bg-white/5 py-4 font-mono text-xs uppercase tracking-[0.2em] text-white/70 hover:text-white transition-all duration-300 rounded-full"
               >
                 {t("reserveCta")}
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -189,12 +190,12 @@ export function PricingSection() {
                 </div>
               </div>
 
-              <a
-                href="#cta"
+              <Link
+                href={"/order?size=grand" as "/order"}
                 className="block w-full text-center bg-accent hover:bg-accent/90 py-4 font-mono text-xs uppercase tracking-[0.2em] text-white transition-all duration-300 rounded-full"
               >
                 {t("reserveCta")}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

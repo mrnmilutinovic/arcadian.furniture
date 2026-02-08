@@ -376,7 +376,7 @@ export default async function AboutPage({ params }: Props) {
             {t("ctaDescription")}
           </p>
           <Link
-            href="/"
+            href={"/order" as "/order"}
             className="inline-block bg-ink text-paper px-10 py-5 font-mono text-sm uppercase tracking-widest hover:bg-accent transition-colors rounded-full"
           >
             {t("ctaButton")}
