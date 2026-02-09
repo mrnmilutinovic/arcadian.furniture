@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import {
@@ -269,6 +270,10 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
 
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") ?? "";
+  const isLandingPage = pathname.includes("/lp/");
+
   const messages = await getMessages();
 
   return (
@@ -292,7 +297,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         }}
       />
       <NextIntlClientProvider messages={messages}>
-        <Header />
+        {!isLandingPage && <Header />}
         {children}
       </NextIntlClientProvider>
     </>

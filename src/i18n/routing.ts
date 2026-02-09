@@ -30,6 +30,7 @@ export const routing = defineRouting({
       en: "/order",
       sr: "/narucite",
     },
+    "/lp/instagram": "/lp/instagram",
   },
 });
 

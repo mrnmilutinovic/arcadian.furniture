@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/_next/", "/api/"],
+      disallow: ["/_next/", "/api/", "/lp/"],
     },
     sitemap: "https://www.arcadiantables.com/sitemap.xml",
   };
