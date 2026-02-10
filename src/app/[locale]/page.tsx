@@ -3,22 +3,15 @@
 import Image from "next/image";
 import NextLink from "next/link";
 import { useTranslations } from "next-intl";
-import { useActionState, useEffect, useState } from "react";
-import { type SubscribeState, subscribeToUpdates } from "../actions/subscribe";
+import { useEffect, useState } from "react";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
 import { PricingSection } from "../components/PricingSection";
-
-const initialState: SubscribeState = { success: false, message: "" };
 
 export default function Home() {
   const t = useTranslations("home");
 
   const [isMetric, setIsMetric] = useState(true);
-
-  // Form state for Kickstarter subscription form
-  const [kickstarterState, kickstarterAction, kickstarterPending] =
-    useActionState(subscribeToUpdates, initialState);
 
   const articles = [
     {
@@ -828,35 +821,6 @@ export default function Home() {
               <p className="font-sans text-lg md:text-xl text-black/70 mb-8 max-w-xl">
                 {t("cta.ctaDescription")}
               </p>
-
-              {/* Email signup */}
-              <form
-                action={kickstarterAction}
-                className="flex flex-col sm:flex-row gap-3 max-w-md"
-              >
-                <input type="hidden" name="source" value="kickstarter" />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder={t("cta.emailPlaceholder")}
-                  className="flex-1 bg-white px-5 py-4 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-black/20 placeholder-black/40 text-black rounded-full"
-                  disabled={kickstarterPending}
-                />
-                <button
-                  type="submit"
-                  disabled={kickstarterPending}
-                  className="bg-black text-white px-8 py-4 font-mono text-xs uppercase tracking-widest hover:bg-black/80 transition-colors rounded-full whitespace-nowrap disabled:opacity-50"
-                >
-                  {kickstarterPending ? t("cta.submitting") : t("cta.notifyMe")}
-                </button>
-              </form>
-              {kickstarterState.message && (
-                <p
-                  className={`font-mono text-xs mt-2 ${kickstarterState.success ? "text-green-700" : "text-red-700"}`}
-                >
-                  {kickstarterState.message}
-                </p>
-              )}
             </div>
 
             {/* Right side - stats/info */}
