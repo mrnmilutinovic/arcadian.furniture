@@ -107,7 +107,7 @@ export function PricingSection() {
                     {t("playArea")}
                   </span>
                   <span className="font-mono text-sm text-white/70">
-                    90 × 90 cm
+                  89 × 89 cm
                   </span>
                 </div>
                 <div className="w-full h-px bg-white/5" />
@@ -178,7 +178,7 @@ export function PricingSection() {
                     {t("playArea")}
                   </span>
                   <span className="font-mono text-sm text-white/70">
-                    90 × 170 cm
+                    89 × 170 cm
                   </span>
                 </div>
                 <div className="w-full h-px bg-white/5" />

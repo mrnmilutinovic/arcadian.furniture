@@ -76,16 +76,16 @@
         "imperial": "42.5 \u00d7 42.5 in"
       },
       "standardPlay": {
-        "metric": "90 \u00d7 90 cm",
-        "imperial": "35.4 \u00d7 35.4 in"
+        "metric": "89 \u00d7 89 cm",
+        "imperial": "35.0 \u00d7 35.0 in"
       },
       "grandClosed": {
         "metric": "108 \u00d7 189 cm",
         "imperial": "42.5 \u00d7 74.4 in"
       },
       "grandPlay": {
-        "metric": "90 \u00d7 170 cm",
-        "imperial": "35.4 \u00d7 66.9 in"
+        "metric": "89 \u00d7 170 cm",
+        "imperial": "35.0 \u00d7 66.9 in"
       },
       "cm": "CM",
       "in": "IN"
@@ -484,11 +484,11 @@
     "specsStandard": "The Standard",
     "specsStandardSeats": "Za 4 igrača",
     "specsStandardSize": "108 × 108 cm",
-    "specsStandardVault": "90 × 90 cm površina za igru",
+    "specsStandardVault": "89 × 89 cm površina za igru",
     "specsGrand": "The Grand",
     "specsGrandSeats": "Za 6–8 igrača",
     "specsGrandSize": "108 × 189 cm",
-    "specsGrandVault": "90 × 170 cm površina za igru",
+    "specsGrandVault": "89 × 170 cm površina za igru",
     "specsVaultDepth": "10 cm dubina vaulta",
     "specsCta": "Naručite ovu veličinu",
     "foundersTitle": "Napravljeno od igrača, za igrače",

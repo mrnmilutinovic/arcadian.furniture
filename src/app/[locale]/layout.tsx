@@ -39,7 +39,7 @@ const productSchemaStandard = {
   "@type": "Product",
   name: "Arcadian Standard - Board Game Table",
   description:
-    "Premium board game table for 4 players. Square design with a 90x90cm recessed vault (10cm deep), magnetic rail system for modular accessories, convertible solid oak dining toppers, and 0% VOC plant-based hardwax oil finish. Handcrafted from solid European oak in Serbia. Flat-pack delivery, 30-minute assembly.",
+    "Premium board game table for 4 players. Square design with a 89x89cm recessed vault (10cm deep), magnetic rail system for modular accessories, convertible solid oak dining toppers, and 0% VOC plant-based hardwax oil finish. Handcrafted from solid European oak in Serbia. Flat-pack delivery, 30-minute assembly.",
   image: [
     `${baseUrl}/photos/size-small-3.jpeg`,
     `${baseUrl}/photos/size-small.jpeg`,
@@ -64,7 +64,7 @@ const productSchemaStandard = {
     {
       "@type": "PropertyValue",
       name: "Play Area (Vault)",
-      value: "90 × 90 cm (35.4 × 35.4 in)",
+      value: "89 × 89 cm (35.0 × 35.0 in)",
     },
     { "@type": "PropertyValue", name: "Vault Depth", value: "10 cm (3.9 in)" },
     { "@type": "PropertyValue", name: "Seating Capacity", value: "4 players" },
@@ -124,7 +124,7 @@ const productSchemaGrand = {
   "@type": "Product",
   name: "Arcadian Grand - Board Game Table",
   description:
-    "Premium board game table for 6-8 players. Rectangular design with a 90x170cm recessed vault (10cm deep), magnetic rail system for modular accessories, convertible solid oak dining toppers, and 0% VOC plant-based hardwax oil finish. Handcrafted from solid European oak in Serbia. Flat-pack delivery, 30-minute assembly.",
+    "Premium board game table for 6-8 players. Rectangular design with a 89x170cm recessed vault (10cm deep), magnetic rail system for modular accessories, convertible solid oak dining toppers, and 0% VOC plant-based hardwax oil finish. Handcrafted from solid European oak in Serbia. Flat-pack delivery, 30-minute assembly.",
   image: [
     `${baseUrl}/photos/size-big-2.jpeg`,
     `${baseUrl}/photos/size-big.jpeg`,
@@ -150,7 +150,7 @@ const productSchemaGrand = {
     {
       "@type": "PropertyValue",
       name: "Play Area (Vault)",
-      value: "90 × 170 cm (35.4 × 66.9 in)",
+      value: "89 × 170 cm (35.0 × 66.9 in)",
     },
     { "@type": "PropertyValue", name: "Vault Depth", value: "10 cm (3.9 in)" },
     {

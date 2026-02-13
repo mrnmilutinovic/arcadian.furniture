@@ -204,7 +204,7 @@ const content: Record<string, string> = {
 
 <p>For gaming tables with recessed vaults, understand the difference between overall table size and usable play area.</p>
 
-<p>The outer dimension is what fits in your room. The inner vault is where games happen. A table with outer dimensions of 108 × 189 cm might have a play area of 90 × 170 cm. That's roughly 10% reduction per dimension—not huge, but meaningful.</p>
+<p>The outer dimension is what fits in your room. The inner vault is where games happen. A table with outer dimensions of 108 × 189 cm might have a play area of 89 × 170 cm. That's roughly 10% reduction per dimension—not huge, but meaningful.</p>
 
 <p>Always check <strong>vault dimensions</strong> when evaluating a table, not just overall size. That's the number that matters for your games.</p>
 
