@@ -94,6 +94,12 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
     setExtraFelts((prev) => prev.map((v, i) => (i === index ? value : v)));
   };
 
+  const [ref, setRef] = useState("");
+  useEffect(() => {
+    const stored = localStorage.getItem("arcadian_ref");
+    if (stored) setRef(stored);
+  }, []);
+
   const hasTrackedLead = useRef(false);
   useEffect(() => {
     if (state.success && !hasTrackedLead.current) {
@@ -289,6 +295,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
   return (
     <form action={action}>
       {/* Hidden fields for controlled state */}
+      <input type="hidden" name="ref" value={ref} />
       <input type="hidden" name="feltColor" value={feltColor} />
       <input type="hidden" name="extraFeltCount" value={extraFelts.length} />
       {extraFelts.map((color, i) => (

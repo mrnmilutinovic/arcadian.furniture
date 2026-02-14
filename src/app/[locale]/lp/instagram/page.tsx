@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { TrackLandingView } from "./TrackLandingView";
+import { TrackReferral } from "./TrackReferral";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -37,6 +38,7 @@ export default async function InstagramLandingPage({ params }: Props) {
 
   return (
     <>
+      <TrackReferral />
       <TrackLandingView />
 
       {/* ── HERO ── */}

@@ -32,6 +32,7 @@ export async function submitOrder(
   const feltColor = formData.get("feltColor") as string;
   const extraFeltCount = Number(formData.get("extraFeltCount") || 0);
   const extraFeltColors = formData.getAll("extraFeltColors") as string[];
+  const ref = (formData.get("ref") as string)?.trim() || "";
 
   if (!name || !email || !phone || !tableSize || !finishColor || !feltColor) {
     return { success: false, message: "required" };
@@ -93,6 +94,7 @@ export async function submitOrder(
             <tr><td style="padding:8px 16px 8px 0;color:#666;">Felt</td><td style="padding:8px 0;">${feltName}</td></tr>
             ${extraFeltRows}
             ${extraFeltCount > 0 ? `<tr><td style="padding:8px 16px 8px 0;color:#666;">Extra Felts</td><td style="padding:8px 0;">${extraFeltCount} × €${extraFeltUnitPrice} = €${extraFeltTotal}</td></tr>` : ""}
+            ${ref ? `<tr><td style="padding:8px 16px 8px 0;color:#666;">Referred by</td><td style="padding:8px 0;font-weight:600;">${ref}</td></tr>` : ""}
           </table>
           <p style="margin-top:24px;color:#999;font-size:12px;">Submitted at ${new Date().toISOString()}</p>
         `,
