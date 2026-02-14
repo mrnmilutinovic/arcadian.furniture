@@ -2,10 +2,21 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import posthog from "posthog-js";
 import { Link } from "@/i18n/navigation";
 
 export function PricingSection() {
   const t = useTranslations("pricing");
+
+  const handleReserveClick = (size: "standard" | "grand") => {
+    posthog.capture("reserve_table_clicked", {
+      table_size: size,
+      table_name: size === "grand" ? "The Grand" : "The Standard",
+      price: size === "grand" ? 2390 : 1920,
+      currency: "EUR",
+      location: "pricing_section",
+    });
+  };
 
   const included = [
     t("included.frame"),
@@ -107,7 +118,7 @@ export function PricingSection() {
                     {t("playArea")}
                   </span>
                   <span className="font-mono text-sm text-white/70">
-                  89 × 89 cm
+                    89 × 89 cm
                   </span>
                 </div>
                 <div className="w-full h-px bg-white/5" />
@@ -121,6 +132,7 @@ export function PricingSection() {
 
               <Link
                 href={"/order?size=standard" as "/order"}
+                onClick={() => handleReserveClick("standard")}
                 className="block w-full text-center border border-white/20 hover:border-white/50 hover:bg-white/5 py-4 font-mono text-xs uppercase tracking-[0.2em] text-white/70 hover:text-white transition-all duration-300 rounded-full"
               >
                 {t("reserveCta")}
@@ -192,6 +204,7 @@ export function PricingSection() {
 
               <Link
                 href={"/order?size=grand" as "/order"}
+                onClick={() => handleReserveClick("grand")}
                 className="block w-full text-center bg-accent hover:bg-accent/90 py-4 font-mono text-xs uppercase tracking-[0.2em] text-white transition-all duration-300 rounded-full"
               >
                 {t("reserveCta")}

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import posthog from "posthog-js";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/meta-pixel";
@@ -82,8 +83,38 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
 
   const formatPrice = (n: number) => `€${n.toLocaleString("en-IE")}`;
 
+  const handleTableSizeChange = (size: "standard" | "grand") => {
+    setTableSize(size);
+    posthog.capture("table_size_selected", {
+      size: size,
+      table_name: size === "grand" ? "The Grand" : "The Standard",
+      price: BASE_PRICES[size],
+      currency: "EUR",
+    });
+  };
+
+  const handleFeltColorChange = (color: FeltValue) => {
+    setFeltColor(color);
+    posthog.capture("felt_color_selected", {
+      felt_color: color,
+      is_primary: true,
+    });
+  };
+
+  const handleFinishColorChange = (finish: "dawn" | "shadow") => {
+    posthog.capture("finish_color_selected", {
+      finish_color: finish,
+      finish_name: finish === "shadow" ? "Pan's Shadow" : "Arcadian Dawn",
+    });
+  };
+
   const addExtraFelt = () => {
     setExtraFelts((prev) => [...prev, "blue"]);
+    posthog.capture("extra_felt_added", {
+      total_extra_felts: extraFelts.length + 1,
+      unit_price: extraFeltUnitPrice,
+      currency: "EUR",
+    });
   };
 
   const removeExtraFelt = () => {
@@ -379,7 +410,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                   name="tableSize"
                   value="standard"
                   checked={tableSize === "standard"}
-                  onChange={() => setTableSize("standard")}
+                  onChange={() => handleTableSizeChange("standard")}
                   className="peer sr-only"
                   required
                 />
@@ -401,7 +432,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                   name="tableSize"
                   value="grand"
                   checked={tableSize === "grand"}
-                  onChange={() => setTableSize("grand")}
+                  onChange={() => handleTableSizeChange("grand")}
                   className="peer sr-only"
                 />
                 <div className="border border-ink/15 peer-checked:border-ink peer-checked:bg-ink/[0.03] rounded-sm p-6 transition-all hover:border-ink/40">
@@ -431,6 +462,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                   name="finishColor"
                   value="dawn"
                   defaultChecked={defaultFinish === "dawn"}
+                  onChange={() => handleFinishColorChange("dawn")}
                   className="peer sr-only"
                   required
                 />
@@ -452,6 +484,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                   name="finishColor"
                   value="shadow"
                   defaultChecked={defaultFinish === "shadow"}
+                  onChange={() => handleFinishColorChange("shadow")}
                   className="peer sr-only"
                 />
                 <div className="border border-ink/15 peer-checked:border-ink peer-checked:bg-ink/[0.03] rounded-sm p-6 transition-all hover:border-ink/40">
@@ -488,7 +521,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                   <button
                     key={color.value}
                     type="button"
-                    onClick={() => setFeltColor(color.value)}
+                    onClick={() => handleFeltColorChange(color.value)}
                     className="group/swatch flex flex-col items-center gap-1.5"
                   >
                     <Image

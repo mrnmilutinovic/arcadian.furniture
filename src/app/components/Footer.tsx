@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import posthog from "posthog-js";
 import { useActionState } from "react";
 import { Link } from "@/i18n/navigation";
 import { type SubscribeState, subscribeToUpdates } from "../actions/subscribe";
@@ -77,6 +78,11 @@ export function Footer() {
               href="https://instagram.com/arcadiantables"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                posthog.capture("instagram_link_clicked", {
+                  location: "footer",
+                })
+              }
               className="font-serif text-3xl md:text-4xl hover:text-accent transition-colors hover:italic"
             >
               {t("instagram")}

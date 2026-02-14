@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
+import posthog from "posthog-js";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
 export function LanguageSwitcher() {
@@ -9,6 +10,11 @@ export function LanguageSwitcher() {
   const pathname = usePathname();
 
   function switchLocale(newLocale: "en" | "sr") {
+    posthog.capture("language_switched", {
+      from_locale: locale,
+      to_locale: newLocale,
+      page_path: pathname,
+    });
     router.replace(pathname as "/", { locale: newLocale });
   }
 

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import NextLink from "next/link";
 import { useLocale, useTranslations } from "next-intl";
+import posthog from "posthog-js";
 import { useEffect, useState } from "react";
 
 export function Hero() {
@@ -15,6 +16,13 @@ export function Hero() {
     const timer = setTimeout(() => setIsLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleCtaClick = () => {
+    posthog.capture("hero_cta_clicked", {
+      location: "hero_section",
+      cta_text: t("notifyMe"),
+    });
+  };
 
   return (
     <header className="hero-section relative w-full min-h-[100dvh] overflow-hidden">
@@ -73,6 +81,7 @@ export function Hero() {
 
                 <NextLink
                   href={`${prefix}/#pricing`}
+                  onClick={handleCtaClick}
                   className="block w-full bg-white text-[#1a1918] font-sans text-xs md:text-sm uppercase tracking-[0.15em] font-semibold py-3 md:py-4 hover:bg-white/90 transition-colors text-center"
                 >
                   {t("notifyMe")}

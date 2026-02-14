@@ -5,6 +5,7 @@ import type {
   SubscriptionCreateJobCreateQuery,
 } from "klaviyo-api";
 import { eventsApi, profilesApi } from "@/lib/analytics";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 export type SubscribeSource = "hero" | "kickstarter" | "footer";
 
@@ -106,12 +107,49 @@ export async function subscribeToUpdates(
 
     await eventsApi.createEvent(eventQuery);
 
+    // Track subscription with PostHog
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId: email,
+      event: "newsletter_subscribed",
+      properties: {
+        source: source,
+        campaign: "kickstarter-2026",
+      },
+    });
+
+    // Identify user in PostHog
+    posthog.identify({
+      distinctId: email,
+      properties: {
+        email: email,
+        subscribed_at: new Date().toISOString(),
+        subscription_source: source,
+      },
+    });
+
+    await posthog.flush();
+
     return {
       success: true,
       message: "You're on the list! We'll notify you when we launch.",
     };
   } catch (error) {
     console.error("Subscription error:", error);
+
+    // Track subscription failure with PostHog
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId: email || "anonymous",
+      event: "newsletter_subscription_failed",
+      properties: {
+        source: source,
+        error_message: error instanceof Error ? error.message : "Unknown error",
+      },
+    });
+
+    await posthog.flush();
+
     // Log detailed error response from Klaviyo
     if (error && typeof error === "object" && "response" in error) {
       const axiosError = error as {

@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 export interface OrderState {
   success: boolean;
@@ -124,12 +125,64 @@ export async function submitOrder(
       }),
     ]);
 
+    // Track order submission with PostHog
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId: email,
+      event: "order_submitted",
+      properties: {
+        table_size: tableSize,
+        table_name: tableName,
+        finish_color: finishColor,
+        finish_name: finishName,
+        felt_color: feltColor,
+        felt_name: feltName,
+        extra_felt_count: extraFeltCount,
+        extra_felt_colors: extraFeltColors,
+        base_price: basePrice,
+        extra_felt_total: extraFeltTotal,
+        total_price: totalPrice,
+        currency: "EUR",
+        referral: ref || undefined,
+      },
+    });
+
+    // Identify user in PostHog
+    posthog.identify({
+      distinctId: email,
+      properties: {
+        email: email,
+        name: name,
+        phone: phone,
+        ordered_at: new Date().toISOString(),
+        table_ordered: tableName,
+      },
+    });
+
+    await posthog.flush();
+
     return {
       success: true,
       message: "success",
     };
   } catch (error) {
     console.error("Order submission error:", error);
+
+    // Track order failure with PostHog
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId: email || "anonymous",
+      event: "order_submission_failed",
+      properties: {
+        table_size: tableSize,
+        finish_color: finishColor,
+        felt_color: feltColor,
+        error_message: error instanceof Error ? error.message : "Unknown error",
+      },
+    });
+
+    await posthog.flush();
+
     return { success: false, message: "generic" };
   }
 }
