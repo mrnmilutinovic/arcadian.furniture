@@ -3,7 +3,7 @@
 import Image from "next/image";
 import NextLink from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
+import { type MouseEvent, useCallback, useState } from "react";
 import { Link } from "@/i18n/navigation";
 
 export function Header() {
@@ -12,6 +12,17 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const prefix = locale === "en" ? "" : `/${locale}`;
+
+  const handleHashClick = useCallback((e: MouseEvent, href: string) => {
+    const hash = href.split("#")[1];
+    if (!hash) return;
+    const el = document.getElementById(hash);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", `#${hash}`);
+    }
+  }, []);
 
   const navItems = [
     { href: `${prefix}/#transformation`, label: t("table"), isHash: true },
@@ -96,6 +107,7 @@ export function Header() {
                   <NextLink
                     key={item.href}
                     href={item.href}
+                    onClick={(e) => handleHashClick(e, item.href)}
                     className={
                       item.emphasized
                         ? "px-4 py-2 rounded-full font-mono text-[11px] uppercase tracking-wide bg-accent text-white hover:bg-accent/80 transition-all duration-200"
@@ -168,7 +180,10 @@ export function Header() {
                   <NextLink
                     key={item.href}
                     href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      setIsMobileMenuOpen(false);
+                      handleHashClick(e, item.href);
+                    }}
                     className={
                       item.emphasized
                         ? "px-4 py-3 rounded-xl font-mono text-sm uppercase tracking-wider bg-accent text-white transition-all text-center"
