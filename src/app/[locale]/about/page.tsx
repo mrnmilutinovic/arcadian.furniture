@@ -66,17 +66,19 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </header>
 
-      {/* Hero Image - Full Width */}
-      <section className="w-full aspect-[21/9] relative bg-ink/5">
-        <Image
-          src="/photos/about-hero.jpeg"
-          alt="The Arcadian team in the workshop"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-        />
-      </section>
+      {/* Hero Image - Full Width (Serbian only) */}
+      {locale === "sr" && (
+        <section className="w-full aspect-[21/9] relative bg-ink/5">
+          <Image
+            src="/photos/about-hero.jpeg"
+            alt="The Arcadian team in the workshop"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+        </section>
+      )}
 
       {/* Our Story */}
       <section className="py-16 md:py-24">
@@ -88,8 +90,8 @@ export default async function AboutPage({ params }: Props) {
             {t("storyTitle")}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-            <div className="md:col-span-7 space-y-6">
+          <div className={`grid grid-cols-1 ${locale === "sr" ? "md:grid-cols-12" : ""} gap-12`}>
+            <div className={`${locale === "sr" ? "md:col-span-7" : "max-w-3xl"} space-y-6`}>
               <p className="font-sans text-lg text-ink/70 leading-relaxed">
                 {t("storyP1")}
               </p>
@@ -100,55 +102,59 @@ export default async function AboutPage({ params }: Props) {
                 {t("storyP3")}
               </p>
             </div>
-            <div className="md:col-span-5">
-              <div className="aspect-[4/5] relative bg-ink/5 rounded-sm overflow-hidden">
-                <Image
-                  src="/photos/about-nikola-jana.jpeg"
-                  alt="Nikola and Jana, founders of Arcadian"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  className="object-cover"
-                />
+            {locale === "sr" && (
+              <div className="md:col-span-5">
+                <div className="aspect-[4/5] relative bg-ink/5 rounded-sm overflow-hidden">
+                  <Image
+                    src="/photos/about-nikola-jana.jpeg"
+                    alt="Nikola and Jana, founders of Arcadian"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="font-mono text-[10px] text-ink/40 mt-3 uppercase tracking-widest">
+                  {t("foundersCaption")}
+                </p>
               </div>
-              <p className="font-mono text-[10px] text-ink/40 mt-3 uppercase tracking-widest">
-                {t("foundersCaption")}
-              </p>
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Additional founder photos */}
-        <div className="max-w-6xl mx-auto px-6 md:px-12 mt-12">
-          <div className="grid grid-cols-3 gap-2">
-            <div className="aspect-[4/3] relative bg-ink/5 rounded-sm overflow-hidden">
-              <Image
-                src="/photos/about-nikola-jana-1.jpeg"
-                alt="Nikola and Jana working on Arcadian designs"
-                fill
-                sizes="(max-width: 768px) 33vw, 33vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="aspect-[4/3] relative bg-ink/5 rounded-sm overflow-hidden">
-              <Image
-                src="/photos/about-nikola-jana-2.jpeg"
-                alt="Nikola and Jana during a game night"
-                fill
-                sizes="(max-width: 768px) 33vw, 33vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="aspect-[4/3] relative bg-ink/5 rounded-sm overflow-hidden">
-              <Image
-                src="/photos/about-nikola-jana-3.jpeg"
-                alt="Nikola and Jana with their board game collection"
-                fill
-                sizes="(max-width: 768px) 33vw, 33vw"
-                className="object-cover"
-              />
+        {/* Additional founder photos (Serbian only) */}
+        {locale === "sr" && (
+          <div className="max-w-6xl mx-auto px-6 md:px-12 mt-12">
+            <div className="grid grid-cols-3 gap-2">
+              <div className="aspect-[4/3] relative bg-ink/5 rounded-sm overflow-hidden">
+                <Image
+                  src="/photos/about-nikola-jana-1.jpeg"
+                  alt="Nikola and Jana working on Arcadian designs"
+                  fill
+                  sizes="(max-width: 768px) 33vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] relative bg-ink/5 rounded-sm overflow-hidden">
+                <Image
+                  src="/photos/about-nikola-jana-2.jpeg"
+                  alt="Nikola and Jana during a game night"
+                  fill
+                  sizes="(max-width: 768px) 33vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] relative bg-ink/5 rounded-sm overflow-hidden">
+                <Image
+                  src="/photos/about-nikola-jana-3.jpeg"
+                  alt="Nikola and Jana with their board game collection"
+                  fill
+                  sizes="(max-width: 768px) 33vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </section>
 
       {/* The Design Process */}
