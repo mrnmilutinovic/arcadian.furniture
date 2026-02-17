@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import posthog from "posthog-js";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
@@ -35,6 +35,7 @@ interface OrderFormProps {
 
 export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
   const t = useTranslations("order");
+  const locale = useLocale();
   const [state, action, pending] = useActionState(submitOrder, initialState);
 
   const [tableSize, setTableSize] = useState<"standard" | "grand" | "">(
@@ -672,6 +673,172 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
               </div>
             </div>
           </div>
+
+          {/* Payment Options — Serbian market only */}
+          {locale === "sr" && (
+            <div>
+              <span className="font-mono text-xs text-accent tracking-widest uppercase block mb-6">
+                {t("paymentOptionsLabel")}
+              </span>
+              <div className="space-y-4">
+                {/* Čekovi građana */}
+                <div className="border border-ink/15 rounded-sm p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        className="text-ink/50"
+                      >
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <path d="M2 10h20" />
+                        <path d="M6 16h4" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-xl mb-1">
+                        {t("paymentOptionChecks")}
+                      </h3>
+                      <p className="font-sans text-sm text-ink/50 leading-relaxed">
+                        {t("paymentOptionChecksDescription")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Kreditne kartice */}
+                <div className="border border-ink/15 rounded-sm p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        className="text-ink/50"
+                      >
+                        <rect x="2" y="5" width="20" height="14" rx="2" />
+                        <path d="M2 10h20" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-xl mb-1">
+                        {t("paymentOptionCredit")}
+                      </h3>
+                      <p className="font-sans text-sm text-ink/50 leading-relaxed">
+                        {t("paymentOptionCreditDescription")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Debitne kartice */}
+                <div className="border border-ink/15 rounded-sm p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        className="text-ink/50"
+                      >
+                        <rect x="2" y="5" width="20" height="14" rx="2" />
+                        <path d="M6 15h2" />
+                        <path d="M14 15h4" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-xl mb-1">
+                        {t("paymentOptionDebit")}
+                      </h3>
+                      <p className="font-sans text-sm text-ink/50 leading-relaxed">
+                        {t("paymentOptionDebitDescription")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Administrativna zabrana — coming soon */}
+                <div className="border border-ink/10 rounded-sm p-6 opacity-40 select-none">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        className="text-ink/50"
+                      >
+                        <rect x="3" y="11" width="18" height="11" rx="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 mb-1">
+                        <h3 className="font-serif text-xl">
+                          {t("paymentOptionAdminBan")}
+                        </h3>
+                        <span className="font-mono text-[9px] uppercase tracking-[0.2em] bg-ink/10 text-ink/50 px-2 py-0.5 rounded-full">
+                          {t("comingSoon")}
+                        </span>
+                      </div>
+                      <p className="font-sans text-sm text-ink/50 leading-relaxed">
+                        {t("paymentOptionAdminBanDescription")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Potrošački kredit — coming soon */}
+                <div className="border border-ink/10 rounded-sm p-6 opacity-40 select-none">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        className="text-ink/50"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9 12h6" />
+                        <path d="M12 9v6" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 mb-1">
+                        <h3 className="font-serif text-xl">
+                          {t("paymentOptionConsumerLoan")}
+                        </h3>
+                        <span className="font-mono text-[9px] uppercase tracking-[0.2em] bg-ink/10 text-ink/50 px-2 py-0.5 rounded-full">
+                          {t("comingSoon")}
+                        </span>
+                      </div>
+                      <p className="font-sans text-sm text-ink/50 leading-relaxed">
+                        {t("paymentOptionConsumerLoanDescription")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p className="font-mono text-[10px] text-ink/35 uppercase tracking-wider mt-4">
+                {t("paymentNote")}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Right column: sticky summary sidebar */}
@@ -740,7 +907,9 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
             )}
 
             <p className="font-mono text-[10px] text-ink/30 text-center mt-4 uppercase tracking-wider">
-              No payment required now
+              {locale === "sr"
+                ? "Bez plaćanja sada · Rate i čekovi dostupni"
+                : "No payment required now"}
             </p>
           </div>
         </div>

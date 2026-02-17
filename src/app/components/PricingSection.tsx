@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import posthog from "posthog-js";
 import { Link } from "@/i18n/navigation";
 
 export function PricingSection() {
   const t = useTranslations("pricing");
+  const locale = useLocale();
 
   const handleReserveClick = (size: "standard" | "grand") => {
     posthog.capture("reserve_table_clicked", {
@@ -241,6 +242,54 @@ export function PricingSection() {
             </div>
           </div>
         </div>
+
+        {/* Installments — Serbian market only */}
+        {locale === "sr" && (
+          <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 reveal-trigger">
+            <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-16">
+              <div className="shrink-0">
+                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent block mb-3">
+                  {t("installmentsLabel")}
+                </span>
+                <h3 className="font-serif text-3xl md:text-4xl text-white mb-2">
+                  {t("installmentsTitle")}
+                </h3>
+                <p className="font-brush text-xl text-white/40">
+                  {t("installmentsSubtitle")}
+                </p>
+              </div>
+              <div className="flex-1">
+                <div className="grid grid-cols-3 gap-3 mb-6">
+                  {(
+                    [
+                      { key: "installments3", standard: 640, grand: 797 },
+                      { key: "installments6", standard: 320, grand: 399 },
+                      { key: "installments12", standard: 160, grand: 200 },
+                    ] as const
+                  ).map((plan) => (
+                    <div
+                      key={plan.key}
+                      className="bg-white/5 border border-white/10 rounded-sm p-4 md:p-5 text-center"
+                    >
+                      <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/50 block mb-2">
+                        {t(plan.key)}
+                      </span>
+                      <div className="font-serif text-xl md:text-2xl text-white">
+                        {t("installmentsFrom")} €{plan.standard}
+                      </div>
+                      <span className="font-mono text-[10px] text-white/30">
+                        {t("installmentsPerMonth")}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <p className="font-mono text-[10px] text-white/30 uppercase tracking-wider">
+                  {t("installmentsNote")}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Fine print */}
         <div className="mt-10 pt-6 border-t border-white/5">
