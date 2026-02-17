@@ -130,6 +130,16 @@ export function Footer() {
             >
               {t("privacyLink")}
             </Link>
+            <Link
+              href={"/b2b" as "/b2b"}
+              className="font-serif text-xl md:text-2xl hover:text-accent transition-colors border border-white/20 px-4 py-1.5 rounded-full inline-flex items-center gap-2"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+              </svg>
+              {t("b2bLink")}
+            </Link>
           </nav>
 
           <div className="mt-16 md:text-right">

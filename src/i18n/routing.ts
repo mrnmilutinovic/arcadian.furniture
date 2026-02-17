@@ -30,6 +30,10 @@ export const routing = defineRouting({
       en: "/order",
       sr: "/narucite",
     },
+    "/b2b": {
+      en: "/b2b",
+      sr: "/poslovni-kontakt",
+    },
     "/lp/instagram": "/lp/instagram",
   },
 });
