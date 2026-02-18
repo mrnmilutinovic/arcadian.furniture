@@ -3,7 +3,8 @@
 import Image from "next/image";
 import NextLink from "next/link";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "@/i18n/navigation";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
 import { PricingSection } from "../components/PricingSection";
@@ -12,6 +13,10 @@ export default function Home() {
   const t = useTranslations("home");
 
   const [isMetric, setIsMetric] = useState(true);
+  const [showStickyBar, setShowStickyBar] = useState(false);
+  const [stickyDismissed, setStickyDismissed] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const pricingRef = useRef<HTMLDivElement>(null);
 
   const articles = [
     {
@@ -53,12 +58,49 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const heroEl = heroRef.current;
+    const pricingEl = pricingRef.current;
+    if (!heroEl || !pricingEl) return;
+
+    let heroPast = false;
+    let pricingVisible = false;
+
+    const update = () => setShowStickyBar(heroPast && !pricingVisible);
+
+    const heroObs = new IntersectionObserver(
+      ([entry]) => {
+        heroPast = !entry.isIntersecting;
+        update();
+      },
+      { threshold: 0 },
+    );
+
+    const pricingObs = new IntersectionObserver(
+      ([entry]) => {
+        pricingVisible = entry.isIntersecting;
+        update();
+      },
+      { threshold: 0 },
+    );
+
+    heroObs.observe(heroEl);
+    pricingObs.observe(pricingEl);
+
+    return () => {
+      heroObs.disconnect();
+      pricingObs.disconnect();
+    };
+  }, []);
+
   return (
     <>
       {/* <div className="noise" /> */}
 
       {/* HERO SECTION */}
-      <Hero />
+      <div ref={heroRef}>
+        <Hero />
+      </div>
 
       {/* FULL WIDTH PHOTOS */}
       <section id="photo-grid" className="w-full h-dvh">
@@ -426,18 +468,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
-              {/* Play button placeholder */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="group/play cursor-pointer flex items-center gap-0 hover:gap-4 transition-all duration-300">
-                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 shrink-0">
-                    <div className="w-0 h-0 border-t-6 md:border-t-8 border-t-transparent border-l-8 md:border-l-12 border-l-white border-b-6 md:border-b-8 border-b-transparent ml-1" />
-                  </div>
-                  <span className="font-mono text-xs uppercase tracking-widest text-white whitespace-nowrap max-w-0 group-hover/play:max-w-40 overflow-hidden transition-all duration-300 opacity-0 group-hover/play:opacity-100">
-                    {t("assembly.comingSoon")}
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -663,132 +693,33 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
-            {/* Cup & Mug Holder */}
-            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
-                FIG A.1
-              </div>
-              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
-                <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  {t("ecosystem.schematicPending")}
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">
-                  {t("ecosystem.cupHolder")}
-                </h3>
-                <p className="font-mono text-xs text-white/60">
-                  {t("ecosystem.cupHolderDesc")}
-                </p>
-              </div>
-            </div>
-
-            {/* Universal Tray */}
-            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
-                FIG A.2
-              </div>
-              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
-                <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  {t("ecosystem.schematicPending")}
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">
-                  {t("ecosystem.universalTray")}
-                </h3>
-                <p className="font-mono text-xs text-white/60">
-                  {t("ecosystem.universalTrayDesc")}
-                </p>
-              </div>
-            </div>
-
-            {/* Dice Tray */}
-            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
-                FIG A.3
-              </div>
-              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
-                <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  {t("ecosystem.schematicPending")}
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">
-                  {t("ecosystem.diceTray")}
-                </h3>
-                <p className="font-mono text-xs text-white/60">
-                  {t("ecosystem.diceTrayDesc")}
-                </p>
-              </div>
-            </div>
-
-            {/* Bowl Holder */}
-            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
-                FIG A.4
-              </div>
-              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
-                <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  {t("ecosystem.schematicPending")}
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">
-                  {t("ecosystem.bowlHolder")}
-                </h3>
-                <p className="font-mono text-xs text-white/60">
-                  {t("ecosystem.bowlHolderDesc")}
-                </p>
-              </div>
-            </div>
-
-            {/* Player Desk */}
-            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
-                FIG A.5
-              </div>
-              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
-                <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  {t("ecosystem.schematicPending")}
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">
-                  {t("ecosystem.playerDesk")}
-                </h3>
-                <p className="font-mono text-xs text-white/60">
-                  {t("ecosystem.playerDeskDesc")}
-                </p>
-              </div>
-            </div>
-
-            {/* Toppers Box */}
-            <div className="bg-[#282828] p-12 min-h-[350px] flex flex-col justify-between group hover:bg-[#3a3a3a] transition-colors relative">
-              <div className="absolute top-4 right-4 font-mono text-[10px] border border-white/20 px-1 text-white/60">
-                FIG A.6
-              </div>
-              <div className="w-full flex-grow border border-dashed border-white/20 flex items-center justify-center mb-6 bg-black/20">
-                <span className="font-mono text-[10px] animate-pulse text-white/60">
-                  {t("ecosystem.schematicPending")}
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl mb-2 text-white">
-                  {t("ecosystem.toppersBox")}
-                </h3>
-                <p className="font-mono text-xs text-white/60">
-                  {t("ecosystem.toppersBoxDesc")}
-                </p>
-              </div>
-            </div>
+          <div className="flex flex-wrap gap-3 mb-8">
+            {[
+              t("ecosystem.cupHolder"),
+              t("ecosystem.universalTray"),
+              t("ecosystem.diceTray"),
+              t("ecosystem.bowlHolder"),
+              t("ecosystem.playerDesk"),
+              t("ecosystem.toppersBox"),
+            ].map((name) => (
+              <span
+                key={name}
+                className="font-mono text-xs uppercase tracking-widest text-white/70 border border-white/20 px-4 py-2"
+              >
+                {name}
+              </span>
+            ))}
           </div>
+
+          <p className="font-sans text-sm md:text-base text-white/50 max-w-2xl leading-relaxed">
+            {t("ecosystem.comingSoonDescription")}
+          </p>
         </div>
       </section>
 
       {/* 2026 BATCH CTA */}
       <section
+        ref={pricingRef}
         id="pricing"
         className="relative bg-amber-400/80 py-16 md:py-24 px-6 md:px-12 overflow-hidden"
       >
@@ -928,6 +859,52 @@ export default function Home() {
       </div>
 
       <Footer />
+
+      {/* STICKY CTA BAR */}
+      {!stickyDismissed && (
+        <div
+          className={`fixed bottom-0 left-0 right-0 z-50 bg-[#1a1918] border-t border-white/10 transition-transform duration-300 ${
+            showStickyBar ? "translate-y-0" : "translate-y-full"
+          }`}
+        >
+          <div className="max-w-[1400px] mx-auto px-4 md:px-12 py-3 flex items-center justify-between gap-4">
+            <div className="font-sans text-sm md:text-base text-white">
+              <span className="font-serif text-base md:text-lg">
+                The Standard
+              </span>
+              <span className="text-white/50 mx-2">—</span>
+              <span className="text-white/70">
+                {t("stickyBar.from")} €160{t("stickyBar.perMonth")}
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <Link
+                href={"/order" as "/order"}
+                className="bg-white text-[#1a1918] font-sans text-xs uppercase tracking-[0.15em] font-semibold px-6 py-2.5 hover:bg-white/90 transition-colors whitespace-nowrap"
+              >
+                {t("stickyBar.reserve")}
+              </Link>
+              <button
+                type="button"
+                onClick={() => setStickyDismissed(true)}
+                className="text-white/40 hover:text-white/70 transition-colors p-1"
+                aria-label="Close"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path d="M4 4l8 8M12 4l-8 8" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

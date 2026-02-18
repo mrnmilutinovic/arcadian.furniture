@@ -1,15 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import NextLink from "next/link";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import posthog from "posthog-js";
 import { useEffect, useState } from "react";
+import { Link } from "@/i18n/navigation";
 
 export function Hero() {
   const t = useTranslations("hero");
-  const locale = useLocale();
-  const prefix = locale === "en" ? "" : `/${locale}`;
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -18,7 +16,7 @@ export function Hero() {
   }, []);
 
   const handleCtaClick = () => {
-    posthog.capture("hero_cta_clicked", {
+    posthog.capture("hero_cta_order_clicked", {
       location: "hero_section",
       cta_text: t("notifyMe"),
     });
@@ -63,8 +61,8 @@ export function Hero() {
             }`}
           >
             <div className="bg-[#1a1918] text-white p-6 md:p-10 relative overflow-hidden w-full md:min-w-[400px] lg:w-auto">
-              {/* Top section - 2026 Batch */}
-              <div className="relative z-10 mb-6 md:mb-8">
+              {/* Batch info */}
+              <div className="relative z-10 mb-5 md:mb-6">
                 <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.25em] text-white/50 mb-2 md:mb-3">
                   {t("limitedProduction")}
                 </p>
@@ -73,19 +71,25 @@ export function Hero() {
                 </p>
               </div>
 
+              {/* Price */}
+              <div className="relative z-10 mb-6 md:mb-8 border-t border-white/10 pt-5 md:pt-6">
+                <p className="font-staatliches-baskerville text-3xl md:text-4xl tracking-tight mb-2">
+                  {t("installmentPrice")}
+                </p>
+                <p className="font-sans text-xs md:text-sm text-white/50">
+                  {t("installmentContext")}
+                </p>
+              </div>
+
               {/* CTA */}
               <div className="relative z-10">
-                <p className="font-sans text-xs md:text-sm text-white/70 mb-3 md:mb-4">
-                  {t("ctaText")}
-                </p>
-
-                <NextLink
-                  href={`${prefix}/#pricing`}
+                <Link
+                  href={"/order" as "/order"}
                   onClick={handleCtaClick}
                   className="block w-full bg-white text-[#1a1918] font-sans text-xs md:text-sm uppercase tracking-[0.15em] font-semibold py-3 md:py-4 hover:bg-white/90 transition-colors text-center"
                 >
                   {t("notifyMe")}
-                </NextLink>
+                </Link>
               </div>
 
               {/* Bottom decorative element */}

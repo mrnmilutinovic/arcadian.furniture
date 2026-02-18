@@ -41,7 +41,10 @@
     "limitedProduction": "Limited Production",
     "batchOpening": "2026 Q1 Batch — Now Open",
     "ctaText": "Order yours before the batch sells out.",
-    "notifyMe": "See Pricing & Order"
+    "productLabel": "The Standard",
+    "installmentPrice": "from €160/mo",
+    "installmentContext": "12 months, 0% interest · or €1,920 one-time",
+    "notifyMe": "Order Now"
   },
   "home": {
     "transformation": {
@@ -149,7 +152,13 @@
       "playerDesk": "Player Desk",
       "playerDeskDesc": "Personal space for cards and notes.",
       "toppersBox": "Toppers Box",
-      "toppersBoxDesc": "Elegant storage for table toppers."
+      "toppersBoxDesc": "Elegant storage for table toppers.",
+      "comingSoonDescription": "Accessories designed to snap onto the magnetic rail. Solid oak, matching your table. Available with batch delivery."
+    },
+    "stickyBar": {
+      "from": "from ",
+      "perMonth": "/mo",
+      "reserve": "Reserve"
     },
     "storiesSection": {
       "label": "Stories",

@@ -41,7 +41,10 @@
     "limitedProduction": "Limitirana Proizvodnja",
     "batchOpening": "2026 Q1 Serija \u2014 Otvorena",
     "ctaText": "Naru\u010dite svoj pre nego \u0161to serija bude rasprodana.",
-    "notifyMe": "Pogledaj cene i naruči"
+    "productLabel": "The Standard",
+    "installmentPrice": "od €160/mes",
+    "installmentContext": "12 rata bez kamate · ili €1.920 jednokratno",
+    "notifyMe": "Naručite"
   },
   "home": {
     "transformation": {
@@ -149,7 +152,13 @@
       "playerDesk": "Igra\u010dki sto",
       "playerDeskDesc": "Li\u010dni prostor za karte i bele\u0161ke.",
       "toppersBox": "Kutija za topere",
-      "toppersBoxDesc": "Elegantno skladi\u0161te za topere stola."
+      "toppersBoxDesc": "Elegantno skladište za topere stola.",
+      "comingSoonDescription": "Dodaci dizajnirani da se prikače na magnetnu šinu. Pun hrast, u skladu sa vašim stolom. Dostupni uz isporuku serije."
+    },
+    "stickyBar": {
+      "from": "od ",
+      "perMonth": "/mes",
+      "reserve": "Naručite"
     },
     "storiesSection": {
       "label": "Pri\u010de",
