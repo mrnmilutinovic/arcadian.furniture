@@ -25,8 +25,10 @@ const FELT_COLORS = [
 
 type FeltValue = (typeof FELT_COLORS)[number]["value"];
 
-const BASE_PRICES = { standard: 1920, grand: 2390 } as const;
-const EXTRA_FELT_PRICES = { standard: 20, grand: 30 } as const;
+const BASE_PRICES_EUR = { standard: 1920, grand: 2390 } as const;
+const BASE_PRICES_RSD = { standard: 224000, grand: 279000 } as const;
+const EXTRA_FELT_PRICES_EUR = { standard: 20, grand: 30 } as const;
+const EXTRA_FELT_PRICES_RSD = { standard: 2300, grand: 3500 } as const;
 
 interface OrderFormProps {
   defaultSize?: string;
@@ -59,6 +61,12 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
       | "feltYellow"
       | "feltAntracit";
 
+  const isRSD = locale === "sr";
+  const BASE_PRICES = isRSD ? BASE_PRICES_RSD : BASE_PRICES_EUR;
+  const EXTRA_FELT_PRICES = isRSD
+    ? EXTRA_FELT_PRICES_RSD
+    : EXTRA_FELT_PRICES_EUR;
+
   const extraFeltUnitPrice =
     tableSize === "grand"
       ? EXTRA_FELT_PRICES.grand
@@ -68,21 +76,25 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
 
   const totalPrice = tableSize ? BASE_PRICES[tableSize] + extraFeltTotal : null;
 
-  const euro = <span className="font-sans text-[1.15em] leading-none">€</span>;
+  const formatPrice = (n: number) =>
+    isRSD
+      ? `${n.toLocaleString("sr-RS")} RSD`
+      : `€${n.toLocaleString("en-IE")}`;
 
-  const styledEuro = (text: string) => {
-    const idx = text.indexOf("€");
-    if (idx === -1) return text;
-    return (
-      <>
-        {text.slice(0, idx)}
-        {euro}
-        {text.slice(idx + 1)}
-      </>
-    );
+  const styledPrice = (text: string) => {
+    if (!isRSD) {
+      const idx = text.indexOf("€");
+      if (idx === -1) return text;
+      return (
+        <>
+          {text.slice(0, idx)}
+          <span className="font-sans text-[1.15em] leading-none">€</span>
+          {text.slice(idx + 1)}
+        </>
+      );
+    }
+    return text;
   };
-
-  const formatPrice = (n: number) => `€${n.toLocaleString("en-IE")}`;
 
   const handleTableSizeChange = (size: "standard" | "grand") => {
     setTableSize(size);
@@ -90,7 +102,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
       size: size,
       table_name: size === "grand" ? "The Grand" : "The Standard",
       price: BASE_PRICES[size],
-      currency: "EUR",
+      currency: isRSD ? "RSD" : "EUR",
     });
   };
 
@@ -114,7 +126,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
     posthog.capture("extra_felt_added", {
       total_extra_felts: extraFelts.length + 1,
       unit_price: extraFeltUnitPrice,
-      currency: "EUR",
+      currency: isRSD ? "RSD" : "EUR",
     });
   };
 
@@ -139,7 +151,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
       trackEvent("Lead", {
         content_name: tableSize === "grand" ? "The Grand" : "The Standard",
         value: totalPrice ?? 0,
-        currency: "EUR",
+        currency: isRSD ? "RSD" : "EUR",
       });
     }
   }, [state.success, tableSize, totalPrice]);
@@ -327,6 +339,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
   return (
     <form action={action}>
       {/* Hidden fields for controlled state */}
+      <input type="hidden" name="locale" value={locale} />
       <input type="hidden" name="ref" value={ref} />
       <input type="hidden" name="feltColor" value={feltColor} />
       <input type="hidden" name="extraFeltCount" value={extraFelts.length} />
@@ -557,7 +570,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                   <h3 className="font-serif text-xl">{t("extraFeltLabel")}</h3>
                   <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink/40 mt-1">
                     {t("extraFeltDescription")} &middot;{" "}
-                    {styledEuro(
+                    {styledPrice(
                       tableSize === "grand"
                         ? t("extraFeltPriceGrand")
                         : t("extraFeltPriceStandard"),
@@ -654,7 +667,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                   </span>
                 </div>
                 <span className="font-mono text-sm text-ink/50">
-                  {styledEuro(
+                  {styledPrice(
                     tableSize === "grand"
                       ? t("speedClothPriceGrand")
                       : t("speedClothPriceStandard"),

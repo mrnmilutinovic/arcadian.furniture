@@ -35,7 +35,7 @@ const organizationSchema = {
 
 const baseUrl = "https://www.arcadiantables.com";
 
-const productSchemaStandard = {
+const getProductSchemaStandard = (locale: string) => ({
   "@context": "https://schema.org",
   "@type": "Product",
   name: "Arcadian Standard - Board Game Table",
@@ -108,8 +108,8 @@ const productSchemaStandard = {
     availability: "https://schema.org/PreOrder",
     availabilityStarts: "2026-03-01",
     priceValidUntil: "2026-04-30",
-    price: "1920",
-    priceCurrency: "EUR",
+    price: locale === "sr" ? "224000" : "1920",
+    priceCurrency: locale === "sr" ? "RSD" : "EUR",
     url: baseUrl,
     seller: { "@type": "Organization", name: "Arcadian" },
   },
@@ -118,9 +118,9 @@ const productSchemaStandard = {
     name: "Arcadian Grand - Board Game Table",
     url: baseUrl,
   },
-};
+});
 
-const productSchemaGrand = {
+const getProductSchemaGrand = (locale: string) => ({
   "@context": "https://schema.org",
   "@type": "Product",
   name: "Arcadian Grand - Board Game Table",
@@ -198,8 +198,8 @@ const productSchemaGrand = {
     availability: "https://schema.org/PreOrder",
     availabilityStarts: "2026-03-01",
     priceValidUntil: "2026-04-30",
-    price: "2390",
-    priceCurrency: "EUR",
+    price: locale === "sr" ? "279000" : "2390",
+    priceCurrency: locale === "sr" ? "RSD" : "EUR",
     url: baseUrl,
     seller: { "@type": "Organization", name: "Arcadian" },
   },
@@ -208,7 +208,7 @@ const productSchemaGrand = {
     name: "Arcadian Standard - Board Game Table",
     url: baseUrl,
   },
-};
+});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -288,13 +288,13 @@ export default async function LocaleLayout({ children, params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(productSchemaStandard),
+          __html: JSON.stringify(getProductSchemaStandard(locale)),
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(productSchemaGrand),
+          __html: JSON.stringify(getProductSchemaGrand(locale)),
         }}
       />
       <NextIntlClientProvider messages={messages}>

@@ -42,7 +42,7 @@
     "batchOpening": "2026 Q1 Batch — Now Open",
     "ctaText": "Order yours before the batch sells out.",
     "productLabel": "The Standard",
-    "installmentPrice": "from €160/mo",
+    "installmentPrice": "€160/mo",
     "installmentContext": "12 months, 0% interest · or €1,920 one-time",
     "notifyMe": "Order Now"
   },
@@ -157,6 +157,7 @@
     },
     "stickyBar": {
       "from": "from ",
+      "price": "\u20ac160",
       "perMonth": "/mo",
       "reserve": "Reserve"
     },
@@ -391,9 +392,14 @@
     },
     "batchSizeLabel": "Batch Size",
     "batchSizeValue": "50 Tables",
-    "finePrint": "Prices in EUR. Shipping calculated at checkout. Estimated delivery Q3 2026."
+    "finePrint": "Prices in EUR. Shipping calculated at checkout. Estimated delivery Q3 2026.",
+    "standardPrice": "\u20ac1,920",
+    "grandPrice": "\u20ac2,390",
+    "installmentAmount3Standard": "640",
+    "installmentAmount6Standard": "320",
+    "installmentAmount12Standard": "160"
   },
-"common": {
+  "common": {
     "readStory": "Read Story \u2192",
     "reserveYourSpot": "Order Your Table",
     "joinWaitlist": "Order Now",

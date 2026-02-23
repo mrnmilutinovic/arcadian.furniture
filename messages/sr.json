@@ -42,8 +42,8 @@
     "batchOpening": "2026 Q1 Serija \u2014 Otvorena",
     "ctaText": "Naru\u010dite svoj pre nego \u0161to serija bude rasprodana.",
     "productLabel": "The Standard",
-    "installmentPrice": "od €160/mes",
-    "installmentContext": "12 rata bez kamate · ili €1.920 jednokratno",
+    "installmentPrice": "18.000 RSD/mes",
+    "installmentContext": "12 rata bez kamate · ili 224.000 RSD jednokratno",
     "notifyMe": "Naručite"
   },
   "home": {
@@ -157,6 +157,7 @@
     },
     "stickyBar": {
       "from": "od ",
+      "price": "18.000 RSD",
       "perMonth": "/mes",
       "reserve": "Naručite"
     },
@@ -244,7 +245,7 @@
     "questions": {
       "q1": {
         "question": "Koliko ko\u0161ta Arcadian sto?",
-        "answer": "Standard po\u010dinje od \u20ac1.920, a Grand od \u20ac2.390. Ovo su cene za 2026 Q1 seriju, dostupne do 30. aprila 2026. ili dok se svih 50 mesta ne popuni."
+        "answer": "Standard po\u010dinje od 224.000 RSD, a Grand od 279.000 RSD. Ovo su cene za 2026 Q1 seriju, dostupne do 30. aprila 2026. ili dok se svih 50 mesta ne popuni."
       },
       "q2": {
         "question": "Koje su dostupne veli\u010dine?",
@@ -292,7 +293,7 @@
       },
       "q13": {
         "question": "Koliko je sto izdr\u017eljiv?",
-      "answer": "Napravljen da traje generacijama. Konstrukcija od punog hrasta, tradicionalne tehnike spajanja i za\u0161titna zavr\u0161na obrada obezbe\u0111uju da va\u0161 sto mo\u017ee da podnese decenije ve\u010deri igara, porodi\u010dnih ve\u010dera uz svakodnevnu upotrebu."
+        "answer": "Napravljen da traje generacijama. Konstrukcija od punog hrasta, tradicionalne tehnike spajanja i za\u0161titna zavr\u0161na obrada obezbe\u0111uju da va\u0161 sto mo\u017ee da podnese decenije ve\u010deri igara, porodi\u010dnih ve\u010dera uz svakodnevnu upotrebu."
       },
       "q14": {
         "question": "Mogu li da vidim sto u\u017eivo?",
@@ -391,7 +392,12 @@
     },
     "batchSizeLabel": "Veli\u010dina serije",
     "batchSizeValue": "50 stolova",
-    "finePrint": "Cene u EUR. Dostava se obra\u010dunava pri narud\u017ebini. Procenjena isporuka Q3 2026.",
+    "finePrint": "Cene u RSD. Dostava se obra\u010dunava pri narud\u017ebini. Procenjena isporuka Q3 2026.",
+    "standardPrice": "224.000 RSD",
+    "grandPrice": "279.000 RSD",
+    "installmentAmount3Standard": "74.000",
+    "installmentAmount6Standard": "37.000",
+    "installmentAmount12Standard": "18.000",
     "installmentsLabel": "Plaćanje na rate",
     "installmentsTitle": "Platite na rate",
     "installmentsSubtitle": "bez kamata i bez skrivenih troškova",
@@ -403,7 +409,7 @@
     "installmentsPerMonth": "/mes",
     "installmentsNote": "Rate se obračunavaju bez kamate. Dostupno putem čekova građana, kreditnih i debitnih kartica."
   },
-"common": {
+  "common": {
     "readStory": "\u010citaj pri\u010du \u2192",
     "reserveYourSpot": "Naru\u010dite svoj sto",
     "joinWaitlist": "Naru\u010dite sada",
@@ -429,10 +435,10 @@
     "sizeLabel": "Veličina stola",
     "standardName": "The Standard",
     "standardSeats": "Za 4 igrača · 108 × 108 cm",
-    "standardPrice": "€1.920",
+    "standardPrice": "224.000 RSD",
     "grandName": "The Grand",
     "grandSeats": "Za 6–8 igrača · 108 × 189 cm",
-    "grandPrice": "€2.390",
+    "grandPrice": "279.000 RSD",
     "finishLabel": "Boja završne obrade",
     "dawnName": "Arcadian Dawn",
     "dawnDescription": "Prirodni svetli hrast",
@@ -453,12 +459,12 @@
     "feltAntracit": "Antracit",
     "extraFeltLabel": "Dodatni filc",
     "extraFeltDescription": "Dodatni filc u drugoj boji za zamenu",
-    "extraFeltPriceStandard": "+€20",
-    "extraFeltPriceGrand": "+€30",
+    "extraFeltPriceStandard": "+2.300 RSD",
+    "extraFeltPriceGrand": "+3.500 RSD",
     "extraFeltEach": "po komadu",
     "speedClothLabel": "Dvostrana speed tkanina + filc",
-    "speedClothPriceStandard": "+€60",
-    "speedClothPriceGrand": "+€80",
+    "speedClothPriceStandard": "+7.000 RSD",
+    "speedClothPriceGrand": "+9.300 RSD",
     "vinylLabel": "Transparentna vinil površina",
     "comingSoon": "Uskoro",
     "summaryTitle": "Pregled porudžbine",

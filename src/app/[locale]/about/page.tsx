@@ -90,8 +90,12 @@ export default async function AboutPage({ params }: Props) {
             {t("storyTitle")}
           </h2>
 
-          <div className={`grid grid-cols-1 ${locale === "sr" ? "md:grid-cols-12" : ""} gap-12`}>
-            <div className={`${locale === "sr" ? "md:col-span-7" : "max-w-3xl"} space-y-6`}>
+          <div
+            className={`grid grid-cols-1 ${locale === "sr" ? "md:grid-cols-12" : ""} gap-12`}
+          >
+            <div
+              className={`${locale === "sr" ? "md:col-span-7" : "max-w-3xl"} space-y-6`}
+            >
               <p className="font-sans text-lg text-ink/70 leading-relaxed">
                 {t("storyP1")}
               </p>

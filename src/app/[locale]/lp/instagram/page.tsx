@@ -282,10 +282,7 @@ export default async function InstagramLandingPage({ params }: Props) {
                       </h3>
                     </div>
                     <span className="font-serif text-4xl md:text-5xl text-white leading-none">
-                      <span className="text-white/70 text-3xl md:text-4xl align-baseline">
-                        €
-                      </span>
-                      1,920
+                      {pricing("standardPrice")}
                     </span>
                   </div>
                 </div>
@@ -350,10 +347,7 @@ export default async function InstagramLandingPage({ params }: Props) {
                       </h3>
                     </div>
                     <span className="font-serif text-4xl md:text-5xl text-white leading-none">
-                      <span className="text-white/70 text-3xl md:text-4xl align-baseline">
-                        €
-                      </span>
-                      2,390
+                      {pricing("grandPrice")}
                     </span>
                   </div>
                 </div>

@@ -10,11 +10,18 @@ export function PricingSection() {
   const locale = useLocale();
 
   const handleReserveClick = (size: "standard" | "grand") => {
+    const isRSD = locale === "sr";
     posthog.capture("reserve_table_clicked", {
       table_size: size,
       table_name: size === "grand" ? "The Grand" : "The Standard",
-      price: size === "grand" ? 2390 : 1920,
-      currency: "EUR",
+      price: isRSD
+        ? size === "grand"
+          ? 279000
+          : 224000
+        : size === "grand"
+          ? 2390
+          : 1920,
+      currency: isRSD ? "RSD" : "EUR",
       location: "pricing_section",
     });
   };
@@ -95,7 +102,7 @@ export function PricingSection() {
                   </div>
                   <div className="text-right">
                     <span className="font-serif text-4xl md:text-5xl text-white leading-none">
-                      €1,920
+                      {t("standardPrice")}
                     </span>
                   </div>
                 </div>
@@ -167,7 +174,7 @@ export function PricingSection() {
                   </div>
                   <div className="text-right">
                     <span className="font-serif text-4xl md:text-5xl text-white leading-none">
-                      €2,390
+                      {t("grandPrice")}
                     </span>
                   </div>
                 </div>
@@ -262,9 +269,18 @@ export function PricingSection() {
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   {(
                     [
-                      { key: "installments3", standard: 640, grand: 797 },
-                      { key: "installments6", standard: 320, grand: 399 },
-                      { key: "installments12", standard: 160, grand: 200 },
+                      {
+                        key: "installments3",
+                        amountKey: "installmentAmount3Standard",
+                      },
+                      {
+                        key: "installments6",
+                        amountKey: "installmentAmount6Standard",
+                      },
+                      {
+                        key: "installments12",
+                        amountKey: "installmentAmount12Standard",
+                      },
                     ] as const
                   ).map((plan) => (
                     <div
@@ -275,7 +291,7 @@ export function PricingSection() {
                         {t(plan.key)}
                       </span>
                       <div className="font-serif text-xl md:text-2xl text-white">
-                        {t("installmentsFrom")} €{plan.standard}
+                        {t("installmentsFrom")} {t(plan.amountKey)}
                       </div>
                       <span className="font-mono text-[10px] text-white/30">
                         {t("installmentsPerMonth")}

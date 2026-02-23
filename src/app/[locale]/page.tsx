@@ -874,7 +874,8 @@ export default function Home() {
               </span>
               <span className="text-white/50 mx-2">—</span>
               <span className="text-white/70">
-                {t("stickyBar.from")} €160{t("stickyBar.perMonth")}
+                {t("stickyBar.from")} {t("stickyBar.price")}
+                {t("stickyBar.perMonth")}
               </span>
             </div>
             <div className="flex items-center gap-3">

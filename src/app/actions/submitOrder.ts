@@ -34,6 +34,7 @@ export async function submitOrder(
   const extraFeltCount = Number(formData.get("extraFeltCount") || 0);
   const extraFeltColors = formData.getAll("extraFeltColors") as string[];
   const ref = (formData.get("ref") as string)?.trim() || "";
+  const locale = (formData.get("locale") as string) || "en";
 
   if (!name || !email || !phone || !tableSize || !finishColor || !feltColor) {
     return { success: false, message: "required" };
@@ -53,12 +54,29 @@ export async function submitOrder(
 
   const resend = new Resend(apiKey);
 
+  const isRSD = locale === "sr";
   const tableName = tableSize === "grand" ? "The Grand" : "The Standard";
-  const extraFeltUnitPrice = tableSize === "grand" ? 30 : 20;
+  const extraFeltUnitPriceEUR = tableSize === "grand" ? 30 : 20;
+  const extraFeltUnitPrice = isRSD
+    ? tableSize === "grand"
+      ? 3500
+      : 2300
+    : extraFeltUnitPriceEUR;
   const extraFeltTotal = extraFeltCount * extraFeltUnitPrice;
-  const basePrice = tableSize === "grand" ? 2390 : 1920;
+  const basePrice = isRSD
+    ? tableSize === "grand"
+      ? 279000
+      : 224000
+    : tableSize === "grand"
+      ? 2390
+      : 1920;
   const totalPrice = basePrice + extraFeltTotal;
-  const tablePrice = `€${totalPrice.toLocaleString("en-IE")}`;
+  const currency = isRSD ? "RSD" : "EUR";
+  const formatPrice = (amount: number) =>
+    isRSD
+      ? `${amount.toLocaleString("sr-RS")} RSD`
+      : `€${amount.toLocaleString("en-IE")}`;
+  const tablePrice = formatPrice(totalPrice);
   const finishName =
     finishColor === "shadow" ? "Pan's Shadow" : "Arcadian Dawn";
   const feltName = FELT_NAMES[feltColor] || feltColor;
@@ -94,7 +112,7 @@ export async function submitOrder(
             <tr><td style="padding:8px 16px 8px 0;color:#666;">Finish</td><td style="padding:8px 0;">${finishName}</td></tr>
             <tr><td style="padding:8px 16px 8px 0;color:#666;">Felt</td><td style="padding:8px 0;">${feltName}</td></tr>
             ${extraFeltRows}
-            ${extraFeltCount > 0 ? `<tr><td style="padding:8px 16px 8px 0;color:#666;">Extra Felts</td><td style="padding:8px 0;">${extraFeltCount} × €${extraFeltUnitPrice} = €${extraFeltTotal}</td></tr>` : ""}
+            ${extraFeltCount > 0 ? `<tr><td style="padding:8px 16px 8px 0;color:#666;">Extra Felts</td><td style="padding:8px 0;">${extraFeltCount} × ${formatPrice(extraFeltUnitPrice)} = ${formatPrice(extraFeltTotal)}</td></tr>` : ""}
             ${ref ? `<tr><td style="padding:8px 16px 8px 0;color:#666;">Referred by</td><td style="padding:8px 0;font-weight:600;">${ref}</td></tr>` : ""}
           </table>
           <p style="margin-top:24px;color:#999;font-size:12px;">Submitted at ${new Date().toISOString()}</p>
@@ -142,7 +160,7 @@ export async function submitOrder(
         base_price: basePrice,
         extra_felt_total: extraFeltTotal,
         total_price: totalPrice,
-        currency: "EUR",
+        currency,
         referral: ref || undefined,
       },
     });
