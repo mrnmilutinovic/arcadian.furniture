@@ -3,7 +3,6 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { TrackLandingView } from "./TrackLandingView";
-import { TrackReferral } from "./TrackReferral";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -38,7 +37,6 @@ export default async function InstagramLandingPage({ params }: Props) {
 
   return (
     <>
-      <TrackReferral />
       <TrackLandingView />
 
       {/* ── HERO ── */}
@@ -284,7 +282,9 @@ export default async function InstagramLandingPage({ params }: Props) {
                       </h3>
                     </div>
                     <span className="font-serif text-4xl md:text-5xl text-white leading-none">
-                      <span className="text-white/70 text-3xl md:text-4xl align-baseline">€</span>
+                      <span className="text-white/70 text-3xl md:text-4xl align-baseline">
+                        €
+                      </span>
                       1,920
                     </span>
                   </div>
@@ -350,7 +350,9 @@ export default async function InstagramLandingPage({ params }: Props) {
                       </h3>
                     </div>
                     <span className="font-serif text-4xl md:text-5xl text-white leading-none">
-                      <span className="text-white/70 text-3xl md:text-4xl align-baseline">€</span>
+                      <span className="text-white/70 text-3xl md:text-4xl align-baseline">
+                        €
+                      </span>
                       2,390
                     </span>
                   </div>

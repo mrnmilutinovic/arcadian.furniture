@@ -9,6 +9,7 @@ import {
 } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Header } from "../components/Header";
+import { TrackReferral } from "../components/TrackReferral";
 
 type Props = {
   children: React.ReactNode;
@@ -297,6 +298,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         }}
       />
       <NextIntlClientProvider messages={messages}>
+        <TrackReferral />
         {!isLandingPage && <Header />}
         {children}
       </NextIntlClientProvider>
