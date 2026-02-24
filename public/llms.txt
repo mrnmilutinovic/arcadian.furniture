@@ -1,6 +1,6 @@
 # Arcadian
 
-> Premium board game tables handcrafted from solid oak. Convertible dining-to-gaming tables with a recessed vault system, magnetic rail accessories, and eco-friendly finishes. 2026 batch opening soon.
+> Premium board game tables handcrafted from solid oak. Convertible dining-to-gaming tables with a recessed vault system, magnetic rail accessories, and eco-friendly finishes. 2026 Q1 batch now open — 50 tables available.
 
 Arcadian creates premium board gaming furniture for tabletop enthusiasts who believe game nights deserve more than a kitchen table. Based in Europe, we combine traditional woodworking craftsmanship with modern gaming functionality.
 
@@ -9,24 +9,33 @@ Arcadian creates premium board gaming furniture for tabletop enthusiasts who bel
 - Founded with a mission to elevate game night experiences
 - Handcrafted solid oak construction
 - Eco-conscious manufacturing with 0% VOC finishes
-- 2026 batch: Opening soon
-- Estimated delivery: Q4 2026
+- Contact: hello@arcadiantables.com
+- Instagram: @arcadiantables
+
+## 2026 Q1 Batch
+
+- Status: Now open
+- Batch size: 50 tables
+- Prices valid until: April 30, 2026 (or until all 50 slots are filled)
+- Estimated delivery: Q3 2026
 
 ## Products
 
 ### The Standard
+- Price: €1,920
 - Seats: 4 players
 - Closed dimensions: 108 x 108 cm (42.5 x 42.5 in)
 - Play area: 89 x 89 cm (35.0 x 35.0 in)
 - Ideal for intimate gaming sessions and smaller spaces
 
 ### The Grand
+- Price: €2,390
 - Seats: 6-8 players
 - Closed dimensions: 108 x 189 cm (42.5 x 74.4 in)
 - Play area: 89 x 170 cm (35.0 x 66.9 in)
 - Designed for epic campaigns and larger groups
 
-Both sizes fit through standard doors and assemble in approximately 30 minutes with a single tool.
+Both sizes fit through standard doors and assemble in approximately 30 minutes with a single tool. Every table includes the frame, legs, topper panels, and assembly hardware.
 
 ## Key Features
 
@@ -46,13 +55,28 @@ Plant-based hardwax oil finish that is 0% VOC and solvent-free. Penetrates wood 
 
 ## Accessories Ecosystem
 
-Modular add-ons crafted from matching premium hardwoods:
+Modular add-ons crafted from matching premium hardwoods, designed to snap onto the magnetic rail:
 - Cup & Mug Holder
 - Universal Tray
 - Dice Tray
 - Bowl Holder
 - Player Desk
 - Toppers Storage Box
+
+Available with batch delivery.
+
+## Ordering
+
+Orders can be placed at [arcadiantables.com/order](https://arcadiantables.com/order). The order form collects contact information and table preferences (size, finish, playing surface). No payment is taken at order time — this secures your spot in the current production batch.
+
+### Playing Surface Options
+- Standard felt (included)
+- Extra felt colors available: Light Blue, Blue, Red, Green, Light Green, Lime, Petrol, Olive Green, Yellow, Anthracite (+€20 Standard / +€30 Grand per extra felt)
+- Double-sided speed cloth upgrade (+€60 Standard / +€80 Grand)
+
+## B2B Partnerships
+
+Arcadian works with retailers, distributors, clubs/venues, and rental companies. B2B inquiries can be submitted at [arcadiantables.com/b2b](https://arcadiantables.com/b2b).
 
 ## Collaborations
 
@@ -68,7 +92,7 @@ Expert guides on board game tables, gaming furniture, and creating the perfect g
 #### Buyer's Guides
 - [Kickstarter Board Game Tables: A Backer's Complete Guide](https://arcadiantables.com/blog/kickstarter-board-game-table-guide) - Everything you need to know before backing a board game table on Kickstarter.
 - [How to Choose the Right Board Game Table Size](https://arcadiantables.com/blog/board-game-table-size-guide) - Calculate the perfect dimensions for your space and player count.
-- [5 Features Every Board Game Table Needs](https://arcadiantables.com/blog/board-game-table-features) - Essential features that separate great gaming tables from mediocre ones.
+- [5 Features Every Board Game Table Needs (And 3 You Can Skip)](https://arcadiantables.com/blog/board-game-table-features) - Essential features that separate great gaming tables from mediocre ones.
 - [DIY Board Game Table vs Buying: The Real Cost Breakdown](https://arcadiantables.com/blog/diy-vs-buying-board-game-table) - Honest comparison of building vs purchasing a premium gaming table.
 - [Board Game Table vs Gaming Table: What's the Difference?](https://arcadiantables.com/blog/board-game-table-vs-gaming-table) - Understanding the key differences between tabletop and video gaming furniture.
 
@@ -77,22 +101,28 @@ Expert guides on board game tables, gaming furniture, and creating the perfect g
 - [Caring for Your Board Game Table: A Maintenance Guide](https://arcadiantables.com/blog/board-game-table-care-guide) - Keep your gaming table in pristine condition for decades.
 
 #### Lifestyle & Culture
-- [Board Game Tables That Double as Dining Tables](https://arcadiantables.com/blog/convertible-board-game-dining-table) - The ultimate space-saving solution for modern homes.
+- [Board Game Tables That Double as Dining Tables: A Design Guide](https://arcadiantables.com/blog/convertible-board-game-dining-table) - The ultimate space-saving solution for modern homes.
 - [Hosting the Perfect Game Night: A Complete Guide](https://arcadiantables.com/blog/perfect-game-night-guide) - From invitations to snacks, create memorable gaming experiences.
 - [The Board Gaming Renaissance: Why Premium Tables Are Having a Moment](https://arcadiantables.com/blog/board-gaming-renaissance) - Exploring the cultural shift driving demand for quality gaming furniture.
 
 ## Contact & Links
 
 - Website: https://arcadiantables.com
-- Pre-orders: 2026 batch opening soon
-- Email signup available on website for notifications
+- Email: hello@arcadiantables.com
+- Instagram: @arcadiantables
+- Order: https://arcadiantables.com/order
+- B2B: https://arcadiantables.com/b2b
 
 ## Pages
 
 - [Home](https://arcadiantables.com/)
+- [About Us](https://arcadiantables.com/about)
+- [FAQ](https://arcadiantables.com/faq)
+- [Order](https://arcadiantables.com/order)
+- [B2B Partnerships](https://arcadiantables.com/b2b)
 - [Blog](https://arcadiantables.com/blog)
 - [Development Logs](https://arcadiantables.com/logs)
 - [Forest of Radgost Collaboration](https://arcadiantables.com/stories/forest-of-radgost-collaboration)
 - [Behind the Lens with Boris Jovanovic](https://arcadiantables.com/stories/boris-jovanovic-photoshoot)
 - [Privacy Policy](https://arcadiantables.com/privacy)
-- [Terms of Service](https://arcadiantables.com/terms)
+- [Terms & Conditions](https://arcadiantables.com/terms)
