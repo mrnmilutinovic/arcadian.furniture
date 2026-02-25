@@ -8,8 +8,6 @@ export function TrackReferral() {
     const ref = url.searchParams.get("ref");
     if (ref) {
       localStorage.setItem("arcadian_ref", ref);
-      url.searchParams.delete("ref");
-      window.history.replaceState({}, "", url.toString());
     }
   }, []);
 

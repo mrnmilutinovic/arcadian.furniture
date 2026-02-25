@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import NextLink from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { type MouseEvent, useCallback, useState } from "react";
 import { Link } from "@/i18n/navigation";
@@ -11,7 +12,18 @@ export function Header() {
   const locale = useLocale();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const searchParams = useSearchParams();
+  const refParam = searchParams.get("ref");
   const prefix = locale === "en" ? "" : `/${locale}`;
+
+  const withRef = (href: string) => {
+    if (!refParam) return href;
+    const hashIndex = href.indexOf("#");
+    const path = hashIndex >= 0 ? href.slice(0, hashIndex) : href;
+    const hash = hashIndex >= 0 ? href.slice(hashIndex) : "";
+    const separator = path.includes("?") ? "&" : "?";
+    return `${path}${separator}ref=${encodeURIComponent(refParam)}${hash}`;
+  };
 
   const handleHashClick = useCallback((e: MouseEvent, href: string) => {
     const hash = href.split("#")[1];
@@ -20,7 +32,9 @@ export function Header() {
     if (el) {
       e.preventDefault();
       el.scrollIntoView({ behavior: "smooth" });
-      window.history.pushState(null, "", `#${hash}`);
+      const url = new URL(window.location.href);
+      url.hash = hash;
+      window.history.pushState(null, "", url.toString());
     }
   }, []);
 
@@ -106,7 +120,7 @@ export function Header() {
                 item.isHash ? (
                   <NextLink
                     key={item.href}
-                    href={item.href}
+                    href={withRef(item.href)}
                     onClick={(e) => handleHashClick(e, item.href)}
                     className={
                       item.emphasized
@@ -179,7 +193,7 @@ export function Header() {
                 item.isHash ? (
                   <NextLink
                     key={item.href}
-                    href={item.href}
+                    href={withRef(item.href)}
                     onClick={(e) => {
                       setIsMobileMenuOpen(false);
                       handleHashClick(e, item.href);

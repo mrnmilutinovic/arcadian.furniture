@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import NextLink from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
@@ -11,6 +12,14 @@ import { PricingSection } from "../components/PricingSection";
 
 export default function Home() {
   const t = useTranslations("home");
+  const searchParams = useSearchParams();
+  const refParam = searchParams.get("ref");
+
+  const withRef = (href: string) => {
+    if (!refParam) return href;
+    const separator = href.includes("?") ? "&" : "?";
+    return `${href}${separator}ref=${encodeURIComponent(refParam)}`;
+  };
 
   const [isMetric, setIsMetric] = useState(true);
   const [showStickyBar, setShowStickyBar] = useState(false);
@@ -807,7 +816,7 @@ export default function Home() {
             {articles.map((article) => (
               <NextLink
                 key={article.slug}
-                href={`/stories/${article.slug}`}
+                href={withRef(`/stories/${article.slug}`)}
                 className="group reveal-trigger"
               >
                 <article className="flex flex-col">

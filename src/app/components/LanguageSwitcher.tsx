@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useLocale } from "next-intl";
 import posthog from "posthog-js";
 import { usePathname, useRouter } from "@/i18n/navigation";
@@ -8,6 +9,8 @@ export function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const ref = searchParams.get("ref");
 
   function switchLocale(newLocale: "en" | "sr") {
     posthog.capture("language_switched", {
@@ -15,7 +18,8 @@ export function LanguageSwitcher() {
       to_locale: newLocale,
       page_path: pathname,
     });
-    router.replace(pathname as "/", { locale: newLocale });
+    const href = ref ? `${pathname}?ref=${encodeURIComponent(ref)}` : pathname;
+    router.replace(href as "/", { locale: newLocale });
   }
 
   return (
