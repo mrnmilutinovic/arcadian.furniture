@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { getSessionCookie } from "better-auth/cookies";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 
@@ -26,7 +27,7 @@ function handleDashboardAuth(request: NextRequest): NextResponse {
     return NextResponse.next();
   }
 
-  const sessionCookie = request.cookies.get("better-auth.session_token");
+  const sessionCookie = getSessionCookie(request);
 
   // Build redirect URLs respecting the host context
   const loginUrl = onPartnerHost ? "/login" : "/dashboard/login";
