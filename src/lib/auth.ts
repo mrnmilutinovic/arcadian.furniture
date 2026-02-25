@@ -9,6 +9,30 @@ import { prisma } from "./prisma";
 
 const authEmailFrom =
   process.env.AUTH_FROM_EMAIL ?? "Arcadian Login <hello@arcadiantables.com>";
+const authDebugEnabled = process.env.AUTH_DEBUG_LOGS === "true";
+
+function getErrorMessage(error: unknown): string {
+  if (
+    typeof error === "object" &&
+    error !== null &&
+    "message" in error &&
+    typeof (error as { message?: unknown }).message === "string"
+  ) {
+    return (error as { message: string }).message;
+  }
+  return "Unknown error";
+}
+
+function maskToken(token: string | null): string | null {
+  if (!token) return null;
+  if (token.length <= 10) return `${token.slice(0, 3)}...`;
+  return `${token.slice(0, 6)}...${token.slice(-4)}`;
+}
+
+function authDebugLog(event: string, payload: Record<string, unknown>) {
+  if (!authDebugEnabled) return;
+  console.log(`[auth-debug] ${event}`, payload);
+}
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
@@ -39,11 +63,30 @@ export const auth = betterAuth({
         }
 
         const resend = new Resend(apiKey);
-        await resend.emails.send({
-          from: authEmailFrom,
-          to: email,
-          subject: "Your Arcadian sign-in link",
-          html: `
+        const parsedUrl = new URL(url);
+        const token = parsedUrl.searchParams.get("token");
+        const callbackURL = parsedUrl.searchParams.get("callbackURL");
+        const errorCallbackURL = parsedUrl.searchParams.get("errorCallbackURL");
+
+        authDebugLog("magic_link.prepare", {
+          email,
+          verifyPath: parsedUrl.pathname,
+          verifyHost: parsedUrl.host,
+          callbackURL,
+          errorCallbackURL,
+          tokenPreview: maskToken(token),
+          tokenLength: token?.length ?? 0,
+          betterAuthUrl: process.env.BETTER_AUTH_URL ?? null,
+          nextPublicBetterAuthUrl:
+            process.env.NEXT_PUBLIC_BETTER_AUTH_URL ?? null,
+        });
+
+        try {
+          const sendResult = await resend.emails.send({
+            from: authEmailFrom,
+            to: email,
+            subject: "Your Arcadian sign-in link",
+            html: `
             <div style="font-family:sans-serif;max-width:560px;margin:0 auto;line-height:1.6;color:#1a1918;">
               <h2 style="font-size:24px;margin-bottom:12px;">Sign in to Arcadian Partner Portal</h2>
               <p style="color:#555;">Use the button below to sign in. This link expires in a few minutes.</p>
@@ -54,7 +97,26 @@ export const auth = betterAuth({
               <p style="word-break:break-all;color:#444;font-size:13px;">${url}</p>
             </div>
           `,
-        });
+          });
+
+          authDebugLog("magic_link.sent", {
+            email,
+            providerMessageId:
+              sendResult && "data" in sendResult
+                ? (
+                    sendResult as {
+                      data?: { id?: string | null } | null;
+                    }
+                  ).data?.id ?? null
+                : null,
+          });
+        } catch (error) {
+          authDebugLog("magic_link.send_failed", {
+            email,
+            error: getErrorMessage(error),
+          });
+          throw error;
+        }
       },
     }),
     nextCookies(),
