@@ -21,7 +21,12 @@
       "Bash(ls:*)",
       "Bash(grep:*)",
       "Bash(git checkout:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "WebFetch(domain:ui.bklit.com)",
+      "Bash(npx shadcn@latest:*)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:ui.shadcn.com)",
+      "mcp__web-to-mcp__get_html_for_reference"
     ]
   }
 }
