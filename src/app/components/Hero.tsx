@@ -27,7 +27,7 @@ export function Hero() {
       {/* Full-bleed background image */}
       <div className="absolute inset-0">
         <Image
-          src="/graphics/tryout.jpg"
+          src="/photos/hero-2.jpeg"
           alt="Arcadian gaming table with puzzle"
           fill
           sizes="100vw"
