@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
 
@@ -23,10 +23,22 @@ function getRoleFromSession(session: unknown): string | null {
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [info, setInfo] = useState("");
   const [loading, setLoading] = useState(false);
+  const authError = searchParams.get("error");
+
+  const callbackError =
+    authError === "INVALID_TOKEN"
+      ? "This sign-in link is invalid or already used. Request a new one."
+      : authError === "EXPIRED_TOKEN"
+        ? "This sign-in link has expired. Request a new one."
+        : authError
+          ? "This sign-in link failed. Request a new one."
+          : "";
+  const effectiveError = error || callbackError;
 
   useEffect(() => {
     let mounted = true;
@@ -131,13 +143,13 @@ export default function LoginPage() {
           />
         </div>
 
-        {error ? (
+        {effectiveError ? (
           <motion.p
             animate={{ opacity: 1, y: 0 }}
             className="text-xs text-[#cd4631]"
             initial={{ opacity: 0, y: -4 }}
           >
-            {error}
+            {effectiveError}
           </motion.p>
         ) : null}
 

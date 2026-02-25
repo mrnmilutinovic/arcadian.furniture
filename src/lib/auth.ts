@@ -30,6 +30,7 @@ export const auth = betterAuth({
       },
     }),
     magicLink({
+      expiresIn: 60 * 15,
       disableSignUp: true,
       sendMagicLink: async ({ email, url }) => {
         const apiKey = process.env.RESEND_API_KEY;
