@@ -31,3 +31,12 @@ export async function getAllReferralCodes(partnerId: string) {
   });
   return links;
 }
+
+export async function getPartnerLinkCount(partnerId: string): Promise<number> {
+  return prisma.referralLink.count({ where: { partnerId } });
+}
+
+export async function referralCodeExists(code: string): Promise<boolean> {
+  const link = await prisma.referralLink.findUnique({ where: { code } });
+  return link !== null;
+}

@@ -5,22 +5,39 @@ import {
   CheckIcon,
   ClipboardIcon,
   EyeIcon,
+  Loader2Icon,
   MousePointerClickIcon,
+  PlusIcon,
+  PowerIcon,
   ShoppingBagIcon,
+  Trash2Icon,
   UsersIcon,
+  XIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useTransition } from "react";
+import {
+  createReferralLink,
+  deleteReferralLink,
+  toggleReferralLink,
+} from "@/app/dashboard/actions";
 import { Area, AreaChart } from "@/components/charts/area-chart";
 import { Grid } from "@/components/charts/grid";
 import { XAxis } from "@/components/charts/x-axis";
 import type { DailyTraffic, ReferralMetrics } from "@/lib/posthog-analytics";
 
+interface ReferralLinkData {
+  id: string;
+  code: string;
+  label: string;
+  isActive: boolean;
+}
+
 interface OverviewContentProps {
   contactName: string;
   companyName: string;
-  referralLinks: { code: string; label: string }[];
+  referralLinks: ReferralLinkData[];
   metrics: ReferralMetrics;
   dailyTraffic: DailyTraffic[];
 }
@@ -98,12 +115,206 @@ function StatCard({
   );
 }
 
+function CreateLinkForm({ onClose }: { onClose: () => void }) {
+  const [label, setLabel] = useState("");
+  const [code, setCode] = useState("");
+  const [error, setError] = useState("");
+  const [isPending, startTransition] = useTransition();
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError("");
+    startTransition(async () => {
+      const result = await createReferralLink({
+        label,
+        code: code || undefined,
+      });
+      if (result.error) {
+        setError(result.error);
+      } else {
+        onClose();
+      }
+    });
+  }
+
+  return (
+    <form
+      className="space-y-3 rounded-lg border border-[#d4c4a8]/10 bg-[#d4c4a8]/[0.03] p-4"
+      onSubmit={handleSubmit}
+    >
+      <div>
+        <label
+          className="mb-1 block text-[11px] uppercase tracking-[0.1em] text-[#d4c4a8]/50"
+          htmlFor="link-label"
+        >
+          Label *
+        </label>
+        <input
+          className="w-full rounded-md border border-[#d4c4a8]/15 bg-[#1a1918] px-3 py-2 font-mono text-xs text-[#f3f1ea] placeholder:text-[#d4c4a8]/25 focus:border-[#d4c4a8]/30 focus:outline-none"
+          id="link-label"
+          onChange={(e) => setLabel(e.target.value)}
+          placeholder="e.g. Instagram Bio"
+          required
+          type="text"
+          value={label}
+        />
+      </div>
+      <div>
+        <label
+          className="mb-1 block text-[11px] uppercase tracking-[0.1em] text-[#d4c4a8]/50"
+          htmlFor="link-code"
+        >
+          Code (optional)
+        </label>
+        <input
+          className="w-full rounded-md border border-[#d4c4a8]/15 bg-[#1a1918] px-3 py-2 font-mono text-xs text-[#f3f1ea] placeholder:text-[#d4c4a8]/25 focus:border-[#d4c4a8]/30 focus:outline-none"
+          id="link-code"
+          onChange={(e) => setCode(e.target.value.toLowerCase())}
+          pattern="[a-z0-9-]*"
+          placeholder="auto-generated if empty"
+          type="text"
+          value={code}
+        />
+        {code && (
+          <p className="mt-1.5 truncate font-mono text-[10px] text-[#d4c4a8]/30">
+            https://www.arcadiantables.com/?ref={code}
+          </p>
+        )}
+      </div>
+      {error && <p className="text-xs text-red-400">{error}</p>}
+      <div className="flex items-center gap-2 pt-1">
+        <button
+          className="flex items-center gap-1.5 rounded-md bg-[#5d4e3c]/50 px-3 py-1.5 text-xs font-medium text-[#f3f1ea] transition-colors hover:bg-[#5d4e3c]/70 disabled:opacity-50"
+          disabled={isPending}
+          type="submit"
+        >
+          {isPending && <Loader2Icon className="size-3 animate-spin" />}
+          Create
+        </button>
+        <button
+          className="rounded-md px-3 py-1.5 text-xs text-[#d4c4a8]/50 transition-colors hover:text-[#d4c4a8]"
+          disabled={isPending}
+          onClick={onClose}
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  );
+}
+
+function LinkRow({ link }: { link: ReferralLinkData }) {
+  const url = `https://www.arcadiantables.com/?ref=${link.code}`;
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const [error, setError] = useState("");
+
+  function handleToggle() {
+    setError("");
+    startTransition(async () => {
+      const result = await toggleReferralLink(link.id);
+      if (result.error) setError(result.error);
+    });
+  }
+
+  function handleDelete() {
+    setError("");
+    startTransition(async () => {
+      const result = await deleteReferralLink(link.id);
+      if (result.error) {
+        setError(result.error);
+        setConfirmDelete(false);
+      }
+    });
+  }
+
+  return (
+    <div
+      className={`flex flex-col gap-2 rounded-lg border border-[#d4c4a8]/8 bg-[#d4c4a8]/[0.03] px-4 py-3 transition-opacity ${
+        !link.isActive ? "opacity-50" : ""
+      }`}
+    >
+      <div className="flex items-center gap-3">
+        <span className="shrink-0 rounded bg-[#5d4e3c]/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#d4c4a8]/70">
+          {link.label}
+        </span>
+        {!link.isActive && (
+          <span className="shrink-0 rounded bg-[#d4c4a8]/10 px-1.5 py-0.5 text-[9px] uppercase tracking-wider text-[#d4c4a8]/40">
+            Inactive
+          </span>
+        )}
+        <code className="min-w-0 flex-1 truncate font-mono text-xs text-[#d4c4a8]/40">
+          {url}
+        </code>
+        <CopyButton text={url} />
+        <a
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#d4c4a8]/15 text-[#d4c4a8]/60 transition-all hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
+          href={url}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <ArrowUpRightIcon className="size-3.5" />
+        </a>
+        <button
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md border transition-all disabled:opacity-50 ${
+            link.isActive
+              ? "border-[#d4c4a8]/15 text-[#d4c4a8]/60 hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
+              : "border-[#d4c4a8]/15 text-[#d4c4a8]/30 hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
+          }`}
+          disabled={isPending}
+          onClick={handleToggle}
+          title={link.isActive ? "Deactivate" : "Activate"}
+          type="button"
+        >
+          <PowerIcon className="size-3.5" />
+        </button>
+        {confirmDelete ? (
+          <div className="flex items-center gap-1">
+            <button
+              className="flex h-8 items-center gap-1 rounded-md border border-red-500/30 px-2 text-[10px] font-medium text-red-400 transition-all hover:bg-red-500/10 disabled:opacity-50"
+              disabled={isPending}
+              onClick={handleDelete}
+              type="button"
+            >
+              {isPending ? (
+                <Loader2Icon className="size-3 animate-spin" />
+              ) : (
+                "Delete"
+              )}
+            </button>
+            <button
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-[#d4c4a8]/40 hover:text-[#d4c4a8]"
+              disabled={isPending}
+              onClick={() => setConfirmDelete(false)}
+              type="button"
+            >
+              <XIcon className="size-3.5" />
+            </button>
+          </div>
+        ) : (
+          <button
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#d4c4a8]/15 text-[#d4c4a8]/60 transition-all hover:border-red-500/30 hover:text-red-400"
+            onClick={() => setConfirmDelete(true)}
+            title="Delete"
+            type="button"
+          >
+            <Trash2Icon className="size-3.5" />
+          </button>
+        )}
+      </div>
+      {error && <p className="text-xs text-red-400">{error}</p>}
+    </div>
+  );
+}
+
 export function OverviewContent({
   contactName,
   referralLinks,
   metrics,
   dailyTraffic,
 }: OverviewContentProps) {
+  const [showForm, setShowForm] = useState(false);
   const chartData = dailyTraffic.map((d) => ({
     date: d.date,
     pageViews: d.pageViews,
@@ -186,44 +397,37 @@ export function OverviewContent({
         animate="show"
         variants={fadeUp}
       >
-        <div className="mb-5">
-          <h2 className="font-serif text-lg text-[#f3f1ea]">
-            Your Referral Links
-          </h2>
-          <p className="mt-0.5 text-xs text-[#d4c4a8]/40">
-            Share these to track conversions back to you
-          </p>
+        <div className="mb-5 flex items-start justify-between">
+          <div>
+            <h2 className="font-serif text-lg text-[#f3f1ea]">
+              Your Referral Links
+            </h2>
+            <p className="mt-0.5 text-xs text-[#d4c4a8]/40">
+              Share these to track conversions back to you
+            </p>
+          </div>
+          {!showForm && (
+            <button
+              className="flex items-center gap-1.5 rounded-md border border-[#d4c4a8]/15 px-3 py-1.5 text-xs text-[#d4c4a8]/60 transition-all hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
+              onClick={() => setShowForm(true)}
+              type="button"
+            >
+              <PlusIcon className="size-3.5" />
+              New Link
+            </button>
+          )}
         </div>
+
         <div className="space-y-3">
-          {referralLinks.map((link) => {
-            const url = `https://www.arcadiantables.com/?ref=${link.code}`;
-            return (
-              <div
-                className="flex items-center gap-3 rounded-lg border border-[#d4c4a8]/8 bg-[#d4c4a8]/[0.03] px-4 py-3"
-                key={link.code}
-              >
-                <span className="shrink-0 rounded bg-[#5d4e3c]/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#d4c4a8]/70">
-                  {link.label}
-                </span>
-                <code className="min-w-0 flex-1 truncate font-mono text-xs text-[#d4c4a8]/40">
-                  {url}
-                </code>
-                <CopyButton text={url} />
-                <a
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#d4c4a8]/15 text-[#d4c4a8]/60 transition-all hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
-                  href={url}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <ArrowUpRightIcon className="size-3.5" />
-                </a>
-              </div>
-            );
-          })}
-          {referralLinks.length === 0 && (
+          {showForm && <CreateLinkForm onClose={() => setShowForm(false)} />}
+
+          {referralLinks.map((link) => (
+            <LinkRow key={link.id} link={link} />
+          ))}
+
+          {referralLinks.length === 0 && !showForm && (
             <p className="py-4 text-center text-sm text-[#d4c4a8]/30">
-              No referral links assigned yet. Contact your Arcadian
-              representative.
+              No referral links yet. Click &quot;New Link&quot; to create one.
             </p>
           )}
         </div>

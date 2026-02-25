@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
-import { getPartnerByUserId } from "@/lib/partner-data";
+import { getPartnerByUserId, getPartnerWithLinks } from "@/lib/partner-data";
 import { getDailyTraffic, getReferralMetrics } from "@/lib/posthog-analytics";
 import { OverviewContent } from "./components/OverviewContent";
 
@@ -15,6 +15,11 @@ export default async function OverviewPage() {
   const partner = await getPartnerByUserId(session.user.id);
   if (!partner) redirect("/dashboard/login");
 
+  // Fetch all links (including inactive) for the management UI
+  const allLinks = await getPartnerWithLinks(partner.id);
+  const allReferralLinks = allLinks?.referralLinks ?? [];
+
+  // Use only active links for metrics
   const refCodes = partner.referralLinks.map((l) => l.code);
   const primaryCode = refCodes[0];
 
@@ -41,9 +46,11 @@ export default async function OverviewPage() {
     <OverviewContent
       contactName={partner.contactName}
       companyName={partner.companyName}
-      referralLinks={partner.referralLinks.map((l) => ({
+      referralLinks={allReferralLinks.map((l) => ({
+        id: l.id,
         code: l.code,
         label: l.label,
+        isActive: l.isActive,
       }))}
       metrics={metrics}
       dailyTraffic={dailyTraffic}
