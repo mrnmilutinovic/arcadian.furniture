@@ -28,7 +28,7 @@ export function Hero() {
       <div className="absolute inset-0">
         <Image
           src="/photos/hero-2.jpeg"
-          alt="Arcadian gaming table with puzzle"
+          alt="Arcadian gaming table with Santorini board game"
           fill
           sizes="100vw"
           className={`object-cover object-center transition-all duration-[1.5s] ease-out ${
