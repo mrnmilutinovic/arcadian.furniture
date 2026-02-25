@@ -2,10 +2,18 @@
 
 import {
   BarChart3Icon,
+  CameraIcon,
+  ChevronRightIcon,
   ChevronsUpDownIcon,
+  DownloadIcon,
   ImageIcon,
   LayoutDashboardIcon,
   LogOutIcon,
+  MegaphoneIcon,
+  MessageSquareQuoteIcon,
+  PaletteIcon,
+  ShieldIcon,
+  TypeIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -18,6 +26,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -40,6 +53,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
   SidebarProvider,
   SidebarRail,
   SidebarTrigger,
@@ -60,7 +76,25 @@ function useIsPartnerHost() {
   return PARTNER_HOSTS.some((h) => window.location.hostname.startsWith(h));
 }
 
-function getNavItems(isPartner: boolean) {
+interface NavItem {
+  href: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+interface NavGroup {
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  items: NavItem[];
+}
+
+type NavEntry = NavItem | NavGroup;
+
+function isNavGroup(entry: NavEntry): entry is NavGroup {
+  return "items" in entry;
+}
+
+function getNavEntries(isPartner: boolean): NavEntry[] {
   const prefix = isPartner ? "" : "/dashboard";
   return [
     {
@@ -69,14 +103,42 @@ function getNavItems(isPartner: boolean) {
       icon: LayoutDashboardIcon,
     },
     {
-      href: `${prefix}/assets`,
       label: "Brand Assets",
       icon: ImageIcon,
+      items: [
+        {
+          href: `${prefix}/assets/brand-voice`,
+          label: "Brand Voice",
+          icon: MegaphoneIcon,
+        },
+        {
+          href: `${prefix}/assets/colors`,
+          label: "Colors",
+          icon: PaletteIcon,
+        },
+        { href: `${prefix}/assets/fonts`, label: "Fonts", icon: TypeIcon },
+        { href: `${prefix}/assets/logos`, label: "Logos", icon: DownloadIcon },
+        {
+          href: `${prefix}/assets/photography`,
+          label: "Photography",
+          icon: CameraIcon,
+        },
+        {
+          href: `${prefix}/assets/talking-points`,
+          label: "Talking Points",
+          icon: MessageSquareQuoteIcon,
+        },
+      ],
     },
     {
       href: `${prefix}/analytics`,
       label: "Analytics",
       icon: BarChart3Icon,
+    },
+    {
+      href: `${prefix}/settings/security`,
+      label: "Security",
+      icon: ShieldIcon,
     },
   ];
 }
@@ -163,6 +225,23 @@ function NavUser({
   );
 }
 
+function getBreadcrumbs(pathname: string, entries: NavEntry[]) {
+  for (const entry of entries) {
+    if (isNavGroup(entry)) {
+      const sub = entry.items.find((i) => pathname === i.href);
+      if (sub) {
+        return [entry.label, sub.label];
+      }
+    } else if (
+      pathname === entry.href ||
+      (entry.href.endsWith("/") && pathname === entry.href.slice(0, -1))
+    ) {
+      return entry.label === "Overview" ? [] : [entry.label];
+    }
+  }
+  return [];
+}
+
 export function DashboardShell({
   partner,
   children,
@@ -173,13 +252,8 @@ export function DashboardShell({
   const pathname = usePathname();
   const router = useRouter();
   const isPartner = useIsPartnerHost();
-  const navItems = getNavItems(isPartner);
-
-  const currentPage = navItems.find(
-    (n) =>
-      pathname === n.href ||
-      (n.href.endsWith("/") && pathname === n.href.slice(0, -1)),
-  );
+  const navEntries = getNavEntries(isPartner);
+  const breadcrumbs = getBreadcrumbs(pathname, navEntries);
 
   async function handleSignOut() {
     await authClient.signOut();
@@ -216,20 +290,63 @@ export function DashboardShell({
             <SidebarGroupLabel>Navigation</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {navItems.map((item) => (
-                  <SidebarMenuItem key={item.href}>
-                    <SidebarMenuButton
-                      asChild
-                      isActive={pathname === item.href}
-                      tooltip={item.label}
-                    >
-                      <Link href={item.href}>
-                        <item.icon />
-                        <span>{item.label}</span>
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
+                {navEntries.map((entry) => {
+                  if (isNavGroup(entry)) {
+                    const isOpen = entry.items.some((i) => pathname === i.href);
+                    return (
+                      <Collapsible
+                        key={entry.label}
+                        asChild
+                        defaultOpen={isOpen}
+                        className="group/collapsible"
+                      >
+                        <SidebarMenuItem>
+                          <CollapsibleTrigger asChild>
+                            <SidebarMenuButton
+                              tooltip={entry.label}
+                              isActive={isOpen}
+                            >
+                              <entry.icon />
+                              <span>{entry.label}</span>
+                              <ChevronRightIcon className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                            </SidebarMenuButton>
+                          </CollapsibleTrigger>
+                          <CollapsibleContent>
+                            <SidebarMenuSub>
+                              {entry.items.map((sub) => (
+                                <SidebarMenuSubItem key={sub.href}>
+                                  <SidebarMenuSubButton
+                                    asChild
+                                    isActive={pathname === sub.href}
+                                  >
+                                    <Link href={sub.href}>
+                                      <sub.icon className="size-3.5" />
+                                      <span>{sub.label}</span>
+                                    </Link>
+                                  </SidebarMenuSubButton>
+                                </SidebarMenuSubItem>
+                              ))}
+                            </SidebarMenuSub>
+                          </CollapsibleContent>
+                        </SidebarMenuItem>
+                      </Collapsible>
+                    );
+                  }
+                  return (
+                    <SidebarMenuItem key={entry.href}>
+                      <SidebarMenuButton
+                        asChild
+                        isActive={pathname === entry.href}
+                        tooltip={entry.label}
+                      >
+                        <Link href={entry.href}>
+                          <entry.icon />
+                          <span>{entry.label}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  );
+                })}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
@@ -251,14 +368,20 @@ export function DashboardShell({
                     <Link href={isPartner ? "/" : "/dashboard"}>Dashboard</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                {currentPage && currentPage.label !== "Overview" && (
-                  <>
+                {breadcrumbs.map((crumb, i) => (
+                  <span key={crumb} className="contents">
                     <BreadcrumbSeparator className="hidden md:block" />
                     <BreadcrumbItem>
-                      <BreadcrumbPage>{currentPage.label}</BreadcrumbPage>
+                      {i === breadcrumbs.length - 1 ? (
+                        <BreadcrumbPage>{crumb}</BreadcrumbPage>
+                      ) : (
+                        <BreadcrumbLink className="text-muted-foreground">
+                          {crumb}
+                        </BreadcrumbLink>
+                      )}
                     </BreadcrumbItem>
-                  </>
-                )}
+                  </span>
+                ))}
               </BreadcrumbList>
             </Breadcrumb>
           </div>

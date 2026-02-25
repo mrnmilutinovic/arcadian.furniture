@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { getPartnerByUserId } from "@/lib/partner-data";
+import { isSuperAdminSession } from "@/lib/roles";
 import { DashboardShell } from "./components/DashboardShell";
 
 const PARTNER_HOSTS = ["partner.arcadiantables.com", "partner.localhost"];
@@ -36,6 +37,9 @@ export default async function DashboardLayout({
   const partner = await getPartnerByUserId(session.user.id);
 
   if (!partner) {
+    if (isSuperAdminSession(session)) {
+      redirect("/dashboard/admin");
+    }
     redirect(getLoginUrl(host));
   }
 

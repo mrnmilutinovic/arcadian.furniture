@@ -38,6 +38,11 @@ async function main() {
   const userId = signUpResult.user.id;
   console.log(`User created: ${userId}`);
 
+  await prisma.user.update({
+    where: { id: userId },
+    data: { role: "partner" },
+  });
+
   // Create Partner record
   const partner = await prisma.partner.create({
     data: {

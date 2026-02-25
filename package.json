@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3001",
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "create:super-admin": "npx tsx prisma/create-super-admin.ts",
+    "set:user-role": "npx tsx prisma/set-user-role.ts"
   },
   "dependencies": {
     "@number-flow/react": "^0.5.14",

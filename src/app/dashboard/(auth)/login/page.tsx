@@ -2,41 +2,90 @@
 
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
+
+function getRoleFromSession(session: unknown): string | null {
+  if (!session || typeof session !== "object") return null;
+  if (!("data" in session)) return null;
+
+  const data = (session as { data?: unknown }).data;
+  if (!data || typeof data !== "object") return null;
+  if (!("user" in data)) return null;
+
+  const user = (data as { user?: unknown }).user;
+  if (!user || typeof user !== "object") return null;
+  if (!("role" in user)) return null;
+
+  const role = (user as { role?: unknown }).role;
+  return typeof role === "string" ? role : null;
+}
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [info, setInfo] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  useEffect(() => {
+    let mounted = true;
+
+    async function checkSessionAndRedirect() {
+      const session = await authClient.getSession();
+      if (!mounted || !session.data) return;
+
+      const role = getRoleFromSession(session);
+      const isPartnerHost = [
+        "partner.arcadiantables.com",
+        "partner.localhost",
+      ].some((host) => window.location.hostname.startsWith(host));
+
+      if (!isPartnerHost && role === "super_admin") {
+        router.push("/dashboard/admin");
+      } else {
+        router.push(isPartnerHost ? "/" : "/dashboard");
+      }
+      router.refresh();
+    }
+
+    checkSessionAndRedirect();
+
+    return () => {
+      mounted = false;
+    };
+  }, [router]);
+
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
     setError("");
+    setInfo("");
     setLoading(true);
 
     try {
-      const result = await authClient.signIn.email({
+      const isPartnerHost = [
+        "partner.arcadiantables.com",
+        "partner.localhost",
+      ].some((host) => window.location.hostname.startsWith(host));
+
+      const callbackURL = isPartnerHost ? "/login" : "/dashboard/login";
+
+      const result = await authClient.signIn.magicLink({
         email,
-        password,
+        callbackURL,
+        errorCallbackURL: callbackURL,
       });
 
       if (result.error) {
-        setError(result.error.message ?? "Invalid credentials");
+        setError(result.error.message ?? "Could not send sign-in link.");
         setLoading(false);
         return;
       }
 
-      const isPartnerHost = [
-        "partner.arcadiantables.com",
-        "partner.localhost",
-      ].some((h) => window.location.hostname.startsWith(h));
-      router.push(isPartnerHost ? "/" : "/dashboard");
-      router.refresh();
+      setInfo("Magic link sent. Check your inbox.");
     } catch {
       setError("Something went wrong. Please try again.");
+    } finally {
       setLoading(false);
     }
   }
@@ -44,11 +93,10 @@ export default function LoginPage() {
   return (
     <motion.div
       animate={{ opacity: 1, y: 0 }}
-      className="relative z-20 w-full max-w-[400px] px-6"
+      className="relative z-20 w-full max-w-[420px] px-6"
       initial={{ opacity: 0, y: 12 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* Brand mark */}
       <motion.div
         animate={{ opacity: 1 }}
         className="mb-12 text-center"
@@ -75,33 +123,15 @@ export default function LoginPage() {
             autoComplete="email"
             className="w-full border-0 border-b border-[#d4c4a8]/20 bg-transparent px-0 py-2.5 text-sm text-[#f3f1ea] placeholder:text-[#d4c4a8]/25 focus:border-[#d4c4a8]/50 focus:outline-none focus:ring-0 transition-colors"
             id="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             placeholder="you@company.com"
             required
             type="email"
             value={email}
           />
         </div>
-        <div>
-          <label
-            className="mb-1.5 block text-[11px] uppercase tracking-[0.15em] text-[#d4c4a8]/50"
-            htmlFor="password"
-          >
-            Password
-          </label>
-          <input
-            autoComplete="current-password"
-            className="w-full border-0 border-b border-[#d4c4a8]/20 bg-transparent px-0 py-2.5 text-sm text-[#f3f1ea] placeholder:text-[#d4c4a8]/25 focus:border-[#d4c4a8]/50 focus:outline-none focus:ring-0 transition-colors"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-            required
-            type="password"
-            value={password}
-          />
-        </div>
 
-        {error && (
+        {error ? (
           <motion.p
             animate={{ opacity: 1, y: 0 }}
             className="text-xs text-[#cd4631]"
@@ -109,14 +139,24 @@ export default function LoginPage() {
           >
             {error}
           </motion.p>
-        )}
+        ) : null}
+
+        {info ? (
+          <motion.p
+            animate={{ opacity: 1, y: 0 }}
+            className="text-xs text-emerald-300"
+            initial={{ opacity: 0, y: -4 }}
+          >
+            {info}
+          </motion.p>
+        ) : null}
 
         <button
           className="mt-2 w-full bg-[#d4c4a8] py-3 text-xs font-medium uppercase tracking-[0.2em] text-[#1a1918] transition-all hover:bg-[#f3f1ea] disabled:opacity-40"
           disabled={loading}
           type="submit"
         >
-          {loading ? "Signing in..." : "Sign in"}
+          {loading ? "Sending link..." : "Send Magic Link"}
         </button>
       </form>
 
