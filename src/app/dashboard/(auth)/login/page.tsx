@@ -87,12 +87,13 @@ export default function LoginPage() {
         "partner.localhost",
       ].some((host) => window.location.hostname.startsWith(host));
 
-      const callbackURL = isPartnerHost ? "/login" : "/dashboard/login";
+      const callbackURL = isPartnerHost ? "/" : "/dashboard";
+      const errorCallbackURL = isPartnerHost ? "/login" : "/dashboard/login";
 
       const result = await authClient.signIn.magicLink({
         email,
         callbackURL,
-        errorCallbackURL: callbackURL,
+        errorCallbackURL,
       });
 
       if (result.error) {

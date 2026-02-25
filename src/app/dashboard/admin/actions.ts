@@ -105,8 +105,8 @@ export async function createPartnerAccount(formData: FormData) {
         headers: hdrs,
         body: {
           email,
-          callbackURL: "/dashboard/login",
-          errorCallbackURL: "/dashboard/login",
+          callbackURL: "/",
+          errorCallbackURL: "/login",
         },
       });
     } catch {
