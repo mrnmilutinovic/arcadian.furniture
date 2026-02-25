@@ -52,7 +52,7 @@ export default function SecuritySettingsPage() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-6xl space-y-8">
+    <div className="mx-auto w-full max-w-6xl space-y-6 sm:space-y-8">
       <div>
         <h1 className="font-serif text-3xl tracking-wide text-[#f3f1ea]">
           Security
@@ -62,7 +62,7 @@ export default function SecuritySettingsPage() {
         </p>
       </div>
 
-      <div className="w-full rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-6">
+      <div className="w-full rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-4 sm:p-6">
         <form className="max-w-xl space-y-4" onSubmit={onSubmit}>
           <div>
             <label
@@ -126,7 +126,7 @@ export default function SecuritySettingsPage() {
           ) : null}
 
           <button
-            className="rounded-md bg-[#d4c4a8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#1a1918] transition-colors hover:bg-[#f3f1ea] disabled:opacity-50"
+            className="w-full rounded-md bg-[#d4c4a8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#1a1918] transition-colors hover:bg-[#f3f1ea] disabled:opacity-50 sm:w-auto"
             disabled={loading}
             type="submit"
           >

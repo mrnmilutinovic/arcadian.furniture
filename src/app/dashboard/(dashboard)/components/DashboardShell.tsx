@@ -357,36 +357,42 @@ export function DashboardShell({
         <SidebarRail />
       </Sidebar>
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
+        <header className="flex h-14 shrink-0 items-center gap-2 border-b border-[#d4c4a8]/8 transition-[width,height] ease-linear sm:h-16 group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+          <div className="flex min-w-0 items-center gap-2 px-3 sm:px-4">
+            <SidebarTrigger className="-ml-1 text-[#f3f1ea] hover:text-[#f3f1ea]" />
             <Separator orientation="vertical" className="mr-2 h-4" />
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink asChild>
-                    <Link href={isPartner ? "/" : "/dashboard"}>Dashboard</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                {breadcrumbs.map((crumb, i) => (
-                  <span key={crumb} className="contents">
-                    <BreadcrumbSeparator className="hidden md:block" />
-                    <BreadcrumbItem>
-                      {i === breadcrumbs.length - 1 ? (
-                        <BreadcrumbPage>{crumb}</BreadcrumbPage>
-                      ) : (
-                        <BreadcrumbLink className="text-muted-foreground">
-                          {crumb}
-                        </BreadcrumbLink>
-                      )}
-                    </BreadcrumbItem>
-                  </span>
-                ))}
-              </BreadcrumbList>
-            </Breadcrumb>
+            <div className="hidden min-w-0 sm:block">
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem className="hidden md:block">
+                    <BreadcrumbLink asChild>
+                      <Link href={isPartner ? "/" : "/dashboard"}>
+                        Dashboard
+                      </Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  {breadcrumbs.map((crumb, i) => (
+                    <span key={crumb} className="contents">
+                      <BreadcrumbSeparator className="hidden md:block" />
+                      <BreadcrumbItem>
+                        {i === breadcrumbs.length - 1 ? (
+                          <BreadcrumbPage>{crumb}</BreadcrumbPage>
+                        ) : (
+                          <BreadcrumbLink className="text-muted-foreground">
+                            {crumb}
+                          </BreadcrumbLink>
+                        )}
+                      </BreadcrumbItem>
+                    </span>
+                  ))}
+                </BreadcrumbList>
+              </Breadcrumb>
+            </div>
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">{children}</div>
+        <div className="flex flex-1 flex-col gap-4 p-3 pt-4 sm:p-4 sm:pt-0">
+          {children}
+        </div>
       </SidebarInset>
     </SidebarProvider>
   );

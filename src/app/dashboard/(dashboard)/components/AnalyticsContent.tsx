@@ -89,7 +89,7 @@ export function AnalyticsContent({
   ];
 
   return (
-    <div className="mx-auto max-w-6xl space-y-8">
+    <div className="mx-auto w-full max-w-6xl space-y-6 sm:space-y-8">
       {/* Header */}
       <motion.div custom={0} initial="hidden" animate="show" variants={fadeUp}>
         <h1 className="font-serif text-3xl tracking-wide text-[#f3f1ea]">
@@ -130,7 +130,7 @@ export function AnalyticsContent({
 
       {/* Per-code breakdown */}
       <motion.div
-        className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-6"
+        className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-4 sm:p-6"
         custom={5}
         initial="hidden"
         animate="show"
@@ -144,8 +144,8 @@ export function AnalyticsContent({
             Performance for each referral code
           </p>
         </div>
-        <div className="overflow-x-auto">
-          <table className="w-full">
+        <div className="-mx-1 overflow-x-auto px-1 sm:mx-0 sm:px-0">
+          <table className="w-full min-w-[680px]">
             <thead>
               <tr className="border-b border-[#d4c4a8]/8">
                 <th className="pb-3 text-left text-[11px] uppercase tracking-[0.1em] text-[#d4c4a8]/40 font-normal">
@@ -217,11 +217,11 @@ export function AnalyticsContent({
       </motion.div>
 
       {/* Charts row */}
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         {/* Bar chart */}
         {barData.length > 0 && (
           <motion.div
-            className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-6"
+            className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-4 sm:p-6"
             custom={6}
             initial="hidden"
             animate="show"
@@ -247,7 +247,7 @@ export function AnalyticsContent({
         {/* Area chart */}
         {areaData.length > 1 && (
           <motion.div
-            className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-6"
+            className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-4 sm:p-6"
             custom={7}
             initial="hidden"
             animate="show"

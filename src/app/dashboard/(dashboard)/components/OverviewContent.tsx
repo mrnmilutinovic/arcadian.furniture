@@ -170,7 +170,7 @@ function CreateLinkForm({ onClose }: { onClose: () => void }) {
           className="w-full rounded-md border border-[#d4c4a8]/15 bg-[#1a1918] px-3 py-2 font-mono text-xs text-[#f3f1ea] placeholder:text-[#d4c4a8]/25 focus:border-[#d4c4a8]/30 focus:outline-none"
           id="link-code"
           onChange={(e) => setCode(e.target.value.toLowerCase())}
-          pattern="[a-z0-9-]*"
+          pattern="[a-z0-9.-]*"
           placeholder="auto-generated if empty"
           type="text"
           value={code}
@@ -235,73 +235,80 @@ function LinkRow({ link }: { link: ReferralLinkData }) {
         !link.isActive ? "opacity-50" : ""
       }`}
     >
-      <div className="flex items-center gap-3">
-        <span className="shrink-0 rounded bg-[#5d4e3c]/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#d4c4a8]/70">
-          {link.label}
-        </span>
-        {!link.isActive && (
-          <span className="shrink-0 rounded bg-[#d4c4a8]/10 px-1.5 py-0.5 text-[9px] uppercase tracking-wider text-[#d4c4a8]/40">
-            Inactive
-          </span>
-        )}
-        <code className="min-w-0 flex-1 truncate font-mono text-xs text-[#d4c4a8]/40">
-          {url}
-        </code>
-        <CopyButton text={url} />
-        <a
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#d4c4a8]/15 text-[#d4c4a8]/60 transition-all hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
-          href={url}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <ArrowUpRightIcon className="size-3.5" />
-        </a>
-        <button
-          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md border transition-all disabled:opacity-50 ${
-            link.isActive
-              ? "border-[#d4c4a8]/15 text-[#d4c4a8]/60 hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
-              : "border-[#d4c4a8]/15 text-[#d4c4a8]/30 hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
-          }`}
-          disabled={isPending}
-          onClick={handleToggle}
-          title={link.isActive ? "Deactivate" : "Activate"}
-          type="button"
-        >
-          <PowerIcon className="size-3.5" />
-        </button>
-        {confirmDelete ? (
-          <div className="flex items-center gap-1">
-            <button
-              className="flex h-8 items-center gap-1 rounded-md border border-red-500/30 px-2 text-[10px] font-medium text-red-400 transition-all hover:bg-red-500/10 disabled:opacity-50"
-              disabled={isPending}
-              onClick={handleDelete}
-              type="button"
-            >
-              {isPending ? (
-                <Loader2Icon className="size-3 animate-spin" />
-              ) : (
-                "Delete"
-              )}
-            </button>
-            <button
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-[#d4c4a8]/40 hover:text-[#d4c4a8]"
-              disabled={isPending}
-              onClick={() => setConfirmDelete(false)}
-              type="button"
-            >
-              <XIcon className="size-3.5" />
-            </button>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="min-w-0 flex-1">
+          <div className="mb-1.5 flex items-center gap-2">
+            <span className="shrink-0 rounded bg-[#5d4e3c]/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#d4c4a8]/70">
+              {link.label}
+            </span>
+            {!link.isActive && (
+              <span className="shrink-0 rounded bg-[#d4c4a8]/10 px-1.5 py-0.5 text-[9px] uppercase tracking-wider text-[#d4c4a8]/40">
+                Inactive
+              </span>
+            )}
           </div>
-        ) : (
+          <code className="block break-all font-mono text-xs text-[#d4c4a8]/40 sm:truncate">
+            {url}
+          </code>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-1.5 sm:flex-nowrap">
+          <CopyButton text={url} />
+          <a
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#d4c4a8]/15 text-[#d4c4a8]/60 transition-all hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
+            href={url}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <ArrowUpRightIcon className="size-3.5" />
+          </a>
           <button
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#d4c4a8]/15 text-[#d4c4a8]/60 transition-all hover:border-red-500/30 hover:text-red-400"
-            onClick={() => setConfirmDelete(true)}
-            title="Delete"
+            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md border transition-all disabled:opacity-50 ${
+              link.isActive
+                ? "border-[#d4c4a8]/15 text-[#d4c4a8]/60 hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
+                : "border-[#d4c4a8]/15 text-[#d4c4a8]/30 hover:border-[#d4c4a8]/30 hover:text-[#d4c4a8]"
+            }`}
+            disabled={isPending}
+            onClick={handleToggle}
+            title={link.isActive ? "Deactivate" : "Activate"}
             type="button"
           >
-            <Trash2Icon className="size-3.5" />
+            <PowerIcon className="size-3.5" />
           </button>
-        )}
+          {confirmDelete ? (
+            <div className="flex items-center gap-1">
+              <button
+                className="flex h-8 items-center gap-1 rounded-md border border-red-500/30 px-2 text-[10px] font-medium text-red-400 transition-all hover:bg-red-500/10 disabled:opacity-50"
+                disabled={isPending}
+                onClick={handleDelete}
+                type="button"
+              >
+                {isPending ? (
+                  <Loader2Icon className="size-3 animate-spin" />
+                ) : (
+                  "Delete"
+                )}
+              </button>
+              <button
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-[#d4c4a8]/40 hover:text-[#d4c4a8]"
+                disabled={isPending}
+                onClick={() => setConfirmDelete(false)}
+                type="button"
+              >
+                <XIcon className="size-3.5" />
+              </button>
+            </div>
+          ) : (
+            <button
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#d4c4a8]/15 text-[#d4c4a8]/60 transition-all hover:border-red-500/30 hover:text-red-400"
+              onClick={() => setConfirmDelete(true)}
+              title="Delete"
+              type="button"
+            >
+              <Trash2Icon className="size-3.5" />
+            </button>
+          )}
+        </div>
       </div>
       {error && <p className="text-xs text-red-400">{error}</p>}
     </div>
@@ -324,7 +331,7 @@ export function OverviewContent({
   const firstName = contactName.split(" ")[0];
 
   return (
-    <div className="mx-auto max-w-6xl space-y-8">
+    <div className="mx-auto w-full max-w-6xl space-y-6 sm:space-y-8">
       {/* Hero greeting with ambient product image */}
       <motion.div
         className="relative overflow-hidden rounded-2xl bg-[#1a1918]"
@@ -343,7 +350,7 @@ export function OverviewContent({
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1a1918] via-[#1a1918]/80 to-transparent" />
         </div>
-        <div className="relative px-8 py-10 md:px-12 md:py-14">
+        <div className="relative px-5 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14">
           <motion.p
             animate={{ opacity: 1 }}
             className="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#d4c4a8]/50"
@@ -391,13 +398,13 @@ export function OverviewContent({
 
       {/* Referral links */}
       <motion.div
-        className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-6"
+        className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-4 sm:p-6"
         custom={6}
         initial="hidden"
         animate="show"
         variants={fadeUp}
       >
-        <div className="mb-5 flex items-start justify-between">
+        <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <h2 className="font-serif text-lg text-[#f3f1ea]">
               Your Referral Links
