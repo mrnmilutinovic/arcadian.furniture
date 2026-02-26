@@ -19,9 +19,9 @@ export default async function OverviewPage() {
   const allLinks = await getPartnerWithLinks(partner.id);
   const allReferralLinks = allLinks?.referralLinks ?? [];
 
-  // Use only active links for metrics
+  // Use only active links for metrics (since link creation date)
   const refCodes = partner.referralLinks.map((l) => l.code);
-  const primaryCode = refCodes[0];
+  const primaryLink = partner.referralLinks[0];
 
   let metrics = {
     pageViews: 0,
@@ -35,10 +35,11 @@ export default async function OverviewPage() {
     uniqueVisitors: number;
   }[] = [];
 
-  if (primaryCode) {
+  if (primaryLink) {
+    const since = primaryLink.createdAt;
     [metrics, dailyTraffic] = await Promise.all([
-      getReferralMetrics(primaryCode),
-      getDailyTraffic(primaryCode),
+      getReferralMetrics(primaryLink.code, { since }),
+      getDailyTraffic(primaryLink.code, { since }),
     ]);
   }
 

@@ -29,10 +29,16 @@ export default async function AnalyticsPage() {
   const refLabels = Object.fromEntries(
     partner.referralLinks.map((l) => [l.code, l.label]),
   );
+  const sinceDates = Object.fromEntries(
+    partner.referralLinks.map((l) => [l.code, l.createdAt]),
+  );
+  const primaryLink = partner.referralLinks[0];
 
   const [codeMetrics, dailyTraffic] = await Promise.all([
-    getMultiCodeMetrics(refCodes),
-    refCodes[0] ? getDailyTraffic(refCodes[0]) : Promise.resolve([]),
+    getMultiCodeMetrics(refCodes, { sinceDates }),
+    primaryLink
+      ? getDailyTraffic(primaryLink.code, { since: primaryLink.createdAt })
+      : Promise.resolve([]),
   ]);
 
   return (

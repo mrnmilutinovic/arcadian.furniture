@@ -2,6 +2,10 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
+import {
+  type ReferralMetrics,
+  getMultiCodeMetrics,
+} from "@/lib/posthog-analytics";
 import { prisma } from "@/lib/prisma";
 import { isSuperAdminSession } from "@/lib/roles";
 import { createPartnerAccount } from "./actions";
@@ -50,7 +54,7 @@ export default async function AdminPartnersPage({
       referralLinks: {
         where: { isActive: true },
         orderBy: { createdAt: "asc" },
-        select: { code: true, label: true },
+        select: { code: true, label: true, createdAt: true },
       },
     },
     orderBy: { createdAt: "desc" },
@@ -59,6 +63,52 @@ export default async function AdminPartnersPage({
   const totalPartners = partners.length;
   const totalActiveLinks = partners.reduce(
     (sum, partner) => sum + partner.referralLinks.length,
+    0,
+  );
+
+  // Fetch PostHog metrics for all referral codes (since each link's creation)
+  const allCodes = partners.flatMap((p) =>
+    p.referralLinks.map((l) => l.code),
+  );
+  const sinceDates = Object.fromEntries(
+    partners.flatMap((p) =>
+      p.referralLinks.map((l) => [l.code, l.createdAt]),
+    ),
+  );
+  const codeMetrics =
+    allCodes.length > 0
+      ? await getMultiCodeMetrics(allCodes, { sinceDates })
+      : {};
+
+  // Aggregate metrics per partner
+  const partnerMetrics = new Map<string, ReferralMetrics>();
+  for (const partner of partners) {
+    const agg: ReferralMetrics = {
+      pageViews: 0,
+      uniqueVisitors: 0,
+      orders: 0,
+      conversionRate: 0,
+    };
+    for (const link of partner.referralLinks) {
+      const m = codeMetrics[link.code];
+      if (m) {
+        agg.pageViews += m.pageViews;
+        agg.uniqueVisitors += m.uniqueVisitors;
+        agg.orders += m.orders;
+      }
+    }
+    agg.conversionRate =
+      agg.uniqueVisitors > 0 ? (agg.orders / agg.uniqueVisitors) * 100 : 0;
+    partnerMetrics.set(partner.id, agg);
+  }
+
+  // Global totals
+  const totalPageViews = [...partnerMetrics.values()].reduce(
+    (s, m) => s + m.pageViews,
+    0,
+  );
+  const totalOrders = [...partnerMetrics.values()].reduce(
+    (s, m) => s + m.orders,
     0,
   );
 
@@ -88,7 +138,7 @@ export default async function AdminPartnersPage({
           </div>
         </div>
 
-        <div className="grid gap-3 md:grid-cols-3">
+        <div className="grid gap-3 md:grid-cols-4">
           <div className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-4">
             <p className="text-[10px] uppercase tracking-[0.16em] text-[#d4c4a8]/45">
               Total Partners
@@ -103,9 +153,19 @@ export default async function AdminPartnersPage({
           </div>
           <div className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-4">
             <p className="text-[10px] uppercase tracking-[0.16em] text-[#d4c4a8]/45">
-              Admin Role
+              Total Page Views
             </p>
-            <p className="mt-2 font-serif text-2xl">super_admin</p>
+            <p className="mt-2 font-serif text-3xl">
+              {totalPageViews.toLocaleString()}
+            </p>
+          </div>
+          <div className="rounded-xl border border-[#d4c4a8]/10 bg-[#1a1918] p-4">
+            <p className="text-[10px] uppercase tracking-[0.16em] text-[#d4c4a8]/45">
+              Total Orders
+            </p>
+            <p className="mt-2 font-serif text-3xl">
+              {totalOrders.toLocaleString()}
+            </p>
           </div>
         </div>
 
@@ -280,6 +340,48 @@ export default async function AdminPartnersPage({
                         ))
                       )}
                     </div>
+
+                    {partner.referralLinks.length > 0 &&
+                      (() => {
+                        const m = partnerMetrics.get(partner.id);
+                        if (!m) return null;
+                        return (
+                          <div className="mt-3 grid grid-cols-4 gap-3 border-t border-[#d4c4a8]/10 pt-3">
+                            <div>
+                              <p className="text-[10px] uppercase tracking-[0.14em] text-[#d4c4a8]/45">
+                                Page Views
+                              </p>
+                              <p className="mt-0.5 font-serif text-sm">
+                                {m.pageViews.toLocaleString()}
+                              </p>
+                            </div>
+                            <div>
+                              <p className="text-[10px] uppercase tracking-[0.14em] text-[#d4c4a8]/45">
+                                Visitors
+                              </p>
+                              <p className="mt-0.5 font-serif text-sm">
+                                {m.uniqueVisitors.toLocaleString()}
+                              </p>
+                            </div>
+                            <div>
+                              <p className="text-[10px] uppercase tracking-[0.14em] text-[#d4c4a8]/45">
+                                Orders
+                              </p>
+                              <p className="mt-0.5 font-serif text-sm">
+                                {m.orders.toLocaleString()}
+                              </p>
+                            </div>
+                            <div>
+                              <p className="text-[10px] uppercase tracking-[0.14em] text-[#d4c4a8]/45">
+                                Conv. Rate
+                              </p>
+                              <p className="mt-0.5 font-serif text-sm">
+                                {m.conversionRate.toFixed(1)}%
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })()}
                   </div>
                 ))}
               </div>

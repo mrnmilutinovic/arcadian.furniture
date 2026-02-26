@@ -1,3 +1,5 @@
+import { unstable_cache } from "next/cache";
+
 const POSTHOG_API_URL = "https://eu.posthog.com";
 const POSTHOG_PROJECT_ID = process.env.POSTHOG_PROJECT_ID;
 const POSTHOG_PERSONAL_API_KEY = process.env.POSTHOG_PERSONAL_API_KEY;
@@ -7,7 +9,7 @@ interface HogQLResult {
   columns: string[];
 }
 
-async function queryHogQL(query: string): Promise<HogQLResult> {
+async function queryHogQLUncached(query: string): Promise<HogQLResult> {
   if (!POSTHOG_PERSONAL_API_KEY || !POSTHOG_PROJECT_ID) {
     throw new Error("PostHog credentials not configured");
   }
@@ -23,7 +25,6 @@ async function queryHogQL(query: string): Promise<HogQLResult> {
       body: JSON.stringify({
         query: { kind: "HogQLQuery", query },
       }),
-      next: { revalidate: 300 }, // cache 5 min
     },
   );
 
@@ -34,6 +35,10 @@ async function queryHogQL(query: string): Promise<HogQLResult> {
 
   return res.json();
 }
+
+const queryHogQL = unstable_cache(queryHogQLUncached, ["posthog-hogql"], {
+  revalidate: 300,
+});
 
 export interface ReferralMetrics {
   pageViews: number;
@@ -50,8 +55,12 @@ export interface DailyTraffic {
 
 export async function getReferralMetrics(
   refCode: string,
-  daysBack = 30,
+  options: { daysBack?: number; since?: Date } = {},
 ): Promise<ReferralMetrics> {
+  const timeFilter = options.since
+    ? `AND timestamp >= parseDateTimeBestEffort('${options.since.toISOString()}')`
+    : `AND timestamp >= now() - interval ${options.daysBack ?? 30} day`;
+
   const pageViewQuery = `
     SELECT
       count() as page_views,
@@ -59,7 +68,7 @@ export async function getReferralMetrics(
     FROM events
     WHERE event = '$pageview'
       AND properties.$current_url LIKE '%ref=${refCode}%'
-      AND timestamp >= now() - interval ${daysBack} day
+      ${timeFilter}
   `;
 
   const orderQuery = `
@@ -67,7 +76,7 @@ export async function getReferralMetrics(
     FROM events
     WHERE event = 'order_submitted'
       AND properties.referral = '${refCode}'
-      AND timestamp >= now() - interval ${daysBack} day
+      ${timeFilter}
   `;
 
   try {
@@ -90,8 +99,12 @@ export async function getReferralMetrics(
 
 export async function getDailyTraffic(
   refCode: string,
-  daysBack = 30,
+  options: { daysBack?: number; since?: Date } = {},
 ): Promise<DailyTraffic[]> {
+  const timeFilter = options.since
+    ? `AND timestamp >= parseDateTimeBestEffort('${options.since.toISOString()}')`
+    : `AND timestamp >= now() - interval ${options.daysBack ?? 30} day`;
+
   const query = `
     SELECT
       toDate(timestamp) as day,
@@ -100,7 +113,7 @@ export async function getDailyTraffic(
     FROM events
     WHERE event = '$pageview'
       AND properties.$current_url LIKE '%ref=${refCode}%'
-      AND timestamp >= now() - interval ${daysBack} day
+      ${timeFilter}
     GROUP BY day
     ORDER BY day
   `;
@@ -119,11 +132,22 @@ export async function getDailyTraffic(
 
 export async function getMultiCodeMetrics(
   refCodes: string[],
-  daysBack = 30,
+  options:
+    | { daysBack?: number }
+    | { sinceDates: Record<string, Date> } = {},
 ): Promise<Record<string, ReferralMetrics>> {
   const metrics: Record<string, ReferralMetrics> = {};
+  const sinceDates =
+    "sinceDates" in options ? options.sinceDates : undefined;
   const results = await Promise.all(
-    refCodes.map((code) => getReferralMetrics(code, daysBack)),
+    refCodes.map((code) =>
+      getReferralMetrics(
+        code,
+        sinceDates?.[code]
+          ? { since: sinceDates[code] }
+          : { daysBack: "daysBack" in options ? options.daysBack : undefined },
+      ),
+    ),
   );
   for (let i = 0; i < refCodes.length; i++) {
     metrics[refCodes[i]] = results[i];
