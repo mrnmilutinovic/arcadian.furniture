@@ -127,7 +127,7 @@ export async function submitOrder(
           <div style="font-family:sans-serif;max-width:560px;margin:0 auto;">
             <h2 style="font-size:24px;">Thank you, ${name}!</h2>
             <p style="color:#555;line-height:1.6;">We've received your order for the <strong>${tableName}</strong> in <strong>${finishName}</strong> with <strong>${feltName}</strong> felt${extraFeltCount > 0 ? ` and ${extraFeltCount} extra felt${extraFeltCount > 1 ? "s" : ""}` : ""}.</p>
-            <p style="color:#555;line-height:1.6;">No payment has been taken yet. We'll be in touch shortly to confirm your spot in the 2026 Q1 batch and arrange payment details.</p>
+            <p style="color:#555;line-height:1.6;">No payment has been taken yet. We'll be in touch shortly to confirm your order and arrange payment details.</p>
             <table style="border-collapse:collapse;margin:24px 0;width:100%;border-top:1px solid #eee;">
               <tr><td style="padding:12px 0;color:#666;border-bottom:1px solid #eee;">Table</td><td style="padding:12px 0;text-align:right;font-weight:600;border-bottom:1px solid #eee;">${tableName}</td></tr>
               <tr><td style="padding:12px 0;color:#666;border-bottom:1px solid #eee;">Finish</td><td style="padding:12px 0;text-align:right;border-bottom:1px solid #eee;">${finishName}</td></tr>
