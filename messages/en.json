@@ -11,8 +11,8 @@
     "mobileAccessories": "Accessories",
     "close": "Close",
     "menu": "Menu",
-    "batchStatus": "2026 Q1 Batch \u00b7 Now Open",
-    "pricing": "Q1 2026 Batch Pricing"
+    "batchStatus": "Now Taking Orders",
+    "pricing": "Pricing"
   },
   "footer": {
     "logoAlt": "Arcadian Logo",
@@ -23,7 +23,7 @@
     "submitting": "...",
     "instagram": "Instagram",
     "preOrder": "Order Now",
-    "preOrderTooltip": "2026 Q1 batch is open",
+    "preOrderTooltip": "Orders are open",
     "logsLink": "Logs",
     "blogLink": "Blog",
     "aboutLink": "About Us",
@@ -38,9 +38,9 @@
     "headline1": "Board gaming nights",
     "headline2": "deserve more",
     "headline3": "than a kitchen table",
-    "limitedProduction": "Limited Production",
-    "batchOpening": "2026 Q1 Batch — Now Open",
-    "ctaText": "Order yours before the batch sells out.",
+    "limitedProduction": "Handcrafted to Order",
+    "batchOpening": "Now Taking Orders",
+    "ctaText": "Order yours and we'll start building it.",
     "productLabel": "The Standard",
     "installmentPrice": "€160/mo",
     "installmentContext": "12 months, 0% interest · or €1,920 one-time",
@@ -123,8 +123,8 @@
       "dawnDescription": "Quite neutral, natural oak finish with the hint of lighter tones.",
       "shadowName": "Pan's Shadow",
       "shadowDescription": "Rich warm, walnut looking tones with the thread of dark chocolate.",
-      "exclusiveName": "2026 Batch Exclusive",
-      "exclusiveDescription": "A mystery finish revealed only to early supporters."
+      "exclusiveName": "The Third Finish",
+      "exclusiveDescription": "A mystery finish, revealed soon."
     },
     "railSystem": {
       "label": "The Rail System",
@@ -153,7 +153,7 @@
       "playerDeskDesc": "Personal space for cards and notes.",
       "toppersBox": "Toppers Box",
       "toppersBoxDesc": "Elegant storage for table toppers.",
-      "comingSoonDescription": "Accessories designed to snap onto the magnetic rail. Solid oak, matching your table. Available with batch delivery."
+      "comingSoonDescription": "Accessories designed to snap onto the magnetic rail. Solid oak, matching your table. Available alongside your table."
     },
     "stickyBar": {
       "from": "from ",
@@ -182,16 +182,16 @@
       }
     },
     "cta": {
-      "limitedProduction": "Limited Production",
-      "batchOpening": "2026 Q1 Batch — Now Open",
-      "ctaDescription": "The first 50 Arcadian tables are now available. Order yours today and get exclusive batch pricing plus the mystery finish reveal.",
+      "limitedProduction": "Handcrafted to Order",
+      "batchOpening": "Now Taking Orders",
+      "ctaDescription": "Every Arcadian is built to order in our workshop in Serbia. Order yours today and we'll get to work on your table, mystery finish reveal included.",
       "emailPlaceholder": "ENTER YOUR EMAIL",
       "notifyMe": "Get Notified",
       "submitting": "...",
-      "batchSizeLabel": "2026 Q1 Batch",
-      "batchSizeValue": "50 Tables",
-      "earlyBirdLabel": "Slots Remaining",
-      "earlyBirdValue": "42 Tables",
+      "materialLabel": "Material",
+      "materialValue": "Solid Oak",
+      "originLabel": "Handcrafted in",
+      "originValue": "Serbia",
       "deliveryLabel": "Estimated Delivery",
       "deliveryValue": "Q3 2026"
     }
@@ -226,7 +226,7 @@
     "functionTitle": "Function",
     "functionDescription": "Designed by gamers, for gamers. Every feature exists because we needed it at our own table.",
     "ctaTitle": "Join Our Table",
-    "ctaDescription": "The 2026 Q1 batch is now open. Order yours and bring an Arcadian table to your game nights.",
+    "ctaDescription": "Orders are open. Order yours and bring an Arcadian table to your game nights.",
     "ctaButton": "Order Your Table",
     "metaTitle": "About Us | Arcadian - Premium Board Game Tables",
     "metaDescription": "Meet Nikola and Jana, the lifelong board gamers behind Arcadian. We designed our dream gaming table and partnered with master craftsmen in Serbia to build it."
@@ -245,7 +245,7 @@
     "questions": {
       "q1": {
         "question": "How much does an Arcadian table cost?",
-        "answer": "The Standard starts at \u20ac1,920 and The Grand at \u20ac2,390. These are 2026 Q1 batch prices, available until April 30, 2026 or until all 50 batch slots are filled."
+        "answer": "The Standard starts at €1,920 and The Grand at €2,390. Prices are in EUR, with shipping calculated at checkout."
       },
       "q2": {
         "question": "What sizes are available?",
@@ -253,7 +253,7 @@
       },
       "q3": {
         "question": "What wood is the table made from?",
-        "answer": "Arcadian tables are crafted from solid European oak. We offer two finish options: Arcadian Dawn (natural light oak) and Pan's Shadow (rich walnut tones). A mystery third finish will be revealed exclusively to 2026 batch supporters."
+        "answer": "Arcadian tables are crafted from solid European oak. We offer two finish options: Arcadian Dawn (natural light oak) and Pan's Shadow (rich walnut tones). A mystery third finish will be revealed soon."
       },
       "q4": {
         "question": "How long does assembly take?",
@@ -281,7 +281,7 @@
       },
       "q10": {
         "question": "When will my table ship?",
-        "answer": "The 2026 batch is estimated to ship in Q3 2026. We'll provide regular updates to all supporters throughout the production process."
+        "answer": "Current orders are estimated to ship in Q3 2026. We'll provide regular updates throughout the production process."
       },
       "q11": {
         "question": "Do you ship internationally?",
@@ -308,8 +308,8 @@
     "lastUpdated": "Last updated: December 2025",
     "section1Title": "1. Agreement to Terms",
     "section1Text": "By accessing or using the Arcadian website and services, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.",
-    "section2Title": "2. Orders & 2026 Batch",
-    "section2Text": "Arcadian tables are available through our 2026 Q1 batch. By placing an order, you are securing your spot in the current production run. Order details, pricing, and delivery timelines are provided during the checkout process.",
+    "section2Title": "2. Orders",
+    "section2Text": "Arcadian tables are made to order. By placing an order, you reserve a table in our current production run. Order details, pricing, and delivery timelines are provided during the checkout process.",
     "section3Title": "3. Product Information",
     "section3Text": "We strive to provide accurate product descriptions, images, and specifications. However, as our products are in development, final specifications may vary. We will communicate any significant changes to backers before fulfillment.",
     "section4Title": "4. Intellectual Property",
@@ -367,12 +367,12 @@
     "metaDescription": "Learn how Arcadian collects, uses, and protects your personal information. Our commitment to your privacy and data security."
   },
   "pricing": {
-    "label": "2026 Q1 Batch",
-    "batchLabel": "2026 Q1 Batch — Now Open",
-    "deadline": "Prices valid until April 30, 2026 or first 50 tables",
+    "label": "Pricing",
+    "batchLabel": "Now Taking Orders",
+    "note": "Made to order · Handcrafted in Serbia",
     "title": "Choose your",
     "titleAccent": "Arcadian.",
-    "subtitle": "Launch pricing for the first 50 tables. Solid oak. Handcrafted in Serbia. Delivered to your door.",
+    "subtitle": "Launch pricing on every Arcadian. Solid oak. Handcrafted in Serbia. Delivered to your door.",
     "standardName": "The Standard",
     "standardSeats": "Seats 4",
     "grandName": "The Grand",
@@ -390,8 +390,8 @@
       "delivery": "Flat-pack delivery",
       "assembly": "Single-tool assembly kit"
     },
-    "batchSizeLabel": "Batch Size",
-    "batchSizeValue": "50 Tables",
+    "craftLabel": "Production",
+    "craftValue": "Made to Order",
     "finePrint": "Prices in EUR. Shipping calculated at checkout. Estimated delivery Q3 2026.",
     "standardPrice": "\u20ac1,920",
     "grandPrice": "\u20ac2,390",
@@ -460,7 +460,8 @@
     "summaryTitle": "Order Summary",
     "summaryFelt": "Felt",
     "summaryExtraFelt": "Extra Felt",
-    "summaryBatch": "2026 Q1 Batch",
+    "summaryProduction": "Production",
+    "summaryProductionValue": "Made to order",
     "summaryDelivery": "Estimated Delivery",
     "summaryDeliveryValue": "Q3 2026",
     "summaryPrice": "Price",
@@ -472,18 +473,18 @@
     "successBack": "Back to Home",
     "successNextLabel": "What Happens Next",
     "successStep1Title": "Confirmation Email",
-    "successStep1Description": "Check your inbox for order details and your spot in the Q1 2026 batch.",
+    "successStep1Description": "Check your inbox for your order details.",
     "successStep2Title": "We'll Be in Touch",
     "successStep2Description": "Our team will reach out within 48 hours to confirm your order and arrange payment.",
     "successStep3Title": "Production Begins",
     "successStep3Description": "Your Arcadian table enters production with estimated delivery in Q3 2026.",
     "successOrderNumber": "Order placed",
-    "successBatchInfo": "2026 Q1 Batch",
+    "successProductionInfo": "Handcrafted to Order",
     "errorRequired": "Please fill in all fields and make your selections.",
     "errorEmail": "Please enter a valid email address.",
     "errorGeneric": "Something went wrong. Please try again.",
     "metaTitle": "Order | Arcadian - Premium Board Game Tables",
-    "metaDescription": "Order your Arcadian board game table. Choose your size and finish, and we'll be in touch to confirm your spot in the 2026 Q1 batch."
+    "metaDescription": "Order your Arcadian board game table. Choose your size and finish, and we'll be in touch to confirm your order."
   },
   "landingInstagram": {
     "heroHeadline": "The board game table your home deserves",
@@ -511,8 +512,8 @@
     "foundersText": "We're Nikola and Jana — a husband-and-wife team from Serbia. When we couldn't find a gaming table that met our standards, we designed our own and found master craftsmen who share our obsession with precision.",
     "foundersCaption": "Nikola & Jana, Founders",
     "faqTitle": "Common questions",
-    "finalCtaHeadline": "Only 50 tables in this batch",
-    "finalCtaText": "2026 Q1 batch pricing ends April 30 or when all slots are filled. Don't miss your seat at the table.",
+    "finalCtaHeadline": "Ready when you are",
+    "finalCtaText": "Every Arcadian is handcrafted to order in Serbia at launch pricing. Take your seat at the table.",
     "finalCtaCta": "Order Your Arcadian",
     "footerTerms": "Terms & Conditions",
     "footerPrivacy": "Privacy Policy"
@@ -556,6 +557,6 @@
   },
   "metadata": {
     "title": "Arcadian | Elevated Board Game Furniture",
-    "description": "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault. Order now — 2026 Q1 batch is open."
+    "description": "Premium board game tables that transform from elegant dining to immersive gaming. Handcrafted with solid oak, modular accessories, and a recessed vault. Order now — every table is handcrafted to order."
   }
 }
