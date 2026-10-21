@@ -162,8 +162,8 @@ export default async function BlogPost({ params }: PageProps) {
               Ready to Elevate Your Game Night?
             </h2>
             <p className="font-sans text-lg text-ink/60 mb-10 max-w-xl mx-auto">
-              The 2026 Q1 batch is now open. Order your Arcadian table today and
-              get exclusive batch pricing.
+              Orders are open. Order your Arcadian table today and we'll build
+              it to order in our workshop.
             </p>
             <Link
               href="/"

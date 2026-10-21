@@ -239,7 +239,7 @@ export default async function InstagramLandingPage({ params }: Props) {
               </span>
             </div>
             <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">
-              {pricing("deadline")}
+              {pricing("note")}
             </span>
           </div>
         </div>
@@ -513,10 +513,10 @@ export default async function InstagramLandingPage({ params }: Props) {
             <div className="flex flex-col gap-6 md:text-right shrink-0">
               <div>
                 <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">
-                  {pricing("batchSizeLabel")}
+                  {pricing("craftLabel")}
                 </div>
                 <div className="font-serif text-3xl md:text-4xl text-black">
-                  {pricing("batchSizeValue")}
+                  {pricing("craftValue")}
                 </div>
               </div>
               <div>

@@ -235,7 +235,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
             {t("successMessage")}
           </p>
 
-          {/* Batch tag */}
+          {/* Production tag */}
           <div
             className="mt-10 font-mono text-[10px] uppercase tracking-[0.25em] text-ink/30 border border-ink/10 px-5 py-2 rounded-full"
             style={{
@@ -243,7 +243,7 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                 "successFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both",
             }}
           >
-            {t("successBatchInfo")}
+            {t("successProductionInfo")}
           </div>
         </div>
 
@@ -864,9 +864,11 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
             <div className="space-y-4 mb-8">
               <div className="flex justify-between items-baseline">
                 <span className="font-sans text-sm text-ink/50">
-                  {t("summaryBatch")}
+                  {t("summaryProduction")}
                 </span>
-                <span className="font-mono text-sm text-ink/70">50 Tables</span>
+                <span className="font-mono text-sm text-ink/70">
+                  {t("summaryProductionValue")}
+                </span>
               </div>
               <div className="w-full h-px bg-ink/10" />
               <div className="flex justify-between items-baseline">

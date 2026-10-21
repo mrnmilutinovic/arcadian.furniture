@@ -767,18 +767,18 @@ export default function Home() {
             <div className="flex flex-col gap-6 md:text-right">
               <div>
                 <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">
-                  {t("cta.batchSizeLabel")}
+                  {t("cta.materialLabel")}
                 </div>
                 <div className="font-serif text-3xl md:text-4xl text-black">
-                  {t("cta.batchSizeValue")}
+                  {t("cta.materialValue")}
                 </div>
               </div>
               <div>
                 <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">
-                  {t("cta.earlyBirdLabel")}
+                  {t("cta.originLabel")}
                 </div>
                 <div className="font-serif text-3xl md:text-4xl text-black">
-                  {t("cta.earlyBirdValue")}
+                  {t("cta.originValue")}
                 </div>
               </div>
               <div>

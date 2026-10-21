@@ -40,7 +40,7 @@ export function PricingSection() {
       {/* Top edge — thin gold line */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
 
-      {/* Batch badge bar */}
+      {/* Status badge bar */}
       <div className="border-b border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -53,7 +53,7 @@ export function PricingSection() {
             </span>
           </div>
           <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">
-            {t("deadline")}
+            {t("note")}
           </span>
         </div>
       </div>
@@ -241,10 +241,10 @@ export function PricingSection() {
             </div>
             <div className="md:text-right shrink-0">
               <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/40 block mb-2">
-                {t("batchSizeLabel")}
+                {t("craftLabel")}
               </span>
               <span className="font-serif text-3xl text-white">
-                {t("batchSizeValue")}
+                {t("craftValue")}
               </span>
             </div>
           </div>
