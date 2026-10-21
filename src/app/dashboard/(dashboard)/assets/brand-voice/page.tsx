@@ -2,6 +2,7 @@
 
 import { MegaphoneIcon } from "lucide-react";
 import { motion } from "motion/react";
+import { voiceTraits } from "@/lib/brand";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -16,36 +17,6 @@ const fadeUp = {
   }),
 };
 
-const voiceTraits = [
-  {
-    trait: "Warm & Inviting",
-    description:
-      "Speak like a host welcoming friends to game night — approachable, genuine, never stuffy.",
-    do: "Pull up a chair and roll the dice.",
-    dont: "Please be seated at our premium gaming station.",
-  },
-  {
-    trait: "Confident, Not Boastful",
-    description:
-      "Let the craftsmanship speak for itself. State facts; avoid superlatives.",
-    do: "Hand-finished European oak, built to last decades.",
-    dont: "The absolute best table ever made!!!",
-  },
-  {
-    trait: "Playful with Purpose",
-    description:
-      "Board gaming is fun — our tone should reflect that while staying grounded in quality.",
-    do: "Your next campaign deserves a worthy battleground.",
-    dont: "OMG this table is SO epic you guys!!!",
-  },
-  {
-    trait: "Community-First",
-    description:
-      "We're building something together with our backers and partners, not selling at them.",
-    do: "Join the first 500 backers shaping the Arcadian experience.",
-    dont: "Buy now before it's too late!",
-  },
-];
 
 export default function BrandVoicePage() {
   return (

@@ -2,6 +2,7 @@
 
 import { QuoteIcon } from "lucide-react";
 import { motion } from "motion/react";
+import { talkingPoints } from "@/lib/brand";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -16,13 +17,6 @@ const fadeUp = {
   }),
 };
 
-const talkingPoints = [
-  "Arcadian tables are designed for board gamers who want premium furniture that enhances their gaming experience.",
-  "Each table features a recessed playing surface, integrated accessories, and a convertible dining top.",
-  "Made with sustainably sourced hardwood and hand-finished details.",
-  "Launching on Kickstarter — early supporters get exclusive pricing.",
-  "Available in multiple wood finishes to match any room aesthetic.",
-];
 
 export default function TalkingPointsPage() {
   return (

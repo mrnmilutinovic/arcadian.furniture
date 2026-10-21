@@ -131,6 +131,12 @@ export function Footer() {
               {t("privacyLink")}
             </Link>
             <Link
+              href={"/brand" as "/brand"}
+              className="font-serif text-xl md:text-2xl opacity-60 hover:opacity-100 hover:text-accent transition-colors"
+            >
+              {t("brandLink")}
+            </Link>
+            <Link
               href={"/b2b" as "/b2b"}
               className="font-serif text-xl md:text-2xl hover:text-accent transition-colors border border-white/20 px-4 py-1.5 rounded-full inline-flex items-center gap-2"
             >

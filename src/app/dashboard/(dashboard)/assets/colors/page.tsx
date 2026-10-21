@@ -2,6 +2,7 @@
 
 import { CheckIcon, ClipboardIcon, PaletteIcon } from "lucide-react";
 import { motion } from "motion/react";
+import { brandColors } from "@/lib/brand";
 import { useState } from "react";
 
 const fadeUp = {
@@ -17,15 +18,6 @@ const fadeUp = {
   }),
 };
 
-const brandColors = [
-  { name: "Paper", hex: "#f3f1ea" },
-  { name: "Ink", hex: "#1a1918" },
-  { name: "Accent", hex: "#cd4631" },
-  { name: "Oak", hex: "#5d4e3c" },
-  { name: "Wood Light", hex: "#d4c4a8" },
-  { name: "Wood Dark", hex: "#5c4033" },
-  { name: "Clay", hex: "#e3e0d6" },
-];
 
 export default function ColorsPage() {
   const [copiedHex, setCopiedHex] = useState<string | null>(null);

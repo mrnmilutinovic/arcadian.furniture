@@ -1,0 +1,531 @@
+- generic [active] [ref=e1]:
+  - navigation:
+    - generic:
+      - link [ref=e3] [cursor=pointer]:
+        - /url: /
+        - img "Arcadian Logo" [ref=e4]
+      - generic [ref=e7]:
+        - link "Table" [ref=e8] [cursor=pointer]:
+          - /url: /#transformation
+        - link "Sizes" [ref=e9] [cursor=pointer]:
+          - /url: /#sizing
+        - link "Finish" [ref=e10] [cursor=pointer]:
+          - /url: /#finish
+        - link "Add-ons" [ref=e11] [cursor=pointer]:
+          - /url: /#accessories
+        - link "Stories" [ref=e12] [cursor=pointer]:
+          - /url: /#stories
+        - link "Logs" [ref=e13] [cursor=pointer]:
+          - /url: /logs
+        - link "Q1 2026 Batch Pricing" [ref=e14] [cursor=pointer]:
+          - /url: /#pricing
+  - generic [ref=e15]:
+    - banner [ref=e16]:
+      - generic [ref=e17]:
+        - navigation "Breadcrumb" [ref=e18]:
+          - list [ref=e19]:
+            - listitem [ref=e20]:
+              - link "Home" [ref=e21] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e22]:
+              - generic [ref=e23]: /
+              - generic [ref=e24]: Brand
+        - heading "Brand Guidelines" [level=1] [ref=e25]
+        - paragraph [ref=e26]: Everything you need to feature Arcadian — logos, colors, typography, photography and copy. Free to use for press, partners and creators writing about Arcadian.
+        - navigation [ref=e27]:
+          - link "01 Logo" [ref=e28] [cursor=pointer]:
+            - /url: "#logo"
+          - link "02 Color" [ref=e29] [cursor=pointer]:
+            - /url: "#color"
+          - link "03 Typography" [ref=e30] [cursor=pointer]:
+            - /url: "#typography"
+          - link "04 Voice" [ref=e31] [cursor=pointer]:
+            - /url: "#voice"
+          - link "05 About Arcadian" [ref=e32] [cursor=pointer]:
+            - /url: "#about"
+          - link "06 Photography" [ref=e33] [cursor=pointer]:
+            - /url: "#photography"
+    - main [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - generic [ref=e38]: "01"
+            - generic [ref=e39]:
+              - heading "Logo" [level=2] [ref=e40]
+              - paragraph [ref=e41]: Our logo is a mint mark on charcoal. Always use the original files — never redraw or recreate it.
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - img "Arcadian Wordmark" [ref=e45]
+              - generic [ref=e46]:
+                - generic [ref=e47]:
+                  - paragraph [ref=e48]: Arcadian Wordmark
+                  - paragraph [ref=e49]: Primary horizontal lockup · SVG
+                - link "Download" [ref=e50] [cursor=pointer]:
+                  - /url: /focus-logo.svg
+            - generic [ref=e53]:
+              - img "Arcadian Mark" [ref=e55]
+              - generic [ref=e56]:
+                - generic [ref=e57]:
+                  - paragraph [ref=e58]: Arcadian Mark
+                  - paragraph [ref=e59]: Standalone symbol · SVG
+                - link "Download" [ref=e60] [cursor=pointer]:
+                  - /url: /new-logo.svg
+            - generic [ref=e63]:
+              - img "App Icon" [ref=e65]
+              - generic [ref=e66]:
+                - generic [ref=e67]:
+                  - paragraph [ref=e68]: App Icon
+                  - paragraph [ref=e69]: Circular avatar / profile image · SVG
+                - link "Download" [ref=e70] [cursor=pointer]:
+                  - /url: /arcadian-icon.svg
+          - generic [ref=e73]:
+            - heading "All logo files" [level=3] [ref=e74]
+            - list [ref=e75]:
+              - listitem [ref=e76]:
+                - generic [ref=e77]: arcadian-cut-1.png
+                - link "Download" [ref=e80] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-1.png
+              - listitem [ref=e83]:
+                - generic [ref=e84]: arcadian-cut-1.svg
+                - link "Download" [ref=e87] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-1.svg
+              - listitem [ref=e90]:
+                - generic [ref=e91]: arcadian-cut-10.png
+                - link "Download" [ref=e94] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-10.png
+              - listitem [ref=e97]:
+                - generic [ref=e98]: arcadian-cut-10.svg
+                - link "Download" [ref=e101] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-10.svg
+              - listitem [ref=e104]:
+                - generic [ref=e105]: arcadian-cut-11.png
+                - link "Download" [ref=e108] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-11.png
+              - listitem [ref=e111]:
+                - generic [ref=e112]: arcadian-cut-11.svg
+                - link "Download" [ref=e115] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-11.svg
+              - listitem [ref=e118]:
+                - generic [ref=e119]: arcadian-cut-12.png
+                - link "Download" [ref=e122] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-12.png
+              - listitem [ref=e125]:
+                - generic [ref=e126]: arcadian-cut-12.svg
+                - link "Download" [ref=e129] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-12.svg
+              - listitem [ref=e132]:
+                - generic [ref=e133]: arcadian-cut-2.png
+                - link "Download" [ref=e136] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-2.png
+              - listitem [ref=e139]:
+                - generic [ref=e140]: arcadian-cut-2.svg
+                - link "Download" [ref=e143] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-2.svg
+              - listitem [ref=e146]:
+                - generic [ref=e147]: arcadian-cut-3.png
+                - link "Download" [ref=e150] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-3.png
+              - listitem [ref=e153]:
+                - generic [ref=e154]: arcadian-cut-3.svg
+                - link "Download" [ref=e157] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-3.svg
+              - listitem [ref=e160]:
+                - generic [ref=e161]: arcadian-cut-4.png
+                - link "Download" [ref=e164] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-4.png
+              - listitem [ref=e167]:
+                - generic [ref=e168]: arcadian-cut-4.svg
+                - link "Download" [ref=e171] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-4.svg
+              - listitem [ref=e174]:
+                - generic [ref=e175]: arcadian-cut-5.png
+                - link "Download" [ref=e178] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-5.png
+              - listitem [ref=e181]:
+                - generic [ref=e182]: arcadian-cut-5.svg
+                - link "Download" [ref=e185] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-5.svg
+              - listitem [ref=e188]:
+                - generic [ref=e189]: arcadian-cut-6.png
+                - link "Download" [ref=e192] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-6.png
+              - listitem [ref=e195]:
+                - generic [ref=e196]: arcadian-cut-6.svg
+                - link "Download" [ref=e199] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-6.svg
+              - listitem [ref=e202]:
+                - generic [ref=e203]: arcadian-cut-7.png
+                - link "Download" [ref=e206] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-7.png
+              - listitem [ref=e209]:
+                - generic [ref=e210]: arcadian-cut-7.svg
+                - link "Download" [ref=e213] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-7.svg
+              - listitem [ref=e216]:
+                - generic [ref=e217]: arcadian-cut-8.png
+                - link "Download" [ref=e220] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-8.png
+              - listitem [ref=e223]:
+                - generic [ref=e224]: arcadian-cut-8.svg
+                - link "Download" [ref=e227] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-8.svg
+              - listitem [ref=e230]:
+                - generic [ref=e231]: arcadian-cut-9.png
+                - link "Download" [ref=e234] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-9.png
+              - listitem [ref=e237]:
+                - generic [ref=e238]: arcadian-cut-9.svg
+                - link "Download" [ref=e241] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/arcadian-cut-9.svg
+              - listitem [ref=e244]:
+                - generic [ref=e245]: dark-background-logo.svg
+                - link "Download" [ref=e248] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/dark-background-logo.svg
+              - listitem [ref=e251]:
+                - generic [ref=e252]: dark-background-logo@2x.png
+                - link "Download" [ref=e255] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/dark-background-logo%402x.png
+              - listitem [ref=e258]:
+                - generic [ref=e259]: light-background-logo.svg
+                - link "Download" [ref=e262] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/light-background-logo.svg
+              - listitem [ref=e265]:
+                - generic [ref=e266]: light-background-logo@2x.png
+                - link "Download" [ref=e269] [cursor=pointer]:
+                  - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/logo/light-background-logo%402x.png
+          - generic [ref=e272]:
+            - generic [ref=e273]:
+              - paragraph [ref=e274]: Do
+              - list [ref=e275]:
+                - listitem [ref=e276]: Place the logo on Ink or dark photography for maximum contrast.
+                - listitem [ref=e277]: Keep clear space around the logo equal to the height of the mark's crown.
+                - listitem [ref=e278]: Use the provided SVG files whenever possible; PNG for slides and social.
+            - generic [ref=e279]:
+              - paragraph [ref=e280]: Don't
+              - list [ref=e281]:
+                - listitem [ref=e282]: Stretch, rotate, or skew the logo.
+                - listitem [ref=e283]: Recolor the logo outside the provided versions.
+                - listitem [ref=e284]: Add shadows, outlines, gradients or other effects.
+                - listitem [ref=e285]: Place the logo on busy backgrounds where it loses legibility.
+        - generic [ref=e286]:
+          - generic [ref=e287]:
+            - generic [ref=e288]: "02"
+            - generic [ref=e289]:
+              - heading "Color" [level=2] [ref=e290]
+              - paragraph [ref=e291]: Earthy, warm and timeless — drawn from oak, paper and the felt of a well-loved game table. Accent is used sparingly.
+          - generic [ref=e292]:
+            - generic [ref=e293]:
+              - paragraph [ref=e295]: Paper
+              - generic [ref=e296]:
+                - generic [ref=e297]: "#f3f1ea"
+                - 'button "Copy: #f3f1ea" [ref=e298]': Copy
+              - paragraph [ref=e302]: Primary background
+            - generic [ref=e303]:
+              - paragraph [ref=e305]: Ink
+              - generic [ref=e306]:
+                - generic [ref=e307]: "#1a1918"
+                - 'button "Copy: #1a1918" [ref=e308]': Copy
+              - paragraph [ref=e312]: Text and dark surfaces
+            - generic [ref=e313]:
+              - paragraph [ref=e315]: Accent
+              - generic [ref=e316]:
+                - generic [ref=e317]: "#cd4631"
+                - 'button "Copy: #cd4631" [ref=e318]': Copy
+              - paragraph [ref=e322]: Calls to action, highlights
+            - generic [ref=e323]:
+              - paragraph [ref=e325]: Oak
+              - generic [ref=e326]:
+                - generic [ref=e327]: "#5d4e3c"
+                - 'button "Copy: #5d4e3c" [ref=e328]': Copy
+              - paragraph [ref=e332]: Secondary text, warm details
+            - generic [ref=e333]:
+              - paragraph [ref=e335]: Wood Light
+              - generic [ref=e336]:
+                - generic [ref=e337]: "#d4c4a8"
+                - 'button "Copy: #d4c4a8" [ref=e338]': Copy
+              - paragraph [ref=e342]: Borders, muted UI on dark
+            - generic [ref=e343]:
+              - paragraph [ref=e345]: Wood Dark
+              - generic [ref=e346]:
+                - generic [ref=e347]: "#5c4033"
+                - 'button "Copy: #5c4033" [ref=e348]': Copy
+              - paragraph [ref=e352]: Deep wood tones
+            - generic [ref=e353]:
+              - paragraph [ref=e355]: Clay
+              - generic [ref=e356]:
+                - generic [ref=e357]: "#e3e0d6"
+                - 'button "Copy: #e3e0d6" [ref=e358]': Copy
+              - paragraph [ref=e362]: Cards and soft panels
+            - generic [ref=e363]:
+              - paragraph [ref=e365]: Logo Mint
+              - generic [ref=e366]:
+                - generic [ref=e367]: "#d4f7d2"
+                - 'button "Copy: #d4f7d2" [ref=e368]': Copy
+              - paragraph [ref=e372]: Logo mark only
+            - generic [ref=e373]:
+              - paragraph [ref=e375]: Logo Charcoal
+              - generic [ref=e376]:
+                - generic [ref=e377]: "#181818"
+                - 'button "Copy: #181818" [ref=e378]': Copy
+              - paragraph [ref=e382]: Logo background
+        - generic [ref=e383]:
+          - generic [ref=e384]:
+            - generic [ref=e385]: "03"
+            - generic [ref=e386]:
+              - heading "Typography" [level=2] [ref=e387]
+              - paragraph [ref=e388]: All typefaces are free on Google Fonts. Headlines are set in serif, often with an italic accent word.
+          - generic [ref=e389]:
+            - generic [ref=e390]:
+              - generic [ref=e391]: Headlines
+              - generic [ref=e392]:
+                - paragraph [ref=e393]: Cormorant Garamond
+                - paragraph [ref=e394]: Elegant serif for headlines and display text
+              - link "Google Fonts ↗" [ref=e395] [cursor=pointer]:
+                - /url: https://fonts.google.com/specimen/Cormorant+Garamond
+            - generic [ref=e396]:
+              - generic [ref=e397]: Body
+              - generic [ref=e398]:
+                - paragraph [ref=e399]: Manrope
+                - paragraph [ref=e400]: Clean geometric sans-serif for body copy
+              - link "Google Fonts ↗" [ref=e401] [cursor=pointer]:
+                - /url: https://fonts.google.com/specimen/Manrope
+            - generic [ref=e402]:
+              - generic [ref=e403]: Labels
+              - generic [ref=e404]:
+                - paragraph [ref=e405]: Space Mono
+                - paragraph [ref=e406]: Monospace for small caps labels, specs and metadata
+              - link "Google Fonts ↗" [ref=e407] [cursor=pointer]:
+                - /url: https://fonts.google.com/specimen/Space+Mono
+            - generic [ref=e408]:
+              - generic [ref=e409]: Accent
+              - generic [ref=e410]:
+                - paragraph [ref=e411]: Caveat
+                - paragraph [ref=e412]: Handwritten brush for personality touches
+              - link "Google Fonts ↗" [ref=e413] [cursor=pointer]:
+                - /url: https://fonts.google.com/specimen/Caveat
+            - generic [ref=e414]:
+              - generic [ref=e415]: Logo
+              - generic [ref=e416]:
+                - paragraph [ref=e417]: Staatliches
+                - paragraph [ref=e418]: Strong display font for logo lockups and brand marks
+              - link "Google Fonts ↗" [ref=e419] [cursor=pointer]:
+                - /url: https://fonts.google.com/specimen/Staatliches
+        - generic [ref=e420]:
+          - generic [ref=e421]:
+            - generic [ref=e422]: "04"
+            - generic [ref=e423]:
+              - heading "Voice" [level=2] [ref=e424]
+              - paragraph [ref=e425]: How Arcadian sounds — like a host welcoming friends to game night.
+          - generic [ref=e426]:
+            - generic [ref=e427]:
+              - heading "Warm & Inviting" [level=3] [ref=e428]
+              - paragraph [ref=e429]: Speak like a host welcoming friends to game night — approachable, genuine, never stuffy.
+              - generic [ref=e430]:
+                - paragraph [ref=e431]: Do“Pull up a chair and roll the dice.”
+                - paragraph [ref=e432]: Don't“Please be seated at our premium gaming station.”
+            - generic [ref=e433]:
+              - heading "Confident, Not Boastful" [level=3] [ref=e434]
+              - paragraph [ref=e435]: Let the craftsmanship speak for itself. State facts; avoid superlatives.
+              - generic [ref=e436]:
+                - paragraph [ref=e437]: Do“Hand-finished European oak, built to last decades.”
+                - paragraph [ref=e438]: Don't“The absolute best table ever made!!!”
+            - generic [ref=e439]:
+              - heading "Playful with Purpose" [level=3] [ref=e440]
+              - paragraph [ref=e441]: Board gaming is fun — our tone should reflect that while staying grounded in quality.
+              - generic [ref=e442]:
+                - paragraph [ref=e443]: Do“Your next campaign deserves a worthy battleground.”
+                - paragraph [ref=e444]: Don't“OMG this table is SO epic you guys!!!”
+            - generic [ref=e445]:
+              - heading "Community-First" [level=3] [ref=e446]
+              - paragraph [ref=e447]: We're building something together with our backers and partners, not selling at them.
+              - generic [ref=e448]:
+                - paragraph [ref=e449]: Do“Join the first 500 backers shaping the Arcadian experience.”
+                - paragraph [ref=e450]: Don't“Buy now before it's too late!”
+        - generic [ref=e451]:
+          - generic [ref=e452]:
+            - generic [ref=e453]: "05"
+            - generic [ref=e454]:
+              - heading "About Arcadian" [level=2] [ref=e455]
+              - paragraph [ref=e456]: Ready-to-use copy for articles, listings and partner pages.
+          - generic [ref=e457]:
+            - generic [ref=e458]:
+              - generic [ref=e459]:
+                - paragraph [ref=e460]: Boilerplate
+                - 'button "Copy: Arcadian makes premium board game tables that transform from an elegant dining table into an immersive gaming surface in seconds. Handcrafted in Serbia from solid European oak, each table features a recessed play vault, a magnetic rail system for modular accessories, and solid oak dining toppers finished with a plant-based, 0% VOC hardwax oil. Arcadian is designed for families who play — for game nights that run late and campaigns that span months." [ref=e461]': Copy
+              - paragraph [ref=e465]: Arcadian makes premium board game tables that transform from an elegant dining table into an immersive gaming surface in seconds. Handcrafted in Serbia from solid European oak, each table features a recessed play vault, a magnetic rail system for modular accessories, and solid oak dining toppers finished with a plant-based, 0% VOC hardwax oil. Arcadian is designed for families who play — for game nights that run late and campaigns that span months.
+            - generic [ref=e466]:
+              - paragraph [ref=e467]: Key messages
+              - list [ref=e468]:
+                - listitem [ref=e469]:
+                  - generic [ref=e470]: "01"
+                  - paragraph [ref=e471]: Arcadian tables are designed for board gamers who want premium furniture that enhances their gaming experience.
+                - listitem [ref=e472]:
+                  - generic [ref=e473]: "02"
+                  - paragraph [ref=e474]: Each table features a recessed playing surface, integrated accessories, and a convertible dining top.
+                - listitem [ref=e475]:
+                  - generic [ref=e476]: "03"
+                  - paragraph [ref=e477]: Made with sustainably sourced hardwood and hand-finished details.
+                - listitem [ref=e478]:
+                  - generic [ref=e479]: "04"
+                  - paragraph [ref=e480]: Launching on Kickstarter — early supporters get exclusive pricing.
+                - listitem [ref=e481]:
+                  - generic [ref=e482]: "05"
+                  - paragraph [ref=e483]: Available in multiple wood finishes to match any room aesthetic.
+        - generic [ref=e484]:
+          - generic [ref=e485]:
+            - generic [ref=e486]: "06"
+            - generic [ref=e487]:
+              - heading "Photography" [level=2] [ref=e488]
+              - paragraph [ref=e489]: High-resolution product photography. Please credit “Arcadian” when publishing.
+          - generic [ref=e490]:
+            - link "JB018153.jpg JB018153.jpg" [ref=e491] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018153.jpg
+              - img "JB018153.jpg" [ref=e492]
+              - generic [ref=e493]: JB018153.jpg
+            - link "B0015982.jpg B0015982.jpg" [ref=e497] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/B0015982.jpg
+              - img "B0015982.jpg" [ref=e498]
+              - generic [ref=e499]: B0015982.jpg
+            - link "B0015861.jpg B0015861.jpg" [ref=e503] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/B0015861.jpg
+              - img "B0015861.jpg" [ref=e504]
+              - generic [ref=e505]: B0015861.jpg
+            - link "JB018161.jpg JB018161.jpg" [ref=e509] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018161.jpg
+              - img "JB018161.jpg" [ref=e510]
+              - generic [ref=e511]: JB018161.jpg
+            - link "B0016175.jpg B0016175.jpg" [ref=e515] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/B0016175.jpg
+              - img "B0016175.jpg" [ref=e516]
+              - generic [ref=e517]: B0016175.jpg
+            - link "JB017786.jpg JB017786.jpg" [ref=e521] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB017786.jpg
+              - img "JB017786.jpg" [ref=e522]
+              - generic [ref=e523]: JB017786.jpg
+            - link "JB017764.jpg JB017764.jpg" [ref=e527] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB017764.jpg
+              - img "JB017764.jpg" [ref=e528]
+              - generic [ref=e529]: JB017764.jpg
+            - link "JB018976.jpg JB018976.jpg" [ref=e533] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018976.jpg
+              - img "JB018976.jpg" [ref=e534]
+              - generic [ref=e535]: JB018976.jpg
+            - link "JB018382.jpg JB018382.jpg" [ref=e539] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018382.jpg
+              - img "JB018382.jpg" [ref=e540]
+              - generic [ref=e541]: JB018382.jpg
+            - link "JB018025.jpg JB018025.jpg" [ref=e545] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018025.jpg
+              - img "JB018025.jpg" [ref=e546]
+              - generic [ref=e547]: JB018025.jpg
+            - link "JB018029.jpg JB018029.jpg" [ref=e551] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018029.jpg
+              - img "JB018029.jpg" [ref=e552]
+              - generic [ref=e553]: JB018029.jpg
+            - link "JB018023.jpg JB018023.jpg" [ref=e557] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018023.jpg
+              - img "JB018023.jpg" [ref=e558]
+              - generic [ref=e559]: JB018023.jpg
+            - link "JB019018.jpg JB019018.jpg" [ref=e563] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB019018.jpg
+              - img "JB019018.jpg" [ref=e564]
+              - generic [ref=e565]: JB019018.jpg
+            - link "JB017276.jpg JB017276.jpg" [ref=e569] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB017276.jpg
+              - img "JB017276.jpg" [ref=e570]
+              - generic [ref=e571]: JB017276.jpg
+            - link "B0015808.jpg B0015808.jpg" [ref=e575] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/B0015808.jpg
+              - img "B0015808.jpg" [ref=e576]
+              - generic [ref=e577]: B0015808.jpg
+            - link "JB018074.jpg JB018074.jpg" [ref=e581] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018074.jpg
+              - img "JB018074.jpg" [ref=e582]
+              - generic [ref=e583]: JB018074.jpg
+            - link "JB018845.jpg JB018845.jpg" [ref=e587] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018845.jpg
+              - img "JB018845.jpg" [ref=e588]
+              - generic [ref=e589]: JB018845.jpg
+            - link "JB018048.jpg JB018048.jpg" [ref=e593] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018048.jpg
+              - img "JB018048.jpg" [ref=e594]
+              - generic [ref=e595]: JB018048.jpg
+            - link "JB019004.jpg JB019004.jpg" [ref=e599] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB019004.jpg
+              - img "JB019004.jpg" [ref=e600]
+              - generic [ref=e601]: JB019004.jpg
+            - link "B0015811.jpg B0015811.jpg" [ref=e605] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/B0015811.jpg
+              - img "B0015811.jpg" [ref=e606]
+              - generic [ref=e607]: B0015811.jpg
+            - link "JB017849.jpg JB017849.jpg" [ref=e611] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB017849.jpg
+              - img "JB017849.jpg" [ref=e612]
+              - generic [ref=e613]: JB017849.jpg
+            - link "JB018951.jpg JB018951.jpg" [ref=e617] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018951.jpg
+              - img "JB018951.jpg" [ref=e618]
+              - generic [ref=e619]: JB018951.jpg
+            - link "JB018066.jpg JB018066.jpg" [ref=e623] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018066.jpg
+              - img "JB018066.jpg" [ref=e624]
+              - generic [ref=e625]: JB018066.jpg
+            - link "JB018864.jpg JB018864.jpg" [ref=e629] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018864.jpg
+              - img "JB018864.jpg" [ref=e630]
+              - generic [ref=e631]: JB018864.jpg
+            - link "JB018863.jpg JB018863.jpg" [ref=e635] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB018863.jpg
+              - img "JB018863.jpg" [ref=e636]
+              - generic [ref=e637]: JB018863.jpg
+            - link "JB017842.jpg JB017842.jpg" [ref=e641] [cursor=pointer]:
+              - /url: https://xncqromk9vcqad54.public.blob.vercel-storage.com/branding/photography/JB017842.jpg
+              - img "JB017842.jpg" [ref=e642]
+              - generic [ref=e643]: JB017842.jpg
+        - generic [ref=e648]:
+          - generic [ref=e649]: Press
+          - generic [ref=e650]:
+            - paragraph [ref=e651]: Need something else? Interviews, samples or custom assets.
+            - link "hello@arcadiantables.com" [ref=e652] [cursor=pointer]:
+              - /url: mailto:hello@arcadiantables.com
+    - contentinfo [ref=e653]:
+      - generic [ref=e654]:
+        - generic [ref=e655]:
+          - generic [ref=e656]:
+            - img "Arcadian Logo" [ref=e658]
+            - paragraph [ref=e659]: Designed for families who play. For game nights that run late. For campaigns that span months.
+          - generic [ref=e660]:
+            - paragraph [ref=e661]: Stay Updated
+            - generic [ref=e662]:
+              - textbox "ENTER YOUR EMAIL" [ref=e663]
+              - button "Join" [ref=e664]
+        - generic [ref=e665]:
+          - navigation [ref=e666]:
+            - link "Instagram" [ref=e667] [cursor=pointer]:
+              - /url: https://instagram.com/arcadiantables
+            - link "Order Now" [ref=e668] [cursor=pointer]:
+              - /url: /order
+            - link "Logs" [ref=e669] [cursor=pointer]:
+              - /url: /logs
+            - link "Blog" [ref=e670] [cursor=pointer]:
+              - /url: /blog
+            - link "About Us" [ref=e671] [cursor=pointer]:
+              - /url: /about
+            - link "FAQ" [ref=e672] [cursor=pointer]:
+              - /url: /faq
+            - link "Terms & Conditions" [ref=e674] [cursor=pointer]:
+              - /url: /terms
+            - link "Privacy Policy" [ref=e675] [cursor=pointer]:
+              - /url: /privacy
+            - link "Brand Kit" [ref=e676] [cursor=pointer]:
+              - /url: /brand
+            - link "B2B Partnerships" [ref=e677] [cursor=pointer]:
+              - /url: /b2b
+          - generic [ref=e681]:
+            - generic [ref=e683]:
+              - button "EN" [ref=e684]
+              - generic [ref=e685]: "|"
+              - button "SR" [ref=e686]
+            - generic [ref=e687]: © 2026 Arcadian. All rights reserved.Designed & Crafted in Serbia.
+  - button "Open Next.js Dev Tools" [ref=e693] [cursor=pointer]
+  - alert [ref=e697]

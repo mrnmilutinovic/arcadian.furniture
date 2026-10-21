@@ -100,6 +100,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    // Brand guidelines / press kit
+    {
+      url: `${baseUrl}/brand`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
     // Logs
     {
       url: `${baseUrl}/logs`,

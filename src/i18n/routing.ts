@@ -35,6 +35,7 @@ export const routing = defineRouting({
       sr: "/poslovni-kontakt",
     },
     "/lp/instagram": "/lp/instagram",
+    "/brand": "/brand",
   },
 });
 

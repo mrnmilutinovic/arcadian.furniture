@@ -1,0 +1,9 @@
+[     886ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2302
+[     962ms] [LOG] [HMR] connected @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2302
+[    2067ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2302
+[    2082ms] [LOG] [Fast Refresh] done in 116ms @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2302
+[    2126ms] [WARNING] [Meta pixel] 1617507459433134 is unavailable on this website due to it's traffic permission settings. Go to https://www.facebook.com/business/help/572690630080597 to learn more. @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2302
+[   20701ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2302
+[   20813ms] [LOG] [Fast Refresh] done in 42ms @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2302
+[   45347ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2302
+[   45473ms] [LOG] [Fast Refresh] done in 39ms @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2302
