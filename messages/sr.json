@@ -192,9 +192,7 @@
       "materialLabel": "Materijal",
       "materialValue": "Pun hrast",
       "originLabel": "Ručno izrađen u",
-      "originValue": "Srbiji",
-      "deliveryLabel": "Procenjena isporuka",
-      "deliveryValue": "Q3 2026"
+      "originValue": "Srbiji"
     }
   },
   "about": {
@@ -282,11 +280,11 @@
       },
       "q10": {
         "question": "Kada \u0107e moj sto biti isporu\u010den?",
-        "answer": "Trenutne narudžbine planirane su za isporuku u Q3 2026. Pružaćemo redovna ažuriranja tokom procesa proizvodnje."
+        "answer": "Svaki sto se izrađuje po narudžbini. Rok isporuke potvrdićemo prilikom potvrde narudžbine i redovno vas obaveštavati tokom proizvodnje."
       },
       "q11": {
         "question": "Da li isporu\u010dujete me\u0111unarodno?",
-        "answer": "Da. Isporu\u010dujemo \u0161irom Evrope. Tro\u0161kovi dostave se obra\u010dunavaju pri narud\u017ebini na osnovu va\u0161e lokacije. Procenjena isporuka je Q3 2026."
+        "answer": "Da. Isporučujemo širom Evrope. Troškovi dostave se obračunavaju pri narudžbini na osnovu vaše lokacije."
       },
       "q12": {
         "question": "\u0160ta je uklju\u010deno u sto?",
@@ -393,7 +391,7 @@
     },
     "craftLabel": "Proizvodnja",
     "craftValue": "Po narudžbini",
-    "finePrint": "Cene u RSD. Dostava se obra\u010dunava pri narud\u017ebini. Procenjena isporuka Q3 2026.",
+    "finePrint": "Cene u RSD. Dostava se obračunava pri narudžbini.",
     "standardPrice": "224.000 RSD",
     "grandPrice": "279.000 RSD",
     "installmentAmount3Standard": "74.000",
@@ -473,8 +471,6 @@
     "summaryExtraFelt": "Dodatni filc",
     "summaryProduction": "Proizvodnja",
     "summaryProductionValue": "Po narudžbini",
-    "summaryDelivery": "Procenjena isporuka",
-    "summaryDeliveryValue": "Q3 2026",
     "summaryPrice": "Cena",
     "submitButton": "Pošalji porudžbinu",
     "submitting": "Šaljem...",
@@ -488,7 +484,7 @@
     "successStep2Title": "Kontaktiraćemo vas",
     "successStep2Description": "Naš tim će vam se javiti u roku od 48 sati da potvrdi porudžbinu i dogovori plaćanje.",
     "successStep3Title": "Početak proizvodnje",
-    "successStep3Description": "Vaš Arcadian sto ulazi u proizvodnju sa procenjenom isporukom u Q3 2026.",
+    "successStep3Description": "Vaš Arcadian sto ulazi u proizvodnju, a mi vas obaveštavamo sve do isporuke.",
     "successOrderNumber": "Porudžbina poslata",
     "successProductionInfo": "Ručna izrada po narudžbini",
     "paymentOptionsLabel": "Način plaćanja",

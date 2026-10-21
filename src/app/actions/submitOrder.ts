@@ -133,8 +133,7 @@ export async function submitOrder(
               <tr><td style="padding:12px 0;color:#666;border-bottom:1px solid #eee;">Finish</td><td style="padding:12px 0;text-align:right;border-bottom:1px solid #eee;">${finishName}</td></tr>
               <tr><td style="padding:12px 0;color:#666;border-bottom:1px solid #eee;">Felt</td><td style="padding:12px 0;text-align:right;border-bottom:1px solid #eee;">${feltName}</td></tr>
               ${extraFeltCustomerRows}
-              <tr><td style="padding:12px 0;color:#666;border-bottom:1px solid #eee;">Price</td><td style="padding:12px 0;text-align:right;font-weight:600;border-bottom:1px solid #eee;">${tablePrice}</td></tr>
-              <tr><td style="padding:12px 0;color:#666;">Est. Delivery</td><td style="padding:12px 0;text-align:right;">Q3 2026</td></tr>
+              <tr><td style="padding:12px 0;color:#666;">Price</td><td style="padding:12px 0;text-align:right;font-weight:600;">${tablePrice}</td></tr>
             </table>
             <p style="color:#999;font-size:13px;line-height:1.5;">If you have any questions, just reply to this email or reach out at hello@arcadiantables.com.</p>
             <p style="color:#999;font-size:13px;">— The Arcadian Team</p>

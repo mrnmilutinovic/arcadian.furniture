@@ -781,14 +781,6 @@ export default function Home() {
                   {t("cta.originValue")}
                 </div>
               </div>
-              <div>
-                <div className="font-mono text-xs uppercase tracking-widest text-black/50 mb-1">
-                  {t("cta.deliveryLabel")}
-                </div>
-                <div className="font-serif text-3xl md:text-4xl text-black">
-                  {t("cta.deliveryValue")}
-                </div>
-              </div>
             </div>
           </div>
         </div>

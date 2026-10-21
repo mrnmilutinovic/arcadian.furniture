@@ -870,15 +870,6 @@ export function OrderForm({ defaultSize, defaultFinish }: OrderFormProps) {
                   {t("summaryProductionValue")}
                 </span>
               </div>
-              <div className="w-full h-px bg-ink/10" />
-              <div className="flex justify-between items-baseline">
-                <span className="font-sans text-sm text-ink/50">
-                  {t("summaryDelivery")}
-                </span>
-                <span className="font-mono text-sm text-ink/70">
-                  {t("summaryDeliveryValue")}
-                </span>
-              </div>
               {extraFelts.length > 0 && (
                 <>
                   <div className="w-full h-px bg-ink/10" />

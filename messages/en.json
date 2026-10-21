@@ -192,9 +192,7 @@
       "materialLabel": "Material",
       "materialValue": "Solid Oak",
       "originLabel": "Handcrafted in",
-      "originValue": "Serbia",
-      "deliveryLabel": "Estimated Delivery",
-      "deliveryValue": "Q3 2026"
+      "originValue": "Serbia"
     }
   },
   "about": {
@@ -282,11 +280,11 @@
       },
       "q10": {
         "question": "When will my table ship?",
-        "answer": "Current orders are estimated to ship in Q3 2026. We'll provide regular updates throughout the production process."
+        "answer": "Every table is made to order. We'll confirm your delivery timeline when we confirm your order and provide regular updates throughout production."
       },
       "q11": {
         "question": "Do you ship internationally?",
-        "answer": "Yes. We ship across Europe. Shipping costs are calculated at checkout based on your location. Delivery is estimated for Q3 2026."
+        "answer": "Yes. We ship across Europe. Shipping costs are calculated at checkout based on your location."
       },
       "q12": {
         "question": "What's included with the table?",
@@ -393,7 +391,7 @@
     },
     "craftLabel": "Production",
     "craftValue": "Made to Order",
-    "finePrint": "Prices in EUR. Shipping calculated at checkout. Estimated delivery Q3 2026.",
+    "finePrint": "Prices in EUR. Shipping calculated at checkout.",
     "standardPrice": "\u20ac1,920",
     "grandPrice": "\u20ac2,390",
     "installmentAmount3Standard": "640",
@@ -463,8 +461,6 @@
     "summaryExtraFelt": "Extra Felt",
     "summaryProduction": "Production",
     "summaryProductionValue": "Made to order",
-    "summaryDelivery": "Estimated Delivery",
-    "summaryDeliveryValue": "Q3 2026",
     "summaryPrice": "Price",
     "submitButton": "Submit Order",
     "submitting": "Submitting...",
@@ -478,7 +474,7 @@
     "successStep2Title": "We'll Be in Touch",
     "successStep2Description": "Our team will reach out within 48 hours to confirm your order and arrange payment.",
     "successStep3Title": "Production Begins",
-    "successStep3Description": "Your Arcadian table enters production with estimated delivery in Q3 2026.",
+    "successStep3Description": "Your Arcadian table enters production, and we'll keep you updated until it's delivered.",
     "successOrderNumber": "Order placed",
     "successProductionInfo": "Handcrafted to Order",
     "errorRequired": "Please fill in all fields and make your selections.",
