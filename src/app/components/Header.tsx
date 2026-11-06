@@ -79,10 +79,10 @@ export function Header() {
   return (
     <>
       {/* HEADER / NAV — Split Console */}
-      <nav className="w-full fixed top-0 z-40 pointer-events-none">
+      <nav className="w-full fixed top-[var(--promo-h)] z-40 pointer-events-none">
         <div className="flex items-start justify-between pr-4 md:pr-6 pt-4 md:pt-6">
           {/* Left: Logo Ribbon dropping from top */}
-          <div className="pointer-events-auto fixed top-0 left-4 md:left-6">
+          <div className="pointer-events-auto fixed top-[var(--promo-h)] left-4 md:left-6">
             <Link
               href="/"
               className="relative w-16 md:w-20 pt-10 pb-5 md:pt-14 md:pb-6 rounded-b-full flex items-end justify-center block"
@@ -182,7 +182,7 @@ export function Header() {
 
         {/* Menu Panel - drops from top right */}
         <div
-          className={`absolute top-24 right-4 left-4 transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
+          className={`absolute top-[calc(6rem+var(--promo-h))] right-4 left-4 transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
         >
           <div
             className="p-2 rounded-2xl"

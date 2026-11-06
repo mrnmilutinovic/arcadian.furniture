@@ -1,4 +1,14 @@
 {
+  "gamescon": {
+    "ariaLabel": "Games.con offer",
+    "live": "Live now",
+    "title": "We're at Games.con",
+    "offer": "Tables on display at the fair — special prices, over 50% off",
+    "offerShort": "Display tables 50%+ off",
+    "venue": "Novi Sad Fair · 6–8 Nov",
+    "cta": "Message us on Instagram",
+    "close": "Close banner"
+  },
   "header": {
     "logoAlt": "Arcadian Logo",
     "table": "Table",

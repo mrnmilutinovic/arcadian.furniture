@@ -357,3 +357,16 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Games.con promo banner height — header offsets itself while the banner is present */
+:root {
+  --promo-h: 0px;
+}
+html:has(#gamescon-banner) {
+  --promo-h: 44px;
+}
+@media (min-width: 768px) {
+  html:has(#gamescon-banner) {
+    --promo-h: 52px;
+  }
+}

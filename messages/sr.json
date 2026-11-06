@@ -1,4 +1,14 @@
 {
+  "gamescon": {
+    "ariaLabel": "Games.con ponuda",
+    "live": "Uživo",
+    "title": "Na Games.con-u smo",
+    "offer": "Izloženi stolovi sa sajma — specijalne cene, popust preko 50%",
+    "offerShort": "Izloženi stolovi -50%+",
+    "venue": "Novosadski sajam · 6–8. nov",
+    "cta": "Pišite nam na Instagramu",
+    "close": "Zatvori baner"
+  },
   "header": {
     "logoAlt": "Arcadian Logo",
     "table": "Sto",

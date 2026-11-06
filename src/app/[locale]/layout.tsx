@@ -8,6 +8,8 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { GamesconBanner } from "../components/GamesconBanner";
+import { GAMESCON_END } from "../components/gamescon";
 import { Header } from "../components/Header";
 import { TrackReferral } from "../components/TrackReferral";
 
@@ -299,6 +301,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       />
       <NextIntlClientProvider messages={messages}>
         <TrackReferral />
+        {!isLandingPage && Date.now() < GAMESCON_END && <GamesconBanner />}
         {!isLandingPage && <Header />}
         {children}
       </NextIntlClientProvider>
