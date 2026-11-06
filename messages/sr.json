@@ -7,7 +7,23 @@
     "offerShort": "Izloženi stolovi -50%+",
     "venue": "Novosadski sajam · 6–8. nov",
     "cta": "Pišite nam na Instagramu",
-    "close": "Zatvori baner"
+    "close": "Zatvori baner",
+    "home": {
+      "ariaLabel": "Games.con specijalna ponuda",
+      "live": "Uživo",
+      "venue": "Novosadski sajam · 6–8. nov 2026",
+      "titleLead": "Na sajmu smo:",
+      "body": "Dođite da uživo vidite Arcadian stolove na Games.con-u. Stolovi izloženi na našem štandu dostupni su po specijalnim sajamskim cenama, sa popustom većim od 50%.",
+      "step1": "Pišite nam na Instagramu",
+      "step2": "Recite nam koji izloženi sto vam se dopada",
+      "step3": "Poslaćemo vam sajamsku cenu i rezervisati sto za vas",
+      "cta": "Pišite nam na Instagramu",
+      "ctaNote": "Otvara Instagram. Pošaljite nam poruku i javićemo vam cene.",
+      "imageAlt": "Arcadian Grand sto za društvene igre",
+      "imageCaption": "Izloženi stolovi · Games.con 2026",
+      "stickerTop": "Preko",
+      "stickerBottom": "Popusta"
+    }
   },
   "header": {
     "logoAlt": "Arcadian Logo",

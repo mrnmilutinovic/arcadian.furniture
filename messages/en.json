@@ -7,7 +7,23 @@
     "offerShort": "Display tables 50%+ off",
     "venue": "Novi Sad Fair · 6–8 Nov",
     "cta": "Message us on Instagram",
-    "close": "Close banner"
+    "close": "Close banner",
+    "home": {
+      "ariaLabel": "Games.con special offer",
+      "live": "Live now",
+      "venue": "Novi Sad Fair · 6–8 Nov 2026",
+      "titleLead": "We're at",
+      "body": "Come see Arcadian tables in person at Games.con. The tables on display at our booth are available at special fair prices: more than 50% off.",
+      "step1": "Message us on Instagram",
+      "step2": "Tell us which display table you like",
+      "step3": "We'll send you the fair price and reserve it for you",
+      "cta": "Message us on Instagram",
+      "ctaNote": "Opens Instagram. Send us a message and we'll reply with prices.",
+      "imageAlt": "Arcadian Grand board game table",
+      "imageCaption": "Display tables · Games.con 2026",
+      "stickerTop": "Over",
+      "stickerBottom": "Off"
+    }
   },
   "header": {
     "logoAlt": "Arcadian Logo",

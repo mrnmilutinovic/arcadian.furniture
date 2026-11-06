@@ -1,16 +1,10 @@
 "use client";
 
-import { Anton } from "next/font/google";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import posthog from "posthog-js";
 import { useState } from "react";
-
-// Games.con brand typography (headings use Anton on gamescon.rs)
-const anton = Anton({ subsets: ["latin", "latin-ext"], weight: "400" });
-
-// Opens a DM thread with us (Instagram app on mobile, instagram.com/direct on desktop)
-const INSTAGRAM_DM_URL = "https://ig.me/m/arcadiantables";
+import { anton, INSTAGRAM_DM_URL } from "./gamescon";
 
 const trackClick = () =>
   posthog.capture("gamescon_banner_clicked", {
@@ -101,8 +95,9 @@ export function GamesconBanner() {
         rel="noopener noreferrer"
         onClick={trackClick}
         className="md:hidden absolute inset-0"
-        aria-label={t("cta")}
-      />
+      >
+        <span className="sr-only">{t("cta")}</span>
+      </a>
 
       <button
         type="button"

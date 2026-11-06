@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { Footer } from "../components/Footer";
+import { GamesconHomeSection } from "../components/GamesconHomeSection";
 import { Hero } from "../components/Hero";
 import { PricingSection } from "../components/PricingSection";
 
@@ -110,6 +111,9 @@ export default function Home() {
       <div ref={heroRef}>
         <Hero />
       </div>
+
+      {/* GAMES.CON PROMO (auto-hides after the fair) */}
+      <GamesconHomeSection />
 
       {/* FULL WIDTH PHOTOS */}
       <section id="photo-grid" className="w-full h-dvh">

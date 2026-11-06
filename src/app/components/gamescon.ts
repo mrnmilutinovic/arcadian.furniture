@@ -1,2 +1,10 @@
-// Games.con 2026 — Novi Sad Fair, 6–8 Nov. The promo banner hides itself after the fair.
+import { Anton } from "next/font/google";
+
+// Games.con 2026 — Novi Sad Fair, 6–8 Nov. Promo UI hides itself after the fair.
 export const GAMESCON_END = new Date("2026-11-09T00:00:00+01:00").getTime();
+
+// Opens a DM thread with us (Instagram app on mobile, instagram.com/direct on desktop)
+export const INSTAGRAM_DM_URL = "https://ig.me/m/arcadiantables";
+
+// Games.con brand typography (headings use Anton on gamescon.rs)
+export const anton = Anton({ subsets: ["latin", "latin-ext"], weight: "400" });
